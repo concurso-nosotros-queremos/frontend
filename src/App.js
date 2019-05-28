@@ -1,10 +1,16 @@
 import React from 'react'
+import { Provider } from 'react-redux'
+import { buildStore } from './state/store'
+
+const store = buildStore()
 
 function App () {
   return (
-    <div className='App'>
-      <h1>CNQ 2019!</h1>
-    </div>
+    <Provider store={store}>
+      <div>
+        <h1>CNQ 2019!</h1>
+      </div>
+    </Provider>
   )
 }
 
