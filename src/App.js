@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-function App() {
+function App () {
   return (
-    <div className="App">
+    <div className='App'>
       <h1>CNQ 2019!</h1>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
