@@ -5,8 +5,6 @@ import { increment } from './state/test_counter/actions'
 
 const store = buildStore()
 
-store.dispatch(increment())
-
 function App () {
   return (
     <Provider store={store}>
