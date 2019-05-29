@@ -15,6 +15,6 @@ export function testReducer (state = initialState, action) {
         count: state.count--
       })
     default:
-      break
+      return state
   }
 }
