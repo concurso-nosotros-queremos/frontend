@@ -1,8 +1,11 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { buildStore } from './state/store'
+import { increment } from './state/test_counter/actions'
 
 const store = buildStore()
+
+store.dispatch(increment())
 
 function App () {
   return (
