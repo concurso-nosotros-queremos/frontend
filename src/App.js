@@ -1,11 +1,18 @@
-import React from 'react';
+import React from 'react'
+import { Provider } from 'react-redux'
+import { buildStore } from './state/store'
+import { increment } from './state/test_counter/actions'
 
-function App() {
+const store = buildStore()
+
+function App () {
   return (
-    <div className="App">
-      <h1>CNQ 2019!</h1>
-    </div>
-  );
+    <Provider store={store}>
+      <div>
+        <h1>CNQ 2019!</h1>
+      </div>
+    </Provider>
+  )
 }
 
-export default App;
+export default App
