@@ -18,6 +18,7 @@ class GoogleLoginContainer extends Component {
 
   googleLoginSuccessHandler (response) {
     this.props.googleLoginSuccess(response)
+    console.log(response)
     // props.convertGoogleToken(response.Zi.access_token)
   }
 
@@ -26,7 +27,6 @@ class GoogleLoginContainer extends Component {
   }
 
   render () {
-    console.log(this.props)
     return (
       <div>
         <div>
@@ -53,8 +53,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
   googleLoginRequest: () => dispatch(googleLoginRequest()),
-  googleLoginSuccess: () => dispatch(googleLoginSuccess()),
-  googleLoginError: () => dispatch(googleLoginError())
+  googleLoginSuccess: (data) => dispatch(googleLoginSuccess(data)),
+  googleLoginError: (error) => dispatch(googleLoginError(error))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(GoogleLoginContainer)
