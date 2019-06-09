@@ -1,4 +1,4 @@
-export function convertToken (token) {
+export async function convertToken (token) {
   let body = {
     grant_type: 'convert_token',
     client_id: 'IZguQdg9VNl1vhyywnONQjqpRSDQhEo5GRPbi5EK',
@@ -7,12 +7,13 @@ export function convertToken (token) {
     token: token
   }
 
-  window.fetch('http://localhost:8000/auth/convert-token', {
+  let response = await window.fetch('http://localhost:8000/auth/convert-token', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(body)
-  })
-    .then(response => response.json()).then((json) => { console.log(json) })
+  }).then(response => response.json())
+
+  return response
 }

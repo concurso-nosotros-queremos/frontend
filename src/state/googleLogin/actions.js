@@ -1,4 +1,4 @@
-import { GOOGLE_LOGIN_REQUEST, GOOGLE_LOGIN_SUCCESS, GOOGLE_LOGIN_ERROR } from '../googleLogin/types'
+import { GOOGLE_LOGIN_REQUEST, GOOGLE_LOGIN_SUCCESS, GOOGLE_LOGIN_ERROR } from './types'
 
 export function googleLoginRequest () {
   return {

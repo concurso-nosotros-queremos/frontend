@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { GoogleLogin } from 'react-google-login'
-import { googleLoginRequest, googleLoginError, googleLoginSuccess } from '../../state/googleLogin/actions'
+import { googleLoginRequest, googleLoginSuccess, googleLoginError } from '../../state/googleLogin/actions'
 
 class GoogleLoginContainer extends Component {
   constructor (props) {
@@ -19,11 +19,11 @@ class GoogleLoginContainer extends Component {
   googleLoginSuccessHandler (response) {
     this.props.googleLoginSuccess(response)
     console.log(response)
-    // props.convertGoogleToken(response.Zi.access_token)
   }
 
   googleLoginErrorHandler (response) {
-    this.props.googleLoginSuccess(response)
+    this.props.googleLoginError(response)
+    console.log(response)
   }
 
   render () {
@@ -48,7 +48,7 @@ class GoogleLoginContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  isLoading: state.googleLoginReducer.isLoading
+  isLoading: state.googleLogin.isLoading
 })
 
 const mapDispatchToProps = dispatch => ({
