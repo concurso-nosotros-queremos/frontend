@@ -1,9 +1,11 @@
+import { AUTH_GOOGLE_PROVIDER } from '../state/auth/types'
+
 export async function convertToken (token) {
   let body = {
     grant_type: 'convert_token',
-    client_id: 'IZguQdg9VNl1vhyywnONQjqpRSDQhEo5GRPbi5EK',
-    client_secret: 'teYOH5fhVCSel8PXOPGTqMthpcx6f2lde4iaPv5JsFoA3rMV5he2k7MAWcUIxbe2qrgykE8c7sDvYsePb0k17OcFcdfYLffii28yewnYrztS27bLm5NdUG5R1KngOxcD',
-    backend: 'google-oauth2',
+    client_id: process.env.REACT_APP_AUTH_GOOGLE_CLIENT_ID,
+    client_secret: process.env.REACT_APP_AUTH_GOOGLE_CLIENT_SECRET,
+    backend: AUTH_GOOGLE_PROVIDER,
     token: token
   }
 
