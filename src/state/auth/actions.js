@@ -8,10 +8,10 @@ export function authConvertTokenRequest (provider, accessToken) {
   }
 }
 
-export function authConvertTokenSuccess (accessToken) {
+export function authConvertTokenSuccess (convertedToken) {
   return {
     type: AUTH_CONVERT_TOKEN_SUCCESS,
-    accessToken: accessToken
+    convertedToken: convertedToken
   }
 }
 
