@@ -2,7 +2,7 @@ import { applyMiddleware, createStore, combineReducers } from 'redux'
 import { createLogger } from 'redux-logger'
 import googleLogin from './googleLogin/reducers'
 import auth from './auth/reducers'
-import { googleLoginMiddleware } from './middleware'
+import { googleLoginMiddleware, authMiddleware } from './middleware'
 
 const rootReducer = combineReducers({ googleLogin, auth })
 
@@ -13,6 +13,6 @@ const logger = createLogger({
 export function buildStore () {
   return createStore(
     rootReducer,
-    applyMiddleware(logger, googleLoginMiddleware)
+    applyMiddleware(logger, googleLoginMiddleware, authMiddleware)
   )
 }
