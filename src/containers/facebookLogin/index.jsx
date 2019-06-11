@@ -34,6 +34,7 @@ class FacebookLoginContainer extends Component {
             onClick={this.facebookLoginRequestHandler}
             onFailure={this.facebookLoginErrorHandler}
             fields='name,email,picture'
+            icon='fa-facebook'
           />
         </div>
       </div>
