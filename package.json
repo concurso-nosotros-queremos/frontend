@@ -3,8 +3,11 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "dotenv": "^8.0.0",
+        "prop-types": "^15.7.2",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
+        "react-google-login": "^5.0.4",
         "react-redux": "^7.0.3",
         "react-scripts": "3.0.1",
         "redux": "^4.0.1",
@@ -33,5 +36,10 @@
     },
     "devDependencies": {
         "standard": "^12.0.1"
+    },
+    "standard": {
+        "env": [
+            "jest"
+        ]
     }
 }
