@@ -3,3 +3,4 @@ export const AUTH_CONVERT_TOKEN_SUCCESS = 'auth/AUTH_CONVERT_TOKEN_SUCCESS'
 export const AUTH_CONVERT_TOKEN_ERROR = 'auth/AUTH_CONVERT_TOKEN_ERROR'
 
 export const AUTH_GOOGLE_PROVIDER = 'google-oauth2'
+export const AUTH_FACEBOOK_PROVIDER = 'facebook'

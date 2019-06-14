@@ -1,10 +1,11 @@
 import { applyMiddleware, createStore, combineReducers } from 'redux'
 import { createLogger } from 'redux-logger'
 import googleLogin from './googleLogin/reducers'
+import facebookLogin from './facebookLogin/reducers'
 import auth from './auth/reducers'
-import { googleLoginMiddleware, authMiddleware } from './middleware'
+import { googleLoginMiddleware, facebookLoginMiddleware, authMiddleware } from './middleware'
 
-const rootReducer = combineReducers({ googleLogin, auth })
+const rootReducer = combineReducers({ googleLogin, facebookLogin, auth })
 
 const logger = createLogger({
   // TODO: implement custom logger
@@ -13,6 +14,6 @@ const logger = createLogger({
 export function buildStore () {
   return createStore(
     rootReducer,
-    applyMiddleware(logger, googleLoginMiddleware, authMiddleware)
+    applyMiddleware(logger, googleLoginMiddleware, facebookLoginMiddleware, authMiddleware)
   )
 }
