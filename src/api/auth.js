@@ -1,5 +1,4 @@
 export async function convertToken (provider, token) {
-  console.log(process.env)
   let body = {
     grant_type: 'convert_token',
     client_id: process.env.REACT_APP_OAUTH_CLIENT_ID,
