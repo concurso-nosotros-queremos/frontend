@@ -1,41 +1,36 @@
-import React from 'react'
-import { Formik, Form } from 'formik'
+import React, { Component } from 'react'
 import { ParticipantsWrapper } from './forms/participantsWrapper'
 
-export const FormContainer = () => (
-  <div>
-    <Formik
-      initialValues={{ raw_participants: [{
-        first_name: '',
-        last_name: '',
-        dni: '',
-        email: '',
-        grade_choices: '',
-        divition_choices: ''
-      }] }}
-      onSubmit={values =>
-        setTimeout(() => {
-          window.alert(JSON.stringify(values, 0, 2))
-        }, 500)
-      }
-      render={() => (
-        <Form>
-          <ParticipantsWrapper />
-        </Form>
-      )}
-    />
-  </div>
-)
+export default class InscriptionWrapper extends Component {
+  constructor (props) {
+    super(props)
 
-/*
-{
-  "id": 1,
-  "first_name": "Juan Cruz",
-  "last_name": "Mare",
-  "dni": "43232227",
-  "email": "jcmare18@gmail.com",
-  "phone_number": "3517724454",
-  "grade_choices": 3,
-  "divition_choices": 2
+    this.state = {
+      fragments: [
+        (<ParticipantsWrapper />),
+        (<div>2</div>),
+        (<div>3</div>)
+      ],
+      index: 0,
+      form: {}
+    }
+  }
+
+  render () {
+    return (
+      <div>
+        {this.state.fragments[this.state.index]}
+        {this.state.index !== 0 ? <button onClick={() => {
+          this.setState((state) => {
+            return { index: state.index - 1 }
+          })
+        }}>Atras</button> : null}
+        {this.state.index !== this.state.fragments.length - 1 ? <button onClick={() => {
+          this.setState((state) => {
+            return { index: state.index + 1 }
+          })
+        }}>Siguiente</button> : null}
+      </div>
+    )
+  }
 }
-*/
