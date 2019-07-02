@@ -28,7 +28,6 @@ export default class ParticipantsWrapper extends Component {
           name='raw_participants'
           render={(arrayHelpers) => (
             <Table size='small'>
-              {console.log(this.props.errors)}
               <TableHead>
                 <TableRow>
                   <TableCell>Nombre</TableCell>
