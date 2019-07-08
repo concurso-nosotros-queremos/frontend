@@ -66,7 +66,7 @@ export default class InscriptionWrapper extends Component {
             </Form>
           )}
         </Formik>
-        <Button onClick={() => {
+        <Button disabled={this.state.index === 0} onClick={() => {
           this.setState((state) => {
             return { index: state.index > 0 ? state.index - 1 : state.index }
           })
