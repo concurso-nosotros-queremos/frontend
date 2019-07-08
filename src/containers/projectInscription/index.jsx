@@ -61,7 +61,7 @@ export default class InscriptionWrapper extends Component {
               {[<ParticipantsWrapper errors={errors} touched={touched} />,
                 <LocationWrapper errors={errors} touched={touched} />,
                 <SchoolWrapper errors={errors} touched={touched} />
-              ]}
+              ][this.state.index]}
               <Button type='submit'>Submit</Button>
             </Form>
           )}
@@ -71,7 +71,7 @@ export default class InscriptionWrapper extends Component {
             return { index: state.index > 0 ? state.index - 1 : state.index }
           })
         }}>Atras</Button>
-        <Button onClick={() => {
+        <Button disabled={this.state.index > 1} onClick={() => {
           this.setState((state) => {
             return { index: state.index + 1 }
           })
