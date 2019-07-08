@@ -38,6 +38,13 @@ export default class SchoolWrapper extends Component {
               helperText={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name) ? getIn(this.props.errors, field.name) : null} />)}
         />
         <Field
+          name='raw_school.principal_name'
+          render={({ field }) => (
+            <TextField {...field} label='Nombre del director'
+              error={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name)}
+              helperText={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name) ? getIn(this.props.errors, field.name) : null} />)}
+        />
+        <Field
           name='raw_school.com_preference'
           render={({ field }) => (
             <TextField {...field} label='Preferencia de comunicacion *'
