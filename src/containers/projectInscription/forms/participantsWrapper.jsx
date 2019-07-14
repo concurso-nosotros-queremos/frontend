@@ -1,23 +1,10 @@
 import React, { Component } from 'react'
 import { FieldArray, Field, getIn } from 'formik'
-import * as Yup from 'yup'
 import { Table, TableRow, TableCell, TableHead, TableBody, TableFooter, Typography } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
 import AddOutlined from '@material-ui/icons/AddOutlined'
-
-export const participantsSchema = Yup.array().of(
-  Yup.object().shape({
-    first_name: Yup.string().required('Nombre es un campo obligatorio'),
-    last_name: Yup.string().required('Apeliido es un campo obligatorio'),
-    dni: Yup.string(),
-    email: Yup.string().email(),
-    phone_number: Yup.string(),
-    grade_choices: Yup.number('Seleccione un año correcto').typeError('Seleccione un curso correcto').required('Año es un campo obligatorio'),
-    divition_choices: Yup.number().typeError('Seleccione un curso correcto').required('Curso es un campo obligatorio')
-  }).noUnknown()
-).min(3, 'Debe agregar al menos 3 participantes')
 
 export default class ParticipantsWrapper extends Component {
   render () {

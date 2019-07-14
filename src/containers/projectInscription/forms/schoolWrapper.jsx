@@ -1,16 +1,7 @@
 import React, { Component } from 'react'
 import { Field, getIn } from 'formik'
-import * as Yup from 'yup'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
-
-export const schoolSchema = Yup.object().shape({
-  name: Yup.string().required('Nombre es un campo obligatorio'),
-  address: Yup.string().required('Direccion es un campo obligatorio'),
-  principal_name: Yup.string().required('Nombre del director/a es un campo obligatorio'),
-  school_types: Yup.number().integer().typeError('Introduzca un tipo de escuela valido').required('Tipo de escuela es un campo obligatorio'),
-  com_preference: Yup.number().integer().typeError('Introduzca un tipo de comunicacion valido').required('Preferencia de comunicacion es un campo obligatorio')
-}).noUnknown()
 
 export default class SchoolWrapper extends Component {
   render () {

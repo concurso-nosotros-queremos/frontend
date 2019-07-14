@@ -3,9 +3,10 @@ import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { Paper } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
-import ParticipantsWrapper, { participantsSchema } from './forms/participantsWrapper'
-import LocationWrapper, { locationSchema } from './forms/locationWrapper'
-import SchoolWrapper, { schoolSchema } from './forms/schoolWrapper'
+import ParticipantsWrapper from './forms/participantsWrapper'
+import LocationWrapper from './forms/locationWrapper'
+import SchoolWrapper from './forms/schoolWrapper'
+import { participantsSchema, locationSchema, schoolSchema } from './forms/schemas'
 
 const validationSchema = Yup.object().shape({
   raw_participant: participantsSchema,

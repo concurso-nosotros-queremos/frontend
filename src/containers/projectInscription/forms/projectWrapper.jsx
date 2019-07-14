@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
 import { Field, getIn } from 'formik'
+import * as Yup from 'yup'
 import TextField from '@material-ui/core/TextField'
+
+export const locationSchema = Yup.object().shape({
+  street_name: Yup.string().required('Calle es un campo obligatorio'),
+  street_number: Yup.number().integer().typeError('Introduzca un numero de calle valido').required('Numero de calle es un campo obligatorio'),
+  zip_code: Yup.number().integer().typeError('Introduzca un codigo postal valido'),
+  city: Yup.number().integer().typeError('Introduzca una ciudad valida').required('Ciudad es un campo obligatorio')
+})
 
 export default class LocationWrapper extends Component {
   render () {
