@@ -4,17 +4,17 @@ import * as Yup from 'yup'
 import { Paper } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import ParticipantsWrapper, { participantsSchema } from './forms/participantsWrapper'
-import LocationWrapper, { locationSchema } from './forms/group/locationWrapper'
-import SchoolWrapper, { schoolSchema } from './forms/group/schoolWrapper'
+import LocationWrapper, { locationSchema } from './forms/locationWrapper'
+import SchoolWrapper, { schoolSchema } from './forms/schoolWrapper'
 
 const validationSchema = Yup.object().shape({
-  raw_participants: participantsSchema,
+  raw_participant: participantsSchema,
   group_location: locationSchema,
   raw_school: schoolSchema
-})
+}).noUnknown()
 
 const initialValues = {
-  raw_participants: [{
+  raw_participant: [{
     first_name: '',
     last_name: '',
     dni: '',
@@ -53,7 +53,7 @@ export default class InscriptionWrapper extends Component {
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={(values) => {
-            console.log(JSON.stringify(values, 0, 2))
+            console.log(JSON.stringify(validationSchema.cast(values), 0, 2))
           }}
         >
           {({ errors, touched }) => (

@@ -16,7 +16,7 @@ export const participantsSchema = Yup.array().of(
     phone_number: Yup.string(),
     grade_choices: Yup.number('Seleccione un año correcto').typeError('Seleccione un curso correcto').required('Año es un campo obligatorio'),
     divition_choices: Yup.number().typeError('Seleccione un curso correcto').required('Curso es un campo obligatorio')
-  })
+  }).noUnknown()
 ).min(3, 'Debe agregar al menos 3 participantes')
 
 export default class ParticipantsWrapper extends Component {
@@ -25,7 +25,7 @@ export default class ParticipantsWrapper extends Component {
       <div>
         <h2>Lista de participantes</h2>
         <FieldArray
-          name='raw_participants'
+          name='raw_participant'
           render={(arrayHelpers) => (
             <Table size='small'>
               <TableHead>
@@ -39,11 +39,11 @@ export default class ParticipantsWrapper extends Component {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {arrayHelpers.form.values.raw_participants.slice(0).reverse().map((participant, index) => (
+                {arrayHelpers.form.values.raw_participant.slice(0).reverse().map((participant, index) => (
                   <TableRow key={index}>
                     <TableCell>
                       <Field
-                        name={`raw_participants.${index}.first_name`}
+                        name={`raw_participant.${index}.first_name`}
                         render={({ field }) => (
                           <TextField {...field} label='Nombre *'
                             error={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name)}
@@ -52,7 +52,7 @@ export default class ParticipantsWrapper extends Component {
                     </TableCell>
                     <TableCell>
                       <Field
-                        name={`raw_participants.${index}.last_name`}
+                        name={`raw_participant.${index}.last_name`}
                         render={({ field }) => (
                           <TextField {...field} label='Apellido *'
                             error={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name)}
@@ -61,7 +61,7 @@ export default class ParticipantsWrapper extends Component {
                     </TableCell>
                     <TableCell>
                       <Field
-                        name={`raw_participants.${index}.dni`}
+                        name={`raw_participant.${index}.dni`}
                         render={({ field }) => (
                           <TextField {...field} label='D.N.I.'
                             error={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name)}
@@ -70,7 +70,7 @@ export default class ParticipantsWrapper extends Component {
                     </TableCell>
                     <TableCell>
                       <Field
-                        name={`raw_participants.${index}.grade_choices`}
+                        name={`raw_participant.${index}.grade_choices`}
                         render={({ field }) => (
                           <TextField {...field} select label='Año *'
                             error={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name)}
@@ -86,7 +86,7 @@ export default class ParticipantsWrapper extends Component {
                     </TableCell>
                     <TableCell>
                       <Field
-                        name={`raw_participants.${index}.divition_choices`}
+                        name={`raw_participant.${index}.divition_choices`}
                         render={({ field }) => (
                           <TextField {...field} select label='Curso *'
                             error={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name)}
@@ -111,18 +111,18 @@ export default class ParticipantsWrapper extends Component {
                         first_name: '',
                         last_name: '',
                         dni: '',
-                        grade_choices: getIn(arrayHelpers.form.values.raw_participants, `${arrayHelpers.form.values.raw_participants.length - 1}.grade_choices`),
-                        divition_choices: getIn(arrayHelpers.form.values.raw_participants, `${arrayHelpers.form.values.raw_participants.length - 1}.divition_choices`)
+                        grade_choices: getIn(arrayHelpers.form.values.raw_participant, `${arrayHelpers.form.values.raw_participant.length - 1}.grade_choices`),
+                        divition_choices: getIn(arrayHelpers.form.values.raw_participant, `${arrayHelpers.form.values.raw_participant.length - 1}.divition_choices`)
                       })
                     }}><AddOutlined /></Button>
                   </TableCell>
                 </TableRow>
               </TableBody>
-              {typeof getIn(this.props.errors, 'raw_participants') === 'string' ? <TableFooter>
+              {typeof getIn(this.props.errors, 'raw_participant') === 'string' ? <TableFooter>
                 <TableRow>
                   <TableCell colSpan='6'>
                     <Typography color='error'>
-                      {getIn(this.props.errors, 'raw_participants')}
+                      {getIn(this.props.errors, 'raw_participant')}
                     </Typography>
                   </TableCell>
                 </TableRow>
