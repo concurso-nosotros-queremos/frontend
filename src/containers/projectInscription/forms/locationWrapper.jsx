@@ -32,8 +32,8 @@ export default class LocationWrapper extends Component {
           name='group_location.city'
           render={({ field }) => (
             <TextField {...field} label='Ciudad *'
-              error={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name)}
-              helperText={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name) ? getIn(this.props.errors, field.name) : null} />)}
+              error={(getIn(this.props.errors, field.name) || getIn(this.props.status, field.name)) && getIn(this.props.touched, field.name)}
+              helperText={(getIn(this.props.errors, field.name) || getIn(this.props.status, field.name)) ? getIn(this.props.errors, field.name) + getIn(this.props.status, field.name)[0] : null} />)}
         />
       </div>
     )

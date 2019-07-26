@@ -10,7 +10,7 @@ export const participantsSchema = Yup.array().of(
     grade_choices: Yup.number('Seleccione un año correcto').typeError('Seleccione un curso correcto').required('Año es un campo obligatorio'),
     divition_choices: Yup.number().typeError('Seleccione un curso correcto').required('Curso es un campo obligatorio')
   }).noUnknown()
-).min(3, 'Debe agregar al menos 3 participantes')
+).min(1, 'Debe agregar al menos 3 participantes')
 
 export const locationSchema = Yup.object().shape({
   street_name: Yup.string().required('Calle es un campo obligatorio'),

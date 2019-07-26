@@ -7,6 +7,7 @@ import ParticipantsWrapper from './forms/participantsWrapper'
 import LocationWrapper from './forms/locationWrapper'
 import SchoolWrapper from './forms/schoolWrapper'
 import { participantsSchema, locationSchema, schoolSchema } from './forms/schemas'
+import fetchResource from '../../api/apiHandler'
 
 const validationSchema = Yup.object().shape({
   raw_participant: participantsSchema,
@@ -16,24 +17,24 @@ const validationSchema = Yup.object().shape({
 
 const initialValues = {
   raw_participant: [{
-    first_name: '',
-    last_name: '',
-    dni: '',
-    grade_choices: '',
-    divition_choices: ''
+    first_name: 'Francesco',
+    last_name: 'Silvetti',
+    dni: '42892462',
+    grade_choices: '1',
+    divition_choices: '1'
   }],
   group_location: {
-    street_name: '',
-    street_number: '',
-    zip_code: '',
-    city: ''
+    street_name: 'Street',
+    street_number: '12',
+    zip_code: '123',
+    city: '1'
   },
   raw_school: {
-    name: '',
-    address: '',
-    principal_name: '',
-    school_types: '',
-    com_preference: ''
+    name: 'Villada',
+    address: 'Km 7',
+    principal_name: 'Carlos',
+    school_types: '1',
+    com_preference: '1'
   }
 }
 
@@ -46,6 +47,15 @@ export default class InscriptionWrapper extends Component {
     }
   }
 
+  submitHandler (form) {
+    return fetchResource('rest/group/', {
+      method: 'POST',
+      body: {
+        ...form
+      }
+    })
+  }
+
   render () {
     return (
       <Paper style={{ margin: '1em' }}>
@@ -53,17 +63,18 @@ export default class InscriptionWrapper extends Component {
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={(values) => {
-            console.log(JSON.stringify(validationSchema.cast(values), 0, 2))
+          onSubmit={(values, { setStatus }) => {
+            this.submitHandler(validationSchema.cast(values)).then((response) => { console.log(response) }).catch((error) => { setStatus({ ...error.response }) })
           }}
         >
-          {({ errors, touched }) => (
+          {({ errors, touched, status }) => (
             <Form>
-              {[<ParticipantsWrapper errors={errors} touched={touched} />,
-                <LocationWrapper errors={errors} touched={touched} />,
-                <SchoolWrapper errors={errors} touched={touched} />
+              {[<ParticipantsWrapper errors={errors} status={status} touched={touched} />,
+                <LocationWrapper errors={errors} status={status} touched={touched} />,
+                <SchoolWrapper errors={errors} status={status} touched={touched} />
               ][this.state.index]}
               <Button type='submit'>Submit</Button>
+              {console.log(status)}
             </Form>
           )}
         </Formik>

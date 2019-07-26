@@ -17,6 +17,8 @@ function ApiError (message, data, status) {
   this.toString = function () {
     return `${this.message}\nResponse:\n${isObject ? JSON.stringify(this.response, null, 2) : this.response}`
   }
+
+  console.log(`Error: ${status}, ${message}`)
 }
 
 // API wrapper function
