@@ -10,7 +10,7 @@ const store = buildStore()
 function App () {
   return (
     <Provider store={store}>
-      <Blog/>
+      <Blog />
     </Provider>
   )
 }
