@@ -8,6 +8,18 @@ import Link from '@material-ui/core/Link/index';
 import Button from '@material-ui/core/Button/index';
 import Container from '@material-ui/core/Container/index';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import Grid from '@material-ui/core/Grid';
+import ScaleText from "react-scale-text";
+
+import {ReactComponent as LogoMain} from '../../static/header.svg';
+import {ReactComponent as Logo1} from '../../static/1.svg';
+import {ReactComponent as Logo2} from '../../static/2.svg';
+import {ReactComponent as Logo3} from '../../static/3.svg';
+
+import Avatar from '@material-ui/core/Avatar';
+import GoogleFontLoader from 'react-google-font-loader';
+import {red} from "@material-ui/core/colors";
+import {Box} from "@material-ui/core";
 
 function MadeWithLove() {
     return (
@@ -26,20 +38,65 @@ const useStyles = makeStyles(theme => ({
         borderBottom: `1px solid ${theme.palette.divider}`,
         flex: 1,
     },
+    logo: {
+        width: '100%',
+        height: '100%',
+        margin: 'auto',
+    },
+    logo2: {
+        width: '95%',
+        height: '95%',
+        marginLeft: '5%',
+        marginTop: '8%'
+    },
+    avatar: {
+        fontFamily: "Roboto",
+        color: 'black',
+        backgroundColor: 'white',
+        border: '2px solid #F9AA33',
+        width: '45px',
+        height: '45px',
+        fontWeight: "bold",
+        margin: 'auto'
+    },
+    txt: {
+        fontFamily: 'Space Mono',
+        textAlign: 'center',
+    },
+    txt2: {
+        fontFamily: 'Space Mono',
+        textAlign: 'center',
+        marginTop: '5%',
+        margin: 'auto',
+        fontSize: 'auto',
+        fontWeight: "bold"
+    },
     toolbarTitle: {
         flex: 1,
     },
-    mainFeaturedPost: {
-        position: 'relative',
-        marginTop: theme.spacing(30),
-        marginBottom: theme.spacing(4),
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
+    divbtn: {
+        textAlign: 'center',
+        marginTop: '10%'
     },
-    mainFeaturedPostContent: {
+    div: {
+        width: '100%',
+        height: '100%',
+        margin: 'auto',
+    },
+    seccion2: {
         position: 'relative',
-        padding: theme.spacing(3),
+    },
+    seccion1: {
+        position: 'relative',
+        marginTop: theme.spacing(3),
+        marginBottom: theme.spacing(12),
+    },
+    gird: {
+        margin: 'auto'
+    },
+    box: {
+        flexWrap: "nowrap",
+        fontSize: '50px'
     },
     footer: {
         backgroundColor: theme.palette.background.paper,
@@ -73,6 +130,17 @@ export default function Blog() {
         <React.Fragment>
             <CssBaseline/>
             <Container maxWidth="xl">
+                <GoogleFontLoader
+                    fonts={[
+                        {
+                            font: 'Roboto',
+                        },
+                        {
+                            font: 'Space Mono',
+                        },
+                    ]}
+                />
+                {/* NavBar */}
                 <Toolbar className={classes.toolbar}>
                     <Button size="small">Acerca</Button>
                     <Button size="small">Proyectos</Button>
@@ -85,44 +153,82 @@ export default function Blog() {
                         Ingresa
                     </Button>
                 </Toolbar>
+                {/* Medio */}
                 <main>
-                    {/* Main featured post */}
-                    <Paper className={classes.mainFeaturedPost}>
-                        <div className={classes.mainFeaturedPostContent}>
-                            <div style={{display: 'flex'}}>
-                                <div>
-                                    <div style={{
-                                        borderRadius: '50px',
-                                        padding: '10.2px',
-                                        border: '2px solid green',
-                                        width: '45px',
-                                        height: '45px'}}>
+                    <div className={classes.seccion1}>
+                        <Grid container spacing={4}>
+                            <Grid item xs={5}>
+                                <Box className={classes.box}>
+                                    <Box> <Logo2 className={classes.logo}/>
+                                    </Box>
+                                    <Box className={classes.box}>
+                                        <Typography component="div" className={classes.txt2}>
+                                            Concurso anual de emprendimientos de chicos entre 4to y 7mo año de la
+                                            secundaria
+                                        </Typography>
+                                    </Box>
+                                    <Box className={classes.divbtn}>
+                                        <Button variant="outlined" size='small' className={classes.button}>Mas
+                                            Informacion</Button>
+                                    </Box>
+                                </Box>
+                            </Grid>
+                            <Grid item xs={7}>
+                                <LogoMain className={classes.logo2}/>
+                            </Grid>
+                        </Grid>
+                    </div>
 
-                                        <div style={{marginLeft: '6.9px'}}>1</div>
-                                    </div>
-                                    <Typography>
-                                        Title of a longe
-                                    </Typography>
-                                </div>
 
-                                <div style={{marginLeft: '200px'}}>
-                                    <Typography variant="h5" color="inherit" paragraph>
-                                        Multiple lines o
-                                    </Typography>
-                                </div>
+                    <Paper className={classes.seccion2}>
 
-                                <div style={{marginLeft: '200px'}}>
-                                    <Link variant="subtitle1" href="#">
-                                        Continue reading…
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
+                        <Grid container spacing={4}>
+                            <Grid item xs={4}>
+                                <Avatar className={classes.avatar}>1</Avatar>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Avatar className={classes.avatar}>2</Avatar>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Avatar className={classes.avatar}>3</Avatar>
+                            </Grid>
+                        </Grid>
+
+                        <Grid container spacing={4}>
+                            <Grid item xs={4}>
+                                <Logo1 className={classes.logo}/>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Logo2 className={classes.logo}/>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Logo3 className={classes.logo}/>
+                            </Grid>
+                        </Grid>
+
+                        <Grid container spacing={4}>
+                            <Grid item xs={4}>
+                                <Typography className={classes.txt}>
+                                    Tu profe inscribe el grupo de alum@s
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Typography className={classes.txt}>
+                                    La fundacion valida y contacta al grupo
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Typography className={classes.txt}>
+                                    El grupo participa en el concurso por un premio de $15.000
+                                </Typography>
+                            </Grid>
+                        </Grid>
                     </Paper>
+
+
                 </main>
             </Container>
-            {/* Footer */
-            }
+            {/* Footer */}
             <footer className={classes.footer}>
                 <Container maxWidth="lg">
                     <Typography variant="h6" align="center" gutterBottom>
@@ -137,5 +243,6 @@ export default function Blog() {
             {/* End footer */
             }
         </React.Fragment>
-    );
+    )
+        ;
 }
