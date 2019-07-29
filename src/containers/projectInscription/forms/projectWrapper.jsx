@@ -8,6 +8,14 @@ export default class ProjectWrapper extends Component {
   render () {
     return (
       <div>
+        <h2>Nombre del grupo</h2>
+        <Field
+          name='name'
+          render={({ field }) => (
+            <TextField {...field} label='Nombre del grupo *'
+              error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
+              helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
+        />
         <h2>Idea emprendedora</h2>
         <Field
           name='raw_project.name'

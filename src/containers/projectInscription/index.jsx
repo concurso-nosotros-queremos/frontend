@@ -46,7 +46,7 @@ export default class InscriptionWrapper extends Component {
                 <LocationWrapper errors={errors} status={status} touched={touched} />,
                 <SchoolWrapper errors={errors} status={status} touched={touched} />,
                 <ProjectWrapper errors={errors} status={status} touched={touched} />
-              ][this.state.index]}
+              ]}
               <Button type='submit'>Submit</Button>
               {console.log(status)}
             </Form>
