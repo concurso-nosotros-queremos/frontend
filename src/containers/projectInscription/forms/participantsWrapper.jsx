@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
 import AddOutlined from '@material-ui/icons/AddOutlined'
+import { hasError, errorMessageBuilder } from './utils'
 
 export default class ParticipantsWrapper extends Component {
   render () {
@@ -33,8 +34,8 @@ export default class ParticipantsWrapper extends Component {
                         name={`raw_participant.${index}.first_name`}
                         render={({ field }) => (
                           <TextField {...field} label='Nombre *'
-                            error={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name)}
-                            helperText={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name) ? getIn(this.props.errors, field.name) : null} />)}
+                            error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
+                            helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
                       />
                     </TableCell>
                     <TableCell>
@@ -42,8 +43,8 @@ export default class ParticipantsWrapper extends Component {
                         name={`raw_participant.${index}.last_name`}
                         render={({ field }) => (
                           <TextField {...field} label='Apellido *'
-                            error={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name)}
-                            helperText={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name) ? getIn(this.props.errors, field.name) : null} />)}
+                            error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
+                            helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
                       />
                     </TableCell>
                     <TableCell>
@@ -51,8 +52,8 @@ export default class ParticipantsWrapper extends Component {
                         name={`raw_participant.${index}.dni`}
                         render={({ field }) => (
                           <TextField {...field} label='D.N.I.'
-                            error={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name)}
-                            helperText={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name) ? getIn(this.props.errors, field.name) : null} />)}
+                            error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
+                            helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
                       />
                     </TableCell>
                     <TableCell>
@@ -60,8 +61,8 @@ export default class ParticipantsWrapper extends Component {
                         name={`raw_participant.${index}.grade_choices`}
                         render={({ field }) => (
                           <TextField {...field} select label='Año *'
-                            error={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name)}
-                            helperText={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name) ? getIn(this.props.errors, field.name) : null}
+                            error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
+                            helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
                           >
                             <MenuItem value='3'>7mo</MenuItem>
                             <MenuItem value='2'>6to</MenuItem>
@@ -76,8 +77,8 @@ export default class ParticipantsWrapper extends Component {
                         name={`raw_participant.${index}.divition_choices`}
                         render={({ field }) => (
                           <TextField {...field} select label='Curso *'
-                            error={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name)}
-                            helperText={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name) ? getIn(this.props.errors, field.name) : null}
+                            error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
+                            helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
                           >
                             <MenuItem value='2'>"C"</MenuItem>
                             <MenuItem value='1'>"B"</MenuItem>

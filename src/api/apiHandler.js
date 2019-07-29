@@ -1,3 +1,4 @@
+/* global File */
 // Custom API error to throw
 function ApiError (message, data, status) {
   let response = null

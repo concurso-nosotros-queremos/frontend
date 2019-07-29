@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Field, getIn } from 'formik'
+import { Field } from 'formik'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
+import { errorMessageBuilder, hasError } from './utils'
 
 export default class SchoolWrapper extends Component {
   render () {
@@ -12,22 +13,22 @@ export default class SchoolWrapper extends Component {
           name='raw_school.name'
           render={({ field }) => (
             <TextField {...field} label='Nombre *'
-              error={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name)}
-              helperText={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name) ? getIn(this.props.errors, field.name) : null} />)}
+              error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
+              helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
         />
         <Field
           name='raw_school.address'
           render={({ field }) => (
             <TextField {...field} label='Direccion *'
-              error={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name)}
-              helperText={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name) ? getIn(this.props.errors, field.name) : null} />)}
+              error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
+              helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
         />
         <Field
           name='raw_school.school_types'
           render={({ field }) => (
             <TextField {...field} select label='Tipo de escuela'
-              error={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name)}
-              helperText={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name) ? getIn(this.props.errors, field.name) : null}
+              error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
+              helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
             >
               <MenuItem value='5'>Residencia</MenuItem>
               <MenuItem value='4'>Escuela Rural</MenuItem>
@@ -42,15 +43,15 @@ export default class SchoolWrapper extends Component {
           name='raw_school.principal_name'
           render={({ field }) => (
             <TextField {...field} label='Nombre del director'
-              error={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name)}
-              helperText={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name) ? getIn(this.props.errors, field.name) : null} />)}
+              error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
+              helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
         />
         <Field
           name='raw_school.com_preference'
           render={({ field }) => (
             <TextField {...field} select label='Preferencia de comunicacion'
-              error={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name)}
-              helperText={getIn(this.props.errors, field.name) && getIn(this.props.touched, field.name) ? getIn(this.props.errors, field.name) : null}
+              error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
+              helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
             >
               <MenuItem value='1'>Telefonica</MenuItem>
               <MenuItem value='0'>Email</MenuItem>
