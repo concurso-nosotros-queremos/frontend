@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Field } from 'formik'
+import { FastField } from 'formik'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
 import { errorMessageBuilder, hasError } from './utils'
@@ -9,7 +9,7 @@ export default class ProjectWrapper extends Component {
     return (
       <div>
         <h2>Nombre del grupo</h2>
-        <Field
+        <FastField
           name='name'
           render={({ field }) => (
             <TextField {...field} label='Nombre del grupo *'
@@ -17,28 +17,28 @@ export default class ProjectWrapper extends Component {
               helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
         />
         <h2>Idea emprendedora</h2>
-        <Field
+        <FastField
           name='raw_project.name'
           render={({ field }) => (
             <TextField {...field} label='Nombre *'
               error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
               helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
         />
-        <Field
+        <FastField
           name='raw_project.problem'
           render={({ field }) => (
             <TextField {...field} label='Problema *'
               error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
               helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
         />
-        <Field
+        <FastField
           name='raw_project.solution'
           render={({ field }) => (
             <TextField {...field} label='Solucion *'
               error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
               helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
         />
-        <Field
+        <FastField
           name='raw_project.diffusion'
           render={({ field }) => (
             <TextField {...field} select label='Difusion *'

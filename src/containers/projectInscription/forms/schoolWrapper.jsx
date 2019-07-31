@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Field } from 'formik'
+import { FastField } from 'formik'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
 import { errorMessageBuilder, hasError } from './utils'
@@ -9,21 +9,21 @@ export default class SchoolWrapper extends Component {
     return (
       <div>
         <h2>Datos de la escuela</h2>
-        <Field
+        <FastField
           name='raw_school.name'
           render={({ field }) => (
             <TextField {...field} label='Nombre *'
               error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
               helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
         />
-        <Field
+        <FastField
           name='raw_school.address'
           render={({ field }) => (
             <TextField {...field} label='Direccion *'
               error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
               helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
         />
-        <Field
+        <FastField
           name='raw_school.school_types'
           render={({ field }) => (
             <TextField {...field} select label='Tipo de escuela'
@@ -39,14 +39,14 @@ export default class SchoolWrapper extends Component {
             </TextField>
           )}
         />
-        <Field
+        <FastField
           name='raw_school.principal_name'
           render={({ field }) => (
             <TextField {...field} label='Nombre del director'
               error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
               helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
         />
-        <Field
+        <FastField
           name='raw_school.com_preference'
           render={({ field }) => (
             <TextField {...field} select label='Preferencia de comunicacion'
