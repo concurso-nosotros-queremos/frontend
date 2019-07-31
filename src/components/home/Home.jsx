@@ -4,7 +4,6 @@ import CssBaseline from '@material-ui/core/CssBaseline/index'
 import Toolbar from '@material-ui/core/Toolbar/index'
 import Paper from '@material-ui/core/Paper/index'
 import Typography from '@material-ui/core/Typography/index'
-import Link from '@material-ui/core/Link/index'
 import Button from '@material-ui/core/Button/index'
 import Container from '@material-ui/core/Container/index'
 import AccountCircle from '@material-ui/icons/AccountCircle'
@@ -12,23 +11,10 @@ import Grid from '@material-ui/core/Grid'
 import { Box } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
 import GoogleFontLoader from 'react-google-font-loader'
-
 import { ReactComponent as LogoMain } from '../../static/header.svg'
 import { ReactComponent as Logo1 } from '../../static/1.svg'
 import { ReactComponent as Logo2 } from '../../static/2.svg'
 import { ReactComponent as Logo3 } from '../../static/3.svg'
-
-function MadeWithLove () {
-  return (
-    <Typography variant='body2' color='textSecondary' align='center'>
-      {'Built with love by the '}
-      <Link color='inherit' href='https://material-ui.com/'>
-                Material-UI
-      </Link>
-      {' team.'}
-    </Typography>
-  )
-}
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -99,24 +85,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const featuredPosts = [
-  {
-    title: 'Featured post',
-    date: 'Nov 12',
-    description:
-            'This is a wider card with supporting text below as a natural lead-in to additional content.'
-  },
-  {
-    title: 'Post title',
-    date: 'Nov 11',
-    description:
-            'This is a wider card with supporting text below as a natural lead-in to additional content.'
-  }
-]
-
-const social = ['GitHub', 'Twitter', 'Facebook']
-
-export default function Blog () {
+export default function Home () {
   const classes = useStyles()
 
   return (
@@ -225,7 +194,6 @@ export default function Blog () {
           <Typography variant='subtitle1' align='center' color='textSecondary' component='p'>
                         Something here to give the footer a purpose!
           </Typography>
-          <MadeWithLove />
         </Container>
       </footer>
       {/* End footer */
