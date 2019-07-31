@@ -11,7 +11,7 @@ import Grid from '@material-ui/core/Grid'
 import {Box} from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
 import GoogleFontLoader from 'react-google-font-loader'
-import Responsive from 'react-responsive';
+import Hidden from '@material-ui/core/Hidden';
 import {ReactComponent as LogoMain} from '../../static/header.svg'
 import {ReactComponent as Logo1} from '../../static/1.svg'
 import {ReactComponent as Logo2} from '../../static/2.svg'
@@ -91,7 +91,7 @@ export default function Home() {
 
   return (
     <React.Fragment>
-      <CssBaseline />
+      <CssBaseline/>
       <Container maxWidth='xl'>
         <GoogleFontLoader
           fonts={[
@@ -111,7 +111,7 @@ export default function Home() {
             className={classes.toolbarTitle}
           />
           <Button variant='outlined' size='small' className={classes.button}>
-            <AccountCircle />
+            <AccountCircle/>
             Ingresa
           </Button>
         </Toolbar>
@@ -140,9 +140,8 @@ export default function Home() {
           </div>
 
           <Paper className={classes.seccion2}>
-            <Responsive maxWidth={'600px'}>
-
-              <Grid container spacing={4} direction={'column'} alignContent={'center'}>
+            <Hidden smUp>
+              <Grid container spacing={4} direction={'column'} alignContent={'center'} alignItems={'center'}>
                 <Grid item xs={4}>
                   <Avatar className={classes.avatar}>1</Avatar>
                 </Grid>
@@ -158,12 +157,12 @@ export default function Home() {
                 </Grid>
               </Grid>
 
-              <Grid container spacing={4} direction={'column'} alignContent={'center'}>
+              <Grid container spacing={4} direction={'column'} alignContent={'center'} alignItems={'center'}>
                 <Grid item xs={4}>
                   <Avatar className={classes.avatar}>2</Avatar>
                 </Grid>
                 <Grid item xs={4}>
-                  <Logo2 className={classes.logo} />
+                  <Logo2 className={classes.logo}/>
                 </Grid>
                 <Grid item xs={4}>
                   <Typography className={classes.txt}>
@@ -172,12 +171,12 @@ export default function Home() {
                 </Grid>
               </Grid>
 
-              <Grid container spacing={4} direction={'column'} alignContent={'center'}>
+              <Grid container spacing={4} direction={'column'} alignContent={'center'} alignItems={'center'}>
                 <Grid item xs={4}>
                   <Avatar className={classes.avatar}>3</Avatar>
                 </Grid>
                 <Grid item xs={4}>
-                  <Logo3 className={classes.logo} />
+                  <Logo3 className={classes.logo}/>
                 </Grid>
                 <Grid item xs={4}>
                   <Typography className={classes.txt}>
@@ -185,8 +184,8 @@ export default function Home() {
                   </Typography>
                 </Grid>
               </Grid>
-            </Responsive>
-            <Responsive minWidth={'601px'}>
+            </Hidden>
+            <Hidden mdUp>
               <Grid container spacing={4}>
                 <Grid item xs={4}>
                   <Avatar className={classes.avatar}>1</Avatar>
@@ -201,13 +200,13 @@ export default function Home() {
 
               <Grid container spacing={4}>
                 <Grid item xs={4}>
-                  <Logo1 className={classes.logo} />
+                  <Logo1 className={classes.logo}/>
                 </Grid>
                 <Grid item xs={4}>
-                  <Logo2 className={classes.logo} />
+                  <Logo2 className={classes.logo}/>
                 </Grid>
                 <Grid item xs={4}>
-                  <Logo3 className={classes.logo} />
+                  <Logo3 className={classes.logo}/>
                 </Grid>
               </Grid>
 
@@ -228,8 +227,7 @@ export default function Home() {
                   </Typography>
                 </Grid>
               </Grid>
-            </Responsive>
-
+            </Hidden>
           </Paper>
 
         </main>
