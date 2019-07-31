@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles/index'
+import {makeStyles} from '@material-ui/core/styles/index'
 import CssBaseline from '@material-ui/core/CssBaseline/index'
 import Toolbar from '@material-ui/core/Toolbar/index'
 import Paper from '@material-ui/core/Paper/index'
@@ -8,13 +8,14 @@ import Button from '@material-ui/core/Button/index'
 import Container from '@material-ui/core/Container/index'
 import AccountCircle from '@material-ui/icons/AccountCircle'
 import Grid from '@material-ui/core/Grid'
-import { Box } from '@material-ui/core'
+import {Box} from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
 import GoogleFontLoader from 'react-google-font-loader'
-import { ReactComponent as LogoMain } from '../../static/header.svg'
-import { ReactComponent as Logo1 } from '../../static/1.svg'
-import { ReactComponent as Logo2 } from '../../static/2.svg'
-import { ReactComponent as Logo3 } from '../../static/3.svg'
+import Responsive from 'react-responsive';
+import {ReactComponent as LogoMain} from '../../static/header.svg'
+import {ReactComponent as Logo1} from '../../static/1.svg'
+import {ReactComponent as Logo2} from '../../static/2.svg'
+import {ReactComponent as Logo3} from '../../static/3.svg'
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -67,7 +68,7 @@ const useStyles = makeStyles(theme => ({
     margin: 'auto'
   },
   seccion2: {
-    position: 'relative'
+    position: 'relative',
   },
   seccion1: {
     position: 'relative',
@@ -85,7 +86,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Home () {
+export default function Home() {
   const classes = useStyles()
 
   return (
@@ -111,7 +112,7 @@ export default function Home () {
           />
           <Button variant='outlined' size='small' className={classes.button}>
             <AccountCircle />
-                        Ingresa
+            Ingresa
           </Button>
         </Toolbar>
         {/* Medio */}
@@ -120,7 +121,7 @@ export default function Home () {
             <Grid container spacing={4}>
               <Grid item xs={5}>
                 <Box className={classes.box}>
-                  <Box> <Logo2 className={classes.logo} />
+                  <Box> <Logo2 className={classes.logo}/>
                   </Box>
                   <Box className={classes.box}>
                     <Typography component='div' className={classes.txt2}>
@@ -133,54 +134,102 @@ export default function Home () {
                 </Box>
               </Grid>
               <Grid item xs={7}>
-                <LogoMain className={classes.logo2} />
+                <LogoMain className={classes.logo2}/>
               </Grid>
             </Grid>
           </div>
 
           <Paper className={classes.seccion2}>
+            <Responsive maxWidth={'600px'}>
 
-            <Grid container spacing={4}>
-              <Grid item xs={4}>
-                <Avatar className={classes.avatar}>1</Avatar>
-              </Grid>
-              <Grid item xs={4}>
-                <Avatar className={classes.avatar}>2</Avatar>
-              </Grid>
-              <Grid item xs={4}>
-                <Avatar className={classes.avatar}>3</Avatar>
-              </Grid>
-            </Grid>
+              <Grid container spacing={4} direction={'column'} alignContent={'center'}>
+                <Grid item xs={4}>
+                  <Avatar className={classes.avatar}>1</Avatar>
+                </Grid>
+                <Grid item xs={4}>
+                  <Logo1 className={classes.logo}/>
 
-            <Grid container spacing={4}>
-              <Grid item xs={4}>
-                <Logo1 className={classes.logo} />
-              </Grid>
-              <Grid item xs={4}>
-                <Logo2 className={classes.logo} />
-              </Grid>
-              <Grid item xs={4}>
-                <Logo3 className={classes.logo} />
-              </Grid>
-            </Grid>
+                </Grid>
+                <Grid item xs={4}>
+                  <Typography className={classes.txt}>
+                    Tu profe inscribe el grupo de alum@s
+                  </Typography>
 
-            <Grid container spacing={4}>
-              <Grid item xs={4}>
-                <Typography className={classes.txt}>
-                  Tu profe inscribe el grupo de alum@s
-                </Typography>
+                </Grid>
               </Grid>
-              <Grid item xs={4}>
-                <Typography className={classes.txt}>
-                  La fundacion valida y contacta al grupo
-                </Typography>
+
+              <Grid container spacing={4} direction={'column'} alignContent={'center'}>
+                <Grid item xs={4}>
+                  <Avatar className={classes.avatar}>2</Avatar>
+                </Grid>
+                <Grid item xs={4}>
+                  <Logo2 className={classes.logo} />
+                </Grid>
+                <Grid item xs={4}>
+                  <Typography className={classes.txt}>
+                    La fundacion valida y contacta al grupo
+                  </Typography>
+                </Grid>
               </Grid>
-              <Grid item xs={4}>
-                <Typography className={classes.txt}>
-                  El grupo participa en el concurso por un premio de $15.000
-                </Typography>
+
+              <Grid container spacing={4} direction={'column'} alignContent={'center'}>
+                <Grid item xs={4}>
+                  <Avatar className={classes.avatar}>3</Avatar>
+                </Grid>
+                <Grid item xs={4}>
+                  <Logo3 className={classes.logo} />
+                </Grid>
+                <Grid item xs={4}>
+                  <Typography className={classes.txt}>
+                    El grupo participa en el concurso por un premio de $15.000
+                  </Typography>
+                </Grid>
               </Grid>
-            </Grid>
+            </Responsive>
+            <Responsive minWidth={'601px'}>
+              <Grid container spacing={4}>
+                <Grid item xs={4}>
+                  <Avatar className={classes.avatar}>1</Avatar>
+                </Grid>
+                <Grid item xs={4}>
+                  <Avatar className={classes.avatar}>2</Avatar>
+                </Grid>
+                <Grid item xs={4}>
+                  <Avatar className={classes.avatar}>3</Avatar>
+                </Grid>
+              </Grid>
+
+              <Grid container spacing={4}>
+                <Grid item xs={4}>
+                  <Logo1 className={classes.logo} />
+                </Grid>
+                <Grid item xs={4}>
+                  <Logo2 className={classes.logo} />
+                </Grid>
+                <Grid item xs={4}>
+                  <Logo3 className={classes.logo} />
+                </Grid>
+              </Grid>
+
+              <Grid container spacing={4}>
+                <Grid item xs={4}>
+                  <Typography className={classes.txt}>
+                    Tu profe inscribe el grupo de alum@s
+                  </Typography>
+                </Grid>
+                <Grid item xs={4}>
+                  <Typography className={classes.txt}>
+                    La fundacion valida y contacta al grupo
+                  </Typography>
+                </Grid>
+                <Grid item xs={4}>
+                  <Typography className={classes.txt}>
+                    El grupo participa en el concurso por un premio de $15.000
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Responsive>
+
           </Paper>
 
         </main>
@@ -189,10 +238,10 @@ export default function Home () {
       <footer className={classes.footer}>
         <Container maxWidth='lg'>
           <Typography variant='h6' align='center' gutterBottom>
-                        Footer
+            Footer
           </Typography>
           <Typography variant='subtitle1' align='center' color='textSecondary' component='p'>
-                        Something here to give the footer a purpose!
+            Something here to give the footer a purpose!
           </Typography>
         </Container>
       </footer>
