@@ -103,18 +103,6 @@ export default function Home() {
             }
           ]}
         />
-        {/* NavBar */}
-        <Toolbar className={classes.toolbar}>
-          <Button size='small'>Acerca</Button>
-          <Button size='small'>Proyectos</Button>
-          <div
-            className={classes.toolbarTitle}
-          />
-          <Button variant='outlined' size='small' className={classes.button}>
-            <AccountCircle/>
-            Ingresa
-          </Button>
-        </Toolbar>
         {/* Medio */}
         <main>
           <div className={classes.seccion1}>
@@ -185,7 +173,7 @@ export default function Home() {
                 </Grid>
               </Grid>
             </Hidden>
-            <Hidden mdUp>
+            <Hidden xsDown>
               <Grid container spacing={4}>
                 <Grid item xs={4}>
                   <Avatar className={classes.avatar}>1</Avatar>
