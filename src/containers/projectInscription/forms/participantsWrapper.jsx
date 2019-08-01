@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { FieldArray, Field, getIn } from 'formik'
+import { FieldArray, FastField, getIn } from 'formik'
 import { Table, TableRow, TableCell, TableHead, TableBody, TableFooter, Typography } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
@@ -8,6 +8,27 @@ import AddOutlined from '@material-ui/icons/AddOutlined'
 import { hasError, errorMessageBuilder } from './utils'
 
 export default class ParticipantsWrapper extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      focusNext: false
+    }
+
+    this.inputRef = React.createRef()
+  }
+
+  componentDidUpdate () {
+    console.log('Component updated')
+    console.log(this.state.focusNext)
+    if (this.state.focusNext) {
+      this.inputRef.current.focus()
+      this.setState({
+        focusNext: false
+      })
+    }
+  }
+
   render () {
     return (
       <div>
@@ -30,16 +51,17 @@ export default class ParticipantsWrapper extends Component {
                 {arrayHelpers.form.values.raw_participant.slice(0).reverse().map((participant, index) => (
                   <TableRow key={index}>
                     <TableCell>
-                      <Field
+                      <FastField
                         name={`raw_participant.${index}.first_name`}
                         render={({ field }) => (
                           <TextField {...field} label='Nombre *'
+                            inputRef={index === arrayHelpers.form.values.raw_participant.length - 1 ? this.inputRef : null}
                             error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
                             helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
                       />
                     </TableCell>
                     <TableCell>
-                      <Field
+                      <FastField
                         name={`raw_participant.${index}.last_name`}
                         render={({ field }) => (
                           <TextField {...field} label='Apellido *'
@@ -48,7 +70,7 @@ export default class ParticipantsWrapper extends Component {
                       />
                     </TableCell>
                     <TableCell>
-                      <Field
+                      <FastField
                         name={`raw_participant.${index}.dni`}
                         render={({ field }) => (
                           <TextField {...field} label='D.N.I.'
@@ -57,7 +79,7 @@ export default class ParticipantsWrapper extends Component {
                       />
                     </TableCell>
                     <TableCell>
-                      <Field
+                      <FastField
                         name={`raw_participant.${index}.grade_choices`}
                         render={({ field }) => (
                           <TextField {...field} select label='Año *'
@@ -73,7 +95,7 @@ export default class ParticipantsWrapper extends Component {
                       />
                     </TableCell>
                     <TableCell>
-                      <Field
+                      <FastField
                         name={`raw_participant.${index}.divition_choices`}
                         render={({ field }) => (
                           <TextField {...field} select label='Curso *'
@@ -101,6 +123,10 @@ export default class ParticipantsWrapper extends Component {
                         dni: '',
                         grade_choices: getIn(arrayHelpers.form.values.raw_participant, `${arrayHelpers.form.values.raw_participant.length - 1}.grade_choices`),
                         divition_choices: getIn(arrayHelpers.form.values.raw_participant, `${arrayHelpers.form.values.raw_participant.length - 1}.divition_choices`)
+                      })
+
+                      this.setState({
+                        focusNext: true
                       })
                     }}><AddOutlined /></Button>
                   </TableCell>

@@ -1,4 +1,5 @@
 import { getIn } from 'formik'
+import { helpers } from './schemas'
 
 export function errorMessageBuilder (errors, status, touched, name) {
   if (hasError(errors, status, touched, name)) {
@@ -18,6 +19,8 @@ export function errorMessageBuilder (errors, status, touched, name) {
 
     return error
   }
+
+  return getIn(helpers, name)
 }
 
 export function hasError (errors, status, touched, name) {
