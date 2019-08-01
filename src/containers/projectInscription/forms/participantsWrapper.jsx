@@ -41,7 +41,8 @@ export default class ParticipantsWrapper extends Component {
     })
 
     this.setState({
-      focusNext: true
+      focusNext: true,
+      expandedIndex: arrayHelpers.form.values.raw_participant.length
     })
   }
 
@@ -119,20 +120,7 @@ export default class ParticipantsWrapper extends Component {
                   </ExpansionPanelDetails>
                 </ExpansionPanel>
               ))}
-              <Button fullWidth variant='contained' color='primary' onClick={() => {
-                arrayHelpers.push({
-                  first_name: '',
-                  last_name: '',
-                  dni: '',
-                  grade_choices: getIn(arrayHelpers.form.values.raw_participant, `${arrayHelpers.form.values.raw_participant.length - 1}.grade_choices`),
-                  divition_choices: getIn(arrayHelpers.form.values.raw_participant, `${arrayHelpers.form.values.raw_participant.length - 1}.divition_choices`)
-                })
-
-                this.setState({
-                  focusNext: true,
-                  expandedIndex: arrayHelpers.form.values.raw_participant.length
-                })
-              }}><AddOutlined /></Button>
+              <Button fullWidth variant='contained' color='primary' onClick={() => this.addParticipant(arrayHelpers)}><AddOutlined /></Button>
             </>
           )}
         />
