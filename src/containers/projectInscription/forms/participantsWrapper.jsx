@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { FieldArray, FastField, getIn } from 'formik'
-import { Table, TableRow, TableCell, TableHead, TableBody, TableFooter, Typography } from '@material-ui/core'
+import { Typography, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Grid } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
 import AddOutlined from '@material-ui/icons/AddOutlined'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import { hasError, errorMessageBuilder } from './utils'
 
 export default class ParticipantsWrapper extends Component {
@@ -12,7 +13,8 @@ export default class ParticipantsWrapper extends Component {
     super(props)
 
     this.state = {
-      focusNext: false
+      focusNext: false,
+      expandedIndex: 0
     }
 
     this.inputRef = React.createRef()
@@ -29,6 +31,20 @@ export default class ParticipantsWrapper extends Component {
     }
   }
 
+  addParticipant (arrayHelpers) {
+    arrayHelpers.push({
+      first_name: '',
+      last_name: '',
+      dni: '',
+      grade_choices: getIn(arrayHelpers.form.values.raw_participant, `${arrayHelpers.form.values.raw_participant.length - 1}.grade_choices`),
+      divition_choices: getIn(arrayHelpers.form.values.raw_participant, `${arrayHelpers.form.values.raw_participant.length - 1}.divition_choices`)
+    })
+
+    this.setState({
+      focusNext: true
+    })
+  }
+
   render () {
     return (
       <div>
@@ -36,21 +52,19 @@ export default class ParticipantsWrapper extends Component {
         <FieldArray
           name='raw_participant'
           render={(arrayHelpers) => (
-            <Table size='small'>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Nombre</TableCell>
-                  <TableCell>Apellido</TableCell>
-                  <TableCell>D.N.I.</TableCell>
-                  <TableCell>Año</TableCell>
-                  <TableCell>Curso</TableCell>
-                  <TableCell>Acciones</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {arrayHelpers.form.values.raw_participant.slice(0).reverse().map((participant, index) => (
-                  <TableRow key={index}>
-                    <TableCell>
+            <>
+              {arrayHelpers.form.values.raw_participant.map((participant, index) => (
+                <ExpansionPanel
+                  expanded={this.state.expandedIndex === index}
+                >
+                  <ExpansionPanelSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    onClick={() => { this.setState({ expandedIndex: this.state.expandedIndex === index ? null : index }) }}
+                  >
+                    <Typography>{this.state.expandedIndex !== index ? `${participant.first_name}, ${participant.last_name}` : 'Nuevo participante'}</Typography>
+                  </ExpansionPanelSummary>
+                  <ExpansionPanelDetails>
+                    <Grid container direction='column'>
                       <FastField
                         name={`raw_participant.${index}.first_name`}
                         render={({ field }) => (
@@ -59,8 +73,6 @@ export default class ParticipantsWrapper extends Component {
                             error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
                             helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
                       />
-                    </TableCell>
-                    <TableCell>
                       <FastField
                         name={`raw_participant.${index}.last_name`}
                         render={({ field }) => (
@@ -68,8 +80,6 @@ export default class ParticipantsWrapper extends Component {
                             error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
                             helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
                       />
-                    </TableCell>
-                    <TableCell>
                       <FastField
                         name={`raw_participant.${index}.dni`}
                         render={({ field }) => (
@@ -77,8 +87,6 @@ export default class ParticipantsWrapper extends Component {
                             error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
                             helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
                       />
-                    </TableCell>
-                    <TableCell>
                       <FastField
                         name={`raw_participant.${index}.grade_choices`}
                         render={({ field }) => (
@@ -93,8 +101,6 @@ export default class ParticipantsWrapper extends Component {
                           </TextField>
                         )}
                       />
-                    </TableCell>
-                    <TableCell>
                       <FastField
                         name={`raw_participant.${index}.divition_choices`}
                         render={({ field }) => (
@@ -108,40 +114,26 @@ export default class ParticipantsWrapper extends Component {
                           </TextField>
                         )}
                       />
-                    </TableCell>
-                    <TableCell>
                       <Button onClick={() => { arrayHelpers.remove(index) }}>Borrar</Button>
-                    </TableCell>
-                  </TableRow>
-                ))}
-                <TableRow>
-                  <TableCell colSpan='6' align='center'>
-                    <Button fullWidth variant='contained' color='primary' onClick={() => {
-                      arrayHelpers.push({
-                        first_name: '',
-                        last_name: '',
-                        dni: '',
-                        grade_choices: getIn(arrayHelpers.form.values.raw_participant, `${arrayHelpers.form.values.raw_participant.length - 1}.grade_choices`),
-                        divition_choices: getIn(arrayHelpers.form.values.raw_participant, `${arrayHelpers.form.values.raw_participant.length - 1}.divition_choices`)
-                      })
+                    </Grid>
+                  </ExpansionPanelDetails>
+                </ExpansionPanel>
+              ))}
+              <Button fullWidth variant='contained' color='primary' onClick={() => {
+                arrayHelpers.push({
+                  first_name: '',
+                  last_name: '',
+                  dni: '',
+                  grade_choices: getIn(arrayHelpers.form.values.raw_participant, `${arrayHelpers.form.values.raw_participant.length - 1}.grade_choices`),
+                  divition_choices: getIn(arrayHelpers.form.values.raw_participant, `${arrayHelpers.form.values.raw_participant.length - 1}.divition_choices`)
+                })
 
-                      this.setState({
-                        focusNext: true
-                      })
-                    }}><AddOutlined /></Button>
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-              {typeof getIn(this.props.errors, 'raw_participant') === 'string' ? <TableFooter>
-                <TableRow>
-                  <TableCell colSpan='6'>
-                    <Typography color='error'>
-                      {getIn(this.props.errors, 'raw_participant')}
-                    </Typography>
-                  </TableCell>
-                </TableRow>
-              </TableFooter> : null}
-            </Table>
+                this.setState({
+                  focusNext: true,
+                  expandedIndex: arrayHelpers.form.values.raw_participant.length
+                })
+              }}><AddOutlined /></Button>
+            </>
           )}
         />
       </div>
