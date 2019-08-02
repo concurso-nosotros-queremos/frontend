@@ -1,36 +1,35 @@
 import React from 'react'
-import {makeStyles} from '@material-ui/core/styles/index'
-import CssBaseline from '@material-ui/core/CssBaseline/index'
-import Toolbar from '@material-ui/core/Toolbar/index'
+import { makeStyles } from '@material-ui/core/styles/index'
 import Paper from '@material-ui/core/Paper/index'
 import Typography from '@material-ui/core/Typography/index'
-import Button from '@material-ui/core/Button/index'
+import Link from '@material-ui/core/Link/index'
 import Container from '@material-ui/core/Container/index'
-import AccountCircle from '@material-ui/icons/AccountCircle'
 import Grid from '@material-ui/core/Grid'
-import {Box} from '@material-ui/core'
+import Box from '@material-ui/core/Box'
 import Avatar from '@material-ui/core/Avatar'
 import GoogleFontLoader from 'react-google-font-loader'
-import Hidden from '@material-ui/core/Hidden';
-import {ReactComponent as LogoMain} from '../../static/header.svg'
-import {ReactComponent as Logo1} from '../../static/1.svg'
-import {ReactComponent as Logo2} from '../../static/2.svg'
-import {ReactComponent as Logo3} from '../../static/3.svg'
+import Hidden from '@material-ui/core/Hidden'
+import GoogleLogin from '../../containers/googleLogin/index'
+import FacebookLogin from '../../containers/facebookLogin/index'
+import { ReactComponent as LogoMain } from '../../static/header.svg'
+import { ReactComponent as Logo1 } from '../../static/1.svg'
+import { ReactComponent as Logo2 } from '../../static/2.svg'
+import { ReactComponent as Logo3 } from '../../static/3.svg'
 
 const useStyles = makeStyles(theme => ({
-  toolbar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
-    flex: 1
+  container: {
+    paddingLeft: '6rem',
+    paddingRight: '6rem'
   },
   logo: {
-    width: '100%',
-    height: '100%',
+    width: '85%',
+    height: '85%',
     margin: 'auto'
   },
   logo2: {
-    width: '95%',
-    height: '95%',
-    marginLeft: '5%',
+    width: '80%',
+    height: '80%',
+    marginLeft: '20%',
     marginTop: '8%'
   },
   avatar: {
@@ -48,17 +47,17 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center'
   },
   txt2: {
-    fontFamily: 'Space Mono',
-    textAlign: 'center',
+    fontFamily: 'Roboto Slab',
     marginTop: '5%',
     margin: 'auto',
-    fontSize: 'auto',
+    fontSize: '2.5rem',
     fontWeight: 'bold'
   },
-  toolbarTitle: {
-    flex: 1
+  mainTxt: {
+    fontFamily: 'Roboto',
+    textAlign: 'left'
   },
-  divbtn: {
+  boxBtn: {
     textAlign: 'center',
     marginTop: '10%'
   },
@@ -68,7 +67,7 @@ const useStyles = makeStyles(theme => ({
     margin: 'auto'
   },
   seccion2: {
-    position: 'relative',
+    position: 'relative'
   },
   seccion1: {
     position: 'relative',
@@ -76,8 +75,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(12)
   },
   box: {
-    flexWrap: 'nowrap',
-    fontSize: '50px'
+    fontSize: '3rem'
   },
   footer: {
     backgroundColor: theme.palette.background.paper,
@@ -86,17 +84,16 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Home() {
+export default function Home () {
   const classes = useStyles()
 
   return (
     <React.Fragment>
-      <CssBaseline/>
-      <Container maxWidth='xl'>
+      <Container maxWidth='xl' className={classes.container}>
         <GoogleFontLoader
           fonts={[
             {
-              font: 'Roboto'
+              font: 'Roboto Slab'
             },
             {
               font: 'Space Mono'
@@ -107,22 +104,34 @@ export default function Home() {
         <main>
           <div className={classes.seccion1}>
             <Grid container spacing={4}>
-              <Grid item xs={5}>
+              <Grid item xs={3}>
                 <Box className={classes.box}>
-                  <Box> <Logo2 className={classes.logo}/>
-                  </Box>
-                  <Box className={classes.box}>
-                    <Typography component='div' className={classes.txt2}>
-                      Concurso anual de emprendimientos de chicos entre 4to y 7mo año de la secundaria
+                  <Box>
+                    <Typography className={classes.txt2}>
+                      Participa. <br />
+                      Impacta. <br />
+                      Gana.
                     </Typography>
                   </Box>
-                  <Box className={classes.divbtn}>
-                    <Button variant='outlined' size='small' className={classes.button}>Mas Informacion</Button>
+                  <Box className={classes.box}>
+                    <Typography className={classes.mainTxt}>
+                      Concurso anual de emprendimientos de alumn@s de los ultimos años de la secunadria
+                    </Typography>
+                  </Box>
+                  <Box className={classes.boxBtn}>
+                    <GoogleLogin />
+                    <FacebookLogin />
+                    <Typography variant='body2' color='textSecondary' align='center'>
+                      {'Ya tienes cuenta? '}
+                      <Link href='https://material-ui.com/'>
+                        Inicia Sesion
+                      </Link>
+                    </Typography>
                   </Box>
                 </Box>
               </Grid>
-              <Grid item xs={7}>
-                <LogoMain className={classes.logo2}/>
+              <Grid item xs={9}>
+                <LogoMain className={classes.logo2} />
               </Grid>
             </Grid>
           </div>
@@ -134,7 +143,7 @@ export default function Home() {
                   <Avatar className={classes.avatar}>1</Avatar>
                 </Grid>
                 <Grid item xs={4}>
-                  <Logo1 className={classes.logo}/>
+                  <Logo1 className={classes.logo} />
 
                 </Grid>
                 <Grid item xs={4}>
@@ -150,7 +159,7 @@ export default function Home() {
                   <Avatar className={classes.avatar}>2</Avatar>
                 </Grid>
                 <Grid item xs={4}>
-                  <Logo2 className={classes.logo}/>
+                  <Logo2 className={classes.logo} />
                 </Grid>
                 <Grid item xs={4}>
                   <Typography className={classes.txt}>
@@ -164,7 +173,7 @@ export default function Home() {
                   <Avatar className={classes.avatar}>3</Avatar>
                 </Grid>
                 <Grid item xs={4}>
-                  <Logo3 className={classes.logo}/>
+                  <Logo3 className={classes.logo} />
                 </Grid>
                 <Grid item xs={4}>
                   <Typography className={classes.txt}>
@@ -188,13 +197,13 @@ export default function Home() {
 
               <Grid container spacing={4}>
                 <Grid item xs={4}>
-                  <Logo1 className={classes.logo}/>
+                  <Logo1 className={classes.logo} />
                 </Grid>
                 <Grid item xs={4}>
-                  <Logo2 className={classes.logo}/>
+                  <Logo2 className={classes.logo} />
                 </Grid>
                 <Grid item xs={4}>
-                  <Logo3 className={classes.logo}/>
+                  <Logo3 className={classes.logo} />
                 </Grid>
               </Grid>
 
@@ -219,18 +228,19 @@ export default function Home() {
           </Paper>
 
         </main>
+
+        {/* Footer */}
+        <footer className={classes.footer}>
+          <Container maxWidth='lg'>
+            <Typography variant='h6' align='center' gutterBottom>
+              Footer
+            </Typography>
+            <Typography variant='subtitle1' align='center' color='textSecondary' component='p'>
+              Something here to give the footer a purpose!
+            </Typography>
+          </Container>
+        </footer>
       </Container>
-      {/* Footer */}
-      <footer className={classes.footer}>
-        <Container maxWidth='lg'>
-          <Typography variant='h6' align='center' gutterBottom>
-            Footer
-          </Typography>
-          <Typography variant='subtitle1' align='center' color='textSecondary' component='p'>
-            Something here to give the footer a purpose!
-          </Typography>
-        </Container>
-      </footer>
       {/* End footer */
       }
     </React.Fragment>
