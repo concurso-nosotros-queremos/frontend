@@ -16,22 +16,26 @@ import CloseIcon from '@material-ui/icons/Close';
 const useStyles = makeStyles(theme => ({
   appBar: {
     position: "relative",
-    backgroundColor: "rgba(125,125,125,0)",
+    backgroundColor: "rgba(125,125,125,255)",
     boxShadow: "none",
     marginBottom: "2rem",
     marginTop: "1rem",
     [theme.breakpoints.down('sm')]: {
       marginTop: "0rem",
-      paddingLeft: "0rem", 
-      paddingRight: "0rem",
+      paddingLeft: "0rem !important", 
+      paddingRight: "0rem !important",
     },
-    [theme.breakpoints.down('md')]: {
-      paddingLeft: "2rem", 
-      paddingRight: "2rem",
+    [theme.breakpoints.only('md')]: {
+      paddingLeft: "2rem !important", 
+      paddingRight: "2rem !important",
     },
-    [theme.breakpoints.down('xl')]: {
-      paddingLeft: "3rem", 
-      paddingRight: "3rem",
+    [theme.breakpoints.only('lg')]: {
+      paddingLeft: "5rem", 
+      paddingRight: "5rem",
+    },
+    [theme.breakpoints.only('xl')]: {
+      paddingLeft: "20rem", 
+      paddingRight: "20rem",
     },
   },
   loginButton: {
@@ -63,10 +67,6 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "center",
     zIndex: 1
   },
-  closeIconStyle: {
-    position: "absolute",
-    padding: "4px"
-  },
   inSocLogo: {
     width: "12rem",
   },
@@ -74,6 +74,16 @@ const useStyles = makeStyles(theme => ({
     width: "auto",
     height: "5rem"
   },
+  closeButton: {
+    position: "absolute",
+    backgroundColor: "green",
+    [theme.breakpoints.only('xs')]: {
+      margin: ".25rem"
+    },
+    [theme.breakpoints.only('sm')]: {
+      margin: "0.5rem 0.5rem 0.5rem 0.2rem"
+    },
+  }
 }));
 
 function NavBar(props) {
@@ -94,7 +104,7 @@ function NavBar(props) {
       <Toolbar disableGutters>
         <Hidden smDown>
           <Grid container>
-            <img src="https://sanmartinadiario.com.ar/fotos/4262_5681.jpg" className={classes.cnq} />
+            <img alt="Concurso Nosotros Queremos" src="https://sanmartinadiario.com.ar/fotos/4262_5681.jpg" className={classes.cnq} />
             <Button disableRipple className={classes.appBarButton}>Acerca</Button>
             <Button disableRipple className={classes.appBarButton}>Noticias</Button>
             <Button disableRipple className={classes.appBarButton}>Proyectos</Button>
@@ -105,7 +115,7 @@ function NavBar(props) {
           </Grid>
         </Hidden>
         <Hidden mdUp>
-          <IconButton disableRipple edge="start" color="default" aria-label="menu" onClick={handleOpen}>
+          <IconButton style={{ marginLeft:".2rem", backgroundColor: "red" }} disableRipple edge="start" color="default" aria-label="menu" onClick={handleOpen}>
             <MenuIcon />
           </IconButton>
           <Modal
@@ -115,7 +125,7 @@ function NavBar(props) {
               <Paper className={classes.modal}>
                 <Grid container style={{ height: "100%" }}>
                   <Grid className={classes.closeIconStyle} justify="center" alignItems="center">
-                    <IconButton disableRipple color="inherit" aria-label="close" onClick={handleClose}>
+                    <IconButton disableRipple color="inherit" aria-label="close" onClick={handleClose}  className={classes.closeButton}>
                       <CloseIcon />
                     </IconButton>
                   </Grid>
