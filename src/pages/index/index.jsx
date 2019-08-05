@@ -4,22 +4,15 @@ import NavBar from '../../components/navbar/index'
 import Container from '@material-ui/core/Container';
 
 const rootStyles = makeStyles(theme => ({
-  root: {
-    [theme.breakpoints.down('sm')]: {
-      paddingLeft: "0rem", paddingRight: "0rem"
-    },
-    paddingLeft: "6rem", paddingRight: "6rem"
-  },
+
 }));
 
 
 export default function Index() {
   const classes = rootStyles();
   return (
-    <Container>
+    <Container style={{padding:"0rem"}} maxWidth="xl">
       <NavBar />
-      <Container fixed className={classes.root}>
-      </Container>
     </Container>
   )
 }

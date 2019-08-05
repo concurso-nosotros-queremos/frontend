@@ -10,22 +10,29 @@ import Modal from '@material-ui/core/Modal';
 import Paper from '@material-ui/core/Paper';
 import Fade from '@material-ui/core/Fade';
 import MenuIcon from '@material-ui/icons/Menu';
+import withWidth from '@material-ui/core/withWidth';
 import CloseIcon from '@material-ui/icons/Close';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
-    paddingLeft: "6rem", 
-    paddingRight: "6rem",
     position: "relative",
     backgroundColor: "rgba(125,125,125,0)",
     boxShadow: "none",
     marginBottom: "2rem",
+    marginTop: "1rem",
     [theme.breakpoints.down('sm')]: {
-      marginTop: "0",
+      marginTop: "0rem",
       paddingLeft: "0rem", 
       paddingRight: "0rem",
     },
-    marginTop: "1rem"
+    [theme.breakpoints.down('md')]: {
+      paddingLeft: "2rem", 
+      paddingRight: "2rem",
+    },
+    [theme.breakpoints.down('xl')]: {
+      paddingLeft: "3rem", 
+      paddingRight: "3rem",
+    },
   },
   loginButton: {
     borderRadius: "25px",
@@ -35,7 +42,7 @@ const useStyles = makeStyles(theme => ({
   },
   appBarButton: {
     '&:hover': {
-      backgroundColor: "rgba(0,255,0,0)",
+      backgroundColor: "rgba(0,0,0,0)",
     },
     fontSize: "1rem",
     textTransform: "none",
@@ -44,7 +51,7 @@ const useStyles = makeStyles(theme => ({
   },
   modalButton: {
     '&:hover': {
-      backgroundColor: "rgba(0,255,0,0)",
+      backgroundColor: "rgba(0,0,0,0)",
     },
     textTransform: "none",
   },
@@ -61,8 +68,7 @@ const useStyles = makeStyles(theme => ({
     padding: "4px"
   },
   inSocLogo: {
-    width: "3rem",
-    marginRight:"3rem"
+    width: "12rem",
   },
   cnq: {
     width: "auto",
@@ -70,7 +76,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function NavBar() {
+function NavBar(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -83,6 +89,7 @@ export default function NavBar() {
   };
 
   return (
+    <>
     <AppBar className={classes.appBar}>
       <Toolbar disableGutters>
         <Hidden smDown>
@@ -94,7 +101,7 @@ export default function NavBar() {
             <Button disableRipple className={classes.appBarButton}>Contactos</Button>
           </Grid>
           <Grid item style={{ textAlign: "right" }}>
-            <img src={require("./IncluSocial[NoTxt].svg")} className={classes.inSocLogo} />
+            <img src={require("../../assets/IncluSocial[Txt].svg")} className={classes.inSocLogo} />
           </Grid>
         </Hidden>
         <Hidden mdUp>
@@ -127,6 +134,11 @@ export default function NavBar() {
         </Hidden>
       </Toolbar>
     </AppBar>
-
+    <div>
+      { `Current width: ${props.width}` }
+    </div>
+    </>
   );
 }
+
+export default withWidth()(NavBar);
