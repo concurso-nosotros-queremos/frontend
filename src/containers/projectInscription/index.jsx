@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Formik, Form } from 'formik'
-import { Paper } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import ParticipantsWrapper from './forms/participantsWrapper'
 import LocationWrapper from './forms/locationWrapper'
@@ -30,8 +30,8 @@ export default class InscriptionWrapper extends Component {
 
   render () {
     return (
-      <Paper style={{ margin: '1em' }}>
-        <h1>Formulario de inscripcion</h1>
+      <Grid item xs={10} sm={8}>
+        <h1>Inscripción</h1>
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -42,6 +42,7 @@ export default class InscriptionWrapper extends Component {
         >
           {({ errors, touched, status }) => (
             <Form>
+              {console.log(status)}
               {[<ParticipantsWrapper errors={errors} status={status} touched={touched} />,
                 <LocationWrapper errors={errors} status={status} touched={touched} />,
                 <SchoolWrapper errors={errors} status={status} touched={touched} />,
@@ -62,7 +63,7 @@ export default class InscriptionWrapper extends Component {
             return { index: state.index + 1 }
           })
         }}>Siguiente</Button>
-      </Paper>
+      </Grid>
     )
   }
 }
