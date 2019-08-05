@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles/index'
+import {makeStyles} from '@material-ui/core/styles/index'
 import Paper from '@material-ui/core/Paper/index'
 import Typography from '@material-ui/core/Typography/index'
 import Link from '@material-ui/core/Link/index'
@@ -11,10 +11,10 @@ import GoogleFontLoader from 'react-google-font-loader'
 import Hidden from '@material-ui/core/Hidden'
 import GoogleLogin from '../../containers/googleLogin/index'
 import FacebookLogin from '../../containers/facebookLogin/index'
-import { ReactComponent as LogoMain } from '../../static/header.svg'
-import { ReactComponent as Logo1 } from '../../static/1.svg'
-import { ReactComponent as Logo2 } from '../../static/2.svg'
-import { ReactComponent as Logo3 } from '../../static/3.svg'
+import {ReactComponent as LogoMain} from '../../static/header.svg'
+import {ReactComponent as Logo1} from '../../static/1.svg'
+import {ReactComponent as Logo2} from '../../static/2.svg'
+import {ReactComponent as Logo3} from '../../static/3.svg'
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -66,9 +66,6 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
     margin: 'auto'
   },
-  seccion2: {
-    position: 'relative'
-  },
   seccion1: {
     position: 'relative',
     marginTop: theme.spacing(3),
@@ -84,12 +81,14 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Home () {
+export default function Home() {
   const classes = useStyles()
 
   return (
     <React.Fragment>
-      <Container maxWidth='xl' className={classes.container}>
+      {/* Este container es el padre de toda la pagina */}
+      <Container className={classes.container}>
+        {/* Importo las fuentes a utilizar */}
         <GoogleFontLoader
           fonts={[
             {
@@ -100,89 +99,136 @@ export default function Home () {
             }
           ]}
         />
-        {/* Medio */}
+        {/* Empieza la pagina */}
         <main>
-          <div className={classes.seccion1}>
-            <Grid container spacing={4}>
-              <Grid item xs={3}>
-                <Box className={classes.box}>
-                  <Box>
-                    <Typography className={classes.txt2}>
-                      Participa. <br />
-                      Impacta. <br />
-                      Gana.
-                    </Typography>
-                  </Box>
+          {/* Este hidden renderiza la pagina para pantallas chicas (moviles,tablets,etc */}
+          <Hidden smUp>
+            {/* Seccion1 idnica lo que se ve debajo de la navbar y se extiende hasta antes de los pasos de inscripcion */}
+            <div className={classes.seccion1}>
+              {/* La seccion1 son dos grillas, una de tamaño 3 y la otra 9 con una grilla contenedora y un espaciado de 4.
+               Adentro de cada grilla los elementos se dividen en box con sus respectivos estilos */}
+              <Grid container spacing={4}>
+                <Grid item xs={3}>
                   <Box className={classes.box}>
-                    <Typography className={classes.mainTxt}>
-                      Concurso anual de emprendimientos de alumn@s de los ultimos años de la secunadria
-                    </Typography>
+                    <Box>
+                      <Typography className={classes.txt2}>
+                        Participa. <br/>
+                        Impacta. <br/>
+                        Gana.
+                      </Typography>
+                    </Box>
+                    <Box className={classes.box}>
+                      <Typography className={classes.mainTxt}>
+                        Concurso anual de emprendimientos de alumn@s de los ultimos años de la secunadria
+                      </Typography>
+                    </Box>
+                    <Box className={classes.boxBtn}>
+                      <GoogleLogin/>
+                      <FacebookLogin/>
+                      <Typography variant='body2' color='textSecondary' align='center'>
+                        {'Ya tienes cuenta? '}
+                        <Link href='https://material-ui.com/'>
+                          Inicia Sesion
+                        </Link>
+                      </Typography>
+                    </Box>
                   </Box>
-                  <Box className={classes.boxBtn}>
-                    <GoogleLogin />
-                    <FacebookLogin />
-                    <Typography variant='body2' color='textSecondary' align='center'>
-                      {'Ya tienes cuenta? '}
-                      <Link href='https://material-ui.com/'>
-                        Inicia Sesion
-                      </Link>
-                    </Typography>
-                  </Box>
-                </Box>
+                </Grid>
+                <Grid item xs={9}>
+                  <LogoMain className={classes.logo2}/>
+                </Grid>
               </Grid>
-              <Grid item xs={9}>
-                <LogoMain className={classes.logo2} />
+            </div>
+            {/* Este grid da comienzo a la seccion2 que es acontinuacion de la 1. Incluye los pasos de inscripcion.
+            Esta seccion esta formada de tres grillas principales con un espaciado de 4 y cada grilla contiene tres subgrillas
+            con avatar(numero del paso), logo(foto) y texto */}
+            <Grid container spacing={4} direction={'column'} alignContent={'center'} alignItems={'center'}>
+              <Grid item xs={4}>
+                <Avatar className={classes.avatar}>1</Avatar>
+              </Grid>
+
+              <Grid item xs={4}>
+                <Logo1 className={classes.logo}/>
+              </Grid>
+
+              <Grid item xs={4}>
+                <Typography className={classes.txt}>
+                  Tu profe inscribe el grupo de alum@s
+                </Typography>
               </Grid>
             </Grid>
-          </div>
 
-          <Paper className={classes.seccion2}>
-            <Hidden smUp>
-              <Grid container spacing={4} direction={'column'} alignContent={'center'} alignItems={'center'}>
-                <Grid item xs={4}>
-                  <Avatar className={classes.avatar}>1</Avatar>
+            <Grid container spacing={4} direction={'column'} alignContent={'center'} alignItems={'center'}>
+              <Grid item xs={4}>
+                <Avatar className={classes.avatar}>2</Avatar>
+              </Grid>
+              <Grid item xs={4}>
+                <Logo2 className={classes.logo}/>
+              </Grid>
+              <Grid item xs={4}>
+                <Typography className={classes.txt}>
+                  La fundacion valida y contacta al grupo
+                </Typography>
+              </Grid>
+            </Grid>
+
+            <Grid container spacing={4} direction={'column'} alignContent={'center'} alignItems={'center'}>
+              <Grid item xs={4}>
+                <Avatar className={classes.avatar}>3</Avatar>
+              </Grid>
+              <Grid item xs={4}>
+                <Logo3 className={classes.logo}/>
+              </Grid>
+              <Grid item xs={4}>
+                <Typography className={classes.txt}>
+                  El grupo participa en el concurso por un premio de $15.000
+                </Typography>
+              </Grid>
+            </Grid>
+          </Hidden>
+
+          {/* Este hidden renderiza la pagina para pantallas normales y grandes (televisores, monitores, notebooks,etc */}
+          <Hidden xsDown>
+            {/* Seccion1 idnica lo que se ve debajo de la navbar y se extiende hasta antes de los pasos de inscripcion */}
+            <div className={classes.seccion1}>
+              {/* La seccion1 son dos grillas, una de tamaño 3 y la otra 9 con una grilla contenedora y un espaciado de 4.
+               Adentro de cada grilla los elementos se dividen en box con sus respectivos estilos */}
+              <Grid container spacing={4}>
+                <Grid item xs={3}>
+                  <Box className={classes.box}>
+                    <Box>
+                      <Typography className={classes.txt2}>
+                        Participa. <br/>
+                        Impacta. <br/>
+                        Gana.
+                      </Typography>
+                    </Box>
+                    <Box className={classes.box}>
+                      <Typography className={classes.mainTxt}>
+                        Concurso anual de emprendimientos de alumn@s de los ultimos años de la secunadria
+                      </Typography>
+                    </Box>
+                    <Box className={classes.boxBtn}>
+                      <GoogleLogin/>
+                      <FacebookLogin/>
+                      <Typography variant='body2' color='textSecondary' align='center'>
+                        {'Ya tienes cuenta? '}
+                        <Link href='https://material-ui.com/'>
+                          Inicia Sesion
+                        </Link>
+                      </Typography>
+                    </Box>
+                  </Box>
                 </Grid>
-                <Grid item xs={4}>
-                  <Logo1 className={classes.logo} />
-
-                </Grid>
-                <Grid item xs={4}>
-                  <Typography className={classes.txt}>
-                    Tu profe inscribe el grupo de alum@s
-                  </Typography>
-
+                <Grid item xs={9}>
+                  <LogoMain className={classes.logo2}/>
                 </Grid>
               </Grid>
-
-              <Grid container spacing={4} direction={'column'} alignContent={'center'} alignItems={'center'}>
-                <Grid item xs={4}>
-                  <Avatar className={classes.avatar}>2</Avatar>
-                </Grid>
-                <Grid item xs={4}>
-                  <Logo2 className={classes.logo} />
-                </Grid>
-                <Grid item xs={4}>
-                  <Typography className={classes.txt}>
-                    La fundacion valida y contacta al grupo
-                  </Typography>
-                </Grid>
-              </Grid>
-
-              <Grid container spacing={4} direction={'column'} alignContent={'center'} alignItems={'center'}>
-                <Grid item xs={4}>
-                  <Avatar className={classes.avatar}>3</Avatar>
-                </Grid>
-                <Grid item xs={4}>
-                  <Logo3 className={classes.logo} />
-                </Grid>
-                <Grid item xs={4}>
-                  <Typography className={classes.txt}>
-                    El grupo participa en el concurso por un premio de $15.000
-                  </Typography>
-                </Grid>
-              </Grid>
-            </Hidden>
-            <Hidden xsDown>
+            </div>
+            {/* Este paper da comienzo a la seccion2 que es acontinuacion de la 1. Incluye los pasos de inscripcion.
+             Esta seccion esta formada por tres grillas principales con tres subgrillas en donde la primera contiene los tres
+             avatares(numero de paso), la segunda contiene todos los logos(fotos) y la tercera conotiene todos los texto */}
+            <Paper>
               <Grid container spacing={4}>
                 <Grid item xs={4}>
                   <Avatar className={classes.avatar}>1</Avatar>
@@ -197,13 +243,13 @@ export default function Home () {
 
               <Grid container spacing={4}>
                 <Grid item xs={4}>
-                  <Logo1 className={classes.logo} />
+                  <Logo1 className={classes.logo}/>
                 </Grid>
                 <Grid item xs={4}>
-                  <Logo2 className={classes.logo} />
+                  <Logo2 className={classes.logo}/>
                 </Grid>
                 <Grid item xs={4}>
-                  <Logo3 className={classes.logo} />
+                  <Logo3 className={classes.logo}/>
                 </Grid>
               </Grid>
 
@@ -224,9 +270,8 @@ export default function Home () {
                   </Typography>
                 </Grid>
               </Grid>
-            </Hidden>
-          </Paper>
-
+            </Paper>
+          </Hidden>
         </main>
 
         {/* Footer */}
