@@ -1,5 +1,5 @@
 import React from 'react'
-import {makeStyles} from '@material-ui/core/styles/index'
+import { makeStyles } from '@material-ui/core/styles/index'
 import Paper from '@material-ui/core/Paper/index'
 import Typography from '@material-ui/core/Typography/index'
 import Link from '@material-ui/core/Link/index'
@@ -11,10 +11,10 @@ import GoogleFontLoader from 'react-google-font-loader'
 import Hidden from '@material-ui/core/Hidden'
 import GoogleLogin from '../../containers/googleLogin/index'
 import FacebookLogin from '../../containers/facebookLogin/index'
-import {ReactComponent as LogoMain} from '../../static/header.svg'
-import {ReactComponent as Logo1} from '../../static/1.svg'
-import {ReactComponent as Logo2} from '../../static/2.svg'
-import {ReactComponent as Logo3} from '../../static/3.svg'
+import { ReactComponent as LogoMain } from '../../static/header.svg'
+import { ReactComponent as Logo1 } from '../../static/1.svg'
+import { ReactComponent as Logo2 } from '../../static/2.svg'
+import { ReactComponent as Logo3 } from '../../static/3.svg'
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -81,7 +81,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Home() {
+export default function Home () {
   const classes = useStyles()
 
   return (
@@ -112,8 +112,8 @@ export default function Home() {
                   <Box className={classes.box}>
                     <Box>
                       <Typography className={classes.txt2}>
-                        Participa. <br/>
-                        Impacta. <br/>
+                        Participa. <br />
+                        Impacta. <br />
                         Gana.
                       </Typography>
                     </Box>
@@ -123,8 +123,8 @@ export default function Home() {
                       </Typography>
                     </Box>
                     <Box className={classes.boxBtn}>
-                      <GoogleLogin/>
-                      <FacebookLogin/>
+                      <GoogleLogin />
+                      <FacebookLogin />
                       <Typography variant='body2' color='textSecondary' align='center'>
                         {'Ya tienes cuenta? '}
                         <Link href='https://material-ui.com/'>
@@ -135,7 +135,7 @@ export default function Home() {
                   </Box>
                 </Grid>
                 <Grid item xs={9}>
-                  <LogoMain className={classes.logo2}/>
+                  <LogoMain className={classes.logo2} />
                 </Grid>
               </Grid>
             </div>
@@ -148,7 +148,7 @@ export default function Home() {
               </Grid>
 
               <Grid item xs={4}>
-                <Logo1 className={classes.logo}/>
+                <Logo1 className={classes.logo} />
               </Grid>
 
               <Grid item xs={4}>
@@ -163,7 +163,7 @@ export default function Home() {
                 <Avatar className={classes.avatar}>2</Avatar>
               </Grid>
               <Grid item xs={4}>
-                <Logo2 className={classes.logo}/>
+                <Logo2 className={classes.logo} />
               </Grid>
               <Grid item xs={4}>
                 <Typography className={classes.txt}>
@@ -177,7 +177,7 @@ export default function Home() {
                 <Avatar className={classes.avatar}>3</Avatar>
               </Grid>
               <Grid item xs={4}>
-                <Logo3 className={classes.logo}/>
+                <Logo3 className={classes.logo} />
               </Grid>
               <Grid item xs={4}>
                 <Typography className={classes.txt}>
@@ -198,8 +198,8 @@ export default function Home() {
                   <Box className={classes.box}>
                     <Box>
                       <Typography className={classes.txt2}>
-                        Participa. <br/>
-                        Impacta. <br/>
+                        Participa. <br />
+                        Impacta. <br />
                         Gana.
                       </Typography>
                     </Box>
@@ -209,8 +209,8 @@ export default function Home() {
                       </Typography>
                     </Box>
                     <Box className={classes.boxBtn}>
-                      <GoogleLogin/>
-                      <FacebookLogin/>
+                      <GoogleLogin />
+                      <FacebookLogin />
                       <Typography variant='body2' color='textSecondary' align='center'>
                         {'Ya tienes cuenta? '}
                         <Link href='https://material-ui.com/'>
@@ -221,7 +221,7 @@ export default function Home() {
                   </Box>
                 </Grid>
                 <Grid item xs={9}>
-                  <LogoMain className={classes.logo2}/>
+                  <LogoMain className={classes.logo2} />
                 </Grid>
               </Grid>
             </div>
@@ -243,13 +243,13 @@ export default function Home() {
 
               <Grid container spacing={4}>
                 <Grid item xs={4}>
-                  <Logo1 className={classes.logo}/>
+                  <Logo1 className={classes.logo} />
                 </Grid>
                 <Grid item xs={4}>
-                  <Logo2 className={classes.logo}/>
+                  <Logo2 className={classes.logo} />
                 </Grid>
                 <Grid item xs={4}>
-                  <Logo3 className={classes.logo}/>
+                  <Logo3 className={classes.logo} />
                 </Grid>
               </Grid>
 
