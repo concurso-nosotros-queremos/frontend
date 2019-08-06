@@ -20,6 +20,8 @@ export default class InscriptionWrapper extends Component {
   }
 
   submitHandler (form) {
+    console.log(JSON.stringify(form, null, 2))
+
     return fetchResource('rest/group/', {
       method: 'POST',
       body: {
@@ -42,14 +44,11 @@ export default class InscriptionWrapper extends Component {
         >
           {({ errors, touched, status }) => (
             <Form>
-              {console.log(status)}
-              {[<ParticipantsWrapper errors={errors} status={status} touched={touched} />,
-                <LocationWrapper errors={errors} status={status} touched={touched} />,
-                <SchoolWrapper errors={errors} status={status} touched={touched} />,
-                <ProjectWrapper errors={errors} status={status} touched={touched} />
-              ]}
+              <ParticipantsWrapper errors={errors} status={status} touched={touched} />
+              <LocationWrapper errors={errors} status={status} touched={touched} />
+              <SchoolWrapper errors={errors} status={status} touched={touched} />
+              <ProjectWrapper errors={errors} status={status} touched={touched} />
               <Button type='submit'>Submit</Button>
-              {console.log(status)}
             </Form>
           )}
         </Formik>

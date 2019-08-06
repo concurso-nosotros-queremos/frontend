@@ -45,8 +45,6 @@ class ParticipantsWrapper extends Component {
   }
 
   render () {
-    const { classes } = this.props
-
     return (
       <>
         <h2>Registro de participantes</h2>
@@ -56,6 +54,7 @@ class ParticipantsWrapper extends Component {
             <>
               {arrayHelpers.form.values.raw_participant.map((participant, index) => (
                 <ExpansionPanel
+                  key={index}
                   expanded={this.state.expandedIndex === index}
                 >
                   <ExpansionPanelSummary
