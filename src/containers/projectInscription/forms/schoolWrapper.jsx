@@ -18,7 +18,7 @@ export default class SchoolWrapper extends Component {
                 <TextField {...field}
                   fullWidth
                   variant='outlined'
-                  label='Nombre *'
+                  label='Nombre'
                   error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
                   helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
             />
@@ -30,7 +30,7 @@ export default class SchoolWrapper extends Component {
                 <TextField {...field}
                   fullWidth
                   variant='outlined'
-                  label='Direccion *'
+                  label='Direccion'
                   error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
                   helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
             />

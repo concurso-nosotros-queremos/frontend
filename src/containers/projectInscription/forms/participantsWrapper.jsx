@@ -70,7 +70,7 @@ class ParticipantsWrapper extends Component {
                           <FastField
                             name={`raw_participant.${index}.first_name`}
                             render={({ field }) => (
-                              <TextField fullWidth variant='outlined' {...field} label='Nombre *'
+                              <TextField fullWidth variant='outlined' {...field} label='Nombre'
                                 inputRef={index === arrayHelpers.form.values.raw_participant.length - 1 ? this.inputRef : null}
                                 error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
                                 helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
@@ -81,7 +81,7 @@ class ParticipantsWrapper extends Component {
                         <FastField
                           name={`raw_participant.${index}.last_name`}
                           render={({ field }) => (
-                            <TextField fullWidth variant='outlined' {...field} label='Apellido *'
+                            <TextField fullWidth variant='outlined' {...field} label='Apellido'
                               error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
                               helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
                         />
@@ -99,7 +99,7 @@ class ParticipantsWrapper extends Component {
                         <FastField
                           name={`raw_participant.${index}.grade_choices`}
                           render={({ field }) => (
-                            <TextField fullWidth variant='outlined' {...field} select label='Año *'
+                            <TextField fullWidth variant='outlined' {...field} select label='Año'
                               error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
                               helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
                             >
@@ -115,7 +115,7 @@ class ParticipantsWrapper extends Component {
                         <FastField
                           name={`raw_participant.${index}.divition_choices`}
                           render={({ field }) => (
-                            <TextField fullWidth variant='outlined' {...field} select label='Curso *'
+                            <TextField fullWidth variant='outlined' {...field} select label='Curso'
                               error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
                               helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
                             >
