@@ -3,7 +3,6 @@ import { Formik, Form } from 'formik'
 import { Grid } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import ParticipantsWrapper from './forms/participantsWrapper'
-import LocationWrapper from './forms/locationWrapper'
 import SchoolWrapper from './forms/schoolWrapper'
 import { validationSchema, initialValues } from './forms/schemas'
 import fetchResource from '../../api/apiHandler'
@@ -44,7 +43,6 @@ export default class InscriptionWrapper extends Component {
           {({ errors, touched, status, isValid, isSubmitting }) => (
             <Form>
               <ParticipantsWrapper errors={errors} status={status} touched={touched} />
-              <LocationWrapper errors={errors} status={status} touched={touched} />
               <SchoolWrapper errors={errors} status={status} touched={touched} />
               <ProjectWrapper errors={errors} status={status} touched={touched} />
               <Button type='submit' disabled={!isValid || isSubmitting}>Enviar</Button>
