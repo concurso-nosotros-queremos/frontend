@@ -32,7 +32,7 @@ export default class InscriptionWrapper extends Component {
 
   render () {
     return (
-      <Grid item xs={10} sm={8}>
+      <Grid item xs={10} sm={6}>
         <h1>Inscripción</h1>
         <Formik
           initialValues={initialValues}
