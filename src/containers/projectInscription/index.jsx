@@ -42,13 +42,15 @@ export default class InscriptionWrapper extends Component {
             this.submitHandler(validationSchema.cast(values)).then((response) => { console.log(response); this.setState({ isSubmitting: false }) }).catch((error) => { setStatus({ ...error.response }) })
           }}
         >
-          {({ errors, touched, status }) => (
+          {({ errors, touched, status, isValid, isSubmitting }) => (
             <Form>
               <ParticipantsWrapper errors={errors} status={status} touched={touched} />
               <LocationWrapper errors={errors} status={status} touched={touched} />
               <SchoolWrapper errors={errors} status={status} touched={touched} />
               <ProjectWrapper errors={errors} status={status} touched={touched} />
-              <Button type='submit'>Submit</Button>
+              {console.log(isValid)}
+              {console.log(isSubmitting)}
+              <Button disabled={!isValid || isSubmitting}>Enviar</Button>
             </Form>
           )}
         </Formik>
