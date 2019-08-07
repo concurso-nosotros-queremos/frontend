@@ -14,8 +14,7 @@ export default class InscriptionWrapper extends Component {
     super(props)
 
     this.state = {
-      index: 0,
-      isSubmitting: false
+      index: 0
     }
   }
 
@@ -37,9 +36,9 @@ export default class InscriptionWrapper extends Component {
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={(values, { setStatus }) => {
-            this.setState({ isSubmitting: true })
-            this.submitHandler(validationSchema.cast(values)).then((response) => { console.log(response); this.setState({ isSubmitting: false }) }).catch((error) => { setStatus({ ...error.response }) })
+          onSubmit={(values, { setStatus, setSubmitting }) => {
+            console.log(JSON.stringify(values, 0, null))
+            this.submitHandler(validationSchema.cast(values)).then((response) => { console.log(response) }).catch((error) => { setStatus({ ...error.response }); setSubmitting(false) })
           }}
         >
           {({ errors, touched, status, isValid, isSubmitting }) => (
@@ -48,9 +47,7 @@ export default class InscriptionWrapper extends Component {
               <LocationWrapper errors={errors} status={status} touched={touched} />
               <SchoolWrapper errors={errors} status={status} touched={touched} />
               <ProjectWrapper errors={errors} status={status} touched={touched} />
-              {console.log(isValid)}
-              {console.log(isSubmitting)}
-              <Button disabled={!isValid || isSubmitting}>Enviar</Button>
+              <Button type='submit' disabled={!isValid || isSubmitting}>Enviar</Button>
             </Form>
           )}
         </Formik>
