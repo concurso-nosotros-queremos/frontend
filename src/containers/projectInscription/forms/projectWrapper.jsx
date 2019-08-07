@@ -8,7 +8,7 @@ import { Grid } from '@material-ui/core'
 export default class ProjectWrapper extends Component {
   render () {
     return (
-      <div>
+      <>
         <h2>Nombre del grupo</h2>
         <Grid container spacing={2}>
           <Grid item xs={12}>
@@ -86,7 +86,7 @@ export default class ProjectWrapper extends Component {
             />
           </Grid>
         </Grid>
-      </div>
+      </>
     )
   }
 }
