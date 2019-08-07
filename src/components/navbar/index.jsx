@@ -16,33 +16,27 @@ import CloseIcon from '@material-ui/icons/Close';
 const useStyles = makeStyles(theme => ({
   appBar: {
     position: "relative",
-    backgroundColor: "rgba(125,125,125,255)",
+    backgroundColor: "rgba(125,125,125,0)",
     boxShadow: "none",
     marginBottom: "2rem",
     marginTop: "1rem",
     [theme.breakpoints.down('sm')]: {
       marginTop: "0rem",
-      paddingLeft: "0rem !important", 
+      paddingLeft: "0rem !important",
       paddingRight: "0rem !important",
     },
     [theme.breakpoints.only('md')]: {
-      paddingLeft: "2rem !important", 
+      paddingLeft: "2rem !important",
       paddingRight: "2rem !important",
     },
     [theme.breakpoints.only('lg')]: {
-      paddingLeft: "5rem", 
+      paddingLeft: "5rem",
       paddingRight: "5rem",
     },
     [theme.breakpoints.only('xl')]: {
-      paddingLeft: "20rem", 
-      paddingRight: "20rem",
+      paddingLeft: "0rem",
+      paddingRight: "0rem",
     },
-  },
-  loginButton: {
-    borderRadius: "25px",
-    color: "#4A6572",
-    border: "2px solid #f9aa33",
-    textTransform: "none",
   },
   appBarButton: {
     '&:hover': {
@@ -52,6 +46,17 @@ const useStyles = makeStyles(theme => ({
     textTransform: "none",
     marginRight: "1rem",
     marginLeft: "1rem",
+  },
+  appBarButtom__active :{
+  "&::after": {
+      content: `''`,
+      width: '45px',
+      height: '4px',
+      position: 'absolute',
+      backgroundColor: '#0b7163',
+      borderRadius: 'inherit',
+      marginTop: '1rem'
+    },
   },
   modalButton: {
     '&:hover': {
@@ -67,16 +72,12 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "center",
     zIndex: 1
   },
-  inSocLogo: {
-    width: "12rem",
-  },
   cnq: {
     width: "auto",
     height: "5rem"
   },
   closeButton: {
     position: "absolute",
-    backgroundColor: "green",
     [theme.breakpoints.only('xs')]: {
       margin: ".25rem"
     },
@@ -100,53 +101,50 @@ function NavBar(props) {
 
   return (
     <>
-    <AppBar className={classes.appBar}>
-      <Toolbar disableGutters>
-        <Hidden smDown>
-          <Grid container>
-            <img alt="Concurso Nosotros Queremos" src="https://sanmartinadiario.com.ar/fotos/4262_5681.jpg" className={classes.cnq} />
-            <Button disableRipple className={classes.appBarButton}>Acerca</Button>
-            <Button disableRipple className={classes.appBarButton}>Noticias</Button>
-            <Button disableRipple className={classes.appBarButton}>Proyectos</Button>
-            <Button disableRipple className={classes.appBarButton}>Contactos</Button>
-          </Grid>
-          <Grid item style={{ textAlign: "right" }}>
-            <img src={require("../../assets/IncluSocial[Txt].svg")} className={classes.inSocLogo} />
-          </Grid>
-        </Hidden>
-        <Hidden mdUp>
-          <IconButton style={{ marginLeft:".2rem", backgroundColor: "red" }} disableRipple edge="start" color="default" aria-label="menu" onClick={handleOpen}>
-            <MenuIcon />
-          </IconButton>
-          <Modal
-            open={open}
-            onClose={handleClose}>
-            <Fade in={open}>
-              <Paper className={classes.modal}>
-                <Grid container style={{ height: "100%" }}>
-                  <Grid className={classes.closeIconStyle} justify="center" alignItems="center">
-                    <IconButton disableRipple color="inherit" aria-label="close" onClick={handleClose}  className={classes.closeButton}>
-                      <CloseIcon />
-                    </IconButton>
+      <AppBar className={classes.appBar}>
+        <Toolbar disableGutters>
+          <Hidden smDown>
+            <Grid container>
+              <img alt="Concurso Nosotros Queremos" src="https://sanmartinadiario.com.ar/fotos/4262_5681.jpg" className={classes.cnq} />
+              <Button disableRipple className={classes.appBarButton}>Acerca</Button>
+              <Button disableRipple className={classes.appBarButton}>Noticias</Button>
+              <Button disableRipple className={classes.appBarButton}>Proyectos</Button>
+              <Button disableRipple className={classes.appBarButton}>Contactos</Button>
+            </Grid>
+            <Grid item style={{ textAlign: "right" }}>
+              <img src={require("../../assets/IncluSocial[Txt].svg")} style={{width: "12rem"}} />
+            </Grid>
+          </Hidden>
+          <Hidden mdUp>
+            <IconButton style={{ marginLeft: ".2rem" }} disableRipple edge="start" color="default" aria-label="menu" onClick={handleOpen}>
+              <MenuIcon />
+            </IconButton>
+            <Modal
+              open={open}
+              onClose={handleClose}>
+              <Fade in={open}>
+                <Paper className={classes.modal}>
+                  <Grid container style={{ height: "100%" }}>
+                    <Grid className={classes.closeIconStyle} justify="center" alignItems="center">
+                      <IconButton disableRipple color="inherit" aria-label="close" onClick={handleClose} className={classes.closeButton}>
+                        <CloseIcon />
+                      </IconButton>
+                    </Grid>
+                    <Grid container direction="column" justify="center" alignItems="center">
+                      <Button disableRipple className={classes.modalButton}>Acerca</Button>
+                      <Button disableRipple className={classes.modalButton}>Noticias</Button>
+                      <Button disableRipple className={classes.modalButton}>Proyectos</Button>
+                      <Button disableRipple className={classes.modalButton}>Contactos</Button>
+                      <Button className={classes.loginButton} disableRipple size="small"
+                        variant="outlined">Iniciar Sesión</Button>
+                    </Grid>
                   </Grid>
-                  <Grid container direction="column" justify="center" alignItems="center">
-                    <Button disableRipple className={classes.modalButton}>Acerca</Button>
-                    <Button disableRipple className={classes.modalButton}>Noticias</Button>
-                    <Button disableRipple className={classes.modalButton}>Proyectos</Button>
-                    <Button disableRipple className={classes.modalButton}>Contactos</Button>
-                    <Button className={classes.loginButton} disableRipple size="small"
-                      variant="outlined">Iniciar Sesión</Button>
-                  </Grid>
-                </Grid>
-              </Paper>
-            </Fade>
-          </Modal>
-        </Hidden>
-      </Toolbar>
-    </AppBar>
-    <div>
-      { `Current width: ${props.width}` }
-    </div>
+                </Paper>
+              </Fade>
+            </Modal>
+          </Hidden>
+        </Toolbar>
+      </AppBar>
     </>
   );
 }
