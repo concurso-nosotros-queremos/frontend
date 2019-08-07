@@ -86,7 +86,7 @@ class ParticipantsWrapper extends Component {
                               helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
                         />
                       </Grid>
-                      <Grid item xs={12} sm={4}>
+                      <Grid item xs={12} sm={6}>
                         <FastField
                           name={`raw_participant.${index}.dni`}
                           render={({ field }) => (
@@ -95,11 +95,11 @@ class ParticipantsWrapper extends Component {
                               helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
                         />
                       </Grid>
-                      <Grid item xs={6} sm={4}>
+                      <Grid item xs={6} sm={6}>
                         <FastField
                           name={`raw_participant.${index}.grade_choices`}
                           render={({ field }) => (
-                            <TextField fullWidth variant='outlined' {...field} select label='Año'
+                            <TextField fullWidth variant='outlined' {...field} select label='Año de cursado'
                               error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
                               helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
                             >
@@ -107,21 +107,6 @@ class ParticipantsWrapper extends Component {
                               <MenuItem value='2'>6to</MenuItem>
                               <MenuItem value='1'>5to</MenuItem>
                               <MenuItem value='0'>4to</MenuItem>
-                            </TextField>
-                          )}
-                        />
-                      </Grid>
-                      <Grid item xs={6} sm={4}>
-                        <FastField
-                          name={`raw_participant.${index}.divition_choices`}
-                          render={({ field }) => (
-                            <TextField fullWidth variant='outlined' {...field} select label='Curso'
-                              error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                              helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
-                            >
-                              <MenuItem value='2'>"C"</MenuItem>
-                              <MenuItem value='1'>"B"</MenuItem>
-                              <MenuItem value='0'>"A"</MenuItem>
                             </TextField>
                           )}
                         />
