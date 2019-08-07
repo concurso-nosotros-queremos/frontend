@@ -65,7 +65,7 @@ class ParticipantsWrapper extends Component {
                   </ExpansionPanelSummary>
                   <ExpansionPanelDetails>
                     <Grid container spacing={2}>
-                      <Grid item xs={12}>
+                      <Grid item xs={12} sm={6}>
                         <Box width={1}>
                           <FastField
                             name={`raw_participant.${index}.first_name`}
@@ -77,7 +77,7 @@ class ParticipantsWrapper extends Component {
                           />
                         </Box>
                       </Grid>
-                      <Grid item xs={12}>
+                      <Grid item xs={12} sm={6}>
                         <FastField
                           name={`raw_participant.${index}.last_name`}
                           render={({ field }) => (
@@ -86,7 +86,7 @@ class ParticipantsWrapper extends Component {
                               helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
                         />
                       </Grid>
-                      <Grid item xs={12}>
+                      <Grid item xs={12} sm={4}>
                         <FastField
                           name={`raw_participant.${index}.dni`}
                           render={({ field }) => (
@@ -95,7 +95,7 @@ class ParticipantsWrapper extends Component {
                               helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
                         />
                       </Grid>
-                      <Grid item xs={6}>
+                      <Grid item xs={6} sm={4}>
                         <FastField
                           name={`raw_participant.${index}.grade_choices`}
                           render={({ field }) => (
@@ -111,7 +111,7 @@ class ParticipantsWrapper extends Component {
                           )}
                         />
                       </Grid>
-                      <Grid item xs={6}>
+                      <Grid item xs={6} sm={4}>
                         <FastField
                           name={`raw_participant.${index}.divition_choices`}
                           render={({ field }) => (
