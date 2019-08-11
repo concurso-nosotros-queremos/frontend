@@ -1,29 +1,26 @@
 import React, { Component } from 'react'
 import GoogleLoginContainer from '../../containers/googleLogin'
 import FacebookLoginContainer from '../../containers/facebookLogin'
-import InscriptionWrapper from '../../containers/projectInscription'
 import { Grid } from '@material-ui/core';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import { width } from '@material-ui/system';
 
 const useStyles = ({
-  root: {
-    backgroundColor: "red",
-  }
 });
 
 class Index extends Component {
   render() {
-    const { classes } = this.props;
+
     return (
-      <div>
-        <Grid container direction="column" justify="center" alignItems="center" className={classes.root}>
-          <Grid item style={{width:"280px"}}>
+      <>
+        <Grid container spacing={1} direction="column" justify="center" alignItems="center" style={{ width: "280px" }} >
+          <Grid item style={{ width: "inherit" }}>
             <FacebookLoginContainer />
+          </Grid>
+          <Grid item style={{ width: "inherit" }}>
             <GoogleLoginContainer />
           </Grid>
         </Grid >
-      </div>
+      </>
     )
   }
 }
