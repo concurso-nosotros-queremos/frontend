@@ -135,8 +135,6 @@ function NavBar(props) {
                       <Button disableRipple className={classes.modalButton}>Noticias</Button>
                       <Button disableRipple className={classes.modalButton}>Proyectos</Button>
                       <Button disableRipple className={classes.modalButton}>Contactos</Button>
-                      <Button className={classes.loginButton} disableRipple size="small"
-                        variant="outlined">Iniciar Sesión</Button>
                     </Grid>
                   </Grid>
                 </Paper>
