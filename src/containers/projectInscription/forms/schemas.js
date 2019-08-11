@@ -1,45 +1,40 @@
 import * as Yup from 'yup'
 
-export const participantsSchema = Yup.array().of(
+const participantsSchema = Yup.array().of(
   Yup.object().shape({
     first_name: Yup.string().required('Nombre es un campo obligatorio'),
     last_name: Yup.string().required('Apeliido es un campo obligatorio'),
     dni: Yup.string(),
-    email: Yup.string().email(),
-    phone_number: Yup.string(),
-    grade_choices: Yup.number('Seleccione un año correcto').typeError('Seleccione un curso correcto').required('Año es un campo obligatorio'),
-    divition_choices: Yup.number().typeError('Seleccione un curso correcto').required('Curso es un campo obligatorio')
+    grade_choices: Yup.number('Seleccione un año correcto').typeError('Seleccione un curso correcto').required('Año es un campo obligatorio')
   }).noUnknown()
 ).min(1, 'Debe agregar al menos 1 participante')
 
-export const locationSchema = Yup.object().shape({
+const schoolSchema = Yup.object().shape({
+  name: Yup.string().required('Nombre es un campo obligatorio'),
   street_name: Yup.string().required('Calle es un campo obligatorio'),
   street_number: Yup.number().integer().typeError('Introduzca un numero de calle valido').required('Numero de calle es un campo obligatorio'),
-  zip_code: Yup.number().integer().typeError('Introduzca un codigo postal valido'),
-  city: Yup.number().integer().typeError('Introduzca una ciudad valida').required('Ciudad es un campo obligatorio')
-})
-
-export const schoolSchema = Yup.object().shape({
-  name: Yup.string().required('Nombre es un campo obligatorio'),
-  address: Yup.string().required('Direccion es un campo obligatorio'),
-  principal_name: Yup.string().required('Nombre del director/a es un campo obligatorio'),
-  school_types: Yup.number().integer().typeError('Introduzca un tipo de escuela valido').required('Tipo de escuela es un campo obligatorio'),
-  com_preference: Yup.number().integer().typeError('Introduzca un tipo de comunicacion valido').required('Preferencia de comunicacion es un campo obligatorio')
+  city: Yup.number().integer().typeError('Introduzca una ciudad valida').required('Ciudad es un campo obligatorio'),
+  school_types: Yup.number().integer().typeError('Introduzca un tipo de escuela valido').required('Tipo de escuela es un campo obligatorio')
 }).noUnknown()
 
-export const projectSchema = Yup.object().shape({
+const projectSchema = Yup.object().shape({
   name: Yup.string().required('Nombre es un campo obligatorio'),
   problem: Yup.string().required('Problema es un campo obligatorio'),
   solution: Yup.string().required('Solucion es un campo obligatorio'),
   diffusion: Yup.number().integer().typeError('Introduzca una difusion valida').required('Difusion es un campo obligatorio')
 }).noUnknown()
 
+const contactSchema = Yup.object().shape({
+  phone_number: Yup.string(),
+  alternative_email: Yup.string(),
+  alternative_phone_number: Yup.string()
+}).noUnknown()
+
 export const validationSchema = Yup.object().shape({
   raw_participant: participantsSchema,
-  group_location: locationSchema,
   raw_school: schoolSchema,
   raw_project: projectSchema,
-  name: Yup.string()
+  raw_contact: contactSchema
 }).noUnknown()
 
 export const initialValues = {
@@ -47,21 +42,14 @@ export const initialValues = {
     first_name: '',
     last_name: '',
     dni: '',
-    grade_choices: '',
-    divition_choices: ''
+    grade_choices: ''
   }],
-  group_location: {
-    street_name: '',
-    street_number: '',
-    zip_code: '',
-    city: ''
-  },
   raw_school: {
     name: '',
-    address: '',
-    principal_name: '',
-    school_types: '',
-    com_preference: ''
+    street_name: '',
+    street_number: '',
+    city: '',
+    school_types: ''
   },
   raw_project: {
     name: '',
@@ -69,7 +57,11 @@ export const initialValues = {
     solution: '',
     diffusion: ''
   },
-  name: ''
+  raw_contact: {
+    phone_number: '',
+    alternative_email: '',
+    alternative_phone_number: ''
+  }
 }
 
 export const helpers = {
@@ -99,5 +91,9 @@ export const helpers = {
     solution: '¿Como piensan solucionarlo?',
     diffusion: 'Seleccione como se entero del concurso de la lista'
   },
-  name: 'Nombre del grupo de alumnos/equipo de trabajo'
+  raw_contact: {
+    phone_number: '',
+    alternative_email: '',
+    alternative_phone_number: ''
+  }
 }

@@ -9,21 +9,6 @@ export default class ProjectWrapper extends Component {
   render () {
     return (
       <>
-        <h2>Nombre del grupo</h2>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <FastField
-              name='name'
-              render={({ field }) => (
-                <TextField {...field}
-                  fullWidth
-                  variant='outlined'
-                  label='Nombre del grupo'
-                  error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
-            />
-          </Grid>
-        </Grid>
         <Grid container spacing={2}>
           <h2>Idea emprendedora</h2>
           <Grid item xs={12}>

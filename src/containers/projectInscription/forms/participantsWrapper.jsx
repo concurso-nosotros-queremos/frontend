@@ -7,6 +7,13 @@ import MenuItem from '@material-ui/core/MenuItem'
 import AddOutlined from '@material-ui/icons/AddOutlined'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import { hasError, errorMessageBuilder } from './utils'
+import { withStyles } from '@material-ui/styles'
+
+const useStyles = theme => ({
+  panelError: {
+    backgroundColor: theme.palette.error.main
+  }
+})
 
 class ParticipantsWrapper extends Component {
   constructor (props) {
@@ -45,6 +52,8 @@ class ParticipantsWrapper extends Component {
   }
 
   render () {
+    const { classes } = this.props
+
     return (
       <>
         <h2>Registro de participantes</h2>
@@ -52,12 +61,14 @@ class ParticipantsWrapper extends Component {
           name='raw_participant'
           render={(arrayHelpers) => (
             <>
+              {console.log(this.props.errors)}
               {arrayHelpers.form.values.raw_participant.map((participant, index) => (
                 <ExpansionPanel
                   key={index}
                   expanded={this.state.expandedIndex === index}
                 >
                   <ExpansionPanelSummary
+                    className={hasError(this.props.errors, this.props.status, this.props.touched, `raw_participant.${index}`) ? classes.panelError : null}
                     expandIcon={<ExpandMoreIcon color='primary' />}
                     onClick={() => { this.setState({ expandedIndex: this.state.expandedIndex === index ? null : index }) }}
                   >
@@ -95,7 +106,7 @@ class ParticipantsWrapper extends Component {
                               helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
                         />
                       </Grid>
-                      <Grid item xs={6} sm={6}>
+                      <Grid item xs={12} sm={6}>
                         <FastField
                           name={`raw_participant.${index}.grade_choices`}
                           render={({ field }) => (
@@ -111,14 +122,15 @@ class ParticipantsWrapper extends Component {
                           )}
                         />
                       </Grid>
-                      <Grid item xs={12}>
+                      <Grid item xs={12} >
                         <Button fullWidth onClick={() => { arrayHelpers.remove(index) }}>Borrar</Button>
                       </Grid>
                     </Grid>
                   </ExpansionPanelDetails>
                 </ExpansionPanel>
               ))}
-              <Button fullWidth variant='contained' color='secondary' onClick={() => this.addParticipant(arrayHelpers)}><AddOutlined /></Button>
+              {console.log(getIn(this.props.errors, `raw_participant.${arrayHelpers.form.values.raw_participant.length - 1}`))}
+              <Button fullWidth disabled={hasError(this.props.errors, this.props.status, this.props.touched, `raw_participant.${arrayHelpers.form.values.raw_participant.length - 1}`)} variant='contained' color='secondary' onClick={() => this.addParticipant(arrayHelpers)}><AddOutlined /></Button>
             </>
           )}
         />
@@ -127,4 +139,4 @@ class ParticipantsWrapper extends Component {
   }
 }
 
-export default ParticipantsWrapper
+export default withStyles(useStyles)(ParticipantsWrapper)
