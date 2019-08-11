@@ -5,7 +5,7 @@ let theme = createMuiTheme({
     type: 'light',
     primary: {
       main: '#0B7163',
-      light: '#0B7163',
+      light: '#0B7163'
     },
     secondary: {
       main: '#D37E01',
@@ -13,14 +13,14 @@ let theme = createMuiTheme({
 
     },
     error: {
-      main: "#ff1744",
+      main: '#ff1744'
     },
     text: {
-      primary: "rgba(0, 0, 0, 0.85)", //Contenido de Textfield 
-      secondary: "rgba(0, 0, 0, 0.54)", //Texto de ayuda, se elimina luego de escribir o con error
-      disabled: "rgba(0, 0, 0, 0.38)",
-      hint: "rgba(0, 0, 0, 0.38)",
-    },
+      primary: 'rgba(0, 0, 0, 0.85)', // Contenido de Textfield
+      secondary: 'rgba(0, 0, 0, 0.54)', // Texto de ayuda, se elimina luego de escribir o con error
+      disabled: 'rgba(0, 0, 0, 0.38)',
+      hint: 'rgba(0, 0, 0, 0.38)'
+    }
   },
   typography: {
     htmlFontSize: 16,
@@ -120,10 +120,9 @@ let theme = createMuiTheme({
     }
   },
   spacing: 8,
-  overrides: {},
+  overrides: {}
 })
 
 theme = responsiveFontSizes(theme)
 
 export default theme
-
