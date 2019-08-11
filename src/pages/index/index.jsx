@@ -1,8 +1,17 @@
 import React from 'react'
-import NavBar from '../../components/navbar/index'
+import NavBar from '../../components/navbar'
+import Home from '../../components/home'
+import InscriptionWrapper from '../../containers/projectInscription'
+import { Grid } from '@material-ui/core';
 
 export default function Index () {
   return (
-    <NavBar />
+    <>
+      <NavBar />
+      <Home />
+      <Grid container justify='center'>
+        <InscriptionWrapper />
+      </Grid>
+    </>
   )
 }
