@@ -1,11 +1,20 @@
-import React from 'react';
+import React from 'react'
+import { Provider } from 'react-redux'
+import { buildStore } from './state/store'
+import Index from './pages/index'
+import { ThemeProvider } from '@material-ui/styles'
+import theme from './theme/theme'
 
-function App() {
+const store = buildStore()
+
+function App () {
   return (
-    <div className="App">
-      <h1>CNQ 2019!</h1>
-    </div>
-  );
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <Index />
+      </ThemeProvider>
+    </Provider>
+  )
 }
 
-export default App;
+export default App
