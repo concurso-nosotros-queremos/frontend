@@ -9,7 +9,7 @@ export async function convertToken (token) {
     token: token
   }
 
-  let response = await window.fetch('http://localhost:8000/auth/convert-token', {
+  let response = await window.fetch(process.env.REACT_APP_API_URL + '/auth/convert-token', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

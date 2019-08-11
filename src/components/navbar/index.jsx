@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   appBar: {
     position: "relative",
     backgroundColor: "rgba(125,125,125,0)",
-    boxShadow: "none",
+    boxShadow: "none !important",
     marginBottom: "2rem",
     marginTop: "1rem",
     [theme.breakpoints.down('sm')]: {
