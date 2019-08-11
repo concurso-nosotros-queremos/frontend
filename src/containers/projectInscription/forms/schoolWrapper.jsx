@@ -47,6 +47,18 @@ export default class SchoolWrapper extends Component {
                   helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
             />
           </Grid>
+          <Grid item xs={12} sm={4}>
+            <FastField
+              name='raw_school.city'
+              render={({ field }) => (
+                <TextField {...field}
+                  fullWidth
+                  variant='outlined'
+                  label='Ciudad'
+                  error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
+                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
+            />
+          </Grid>
           <Grid item xs={12}>
             <FastField
               name='raw_school.school_types'
