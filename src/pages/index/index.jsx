@@ -6,3 +6,5 @@ export default function Index() {
       <NavBar />
   )
 }
+
+export default (withStyles(useStyles)(Index))
