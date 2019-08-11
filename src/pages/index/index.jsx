@@ -1,10 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import NavBar from '../../components/navbar/index'
 
-export default function Index() {
+export default function Index () {
   return (
-      <NavBar />
+    <NavBar />
   )
 }
-
-export default (withStyles(useStyles)(Index))

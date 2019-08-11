@@ -1,25 +1,26 @@
 import React, { Component } from 'react'
 import { Formik, Form } from 'formik'
-import { Paper } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import ParticipantsWrapper from './forms/participantsWrapper'
-import LocationWrapper from './forms/locationWrapper'
 import SchoolWrapper from './forms/schoolWrapper'
 import { validationSchema, initialValues } from './forms/schemas'
 import fetchResource from '../../api/apiHandler'
 import ProjectWrapper from './forms/projectWrapper'
+import ContactWrapper from './forms/contactWrapper'
 
 export default class InscriptionWrapper extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      index: 0,
-      isSubmitting: false
+      index: 0
     }
   }
 
   submitHandler (form) {
+    console.log(JSON.stringify(form, null, 2))
+
     return fetchResource('rest/group/', {
       method: 'POST',
       body: {
@@ -30,25 +31,23 @@ export default class InscriptionWrapper extends Component {
 
   render () {
     return (
-      <Paper style={{ margin: '1em' }}>
-        <h1>Formulario de inscripcion</h1>
+      <Grid item xs={10} sm={6}>
+        <h1>Inscripción</h1>
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={(values, { setStatus }) => {
-            this.setState({ isSubmitting: true })
-            this.submitHandler(validationSchema.cast(values)).then((response) => { console.log(response); this.setState({ isSubmitting: false }) }).catch((error) => { setStatus({ ...error.response }) })
+          onSubmit={(values, { setStatus, setSubmitting }) => {
+            console.log(JSON.stringify(values, 0, null))
+            this.submitHandler(validationSchema.cast(values)).then((response) => { console.log(response) }).catch((error) => { setStatus({ ...error.response }); setSubmitting(false) })
           }}
         >
-          {({ errors, touched, status }) => (
+          {({ errors, touched, status, isValid, isSubmitting }) => (
             <Form>
-              {[<ParticipantsWrapper errors={errors} status={status} touched={touched} />,
-                <LocationWrapper errors={errors} status={status} touched={touched} />,
-                <SchoolWrapper errors={errors} status={status} touched={touched} />,
-                <ProjectWrapper errors={errors} status={status} touched={touched} />
-              ]}
-              <Button type='submit'>Submit</Button>
-              {console.log(status)}
+              <ParticipantsWrapper errors={errors} status={status} touched={touched} />
+              <SchoolWrapper errors={errors} status={status} touched={touched} />
+              <ProjectWrapper errors={errors} status={status} touched={touched} />
+              <ContactWrapper errors={errors} status={status} touched={touched} />
+              <Button type='submit' disabled={!isValid || isSubmitting}>Enviar</Button>
             </Form>
           )}
         </Formik>
@@ -62,7 +61,7 @@ export default class InscriptionWrapper extends Component {
             return { index: state.index + 1 }
           })
         }}>Siguiente</Button>
-      </Paper>
+      </Grid>
     )
   }
 }
