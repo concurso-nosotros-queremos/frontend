@@ -7,6 +7,7 @@ import SchoolWrapper from './forms/schoolWrapper'
 import { validationSchema, initialValues } from './forms/schemas'
 import fetchResource from '../../api/apiHandler'
 import ProjectWrapper from './forms/projectWrapper'
+import ContactWrapper from './forms/contactWrapper'
 
 export default class InscriptionWrapper extends Component {
   constructor (props) {
@@ -45,6 +46,7 @@ export default class InscriptionWrapper extends Component {
               <ParticipantsWrapper errors={errors} status={status} touched={touched} />
               <SchoolWrapper errors={errors} status={status} touched={touched} />
               <ProjectWrapper errors={errors} status={status} touched={touched} />
+              <ContactWrapper errors={errors} status={status} touched={touched} />
               <Button type='submit' disabled={!isValid || isSubmitting}>Enviar</Button>
             </Form>
           )}
