@@ -1,16 +1,8 @@
 import React, { Component } from 'react'
-import GoogleLoginContainer from '../../containers/googleLogin'
-import FacebookLoginContainer from '../../containers/facebookLogin'
-import InscriptionWrapper from '../../containers/projectInscription'
+import NavBar from '../../components/navbar/index'
 
-export default class Index extends Component {
-  render () {
-    return (
-      <div>
-        <GoogleLoginContainer />
-        <FacebookLoginContainer />
-        <InscriptionWrapper />
-      </div>
-    )
-  }
+export default function Index() {
+  return (
+      <NavBar />
+  )
 }
