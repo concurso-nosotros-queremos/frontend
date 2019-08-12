@@ -112,7 +112,7 @@ function NavBar (props) {
               <Button disableRipple className={classes.appBarButton}>Contactos</Button>
             </Grid>
             <Grid item style={{ textAlign: 'right' }}>
-              <img src={require('../../assets/IncluSocial[Txt].svg')} style={{ width: '12rem' }} />
+              <img src={require('../../assets/IncluSocial[Txt].svg')} style={{ width: '12rem' }} alt='' />
             </Grid>
           </Hidden>
           <Hidden mdUp>
@@ -125,7 +125,7 @@ function NavBar (props) {
               <Fade in={open}>
                 <Paper className={classes.modal}>
                   <Grid container style={{ height: '100%' }}>
-                    <Grid className={classes.closeIconStyle} justify='center' alignItems='center'>
+                    <Grid className={classes.closeIconStyle}>
                       <IconButton disableRipple color='inherit' aria-label='close' onClick={handleClose} className={classes.closeButton}>
                         <CloseIcon />
                       </IconButton>

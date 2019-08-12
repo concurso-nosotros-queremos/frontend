@@ -204,7 +204,7 @@ export default function Home () {
               <Grid item xs={4}>
                 <Avatar className={classes.avatar}>3</Avatar>
               </Grid>
-              <Grid item xs={10} alignContent={'center'} alignItems={'center'}>
+              <Grid item xs={10}>
                 <Logo3 className={classes.logoMobile} />
               </Grid>
               <Grid item xs={12}>

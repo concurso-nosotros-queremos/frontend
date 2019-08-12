@@ -37,7 +37,6 @@ export default class InscriptionWrapper extends Component {
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={(values, { setStatus, setSubmitting }) => {
-            console.log(JSON.stringify(values, 0, null))
             this.submitHandler(validationSchema.cast(values)).then((response) => { console.log(response) }).catch((error) => { setStatus({ ...error.response }); setSubmitting(false) })
           }}
         >

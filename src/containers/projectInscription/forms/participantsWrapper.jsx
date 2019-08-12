@@ -61,7 +61,6 @@ class ParticipantsWrapper extends Component {
           name='raw_participant'
           render={(arrayHelpers) => (
             <>
-              {console.log(this.props.errors)}
               {arrayHelpers.form.values.raw_participant.map((participant, index) => (
                 <ExpansionPanel
                   key={index}
@@ -129,7 +128,6 @@ class ParticipantsWrapper extends Component {
                   </ExpansionPanelDetails>
                 </ExpansionPanel>
               ))}
-              {console.log(getIn(this.props.errors, `raw_participant.${arrayHelpers.form.values.raw_participant.length - 1}`))}
               <Button fullWidth disabled={hasError(this.props.errors, this.props.status, this.props.touched, `raw_participant.${arrayHelpers.form.values.raw_participant.length - 1}`)} variant='contained' color='secondary' onClick={() => this.addParticipant(arrayHelpers)}><AddOutlined /></Button>
             </>
           )}
