@@ -1,30 +1,27 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { GoogleLogin } from 'react-google-login'
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles'
 import { googleLoginRequest, googleLoginSuccess, googleLoginError } from '../../state/googleLogin/actions'
-import { Button, Box } from '@material-ui/core';
+import { Button, Box } from '@material-ui/core'
 
 const useStyles = ({
   googleBtn: {
     display: 'flex !important',
     justifyContent: 'start',
     alignItems: 'center',
-    width: "100%",
+    width: '100%',
     textTransform: 'none',
-    backgroundColor: "rgba(240,240,240,255)",
-    padding: "1rem",
+    backgroundColor: 'rgba(240,240,240,255)',
+    padding: '1rem',
     '&:hover': {
-      backgroundColor: "rgba(240,240,240,255)",
-    },
-  },
-});
-
-
+      backgroundColor: 'rgba(240,240,240,255)'
+    }
+  }
+})
 
 class GoogleLoginContainer extends Component {
-
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     this.googleLoginRequestHandler = this.googleLoginRequestHandler.bind(this)
@@ -32,28 +29,28 @@ class GoogleLoginContainer extends Component {
     this.googleLoginErrorHandler = this.googleLoginErrorHandler.bind(this)
   }
 
-  googleLoginRequestHandler() {
+  googleLoginRequestHandler () {
     this.props.googleLoginRequest()
   }
 
-  googleLoginSuccessHandler(response) {
+  googleLoginSuccessHandler (response) {
     this.props.googleLoginSuccess(response)
   }
 
-  googleLoginErrorHandler(response) {
+  googleLoginErrorHandler (response) {
     this.props.googleLoginError(response)
   }
 
-  render() {
-    const { classes } = this.props;
+  render () {
+    const { classes } = this.props
     return (
       <GoogleLogin
         render={renderProps => (
           <Button disableRipple onClick={renderProps.onClick} disabled={renderProps.disabled} className={classes.googleBtn}>
-            <Box width="10%" style={{ display: "flex", justifyContent: "center", marginRight: "1.5rem" }}>
-              <img className={classes.img} src="https://cdn4.iconfinder.com/data/icons/new-google-logo-2015/400/new-google-favicon-512.png" alt="new" height="22px" />
+            <Box width='10%' style={{ display: 'flex', justifyContent: 'center', marginRight: '1.5rem' }}>
+              <img className={classes.img} src='https://cdn4.iconfinder.com/data/icons/new-google-logo-2015/400/new-google-favicon-512.png' alt='new' height='22px' />
             </Box>
-            <Box width="90%" style={{ width: "max-content", display: "flex", justifyContent: "center" }}>
+            <Box width='90%' style={{ width: 'max-content', display: 'flex', justifyContent: 'center' }}>
               Inscribite con Google
             </Box>
           </Button>
