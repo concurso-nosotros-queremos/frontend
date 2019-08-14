@@ -16,27 +16,15 @@ import CloseIcon from '@material-ui/icons/Close'
 const useStyles = makeStyles(theme => ({
   appBar: {
     position: 'relative',
-    backgroundColor: 'rgba(125,125,125,0)',
+    backgroundColor: 'yellow !important',
     boxShadow: 'none !important',
     marginBottom: '2rem',
-    marginTop: '1rem',
+    paddingTop: '1rem',
     [theme.breakpoints.down('sm')]: {
-      marginTop: '0rem',
+      paddingTop: '0rem !important',
       paddingLeft: '0rem !important',
       paddingRight: '0rem !important'
     },
-    [theme.breakpoints.only('md')]: {
-      paddingLeft: '2rem !important',
-      paddingRight: '2rem !important'
-    },
-    [theme.breakpoints.only('lg')]: {
-      paddingLeft: '5rem',
-      paddingRight: '5rem'
-    },
-    [theme.breakpoints.only('xl')]: {
-      paddingLeft: '0rem',
-      paddingRight: '0rem'
-    }
   },
   appBarButton: {
     '&:hover': {
