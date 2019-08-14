@@ -18,16 +18,12 @@ import { ReactComponent as Logo3 } from '../../static/3.svg'
 
 const useStyles = makeStyles(theme => ({
   containerWeb: {
-    paddingLeft: '6rem',
-    paddingRight: '6rem',
-    [theme.breakpoints.only('sm')]: {
-      paddingLeft: '2rem !important',
-      paddingRight: '2rem !important'
-    }
+    paddingLeft: '0rem',
+    paddingRight: '0rem',
   },
   containerMobile: {
-    paddingLeft: '2rem',
-    paddingRight: '2rem'
+    paddingLeft: '0rem',
+    paddingRight: '0rem'
   },
   logo: {
     width: '85%',
@@ -317,7 +313,6 @@ export default function Home () {
           </Typography>
         </Container>
       </footer>
-
       {/* End footer */
       }
     </React.Fragment>

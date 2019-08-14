@@ -23,7 +23,8 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('sm')]: {
       paddingTop: '0rem !important',
       paddingLeft: '0rem !important',
-      paddingRight: '0rem !important'
+      paddingRight: '0rem !important',
+      marginBottom: '0rem',
     },
   },
   appBarButton: {
@@ -104,7 +105,7 @@ function NavBar (props) {
             </Grid>
           </Hidden>
           <Hidden mdUp>
-            <IconButton style={{ marginLeft: '.2rem' }} disableRipple edge='start' color='default' aria-label='menu' onClick={handleOpen}>
+            <IconButton disableRipple edge='start' color='default' aria-label='menu' onClick={handleOpen}>
               <MenuIcon />
             </IconButton>
             <Modal
