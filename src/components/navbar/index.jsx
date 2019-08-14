@@ -16,7 +16,7 @@ import CloseIcon from '@material-ui/icons/Close'
 const useStyles = makeStyles(theme => ({
   appBar: {
     position: 'relative',
-    backgroundColor: 'yellow !important',
+    backgroundColor: 'transparent !important',
     boxShadow: 'none !important',
     marginBottom: '2rem',
     paddingTop: '1rem',
