@@ -11,10 +11,10 @@ import GoogleFontLoader from 'react-google-font-loader'
 import Hidden from '@material-ui/core/Hidden'
 import GoogleLogin from '../../containers/googleLogin/index'
 import FacebookLogin from '../../containers/facebookLogin/index'
-import { ReactComponent as LogoMain } from '../../static/header.svg'
-import { ReactComponent as Logo1 } from '../../static/1.svg'
-import { ReactComponent as Logo2 } from '../../static/2.svg'
-import { ReactComponent as Logo3 } from '../../static/3.svg'
+import { ReactComponent as LogoMain } from '../../assets/landing_ilustration_going_up.svg'
+import { ReactComponent as Logo1 } from '../../assets/how_works_1.svg'
+import { ReactComponent as Logo2 } from '../../assets/how_works_2.svg'
+import { ReactComponent as Logo3 } from '../../assets/how_works_3.svg'
 
 const useStyles = makeStyles(theme => ({
   containerWeb: {

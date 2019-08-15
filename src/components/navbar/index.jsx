@@ -112,7 +112,7 @@ function NavBar (props) {
               <Button disableRipple className={classes.appBarButton}>Contactos</Button>
             </Grid>
             <Grid item style={{ textAlign: 'right' }}>
-              <img src={require('../../assets/IncluSocial[Txt].svg')} style={{ width: '12rem' }} alt='' />
+              <img src={require('../../assets/inclusion_logo_text.svg')} style={{ width: '12rem' }} alt='' />
             </Grid>
           </Hidden>
           <Hidden mdUp>
