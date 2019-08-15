@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Button, Box } from '@material-ui/core'
-import { facebookLoginRequest, facebookLoginSuccess, facebookLoginError } from '../../redux/facebookLogin/actions'
+import { facebookLoginRequest, facebookLoginSuccess, facebookLoginError } from '../redux/facebookLogin/actions'
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 
 import { withStyles } from '@material-ui/styles'

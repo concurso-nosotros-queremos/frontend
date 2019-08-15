@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { GoogleLogin } from 'react-google-login'
 import { withStyles } from '@material-ui/core/styles'
-import { googleLoginRequest, googleLoginSuccess, googleLoginError } from '../../redux/googleLogin/actions'
+import { googleLoginRequest, googleLoginSuccess, googleLoginError } from '../redux/googleLogin/actions'
 import { Button, Box } from '@material-ui/core'
 
 const useStyles = ({
