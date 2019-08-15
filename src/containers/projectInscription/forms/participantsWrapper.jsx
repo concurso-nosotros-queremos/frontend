@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
 import AddOutlined from '@material-ui/icons/AddOutlined'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import { hasError, errorMessageBuilder } from './utils'
+import { hasError, errorMessageBuilder } from './_utils'
 import { withStyles } from '@material-ui/styles'
 
 const useStyles = theme => ({

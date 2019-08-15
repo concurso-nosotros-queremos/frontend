@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { FastField } from 'formik'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
-import { errorMessageBuilder, hasError } from './utils'
+import { errorMessageBuilder, hasError } from './_utils'
 import { Grid } from '@material-ui/core'
 
 export default class ProjectWrapper extends Component {
