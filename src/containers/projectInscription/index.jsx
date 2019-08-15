@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button'
 import ParticipantsWrapper from './forms/participantsWrapper'
 import SchoolWrapper from './forms/schoolWrapper'
 import { validationSchema, initialValues } from './forms/schemas'
-import fetchResource from '../../api/apiHandler'
+import fetchResource from '../../services/apiHandler'
 import ProjectWrapper from './forms/projectWrapper'
 import ContactWrapper from './forms/contactWrapper'
 

@@ -2,7 +2,7 @@ import { GOOGLE_LOGIN_SUCCESS } from '../googleLogin/types'
 import { FACEBOOK_LOGIN_SUCCESS } from '../facebookLogin/types'
 import { AUTH_CONVERT_TOKEN_REQUEST, AUTH_GOOGLE_PROVIDER, AUTH_FACEBOOK_PROVIDER } from '../auth/types'
 import { authConvertTokenRequest, authConvertTokenSuccess, authConvertTokenError } from '../auth/actions'
-import { convertToken } from '../../api/auth'
+import { convertToken } from '../../services/auth.service'
 
 export const googleLoginMiddleware = store => next => action => {
   switch (action.type) {
