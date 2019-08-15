@@ -10,11 +10,11 @@ import Avatar from '@material-ui/core/Avatar'
 import GoogleFontLoader from 'react-google-font-loader'
 import Hidden from '@material-ui/core/Hidden'
 import GoogleLogin from '../containers/googleLogin'
-import FacebookLogin from '../containers/facebookLogin/index'
-import { ReactComponent as LogoMain } from '../../assets/landing_ilustration_going_up.svg'
-import { ReactComponent as Logo1 } from '../../assets/how_works_1.svg'
-import { ReactComponent as Logo2 } from '../../assets/how_works_2.svg'
-import { ReactComponent as Logo3 } from '../../assets/how_works_3.svg'
+import FacebookLogin from '../containers/facebookLogin'
+import { ReactComponent as LogoMain } from '../assets/landing_ilustration_going_up.svg'
+import { ReactComponent as Logo1 } from '../assets/how_works_1.svg'
+import { ReactComponent as Logo2 } from '../assets/how_works_2.svg'
+import { ReactComponent as Logo3 } from '../assets/how_works_3.svg'
 
 const useStyles = makeStyles(theme => ({
   containerWeb: {
