@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: 'transparent !important',
     boxShadow: 'none !important',
     marginBottom: '2rem',
-    paddingTop: '1rem',
+    paddingTop: '3rem',
     [theme.breakpoints.down('sm')]: {
       paddingTop: '0rem !important',
       paddingLeft: '0rem !important',
