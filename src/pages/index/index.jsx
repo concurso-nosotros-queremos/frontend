@@ -1,8 +1,8 @@
 import React from 'react'
-import NavBar from '../../components/navbar'
-import Home from '../../components/home'
+import NavBar from '../../components/navbar/index'
+import Home from '../../components/home/index'
 import ComoFunciona from '../../components/comoFunciona/index'
-import InscriptionWrapper from '../../containers/projectInscription'
+import InscriptionWrapper from '../../containers/projectInscription/index'
 import { Grid, Container } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles';
 
