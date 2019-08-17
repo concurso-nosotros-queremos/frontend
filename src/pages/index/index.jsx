@@ -12,7 +12,12 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: '6rem',
     paddingRight: '6rem',
     [theme.breakpoints.down('sm')]: {
-      height: 'auto',
+      paddingLeft: '2rem',
+      paddingRight: '2rem',
+    },
+    [theme.breakpoints.only('xs')]: {
+      paddingLeft: '1rem',
+      paddingRight: '1rem',
     }
   }
 }))
