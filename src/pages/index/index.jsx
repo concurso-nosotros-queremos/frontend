@@ -3,6 +3,7 @@ import NavBar from '../../components/navbar/index'
 import Home from '../../components/home/index'
 import ComoFunciona from '../../components/comoFunciona/index'
 import Proyectos from '../../components/proyectos/index'
+import Organizan from '../../components/organizan/index'
 import InscriptionWrapper from '../../containers/projectInscription/index'
 import { Grid, Container } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles';
@@ -30,6 +31,7 @@ export default function Index() {
       <NavBar />
       <ComoFunciona />
       <Proyectos />
+      <Organizan />
     </Container>
   )
 }

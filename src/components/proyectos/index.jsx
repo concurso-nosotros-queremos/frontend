@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles/index'
 import Typography from '@material-ui/core/Typography/index'
 import Grid from '@material-ui/core/Grid'
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Hidden } from '@material-ui/core'
+import { Button, Card, CardActions, CardContent, CardMedia, Hidden } from '@material-ui/core'
 import Box from '@material-ui/core/Box';
 
 

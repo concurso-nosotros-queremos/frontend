@@ -1,0 +1,100 @@
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles/index'
+import Typography from '@material-ui/core/Typography/index'
+import Grid from '@material-ui/core/Grid'
+import { Button, Box, Paper, Avatar } from '@material-ui/core'
+
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    flexGrow: '1',
+    marginBottom: '20rem',
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: '6rem',
+      paddingRight: '6rem',
+    },
+    [theme.breakpoints.up('lg')]: {
+      paddingLeft: '8rem',
+      paddingRight: '8rem',
+    }
+  },
+  barraDecorativa: {
+    width: '70%',
+    height: '5px',
+    backgroundColor: theme.palette.secondary.main,
+    borderRadius: '5px',
+    marginTop: '.6rem'
+  },
+  fotoOrganizadores: {
+    height: '70px',
+    width: '70px',
+    backgroundColor: theme.palette.primary.main
+  },
+  txtOrganizadores: {
+    marginLeft: '2rem',
+  },
+  avatarImg: {
+    width: 70,
+    height: 70,
+  }
+}))
+
+
+export default function ComoFunciona() {
+  const classes = useStyles()
+
+  return (
+    <>
+      <Grid container className={classes.root} alignItems="flex-start">
+        <Grid container direction="column" alignItems="flex-start" style={{ marginBottom: '5rem' }}>
+          <Grid item style={{ alignItems: 'left' }}>
+            <Typography variant='h3' align="left" style={{ fontWeight: 'bold' }}>
+              Organizan
+            </Typography>
+            <div className={classes.barraDecorativa}>
+            </div>
+          </Grid>
+        </Grid>
+
+        <Grid container xs={12} sm={10} md={10} lg={6} direction="row" justify="flex-start" style={{ minHeight: '25rem' }}>
+          <Box boxShadow={6} style={{ width: "100%", padding: '2rem', minWidth: 'max-content' }}>
+            <Grid container direction="column" justify="space-between" style={{ minHeight: '100%' }}>
+              <Grid container direction="row" justify="left" alignItems="center">
+                <Grid item>
+                  <Avatar alt="Remy Sharp" src={require('../../static/persona1.jpg')} className={classes.avatarImg} />
+                </Grid>
+                <Grid item className={classes.txtOrganizadores}>
+                  <Typography variant="h5" style={{ fontWeight: 'bold' }}>Virginia Barbera</Typography>
+                  <Typography variant="subtitle">Directora general</Typography>
+                </Grid>
+              </Grid>
+              <Grid container direction="row" justify="left" alignItems="center">
+                <Grid item>
+                <Grid item>
+                  <Avatar alt="Remy Sharp" src={require('../../static/persona2.png')} className={classes.avatarImg} />
+                </Grid>
+                </Grid>
+                <Grid item className={classes.txtOrganizadores}>
+                  <Typography variant="h5" style={{ fontWeight: 'bold' }}>Maria Garcia</Typography>
+                  <Typography variant="subtitle">Coordinadora Nosotros Queremos</Typography>
+                </Grid>
+              </Grid>
+              <Grid container direction="row" justify="left" alignItems="center">
+                <Grid item>
+                <Grid item>
+                  <Avatar alt="Remy Sharp" src={require('../../static/persona3.jpg')} className={classes.avatarImg} />
+                </Grid>
+                </Grid>
+                <Grid item className={classes.txtOrganizadores}>
+                  <Typography variant="h5" style={{ fontWeight: 'bold' }}>Mateo Perez</Typography>
+                  <Typography variant="subtitle">Coordinador Nosotros Queremos</Typography>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+      </Grid>
+    </>
+  );
+}
