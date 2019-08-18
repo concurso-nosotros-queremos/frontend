@@ -33,8 +33,8 @@ const useStyles = makeStyles(theme => ({
     },
     fontSize: '1rem',
     textTransform: 'none',
-    marginRight: '1rem',
-    marginLeft: '1rem'
+    marginRight: '0.8rem',
+    marginLeft: '0.8rem',
   },
   appBarButtom__active: {
     '&::after': {
@@ -76,7 +76,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-function NavBar (props) {
+function NavBar(props) {
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
 
