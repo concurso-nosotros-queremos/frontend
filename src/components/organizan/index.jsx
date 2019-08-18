@@ -58,9 +58,9 @@ export default function ComoFunciona() {
         </Grid>
 
         <Grid container xs={12} sm={10} md={10} lg={6} direction="row" justify="flex-start" style={{ minHeight: '25rem' }}>
-          <Box boxShadow={6} style={{ width: "100%", padding: '2rem', minWidth: 'max-content' }}>
+          <Box boxShadow={6} style={{ width: "100%", padding: '2rem' }}>
             <Grid container direction="column" justify="space-between" style={{ minHeight: '100%' }}>
-              <Grid container direction="row" justify="left" alignItems="center">
+              <Grid container direction="row" justify="left" alignItems="center" wrap="nowrap">
                 <Grid item>
                   <Avatar alt="Remy Sharp" src={require('../../static/persona1.jpg')} className={classes.avatarImg} />
                 </Grid>
@@ -69,7 +69,7 @@ export default function ComoFunciona() {
                   <Typography variant="subtitle">Directora general</Typography>
                 </Grid>
               </Grid>
-              <Grid container direction="row" justify="left" alignItems="center">
+              <Grid container direction="row" justify="left" alignItems="center" wrap="nowrap">
                 <Grid item>
                 <Grid item>
                   <Avatar alt="Remy Sharp" src={require('../../static/persona2.png')} className={classes.avatarImg} />
@@ -80,7 +80,7 @@ export default function ComoFunciona() {
                   <Typography variant="subtitle">Coordinadora Nosotros Queremos</Typography>
                 </Grid>
               </Grid>
-              <Grid container direction="row" justify="left" alignItems="center">
+              <Grid container direction="row" justify="left" alignItems="center" wrap="nowrap">
                 <Grid item>
                 <Grid item>
                   <Avatar alt="Remy Sharp" src={require('../../static/persona3.jpg')} className={classes.avatarImg} />
