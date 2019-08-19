@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexGrow: '1',
     padding: '1rem',
-    marginBottom: '2rem',
+    marginBottom: '5rem',
   },
   titleContainer: {
     [theme.breakpoints.up('sm')]: {

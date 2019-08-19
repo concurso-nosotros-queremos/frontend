@@ -159,7 +159,7 @@ export default function ComoFunciona() {
         </Grid>
 
         <Grid container direction="row" justify="center" alignItems="center">
-          <Grid item style={{ margin: '1rem' }}>
+          <Grid item style={{ margin: '1rem 1rem 0rem 1rem' }}>
             <Button size='large' variant="contained" color="primary" href="#ver-proyectos">
               Ver todos
             </Button>
