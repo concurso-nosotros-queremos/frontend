@@ -2,10 +2,11 @@ import React from 'react'
 import NavBar from '../../components/navbar/index'
 import Home from '../../components/home/index'
 import ComoFunciona from '../../components/comoFunciona/index'
+import Contacto from '../../components/contacto/index'
 import Proyectos from '../../components/proyectos/index'
 import Organizan from '../../components/organizan/index'
 import InscriptionWrapper from '../../containers/projectInscription/index'
-import { Grid, Container } from '@material-ui/core'
+import { Container } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -30,8 +31,7 @@ export default function Index() {
     <Container maxWidth="xl" className={classes.container}>
       <NavBar />
       <ComoFunciona />
-      <Proyectos />
-      <Organizan />
+      <Contacto />
     </Container>
   )
 }
