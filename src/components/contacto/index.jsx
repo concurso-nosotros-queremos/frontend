@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   titleContainer: {
-    marginBottom:'1rem',
+    marginBottom: '1rem',
   },
   formContainer: {
   }
@@ -31,7 +31,7 @@ export default function ComoFunciona() {
     <>
       <Grid container className={classes.root} alignItems="flex-start">
         <Grid container md={6} className={classes.titleContainer} direction="column" justify="flex-start" alignItems="flex-start">
-          <Grid item lg={8} xl={8} md={10} style={{marginBottom:'2rem'}}>
+          <Grid item lg={8} xl={8} md={10} style={{ marginBottom: '2rem' }}>
             <Typography variant='h3' style={{ fontWeight: 'bold' }}>¿Te quedaste con alguna duda?</Typography>
           </Grid>
           <Grid item lg={8} xl={6} md={8}>
@@ -70,7 +70,7 @@ export default function ComoFunciona() {
                 variant="outlined"
               />
             </Grid>
-            <Grid item container direction="row" justify="space-between" alignItems="center" style={{marginTop:'1rem'}}>
+            <Grid item container direction="row" justify="space-between" alignItems="center" style={{ marginTop: '1rem' }}>
               <Grid item>
                 <FormControlLabel
                   control={
@@ -79,7 +79,10 @@ export default function ComoFunciona() {
                       color="primary"
                     />
                   }
-                  label="Acepto terminos y condiciones"
+                  label={
+                    <Typography variant="body2" style={{ color: 'rgba(0, 0, 0, 0.54)'}}>
+                      Acepto terminos y condiciones
+                    </Typography>}
                 />
               </Grid>
               <Grid item>

@@ -72,7 +72,7 @@ export default function ComoFunciona() {
                 </Grid>
                 <Grid item className={classes.txtOrganizadores}>
                   <Typography variant="h5" style={{ fontWeight: 'bold' }}>Virginia Barbera</Typography>
-                  <Typography variant="subtitle">Directora general</Typography>
+                  <Typography variant="subtitle1">Directora general</Typography>
                 </Grid>
               </Grid>
               <Grid container direction="row" justify="left" alignItems="center" wrap="nowrap">
@@ -83,7 +83,7 @@ export default function ComoFunciona() {
                 </Grid>
                 <Grid item className={classes.txtOrganizadores}>
                   <Typography variant="h5" style={{ fontWeight: 'bold' }}>Maria Garcia</Typography>
-                  <Typography variant="subtitle">Coordinadora Nosotros Queremos</Typography>
+                  <Typography variant="subtitle1">Coordinadora Nosotros Queremos</Typography>
                 </Grid>
               </Grid>
               <Grid container direction="row" justify="left" alignItems="center" wrap="nowrap">
@@ -94,7 +94,7 @@ export default function ComoFunciona() {
                 </Grid>
                 <Grid item className={classes.txtOrganizadores}>
                   <Typography variant="h5" style={{ fontWeight: 'bold' }}>Mateo Perez</Typography>
-                  <Typography variant="subtitle">Coordinador Nosotros Queremos</Typography>
+                  <Typography variant="subtitle1">Coordinador Nosotros Queremos</Typography>
                 </Grid>
               </Grid>
             </Grid>

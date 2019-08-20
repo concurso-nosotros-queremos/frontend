@@ -7,7 +7,7 @@ import Organizan from '../../components/organizan/index'
 import Contacto from '../../components/contacto/index'
 import InscriptionWrapper from '../../containers/projectInscription/index'
 import { Grid, Container } from '@material-ui/core'
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/styles'
 
 const useStyles = makeStyles(theme => ({
   container: {

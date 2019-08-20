@@ -23,9 +23,8 @@ let theme = createMuiTheme({
     }
   },
   typography: {
-    htmlFontSize: 16,
-    fontFamily: 'Roboto Slab',
-    fontSize: 14,
+    fontFamily: "'Roboto Slab', 'Roboto'",
+    fontSize: 12,
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
@@ -70,7 +69,8 @@ let theme = createMuiTheme({
       fontWeight: 400,
       fontSize: '1rem',
       lineHeight: 1.75,
-      letterSpacing: '0.00938em'
+      letterSpacing: '0.00938em',
+      fontFamily: 'Roboto'
     },
     subtitle2: {
       fontWeight: 500,
@@ -95,10 +95,11 @@ let theme = createMuiTheme({
       fontSize: '0.875rem',
       lineHeight: 1.75,
       letterSpacing: '0.02857em',
-      textTransform: 'uppercase'
+      textTransform: 'uppercase',
+      fontFamily: 'Roboto'
     },
     caption: {
-      fontWeight: 400,
+      fontWeight: 600,
       fontSize: '0.75rem',
       lineHeight: 1.66,
       letterSpacing: '0.03333em'
@@ -120,7 +121,13 @@ let theme = createMuiTheme({
     }
   },
   spacing: 8,
-  overrides: {}
+  overrides: {
+    MuiFormLabel: {
+      root: {
+        fontFamily: 'Roboto'
+      },
+    },
+  },
 })
 
 theme = responsiveFontSizes(theme)
