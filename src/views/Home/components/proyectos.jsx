@@ -72,7 +72,7 @@ export default function ComoFunciona() {
                   component="img"
                   alt="Contemplative Reptile"
                   height="140"
-                  image={require('../../static/Estudiantes.jpg')}
+                  image={require('../../../static/Estudiantes.jpg')}
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">Animarse a más</Typography>
@@ -102,7 +102,7 @@ export default function ComoFunciona() {
                   component="img"
                   alt="Contemplative Reptile"
                   height="140"
-                  image={require('../../static/Estudiantes.jpg')}
+                  image={require('../../../static/Estudiantes.jpg')}
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">Animarse a más</Typography>
@@ -132,7 +132,7 @@ export default function ComoFunciona() {
                     component="img"
                     alt="Contemplative Reptile"
                     height="140"
-                    image={require('../../static/Estudiantes.jpg')}
+                    image={require('../../../static/Estudiantes.jpg')}
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">Animarse a más</Typography>

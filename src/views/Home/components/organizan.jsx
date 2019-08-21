@@ -68,7 +68,7 @@ export default function ComoFunciona() {
             <Grid container direction="column" justify="space-between" style={{ minHeight: '100%' }}>
               <Grid container direction="row" justify="left" alignItems="center" wrap="nowrap">
                 <Grid item>
-                  <Avatar alt="Remy Sharp" src={require('../../static/persona1.jpg')} className={classes.avatarImg} />
+                  <Avatar alt="Remy Sharp" src={require('../../../static/persona1.jpg')} className={classes.avatarImg} />
                 </Grid>
                 <Grid item className={classes.txtOrganizadores}>
                   <Typography variant="h5" style={{ fontWeight: 'bold' }}>Virginia Barbera</Typography>
@@ -78,7 +78,7 @@ export default function ComoFunciona() {
               <Grid container direction="row" justify="left" alignItems="center" wrap="nowrap">
                 <Grid item>
                 <Grid item>
-                  <Avatar alt="Remy Sharp" src={require('../../static/persona2.png')} className={classes.avatarImg} />
+                  <Avatar alt="Remy Sharp" src={require('../../../static/persona2.png')} className={classes.avatarImg} />
                 </Grid>
                 </Grid>
                 <Grid item className={classes.txtOrganizadores}>
@@ -89,7 +89,7 @@ export default function ComoFunciona() {
               <Grid container direction="row" justify="left" alignItems="center" wrap="nowrap">
                 <Grid item>
                 <Grid item>
-                  <Avatar alt="Remy Sharp" src={require('../../static/persona3.jpg')} className={classes.avatarImg} />
+                  <Avatar alt="Remy Sharp" src={require('../../../static/persona3.jpg')} className={classes.avatarImg} />
                 </Grid>
                 </Grid>
                 <Grid item className={classes.txtOrganizadores}>
