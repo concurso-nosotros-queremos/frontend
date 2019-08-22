@@ -8,8 +8,6 @@ import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex',
-    flexGrow: '1',
     padding: '1rem',
     marginBottom: '5rem',
   },
@@ -33,10 +31,6 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('sm')]: {
       height: 'auto',
     }
-  },
-  imgPasosItem: {
-  },
-  containerImgPasos: {
   },
   PasosTextContainer: {
     minHeight: '3.2rem'

@@ -30,6 +30,7 @@ export default function Index() {
   return (
     <Container maxWidth="xl" className={classes.container}>
       <NavBar />
+      <Home />
       <ComoFunciona />
       <Proyectos />
       <Organizan />

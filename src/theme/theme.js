@@ -1,4 +1,5 @@
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
+import { breakpoints } from '@material-ui/system';
 
 let theme = createMuiTheme({
   palette: {
@@ -31,12 +32,13 @@ let theme = createMuiTheme({
     fontWeightBold: 700,
     h1: {
       fontWeight: 300,
-      fontSize: '6rem',
+      fontSize: '4rem',
       lineHeight: 1,
-      letterSpacing: '-0.01562em'
+      letterSpacing: '-0.01562em',
+      fontWeight: 'bold',
     },
     h2: {
-      fontWeight: 300,
+      fontWeight: 'bold',
       fontSize: '3.75rem',
       lineHeight: 1,
       letterSpacing: '-0.00833em'
