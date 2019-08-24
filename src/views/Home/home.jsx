@@ -9,56 +9,47 @@ import GoogleLogin from '../../containers/googleLogin/index'
 
 const useStyles = makeStyles(theme => ({
   root: {
+    border: '2px solid red',
     marginBottom: '5rem',
     flexWrap: 'nowrap',
     [theme.breakpoints.only('xs')]: {
       height: 'calc(90vh - 56px)',
+      minHeight: '22.8rem'
     },
     [theme.breakpoints.only('sm')]: {
-      height: 'calc(90vh - 64px)',
+      height: 'calc(70vh - 64px)',
+      minHeight: '25rem',
+      maxHeight: '25rem'
     },
     [theme.breakpoints.only('md')]: {
-      height: 'calc(100vh - 194px)',
-      minHeight: '27rem',
-      maxHeight: '37rem'
+      maxHeight: '100rem',
     },
-    [theme.breakpoints.only('lg')]: {
-      height: 'calc(80vh - 194px)',
-      minHeight: '30rem',
-      maxHeight: '35rem'
-    },
-    [theme.breakpoints.only('xl')]: {
-      height: 'calc(50vh - 194px)',
-      minHeight: '35rem',
-      maxHeight: '40rem'
-    }
   },
-  titleContainer: {
-    // border: '2px solid yellow',
+  leftContainer: {
+    border: '2px solid blue',
   },
   loginButonContainer: {
-    // border: '2px solid green',
-    height: 'max-content',
-    [theme.breakpoints.only('sm')]: {
-      maxWidth: '336px'
-    },
+    border: '2px solid green',
   },
   loginBottonItem: {
-    marginBottom: '0.5rem'
+    border: '2px solid red',
   },
   textoComplementarioTitulo: {
-    // border: '2px solid red',
-    marginTop: '3rem',
-    // [theme.breakpoints.down('sm')]: {
-    //   width: '60%'
-    // },
+    marginTop: '2rem',
+    marginBottom: '2rem',
+    border: '2px solid red',
   },
   imgPrincipal: {
-    width: '100%',
     [theme.breakpoints.down('sm')]: {
       display: 'none'
     },
-  }
+    [theme.breakpoints.down('md')]: {
+      width: '30rem'
+    },
+  },
+  rightContainer: {
+    border: '2px solid brown',
+  },
 }))
 
 export default function ComoFunciona() {
@@ -66,38 +57,34 @@ export default function ComoFunciona() {
 
   return (
     <>
-      <Grid container className={classes.root} direction="column" justify="space-between" alignItems="flex-start">
-        <Grid container className={classes.titleContainer} direction="row" justify="space-between" alignItems="flex-start">
-          <Grid item container md={6} style={{ height: '100%' }} direction="column" alignItems="flex-start">
-            <Grid container direction="column">
-              <Typography variant='h1'>Participa.</Typography>
-              <Typography variant='h1'>Impacta.</Typography>
-              <Typography variant='h1'>Gana.</Typography>
-            </Grid>
-            <div item className={classes.textoComplementarioTitulo}>
-              <Typography variant='subtitle1'>
-                Concurso anual de emprendimientos de alumn@s de los ultimos años de la secunadria.
-              </Typography>
-            </div>
+      <Grid container className={classes.root} direction="column" justify="space-between" alignItems="flex-start" >
+
+        <Grid container direction="column" style={{ border: '2px solid brown' }} item sm={7} md={6} xl={5}>
+          <Grid container direction="column">
+            <Typography variant='h1'>Participa.</Typography>
+            <Typography variant='h1'>Impacta.</Typography>
+            <Typography variant='h1'>Gana.</Typography>
           </Grid>
-          <Grid item xs>
-            <img className={classes.imgPrincipal} src={require('../../static/header.svg')} style={{ maxHeight: '21rem' }}></img>
+          <Grid item className={classes.textoComplementarioTitulo}>
+            <Typography variant='subtitle1'>
+              Concurso anual de emprendimientos de alumn@s de los ultimos años de la secunadria.
+              </Typography>
           </Grid>
         </Grid>
 
-        <Grid container className={classes.loginButonContainer} direction="column" justify="flex-start" alignItems="flex-start">
-          <Grid item container md={4} className={classes.loginBottonItem}>
-            <GoogleLogin />
-          </Grid>
+        <Grid container className={classes.loginButonContainer} direction="column" justify="flex-end" alignItems="flex-start" item sm={7} md={6} xl={5}>
 
-          <Grid item>
+          <Grid item md={7} lg={5} style={{ width: '100%' }} container direction="column" justify="flex-start" alignItems="flex-start">
+            <GoogleLogin />
             <Typography variant='body2' color='textSecondary' align='center'>
               {'Ya tienes cuenta? '}
               <Link href=''>Inicia Sesion</Link>
             </Typography>
           </Grid>
+          
         </Grid>
       </Grid>
+
     </>
   );
 }
