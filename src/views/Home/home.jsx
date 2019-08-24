@@ -9,7 +9,6 @@ import GoogleLogin from '../../containers/googleLogin/index'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    border: '2px solid red',
     marginBottom: '5rem',
     flexWrap: 'nowrap',
     [theme.breakpoints.only('xs')]: {
@@ -25,19 +24,9 @@ const useStyles = makeStyles(theme => ({
       maxHeight: '100rem',
     },
   },
-  leftContainer: {
-    border: '2px solid blue',
-  },
-  loginButonContainer: {
-    border: '2px solid green',
-  },
-  loginBottonItem: {
-    border: '2px solid red',
-  },
   textoComplementarioTitulo: {
     marginTop: '2rem',
     marginBottom: '2rem',
-    border: '2px solid red',
   },
   imgPrincipal: {
     zIndex: '-2',
@@ -61,9 +50,11 @@ const useStyles = makeStyles(theme => ({
       right: 'calc(((100vw - 1920px) / 2 + 6rem) * 1.06)'
     },
   },
-  rightContainer: {
-    border: '2px solid brown',
-  },
+  titleText: {
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '4rem'
+    },
+  }
 }))
 
 export default function ComoFunciona() {
@@ -72,11 +63,11 @@ export default function ComoFunciona() {
   return (
     <>
       <Grid container className={classes.root} direction="column" justify="space-between" alignItems="flex-start" >
-        <Grid container direction="column" style={{ border: '2px solid brown' }} item sm={7} md={6} xl={5}>
+        <Grid container direction="column" item sm={7} md={6} xl={5}>
           <Grid container direction="column">
-            <Typography variant='h1'>Participa.</Typography>
-            <Typography variant='h1'>Impacta.</Typography>
-            <Typography variant='h1'>Gana.</Typography>
+            <Typography variant='h1' className={classes.titleText}>Participa.</Typography>
+            <Typography variant='h1' className={classes.titleText}>Impacta.</Typography>
+            <Typography variant='h1' className={classes.titleText}>Gana.</Typography>
           </Grid>
           <Grid item className={classes.textoComplementarioTitulo}>
             <Typography variant='subtitle1'>
