@@ -5,6 +5,7 @@ import ComoFunciona from '../../views/Home/components/comoFunciona'
 import Contacto from '../../views/Home/components/contacto'
 import Organizan from '../../views/Home/components/organizan'
 import Proyectos from '../../views/Home/components/proyectos'
+import Footer from '../../components/footer/index'
 import InscriptionWrapper from '../../containers/projectInscription/index'
 import { Grid, Container } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
@@ -35,6 +36,7 @@ export default function Index() {
       <Proyectos />
       <Organizan />
       <Contacto />
+      <Footer />
     </Container>
   )
 }
