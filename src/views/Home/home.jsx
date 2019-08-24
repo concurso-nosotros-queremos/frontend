@@ -40,11 +40,25 @@ const useStyles = makeStyles(theme => ({
     border: '2px solid red',
   },
   imgPrincipal: {
+    zIndex: '-2',
+    position: 'absolute',
     [theme.breakpoints.down('sm')]: {
       display: 'none'
     },
-    [theme.breakpoints.down('md')]: {
-      width: '30rem'
+    [theme.breakpoints.only('md')]: {
+      top: '220px',
+      right: 'calc(100vw / 17)',
+      width: '28rem',
+    },
+    [theme.breakpoints.only('lg')]: {
+      top: '200px',
+      right: 'calc(100vw / 13)',
+      width: '34rem',
+    },
+    [theme.breakpoints.only('xl')]: {
+      top: '200px',
+      width: '34rem',
+      right: 'calc(((100vw - 1920px) / 2 + 6rem) * 1.06)'
     },
   },
   rightContainer: {
@@ -58,7 +72,6 @@ export default function ComoFunciona() {
   return (
     <>
       <Grid container className={classes.root} direction="column" justify="space-between" alignItems="flex-start" >
-
         <Grid container direction="column" style={{ border: '2px solid brown' }} item sm={7} md={6} xl={5}>
           <Grid container direction="column">
             <Typography variant='h1'>Participa.</Typography>
@@ -73,7 +86,6 @@ export default function ComoFunciona() {
         </Grid>
 
         <Grid container className={classes.loginButonContainer} direction="column" justify="flex-end" alignItems="flex-start" item sm={7} md={6} xl={5}>
-
           <Grid item md={7} lg={5} style={{ width: '100%' }} container direction="column" justify="flex-start" alignItems="flex-start">
             <GoogleLogin />
             <Typography variant='body2' color='textSecondary' align='center'>
@@ -81,10 +93,9 @@ export default function ComoFunciona() {
               <Link href=''>Inicia Sesion</Link>
             </Typography>
           </Grid>
-          
         </Grid>
       </Grid>
-
+      <img className={classes.imgPrincipal} src={require('../../static/header.svg')}></img>
     </>
   );
 }
