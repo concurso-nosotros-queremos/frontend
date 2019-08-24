@@ -13,7 +13,8 @@ const useStyles = makeStyles(theme => ({
     flexWrap: 'nowrap',
     [theme.breakpoints.only('xs')]: {
       height: 'calc(90vh - 56px)',
-      minHeight: '22.8rem'
+      minHeight: '22.8rem',
+      maxHeight: '40rem'
     },
     [theme.breakpoints.only('sm')]: {
       height: 'calc(70vh - 64px)',
