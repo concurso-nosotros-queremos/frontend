@@ -1,20 +1,43 @@
 import React from 'react'
-import { Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom'
 import RouteWithLayout from './components/routeWithLayout'
 import Index from './views/index/index'
+import { connect } from 'react-redux'
+import InscriptionWrapper from './containers/projectInscription'
 
-const Routes = () => {
+const ProtectedRoute = ({ isAllowed, ...props }) => {
   return (
-    <Switch>
+    isAllowed ? <RouteWithLayout {...props} /> : <Redirect to='/' />
+  )
+}
+const Routes = (props) => {
+  return (
+    <Switch >
+      {props.isLoggedIn ? <Redirect to='/dashboard' /> : null}
+      <ProtectedRoute
+        isAllowed={props.isLoggedIn}
+        component={InscriptionWrapper}
+        layout={<></>}
+        exact
+        path='/dashboard'
+      />
+      <ProtectedRoute
+        isAllowed={props.isLoggedIn}
+        component={InscriptionWrapper}
+        layout={<></>}
+        exact
+        path='/dashboard/inscription'
+      />
       <RouteWithLayout
         component={Index}
+        layout={<></>}
         exact
         path='/'
       />
       <RouteWithLayout
         component={() => <h1>404</h1>}
-        exact
         layout={<></>}
+        exact
         path='/not-found'
       />
       <Redirect to='/not-found' />
@@ -22,4 +45,16 @@ const Routes = () => {
   )
 }
 
-export default Routes
+const MainRouter = (props) => {
+  return (
+    <Router>
+      <Routes {...props} />
+    </Router>
+  )
+}
+
+const mapStateToProps = (state) => ({
+  isLoggedIn: state.auth.isLoggedIn
+})
+
+export default connect(mapStateToProps)(MainRouter)
