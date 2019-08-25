@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   },
   section1: {
     borderTop: `1px solid ${theme.palette.divider}`,
-    marginTop: '4rem',
+    marginTop: '2rem',
     paddingTop: '1rem',
   },
   section2: {
@@ -40,7 +40,7 @@ export default function Footer() {
 
   return (
     <>
-      <Grid container direction="column" justify="center" alignItems="stretch" className={classes.footer}>
+      <Grid container direction="column" justify="center" alignItems="stretch">
         <Grid container direction="row" justify="space-between" alignItems="flex-start" className={classes.section1} >
 
 
