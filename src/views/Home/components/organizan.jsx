@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles/index'
 import Typography from '@material-ui/core/Typography/index'
 import Grid from '@material-ui/core/Grid'
 import { Button, Box, Paper, Avatar } from '@material-ui/core'
+import Background from '../../../static/header.svg';
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -17,7 +19,15 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('lg')]: {
       paddingLeft: '8rem',
       paddingRight: '8rem',
-    }
+      backgroundSize:'33rem',
+      backgroundImage: `url(${Background})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'right 10rem',
+    },
+    [theme.breakpoints.only('xl')]: {
+      backgroundSize:'40rem',
+      backgroundPosition: 'right 6rem',
+    },
   },
   barraDecorativa: {
     width: '70%',
@@ -38,7 +48,7 @@ const useStyles = makeStyles(theme => ({
     width: 70,
     height: 70,
   },
-  organizanTitleContainer:{
+  organizanTitleContainer: {
     marginBottom: '5rem',
     [theme.breakpoints.down('sm')]: {
       marginBottom: '2rem',
@@ -77,9 +87,9 @@ export default function ComoFunciona() {
               </Grid>
               <Grid container direction="row" justify="left" alignItems="center" wrap="nowrap">
                 <Grid item>
-                <Grid item>
-                  <Avatar alt="Remy Sharp" src={require('../../../static/persona2.png')} className={classes.avatarImg} />
-                </Grid>
+                  <Grid item>
+                    <Avatar alt="Remy Sharp" src={require('../../../static/persona2.png')} className={classes.avatarImg} />
+                  </Grid>
                 </Grid>
                 <Grid item className={classes.txtOrganizadores}>
                   <Typography variant="h5" style={{ fontWeight: 'bold' }}>Maria Garcia</Typography>
@@ -88,9 +98,9 @@ export default function ComoFunciona() {
               </Grid>
               <Grid container direction="row" justify="left" alignItems="center" wrap="nowrap">
                 <Grid item>
-                <Grid item>
-                  <Avatar alt="Remy Sharp" src={require('../../../static/persona3.jpg')} className={classes.avatarImg} />
-                </Grid>
+                  <Grid item>
+                    <Avatar alt="Remy Sharp" src={require('../../../static/persona3.jpg')} className={classes.avatarImg} />
+                  </Grid>
                 </Grid>
                 <Grid item className={classes.txtOrganizadores}>
                   <Typography variant="h5" style={{ fontWeight: 'bold' }}>Mateo Perez</Typography>
