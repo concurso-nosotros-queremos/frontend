@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Redirect, Route } from 'react-router-dom'
 import RouteWithLayout from './components/routeWithLayout'
 import Index from './views/index/index'
 import { connect } from 'react-redux'
@@ -10,9 +10,19 @@ const ProtectedRoute = ({ isAllowed, ...props }) => {
     isAllowed ? <RouteWithLayout {...props} /> : <Redirect to='/' />
   )
 }
+
 const Routes = (props) => {
   return (
     <Switch >
+      <Route
+        exact
+        path='/'
+        render={() => (
+          props.isLoggedIn
+            ? <Redirect to='/dashboard' />
+            : <RouteWithLayout component={Index} layout={<></>} exact path='/' />
+        )}
+      />
       <ProtectedRoute
         isAllowed={props.isLoggedIn}
         component={InscriptionWrapper}
@@ -26,12 +36,6 @@ const Routes = (props) => {
         layout={<></>}
         exact
         path='/dashboard/inscription'
-      />
-      <RouteWithLayout
-        component={Index}
-        layout={<></>}
-        exact
-        path='/'
       />
       <RouteWithLayout
         component={() => <h1>404</h1>}
