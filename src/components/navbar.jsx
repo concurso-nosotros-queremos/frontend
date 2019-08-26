@@ -16,26 +16,15 @@ import CloseIcon from '@material-ui/icons/Close'
 const useStyles = makeStyles(theme => ({
   appBar: {
     position: 'relative',
-    backgroundColor: 'rgba(125,125,125,0)',
+    backgroundColor: 'transparent !important',
     boxShadow: 'none !important',
     marginBottom: '2rem',
-    marginTop: '1rem',
+    paddingTop: '3rem',
     [theme.breakpoints.down('sm')]: {
-      marginTop: '0rem',
+      paddingTop: '0rem !important',
       paddingLeft: '0rem !important',
-      paddingRight: '0rem !important'
-    },
-    [theme.breakpoints.only('md')]: {
-      paddingLeft: '2rem !important',
-      paddingRight: '2rem !important'
-    },
-    [theme.breakpoints.only('lg')]: {
-      paddingLeft: '5rem',
-      paddingRight: '5rem'
-    },
-    [theme.breakpoints.only('xl')]: {
-      paddingLeft: '0rem',
-      paddingRight: '0rem'
+      paddingRight: '0rem !important',
+      marginBottom: '0rem'
     }
   },
   appBarButton: {
@@ -44,8 +33,8 @@ const useStyles = makeStyles(theme => ({
     },
     fontSize: '1rem',
     textTransform: 'none',
-    marginRight: '1rem',
-    marginLeft: '1rem'
+    marginRight: '0.8rem',
+    marginLeft: '0.8rem'
   },
   appBarButtom__active: {
     '&::after': {
@@ -116,7 +105,7 @@ function NavBar (props) {
             </Grid>
           </Hidden>
           <Hidden mdUp>
-            <IconButton style={{ marginLeft: '.2rem' }} disableRipple edge='start' color='default' aria-label='menu' onClick={handleOpen}>
+            <IconButton disableRipple edge='start' color='default' aria-label='menu' onClick={handleOpen}>
               <MenuIcon />
             </IconButton>
             <Modal

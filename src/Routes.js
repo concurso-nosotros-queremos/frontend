@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Redirect, Route } from 'react-router-dom'
 import RouteWithLayout from './components/routeWithLayout'
-import Index from './views/index/index'
+import Index from './views/Index/index'
 import { connect } from 'react-redux'
 import InscriptionWrapper from './containers/projectInscription'
 
