@@ -13,7 +13,6 @@ const ProtectedRoute = ({ isAllowed, ...props }) => {
 const Routes = (props) => {
   return (
     <Switch >
-      {props.isLoggedIn ? <Redirect to='/dashboard' /> : null}
       <ProtectedRoute
         isAllowed={props.isLoggedIn}
         component={InscriptionWrapper}
