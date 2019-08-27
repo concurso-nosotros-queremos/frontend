@@ -12,15 +12,16 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.only('xs')]: {
       height: 'calc(90vh - 56px)',
       minHeight: '22.8rem',
-      maxHeight: '40rem'
+      maxHeight: '30rem'
     },
     [theme.breakpoints.only('sm')]: {
       height: 'calc(70vh - 64px)',
       minHeight: '25rem',
-      maxHeight: '25rem'
+      marginBottom: '10rem'
     },
-    [theme.breakpoints.only('md')]: {
-      maxHeight: '100rem'
+    [theme.breakpoints.up('md')]: {
+      height: '28rem',
+      marginBottom: '10rem'
     }
   },
   textoComplementarioTitulo: {
@@ -61,7 +62,7 @@ export default function ComoFunciona () {
 
   return (
     <>
-      <Grid container className={classes.root} direction='column' justify='space-between' alignItems='flex-start' >
+      <Grid container className={classes.root} direction='column' justify='space-between' alignItems='flex-start'>
         <Grid container direction='column' item sm={7} md={6} xl={5}>
           <Grid container direction='column'>
             <Typography variant='h1' className={classes.titleText}>Participa.</Typography>

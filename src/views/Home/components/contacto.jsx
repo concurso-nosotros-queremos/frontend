@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     flexGrow: '1',
-    marginTop: '5rem',
+    marginTop: '15rem',
     marginBottom: '5rem',
     [theme.breakpoints.up('lg')]: {
       paddingLeft: '8rem',

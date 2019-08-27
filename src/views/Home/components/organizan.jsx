@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     flexGrow: '1',
-    marginBottom: '5rem',
+    marginBottom: '15rem',
     [theme.breakpoints.up('md')]: {
       paddingLeft: '6rem',
       paddingRight: '6rem'
@@ -17,14 +17,13 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('lg')]: {
       paddingLeft: '8rem',
       paddingRight: '8rem',
-      backgroundSize: '33rem',
+      backgroundSize: '40%',
       backgroundImage: `url(${Background})`,
       backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'right 10rem'
+      backgroundPosition: 'right 70%'
     },
     [theme.breakpoints.only('xl')]: {
-      backgroundSize: '40rem',
-      backgroundPosition: 'right 6rem'
+      backgroundPosition: 'right bottom'
     }
   },
   barraDecorativa: {
@@ -69,7 +68,7 @@ export default function ComoFunciona () {
           </Grid>
         </Grid>
 
-        <Grid container xs={12} sm={10} md={10} lg={6} direction='row' justify='flex-start' style={{ minHeight: '25rem' }} >
+        <Grid container xs={12} sm={10} md={10} lg={6} direction='row' justify='flex-start' style={{ minHeight: '25rem' }}>
           <Box boxShadow={6} style={{ width: '100%', padding: '2rem' }}>
             <Grid container direction='column' justify='space-between' style={{ minHeight: '100%' }}>
               <Grid container direction='row' justify='left' alignItems='center' wrap='nowrap'>

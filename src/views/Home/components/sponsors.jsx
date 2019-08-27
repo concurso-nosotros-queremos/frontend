@@ -4,6 +4,10 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
   root: {
+    marginBottom: '5rem',
+    [theme.breakpoints.down('sm')]: {
+      justifyContent: 'center'
+    }
   },
   imgSponsor: {
     maxWidth: '100%',
@@ -28,16 +32,16 @@ export default function Footer () {
   return (
     <>
       <Grid container direction='row' justify='space-between' className={classes.root}>
-        <Grid item xs={6} sm={'auto'} className={classes.imgItem}>
+        <Grid item xs={6} sm='auto' className={classes.imgItem}>
           <img className={classes.imgSponsor} alt='sponsor' src={require('../../../assets/sponsors/Luigi-Bosca.jpg')} />
         </Grid>
-        <Grid item xs={6} sm={'auto'} className={classes.imgItem}>
+        <Grid item xs={6} sm='auto' className={classes.imgItem}>
           <img className={classes.imgSponsor} alt='sponsor' src={require('../../../assets/sponsors/MinisterioEducacion.png')} />
         </Grid>
-        <Grid item xs={6} sm={'auto'} className={classes.imgItem}>
+        <Grid item xs={6} sm='auto' className={classes.imgItem}>
           <img className={classes.imgSponsor} alt='sponsor' src={require('../../../assets/sponsors/Luigi-Bosca.jpg')} />
         </Grid>
-        <Grid item xs={6} sm={'auto'} className={classes.imgItem}>
+        <Grid item xs={6} sm='auto' className={classes.imgItem}>
           <img className={classes.imgSponsor} alt='sponsor' src={require('../../../assets/sponsors/MinisterioEducacion.png')} />
         </Grid>
       </Grid>
