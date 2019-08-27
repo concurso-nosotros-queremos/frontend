@@ -1,5 +1,5 @@
 export async function convertToken (provider, token) {
-  let body = {
+  const body = {
     grant_type: 'convert_token',
     client_id: process.env.REACT_APP_OAUTH_CLIENT_ID,
     client_secret: process.env.REACT_APP_OAUTH_CLIENT_SECRET,
@@ -7,7 +7,7 @@ export async function convertToken (provider, token) {
     token: token
   }
 
-  let response = await window.fetch(process.env.REACT_APP_API_URL + '/auth/convert-token', {
+  const response = await window.fetch(process.env.REACT_APP_API_URL + '/auth/convert-token', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

@@ -13,7 +13,7 @@ const ProtectedRoute = ({ isAllowed, ...props }) => {
 
 const Routes = (props) => {
   return (
-    <Switch >
+    <Switch>
       <Route
         exact
         path='/'

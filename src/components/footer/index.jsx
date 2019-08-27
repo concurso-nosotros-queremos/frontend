@@ -38,7 +38,7 @@ export default function Footer () {
   return (
     <>
       <Grid container direction='column' justify='center' alignItems='stretch'>
-        <Grid container direction='row' justify='space-between' alignItems='flex-start' className={classes.section1} >
+        <Grid container direction='row' justify='space-between' alignItems='flex-start' className={classes.section1}>
 
           <Grid item>
             <Grid container direction='column' justify='flex-start' alignItems='flex-start' spacing={1} item>

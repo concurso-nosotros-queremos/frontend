@@ -81,7 +81,8 @@ export default function ComoFunciona () {
                   label={
                     <Typography variant='body2' style={{ color: 'rgba(0, 0, 0, 0.54)' }}>
                       Acepto terminos y condiciones
-                    </Typography>}
+                    </Typography>
+                  }
                 />
               </Grid>
               <Grid item>

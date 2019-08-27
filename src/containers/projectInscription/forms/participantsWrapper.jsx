@@ -80,10 +80,12 @@ class ParticipantsWrapper extends Component {
                           <FastField
                             name={`raw_participant.${index}.first_name`}
                             render={({ field }) => (
-                              <TextField fullWidth variant='outlined' {...field} label='Nombre'
+                              <TextField
+                                fullWidth variant='outlined' {...field} label='Nombre'
                                 inputRef={index === arrayHelpers.form.values.raw_participant.length - 1 ? this.inputRef : null}
                                 error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                                helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
+                                helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
+                              />)}
                           />
                         </Box>
                       </Grid>
@@ -91,25 +93,30 @@ class ParticipantsWrapper extends Component {
                         <FastField
                           name={`raw_participant.${index}.last_name`}
                           render={({ field }) => (
-                            <TextField fullWidth variant='outlined' {...field} label='Apellido'
+                            <TextField
+                              fullWidth variant='outlined' {...field} label='Apellido'
                               error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                              helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
+                              helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
+                            />)}
                         />
                       </Grid>
                       <Grid item xs={12} sm={6}>
                         <FastField
                           name={`raw_participant.${index}.dni`}
                           render={({ field }) => (
-                            <TextField fullWidth variant='outlined' {...field} label='D.N.I.'
+                            <TextField
+                              fullWidth variant='outlined' {...field} label='D.N.I.'
                               error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                              helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
+                              helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
+                            />)}
                         />
                       </Grid>
                       <Grid item xs={12} sm={6}>
                         <FastField
                           name={`raw_participant.${index}.grade_choices`}
                           render={({ field }) => (
-                            <TextField fullWidth variant='outlined' {...field} select label='Año de cursado'
+                            <TextField
+                              fullWidth variant='outlined' {...field} select label='Año de cursado'
                               error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
                               helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
                             >
@@ -121,7 +128,7 @@ class ParticipantsWrapper extends Component {
                           )}
                         />
                       </Grid>
-                      <Grid item xs={12} >
+                      <Grid item xs={12}>
                         <Button fullWidth onClick={() => { arrayHelpers.remove(index) }}>Borrar</Button>
                       </Grid>
                     </Grid>

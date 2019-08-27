@@ -117,7 +117,7 @@ export default function ComoFunciona () {
             <Grid item>
               <Typography variant='h5' style={{ fontWeight: 'bold' }} align='center'>Participa</Typography>
             </Grid>
-            <Grid item className={classes.PasosTextContainer} >
+            <Grid item className={classes.PasosTextContainer}>
               <Typography variant='body1' align='center'>El grupo participa en el concurso por un premio!</Typography>
             </Grid>
           </Grid>
@@ -130,6 +130,6 @@ export default function ComoFunciona () {
           </Grid>
         </Grid>
       </Grid>
-    </Paper >
+    </Paper>
   )
 }

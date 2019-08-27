@@ -14,36 +14,42 @@ export default class ContactWrapper extends Component {
             <FastField
               name='raw_contact.phone_number'
               render={({ field }) => (
-                <TextField {...field}
+                <TextField
+                  {...field}
                   fullWidth
                   variant='outlined'
                   label='Telefono particular'
                   error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
+                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
+                />)}
             />
           </Grid>
           <Grid item xs={12}>
             <FastField
               name='raw_contact.alternative_phone_number'
               render={({ field }) => (
-                <TextField {...field}
+                <TextField
+                  {...field}
                   fullWidth
                   variant='outlined'
                   label='Telefono alternativo'
                   error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
+                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
+                />)}
             />
           </Grid>
           <Grid item xs={12}>
             <FastField
               name='raw_contact.alternative_email'
               render={({ field }) => (
-                <TextField {...field}
+                <TextField
+                  {...field}
                   fullWidth
                   variant='outlined'
                   label='Telefono alternativo'
                   error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
+                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
+                />)}
             />
           </Grid>
         </Grid>

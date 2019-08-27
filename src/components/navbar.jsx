@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   },
   appBarButtom__active: {
     '&::after': {
-      content: `''`,
+      content: '\'\'',
       width: '45px',
       height: '4px',
       position: 'absolute',
@@ -110,7 +110,8 @@ function NavBar (props) {
             </IconButton>
             <Modal
               open={open}
-              onClose={handleClose}>
+              onClose={handleClose}
+            >
               <Fade in={open}>
                 <Paper className={classes.modal}>
                   <Grid container style={{ height: '100%' }}>
