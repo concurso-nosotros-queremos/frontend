@@ -17,7 +17,11 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.only('sm')]: {
       height: 'calc(70vh - 64px)',
       minHeight: '25rem',
-      marginBottom: '10rem'
+      marginBottom: '10rem',
+    },
+    [theme.breakpoints.up('md')]: {
+      height: '28rem',
+      marginBottom: '10rem',
     },
     [theme.breakpoints.up('md')]: {
       height: '28rem',
