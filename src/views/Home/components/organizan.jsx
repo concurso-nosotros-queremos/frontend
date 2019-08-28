@@ -7,9 +7,10 @@ import Background from '../../../assets/header.svg'
 
 const useStyles = makeStyles(theme => ({
   root: {
+    border: '2px solid red',
     display: 'flex',
     flexGrow: '1',
-    marginBottom: '15rem',
+    // marginBottom: '15rem',
     [theme.breakpoints.up('md')]: {
       paddingLeft: '6rem',
       paddingRight: '6rem'
@@ -68,7 +69,7 @@ export default function ComoFunciona () {
           </Grid>
         </Grid>
 
-        <Grid container xs={12} sm={10} md={10} lg={6} direction='row' justify='flex-start' style={{ minHeight: '25rem' }}>
+        <Grid container xs={12} sm={10} md={10} lg={6} direction='row' justify='flex-start' style={{ minHeight: '25rem', backgroundColor: '#fff' }}>
           <Box boxShadow={6} style={{ width: '100%', padding: '2rem' }}>
             <Grid container direction='column' justify='space-between' style={{ minHeight: '100%' }}>
               <Grid container direction='row' justify='left' alignItems='center' wrap='nowrap'>

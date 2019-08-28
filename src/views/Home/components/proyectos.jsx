@@ -7,8 +7,9 @@ import Box from '@material-ui/core/Box'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    marginTop: '10rem',
-    marginBottom: '10rem'
+    border: '2px solid red',
+    // marginTop: '10rem',
+    // marginBottom: '10rem'
   },
   barraDecorativa: {
     width: '50%',

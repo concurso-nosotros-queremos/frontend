@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     borderTop: `1px solid ${theme.palette.divider}`,
     marginTop: '2rem',
     paddingTop: '1rem',
-    marginBottom: '4rem'
+    // marginBottom: '4rem'
   },
   section2b: {
     [theme.breakpoints.only('xs')]: {

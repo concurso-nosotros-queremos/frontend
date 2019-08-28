@@ -7,51 +7,43 @@ import GoogleLogin from '../../containers/googleLogin'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    marginBottom: '5rem',
+    border: '2px solid red',
     flexWrap: 'nowrap',
     [theme.breakpoints.only('xs')]: {
       height: 'calc(90vh - 56px)',
-      minHeight: '22.8rem',
-      maxHeight: '30rem'
     },
     [theme.breakpoints.only('sm')]: {
       height: 'calc(70vh - 64px)',
       minHeight: '25rem',
-      marginBottom: '10rem'
     },
     [theme.breakpoints.up('md')]: {
       height: '28rem',
-      marginBottom: '10rem'
     },
-    [theme.breakpoints.up('md')]: {
-      height: '28rem',
-      marginBottom: '10rem'
-    }
   },
   textoComplementarioTitulo: {
     marginTop: '2rem',
     marginBottom: '2rem'
   },
   imgPrincipal: {
-    zIndex: '-2',
+    border: '2px solid',
     position: 'absolute',
     [theme.breakpoints.down('sm')]: {
       display: 'none'
     },
     [theme.breakpoints.only('md')]: {
-      top: '220px',
-      right: 'calc(100vw / 17)',
+      top: 'calc((100% - 19.5rem) / 2)',
+      right: '0px',
       width: '28rem'
     },
     [theme.breakpoints.only('lg')]: {
-      top: '200px',
-      right: 'calc(100vw / 13)',
-      width: '34rem'
+      top: '0',
+      right: '0px',
+      height: '99%',
     },
     [theme.breakpoints.only('xl')]: {
-      top: '200px',
-      width: '34rem',
-      right: 'calc(((100vw - 1920px) / 2 + 6rem) * 1.06)'
+      top: '0',
+      right: '0px',
+      height: '99%',
     }
   },
   titleText: {
@@ -61,13 +53,13 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function ComoFunciona () {
+export default function ComoFunciona() {
   const classes = useStyles()
 
   return (
-    <>
+    <div style={{ position: 'relative' }}>
       <Grid container className={classes.root} direction='column' justify='space-between' alignItems='flex-start'>
-        <Grid container direction='column' item sm={7} md={6} xl={5}>
+        <Grid container direction='column' item sm={7} md={5} lg={4}>
           <Grid container direction='column'>
             <Typography variant='h1' className={classes.titleText}>Participa.</Typography>
             <Typography variant='h1' className={classes.titleText}>Impacta.</Typography>
@@ -91,6 +83,6 @@ export default function ComoFunciona () {
         </Grid>
       </Grid>
       <img className={classes.imgPrincipal} src={require('../../assets/header.svg')} alt='imagen principal' />
-    </>
+    </div>
   )
 }
