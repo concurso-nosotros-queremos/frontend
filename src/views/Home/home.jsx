@@ -10,15 +10,15 @@ const useStyles = makeStyles(theme => ({
     border: '2px solid red',
     flexWrap: 'nowrap',
     [theme.breakpoints.only('xs')]: {
-      height: 'calc(90vh - 56px)',
+      height: 'calc(90vh - 56px)'
     },
     [theme.breakpoints.only('sm')]: {
       height: 'calc(70vh - 64px)',
-      minHeight: '25rem',
+      minHeight: '25rem'
     },
     [theme.breakpoints.up('md')]: {
-      height: '28rem',
-    },
+      height: '28rem'
+    }
   },
   textoComplementarioTitulo: {
     marginTop: '2rem',
@@ -38,12 +38,12 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.only('lg')]: {
       top: '0',
       right: '0px',
-      height: '99%',
+      height: '99%'
     },
     [theme.breakpoints.only('xl')]: {
       top: '0',
       right: '0px',
-      height: '99%',
+      height: '99%'
     }
   },
   titleText: {
@@ -53,7 +53,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function ComoFunciona() {
+export default function ComoFunciona () {
   const classes = useStyles()
 
   return (

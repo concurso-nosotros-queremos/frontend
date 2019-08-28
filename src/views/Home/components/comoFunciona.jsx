@@ -9,7 +9,7 @@ import { Button } from '@material-ui/core'
 const useStyles = makeStyles(theme => ({
   root: {
     border: '2px solid red',
-    padding: '1rem',
+    padding: '1rem'
   },
   titleContainer: {
     [theme.breakpoints.up('sm')]: {

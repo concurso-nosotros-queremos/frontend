@@ -33,13 +33,13 @@ const useStyles = makeStyles(theme => ({
   first: {
     paddingTop: '3rem',
     [theme.breakpoints.down('sm')]: {
-      paddingTop: '0rem !important',
+      paddingTop: '0rem !important'
     }
   }
 
 }))
 
-export default function Index() {
+export default function Index () {
   const classes = useStyles()
 
   return (
