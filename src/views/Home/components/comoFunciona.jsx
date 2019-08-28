@@ -10,12 +10,11 @@ const useStyles = makeStyles(theme => ({
   root: {
     border: '2px solid red',
     padding: '1rem',
-    // paddingBottom: '5rem',
   },
   titleContainer: {
     [theme.breakpoints.up('sm')]: {
       marginTop: '1rem',
-      marginBottom: '1rem',
+      marginBottom: '0.5rem',
       paddingLeft: '5rem',
       paddingRight: '5rem'
     },
@@ -23,8 +22,6 @@ const useStyles = makeStyles(theme => ({
       paddingLeft: '12rem',
       paddingRight: '12rem'
     }
-  },
-  pasosContainer: {
   },
   pasosItem: {
     minWidth: 'min-content',

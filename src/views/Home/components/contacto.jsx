@@ -10,8 +10,6 @@ const useStyles = makeStyles(theme => ({
     border: '2px solid red',
     display: 'flex',
     flexGrow: '1',
-    // marginTop: '15rem',
-    // marginBottom: '5rem',
     [theme.breakpoints.up('lg')]: {
       paddingLeft: '8rem',
       paddingRight: '8rem'

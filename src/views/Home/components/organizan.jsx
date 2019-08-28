@@ -10,7 +10,6 @@ const useStyles = makeStyles(theme => ({
     border: '2px solid red',
     display: 'flex',
     flexGrow: '1',
-    // marginBottom: '15rem',
     [theme.breakpoints.up('md')]: {
       paddingLeft: '6rem',
       paddingRight: '6rem'
