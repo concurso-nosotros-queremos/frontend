@@ -23,7 +23,6 @@ const useStyles = makeStyles(theme => ({
     borderTop: `1px solid ${theme.palette.divider}`,
     marginTop: '2rem',
     paddingTop: '1rem',
-    // marginBottom: '4rem'
   },
   section2b: {
     [theme.breakpoints.only('xs')]: {
@@ -110,7 +109,7 @@ export default function Footer () {
           <Grid container direction='row' justify='space-between' alignItems='center' spacing={2} className={classes.section2b}>
             <Grid item>
               <Typography variant='body2' color='textSecondary' align='center'>
-                {'Creado con <3 - Alumnos del '}
+                {'Creado con '} {'\u2764'} {' - Alumnos del '} 
                 <Link color='inherit' href='https://www.itsv.edu.ar/'>
                   ITS Villada
                 </Link>
