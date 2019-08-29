@@ -7,7 +7,6 @@ import Background from '../../../assets/header.svg'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    border: '2px solid red',
     display: 'flex',
     flexGrow: '1',
     [theme.breakpoints.up('md')]: {

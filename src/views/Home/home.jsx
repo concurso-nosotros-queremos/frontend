@@ -57,7 +57,7 @@ export default function ComoFunciona () {
   return (
     <div style={{ position: 'relative' }}>
       <Grid container className={classes.root} direction='column' justify='space-between' alignItems='flex-start'>
-        <Grid container direction='column' item sm={7} md={5} lg={4}>
+        <Grid container direction='column' item sm={8} md={5} lg={4}>
           <Grid container direction='column'>
             <Typography variant='h1' className={classes.titleText}>Participa.</Typography>
             <Typography variant='h1' className={classes.titleText}>Impacta.</Typography>
@@ -71,7 +71,7 @@ export default function ComoFunciona () {
         </Grid>
 
         <Grid container className={classes.loginButonContainer} direction='column' justify='flex-end' alignItems='flex-start' item sm={7} md={6} xl={5}>
-          <Grid item md={7} lg={5} style={{ width: '100%' }} container direction='column' justify='flex-start' alignItems='flex-start'>
+          <Grid item sm={9} md={7} lg={5} style={{ width: '100%' }} container direction='column' justify='flex-start' alignItems='flex-start'>
             <GoogleLogin />
             <Typography variant='body2' color='textSecondary' align='center'>
               {'Ya tienes cuenta? '}

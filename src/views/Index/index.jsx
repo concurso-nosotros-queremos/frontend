@@ -10,8 +10,11 @@ import Sponsors from '../Home/components/sponsors'
 import { Container } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 
-import Background from '../../assets/firstContainer.svg'
-import Background2 from '../../assets/firstContainer_b.svg'
+import svgLeft from '../../assets/homePageLeft.svg'
+import svgRight from '../../assets/homePageRight.svg'
+import svgRightMd from '../../assets/homePageRightMd.svg'
+import svgLeftSm from '../../assets/homePageLeftSm.svg'
+import svgLeftXs from '../../assets/homePageLeftXs.svg'
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -28,19 +31,34 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.only('xs')]: {
       paddingLeft: '1rem',
       paddingRight: '1rem'
-    }
+    },
+    [theme.breakpoints.only('xl')]: {
+      paddingLeft: '18rem',
+      paddingRight: '18rem'
+    },
   },
   first: {
     paddingTop: '3rem !important',
-    [theme.breakpoints.down('sm')]: {
-      paddingTop: '0rem !important'
-    },
-    backgroundImage: `url('${Background}'), url('${Background2}')`,
+    backgroundImage: `url('${svgRight}'), url('${svgLeft}')`,
     backgroundPosition: 'right center, left center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
+    [theme.breakpoints.down('md')]: {
+      backgroundImage: `url('${svgRightMd}'), url('${svgLeft}')`,
+      backgroundPosition: 'right center, left center',
+    },
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: '0rem !important',
+      backgroundSize: 'auto',
+      backgroundImage: `url('${svgLeftSm}')`,
+      backgroundPosition: 'left 300px',
+    },
+    [theme.breakpoints.down('xs')]: {
+      backgroundSize: 'auto',
+      backgroundImage: `url('${svgLeftXs}')`,
+      backgroundPosition: 'left 60vh',
+    },
   },
-
 }))
 
 export default function Index() {
@@ -50,7 +68,7 @@ export default function Index() {
     <>
       <Container maxWidth='xl' className={[classes.container, classes.first]}>
         <NavBar />
-        <Home />    
+        <Home />
         <ComoFunciona />
       </Container>
       <Container maxWidth='xl' className={classes.container}>

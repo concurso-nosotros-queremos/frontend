@@ -7,7 +7,6 @@ import TextField from '@material-ui/core/TextField'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    border: '2px solid red',
     display: 'flex',
     flexGrow: '1',
     [theme.breakpoints.up('lg')]: {
