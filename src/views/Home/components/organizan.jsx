@@ -3,23 +3,21 @@ import { makeStyles } from '@material-ui/core/styles/index'
 import Typography from '@material-ui/core/Typography/index'
 import Grid from '@material-ui/core/Grid'
 import { Box, Avatar } from '@material-ui/core'
-import Background from '../../../assets/header.svg'
+import Background from '../../../assets/organizanImage.svg'
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     flexGrow: '1',
     [theme.breakpoints.up('md')]: {
-      paddingLeft: '6rem',
-      paddingRight: '6rem'
-    },
-    [theme.breakpoints.up('lg')]: {
-      paddingLeft: '8rem',
-      paddingRight: '8rem',
       backgroundSize: '40%',
       backgroundImage: `url(${Background})`,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'right 70%'
+    },
+    [theme.breakpoints.up('lg')]: {
+      paddingLeft: '8rem',
+      paddingRight: '8rem',
     },
     [theme.breakpoints.only('xl')]: {
       backgroundPosition: 'right bottom'
@@ -67,7 +65,7 @@ export default function ComoFunciona () {
           </Grid>
         </Grid>
 
-        <Grid container xs={12} sm={10} md={10} lg={6} direction='row' justify='flex-start' style={{ minHeight: '25rem', backgroundColor: '#fff' }}>
+        <Grid container xs={12} sm={10} md={6} lg={6} direction='row' justify='flex-start' style={{ minHeight: '25rem', backgroundColor: '#fff' }}>
           <Box boxShadow={6} style={{ width: '100%', padding: '2rem' }}>
             <Grid container direction='column' justify='space-between' style={{ minHeight: '100%' }}>
               <Grid container direction='row' justify='left' alignItems='center' wrap='nowrap'>

@@ -100,7 +100,7 @@ export default function ComoFunciona() {
                 </Avatar>
               </Grid>
               <Grid item container justify='center' alignItems='center' className={classes.containerImgPasos}>
-                <img src={require('../../../assets/1.svg')} style={{ width: '12rem' }} className={classes.imgPasosItem} alt='pasos' />
+                <img src={require('../../../assets/2.svg')} style={{ width: '12rem' }} className={classes.imgPasosItem} alt='pasos' />
               </Grid>
               <Grid item>
                 <Typography variant='h5' style={{ fontWeight: 'bold' }} align='center'>Te validamos</Typography>

@@ -8,11 +8,13 @@ const useStyles = makeStyles(theme => ({
   '@global': {
     ul: {
       margin: 0,
-      padding: 0
+      padding: 0,
+
     },
     li: {
-      listStyle: 'none'
-    }
+      listStyle: 'none',
+      display: 'table',
+    },
   },
   section1: {
     borderTop: `1px solid ${theme.palette.divider}`,
@@ -28,10 +30,16 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.only('xs')]: {
       justifyContent: 'center'
     }
+  },
+  liStyle: {
+    display: 'table-cell',
+    verticalAlign: 'middle',
+    width: '21px',
+    paddingLeft: '0.5rem'
   }
 }))
 
-export default function Footer () {
+export default function Footer() {
   const classes = useStyles()
 
   return (
@@ -71,28 +79,32 @@ export default function Footer () {
                   <Grid container direction='column' justify='flex-start' alignItems='flex-start' spacing={1} item>
                     <Grid item>
                       <li>
-                        <Link href='#' variant='subtitle2' color='textSecondary'>
-                          Instagram
-                        </Link>
-                      </li>
-                    </Grid>
-                    <Grid item>
-                      <li>
-                        <Link href='#' variant='subtitle2' color='textSecondary'>
+                        <img src={require("../../assets/facebook.png")} alt="facebook" className={classes.liStyle} />
+                        <Link href='#' variant='subtitle2' color='textSecondary' className={classes.liStyle}>
                           Facebook
                         </Link>
                       </li>
                     </Grid>
                     <Grid item>
                       <li>
-                        <Link href='#' variant='subtitle2' color='textSecondary'>
+                        <img src={require("../../assets/instagram.png")} alt="instagram" className={classes.liStyle} />
+                        <Link href='#' variant='subtitle2' color='textSecondary' className={classes.liStyle}>
+                          Instagram
+                        </Link>
+                      </li>
+                    </Grid>
+                    <Grid item>
+                      <li>
+                        <img src={require("../../assets/twitter.png")} alt="twitter" className={classes.liStyle} />
+                        <Link href='#' variant='subtitle2' color='textSecondary' className={classes.liStyle}>
                           Twitter
                         </Link>
                       </li>
                     </Grid>
                     <Grid item>
                       <li>
-                        <Link href='#' variant='subtitle2' color='textSecondary'>
+                        <img src={require("../../assets/linkedin.png")} alt="linkedin" className={classes.liStyle} />
+                        <Link href='#' variant='subtitle2' color='textSecondary' className={classes.liStyle}>
                           LinkedIn
                         </Link>
                       </li>

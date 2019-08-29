@@ -27,23 +27,21 @@ const useStyles = makeStyles(theme => ({
   },
   appBarButton: {
     '&:hover': {
-      backgroundColor: 'rgba(0,0,0,0)'
+      backgroundColor: 'rgba(0,0,0,0)',
+      '&::after': {
+        content: '\'\'',
+        width: '45px',
+        height: '4px',
+        position: 'absolute',
+        backgroundColor: '#0b7163',
+        borderRadius: 'inherit',
+        marginTop: '1rem'
+      }
     },
     fontSize: '1rem',
     textTransform: 'none',
     marginRight: '0.8rem',
-    marginLeft: '0.8rem'
-  },
-  appBarButtom__active: {
-    '&::after': {
-      content: '\'\'',
-      width: '45px',
-      height: '4px',
-      position: 'absolute',
-      backgroundColor: '#0b7163',
-      borderRadius: 'inherit',
-      marginTop: '1rem'
-    }
+    marginLeft: '0.8rem',
   },
   modalButton: {
     '&:hover': {
