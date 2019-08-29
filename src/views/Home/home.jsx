@@ -7,7 +7,6 @@ import GoogleLogin from '../../containers/googleLogin'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    border: '2px solid red',
     flexWrap: 'nowrap',
     [theme.breakpoints.only('xs')]: {
       height: 'calc(90vh - 56px)'
@@ -25,7 +24,6 @@ const useStyles = makeStyles(theme => ({
     marginBottom: '2rem'
   },
   imgPrincipal: {
-    border: '2px solid',
     position: 'absolute',
     [theme.breakpoints.down('sm')]: {
       display: 'none'
@@ -82,7 +80,7 @@ export default function ComoFunciona () {
           </Grid>
         </Grid>
       </Grid>
-      <img className={classes.imgPrincipal} src={require('../../assets/header.svg')} alt='imagen principal' />
+      <img className={classes.imgPrincipal} src={require('../../assets/compass.svg')} alt='imagen principal' />
     </div>
   )
 }

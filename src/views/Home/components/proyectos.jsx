@@ -6,9 +6,6 @@ import { Button, Card, CardActions, CardContent, CardMedia, Hidden } from '@mate
 import Box from '@material-ui/core/Box'
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    border: '2px solid red'
-  },
   barraDecorativa: {
     width: '50%',
     height: '5px',

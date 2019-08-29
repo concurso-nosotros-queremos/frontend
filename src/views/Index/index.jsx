@@ -10,14 +10,14 @@ import Sponsors from '../Home/components/sponsors'
 import { Container } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 
-import Background1700 from '../../assets/fondo1700.svg'
-import Background from '../../assets/fondoLg.svg'
+import Background from '../../assets/firstContainer.svg'
+import Background2 from '../../assets/firstContainer_b.svg'
 
 const useStyles = makeStyles(theme => ({
   container: {
-    border: '2px solid blue',
     paddingBottom: '5rem',
     paddingTop: '5rem',
+
     paddingLeft: '6rem',
     paddingRight: '6rem',
 
@@ -31,24 +31,26 @@ const useStyles = makeStyles(theme => ({
     }
   },
   first: {
-    paddingTop: '3rem',
+    paddingTop: '3rem !important',
     [theme.breakpoints.down('sm')]: {
       paddingTop: '0rem !important'
-    }
-  }
+    },
+    backgroundImage: `url('${Background}'), url('${Background2}')`,
+    backgroundPosition: 'right center, left center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  },
 
 }))
 
-export default function Index () {
+export default function Index() {
   const classes = useStyles()
 
   return (
     <>
       <Container maxWidth='xl' className={[classes.container, classes.first]}>
         <NavBar />
-        <Home />
-      </Container>
-      <Container maxWidth='xl' className={classes.container}>
+        <Home />    
         <ComoFunciona />
       </Container>
       <Container maxWidth='xl' className={classes.container}>

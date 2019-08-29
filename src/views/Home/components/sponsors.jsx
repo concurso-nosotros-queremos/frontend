@@ -4,7 +4,6 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    border: '2px solid red',
     [theme.breakpoints.down('sm')]: {
       justifyContent: 'center'
     }
