@@ -7,12 +7,18 @@ import Avatar from '@material-ui/core/Avatar'
 import { Button } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
-  root: {
+  root:{
+     marginTop: '10rem',
+     [theme.breakpoints.down('sm')]: {
+      marginTop: '5rem',
+    }
+  },
+  mainGrid: {
     padding: '1rem',
   },
   titleContainer: {
+    marginTop: '1.5rem',
     [theme.breakpoints.up('sm')]: {
-      marginTop: '1rem',
       marginBottom: '0.5rem',
       paddingLeft: '5rem',
       paddingRight: '5rem'
@@ -52,9 +58,9 @@ export default function ComoFunciona() {
   const classes = useStyles()
 
   return (
-    <div style={{ marginTop: '10rem', }}>
+    <div className={classes.root}>
       <Paper elevation={5}>
-        <Grid container className={classes.root} justify='center'>
+        <Grid container className={classes.mainGrid} justify='center'>
           <Grid container wrap='nowrap' className={classes.titleContainer} direction='column' justify='center' alignItems='center'>
             <Grid item container style={{ marginBottom: '2rem' }} direction='column' justify='center' alignItems='center'>
               <Grid item style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

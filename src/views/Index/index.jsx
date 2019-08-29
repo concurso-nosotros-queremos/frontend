@@ -26,15 +26,17 @@ const useStyles = makeStyles(theme => ({
 
     [theme.breakpoints.down('sm')]: {
       paddingLeft: '2rem',
-      paddingRight: '2rem'
+      paddingRight: '2rem',
+      paddingBottom: '3rem',
+      paddingTop: '3rem',
     },
     [theme.breakpoints.only('xs')]: {
       paddingLeft: '1rem',
       paddingRight: '1rem'
     },
     [theme.breakpoints.only('xl')]: {
-      paddingLeft: '18rem',
-      paddingRight: '18rem'
+      paddingLeft: '15rem',
+      paddingRight: '15rem'
     },
   },
   first: {
@@ -59,6 +61,9 @@ const useStyles = makeStyles(theme => ({
       backgroundPosition: 'left 60vh',
     },
   },
+  last:{
+    paddingBottom: '2rem',
+  }
 }))
 
 export default function Index() {
@@ -80,7 +85,7 @@ export default function Index() {
       <Container maxWidth='xl' className={classes.container}>
         <Contacto />
       </Container>
-      <Container maxWidth='xl' className={classes.container}>
+      <Container maxWidth='xl' className={[classes.container, classes.last]}>
         <Sponsors />
         <Footer />
       </Container>

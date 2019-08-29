@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
   section1: {
     borderTop: `1px solid ${theme.palette.divider}`,
-    marginTop: '2rem',
+    marginTop: '4rem',
     paddingTop: '1rem'
   },
   section2: {

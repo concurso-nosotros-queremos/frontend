@@ -13,7 +13,8 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.only('sm')]: {
       height: 'calc(70vh - 64px)',
-      minHeight: '25rem'
+      minHeight: '25rem',
+      maxHeight: '35rem'
     },
     [theme.breakpoints.up('md')]: {
       height: '28rem'
@@ -51,7 +52,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function ComoFunciona () {
+export default function ComoFunciona() {
   const classes = useStyles()
 
   return (
@@ -70,10 +71,11 @@ export default function ComoFunciona () {
           </Grid>
         </Grid>
 
-        <Grid container className={classes.loginButonContainer} direction='column' justify='flex-end' alignItems='flex-start' item sm={7} md={6} xl={5}>
-          <Grid item sm={9} md={7} lg={5} style={{ width: '100%' }} container direction='column' justify='flex-start' alignItems='flex-start'>
+        <Grid container className={classes.loginButonContainer} direction='column' justify='flex-end' alignItems='flex-start'
+          item sm={7} md={6} xl={5}>
+          <Grid item sm={9} md={7} lg={5} style={{ width: '100%', maxHeight: 'min-content' }} container direction='column' justify='flex-start' alignItems='flex-start'>
             <GoogleLogin />
-            <Typography variant='body2' color='textSecondary' align='center'>
+            <Typography variant='body2' color='textSecondary' align='center' style={{marginTop: '0.5rem'}}>
               {'Ya tienes cuenta? '}
               <Link href=''>Inicia Sesion</Link>
             </Typography>
