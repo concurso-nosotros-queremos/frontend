@@ -55,7 +55,7 @@ export default function ComoFunciona () {
 
   return (
     <>
-      <Grid container className={classes.root} alignItems='flex-start'>
+      <Grid container className={classes.root} alignItems='flex-start' id='organizan'>
         <Grid container direction='column' alignItems='flex-start' className={classes.organizanTitleContainer}>
           <Grid item style={{ alignItems: 'left' }}>
             <Typography variant='h3' align='left' style={{ fontWeight: 'bold' }}>

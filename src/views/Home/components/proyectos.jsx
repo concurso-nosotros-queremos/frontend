@@ -48,7 +48,7 @@ export default function ComoFunciona () {
 
   return (
     <>
-      <Grid container className={classes.root} justify='center'>
+      <Grid container className={classes.root} justify='center' id='proyectos'>
         <Grid container wrap='nowrap' direction='column' justify='center' alignItems='center' style={{ marginBottom: '3rem' }}>
           <Grid item style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Typography variant='h3' align='center' style={{ fontWeight: 'bold' }}>

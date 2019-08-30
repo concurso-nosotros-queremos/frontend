@@ -59,7 +59,7 @@ export default function ComoFunciona() {
 
   return (
     <div className={classes.root}>
-      <Paper elevation={5}>
+      <Paper elevation={5} id='comoFunciona'>
         <Grid container className={classes.mainGrid} justify='center'>
           <Grid container wrap='nowrap' className={classes.titleContainer} direction='column' justify='center' alignItems='center'>
             <Grid item container style={{ marginBottom: '2rem' }} direction='column' justify='center' alignItems='center'>

@@ -26,7 +26,7 @@ export default function ComoFunciona () {
 
   return (
     <>
-      <Grid container className={classes.root} alignItems='flex-start'>
+      <Grid container className={classes.root} alignItems='flex-start' id='contacto'>
         <Grid container md={6} className={classes.titleContainer} direction='column' justify='flex-start' alignItems='flex-start'>
           <Grid item lg={8} xl={8} md={10} style={{ marginBottom: '2rem' }}>
             <Typography variant='h3' style={{ fontWeight: 'bold' }}>¿Te quedaste con alguna duda?</Typography>

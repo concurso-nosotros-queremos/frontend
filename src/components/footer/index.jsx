@@ -80,7 +80,7 @@ export default function Footer() {
                     <Grid item>
                       <li>
                         <img src={require("../../assets/facebook.png")} alt="facebook" className={classes.liStyle} />
-                        <Link href='#' variant='subtitle2' color='textSecondary' className={classes.liStyle}>
+                        <Link href='https://www.facebook.com/inclusionsocial/' variant='subtitle2' color='textSecondary' className={classes.liStyle}>
                           Facebook
                         </Link>
                       </li>
@@ -88,7 +88,7 @@ export default function Footer() {
                     <Grid item>
                       <li>
                         <img src={require("../../assets/instagram.png")} alt="instagram" className={classes.liStyle} />
-                        <Link href='#' variant='subtitle2' color='textSecondary' className={classes.liStyle}>
+                        <Link href='https://www.instagram.com/fundacionin/' variant='subtitle2' color='textSecondary' className={classes.liStyle}>
                           Instagram
                         </Link>
                       </li>
@@ -96,7 +96,7 @@ export default function Footer() {
                     <Grid item>
                       <li>
                         <img src={require("../../assets/twitter.png")} alt="twitter" className={classes.liStyle} />
-                        <Link href='#' variant='subtitle2' color='textSecondary' className={classes.liStyle}>
+                        <Link href='https://twitter.com/FundacionIN_' variant='subtitle2' color='textSecondary' className={classes.liStyle}>
                           Twitter
                         </Link>
                       </li>
@@ -104,7 +104,7 @@ export default function Footer() {
                     <Grid item>
                       <li>
                         <img src={require("../../assets/linkedin.png")} alt="linkedin" className={classes.liStyle} />
-                        <Link href='#' variant='subtitle2' color='textSecondary' className={classes.liStyle}>
+                        <Link href='https://www.linkedin.com/company/fundación-inclusión-social' variant='subtitle2' color='textSecondary' className={classes.liStyle}>
                           LinkedIn
                         </Link>
                       </li>

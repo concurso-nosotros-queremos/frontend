@@ -30,7 +30,7 @@ export default function Footer () {
 
   return (
     <>
-      <Grid container direction='row' justify='space-between' className={classes.root}>
+      <Grid container direction='row' justify='space-between' className={classes.root} id='sponsors'>
         <Grid item xs={6} sm='auto' className={classes.imgItem}>
           <img className={classes.imgSponsor} alt='sponsor' src={require('../../../assets/sponsors/Luigi-Bosca.jpg')} />
         </Grid>
