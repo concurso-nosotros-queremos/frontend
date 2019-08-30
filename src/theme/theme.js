@@ -125,7 +125,7 @@ let theme = createMuiTheme({
     MuiFormLabel: {
       root: {
         fontFamily: 'Roboto'
-      },
+      }
     },
     MuiButton: {
       sizeLarge: {

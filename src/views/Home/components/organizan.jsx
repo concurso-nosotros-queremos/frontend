@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.up('lg')]: {
       paddingLeft: '8rem',
-      paddingRight: '8rem',
+      paddingRight: '8rem'
     },
     [theme.breakpoints.only('xl')]: {
       backgroundPosition: 'right bottom'
@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function ComoFunciona() {
+export default function ComoFunciona () {
   const classes = useStyles()
 
   return (

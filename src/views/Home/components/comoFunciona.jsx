@@ -7,14 +7,14 @@ import Avatar from '@material-ui/core/Avatar'
 import { Button } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
-  root:{
-     marginTop: '10rem',
-     [theme.breakpoints.down('sm')]: {
-      marginTop: '5rem',
+  root: {
+    marginTop: '10rem',
+    [theme.breakpoints.down('sm')]: {
+      marginTop: '5rem'
     }
   },
   mainGrid: {
-    padding: '1rem',
+    padding: '1rem'
   },
   titleContainer: {
     marginTop: '1.5rem',
@@ -54,7 +54,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function ComoFunciona() {
+export default function ComoFunciona () {
   const classes = useStyles()
 
   return (
@@ -66,14 +66,14 @@ export default function ComoFunciona() {
               <Grid item style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <Typography variant='h3' align='center' style={{ fontWeight: 'bold' }}>
                   ¿Como funciona?
-              </Typography>
+                </Typography>
                 <div className={classes.barraDecorativa} />
               </Grid>
             </Grid>
             <Grid item>
               <Typography variant='subtitle1' align='center'>
                 Nosotros Queremos es un concurso anual de emprendimientos que apunta a despertar el espíritu emprendedor de los jovenes en los ultimos años de la secundaria.
-            </Typography>
+              </Typography>
             </Grid>
           </Grid>
           <Grid container className={classes.pasosContainer} direction='row' justify='space-around' alignItems='center'>
@@ -128,9 +128,9 @@ export default function ComoFunciona() {
           </Grid>
           <Grid container direction='row' justify='space-around' alignItems='center'>
             <Grid item style={{ margin: '1rem' }}>
-              <Button size='large' variant='contained' color='primary' href='#contained-buttons'>
+              <Button size='large' variant='contained' color='primary' href='#root'>
                 Inscribi a tu grupo
-            </Button>
+              </Button>
             </Grid>
           </Grid>
         </Grid>

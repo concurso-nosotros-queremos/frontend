@@ -8,13 +8,13 @@ const useStyles = makeStyles(theme => ({
   '@global': {
     ul: {
       margin: 0,
-      padding: 0,
+      padding: 0
 
     },
     li: {
       listStyle: 'none',
-      display: 'table',
-    },
+      display: 'table'
+    }
   },
   section1: {
     borderTop: `1px solid ${theme.palette.divider}`,
@@ -33,13 +33,17 @@ const useStyles = makeStyles(theme => ({
   },
   liStyle: {
     display: 'table-cell',
+    verticalAlign: 'middle'
+  },
+  liIconStyle: {
+    display: 'table-cell',
     verticalAlign: 'middle',
     width: '21px',
-    paddingLeft: '0.5rem'
+    marginRight: '.5rem'
   }
 }))
 
-export default function Footer() {
+export default function Footer () {
   const classes = useStyles()
 
   return (
@@ -79,7 +83,7 @@ export default function Footer() {
                   <Grid container direction='column' justify='flex-start' alignItems='flex-start' spacing={1} item>
                     <Grid item>
                       <li>
-                        <img src={require("../../assets/facebook.png")} alt="facebook" className={classes.liStyle} />
+                        <img src={require('../../../assets/facebook.png')} alt='facebook' className={classes.liIconStyle} />
                         <Link href='https://www.facebook.com/inclusionsocial/' variant='subtitle2' color='textSecondary' className={classes.liStyle}>
                           Facebook
                         </Link>
@@ -87,7 +91,7 @@ export default function Footer() {
                     </Grid>
                     <Grid item>
                       <li>
-                        <img src={require("../../assets/instagram.png")} alt="instagram" className={classes.liStyle} />
+                        <img src={require('../../../assets/instagram.png')} alt='instagram' className={classes.liIconStyle} />
                         <Link href='https://www.instagram.com/fundacionin/' variant='subtitle2' color='textSecondary' className={classes.liStyle}>
                           Instagram
                         </Link>
@@ -95,7 +99,7 @@ export default function Footer() {
                     </Grid>
                     <Grid item>
                       <li>
-                        <img src={require("../../assets/twitter.png")} alt="twitter" className={classes.liStyle} />
+                        <img src={require('../../../assets/twitter.png')} alt='twitter' className={classes.liIconStyle} />
                         <Link href='https://twitter.com/FundacionIN_' variant='subtitle2' color='textSecondary' className={classes.liStyle}>
                           Twitter
                         </Link>
@@ -103,7 +107,7 @@ export default function Footer() {
                     </Grid>
                     <Grid item>
                       <li>
-                        <img src={require("../../assets/linkedin.png")} alt="linkedin" className={classes.liStyle} />
+                        <img src={require('../../../assets/linkedin.png')} alt='linkedin' className={classes.liIconStyle} />
                         <Link href='https://www.linkedin.com/company/fundación-inclusión-social' variant='subtitle2' color='textSecondary' className={classes.liStyle}>
                           LinkedIn
                         </Link>

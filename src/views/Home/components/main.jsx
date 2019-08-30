@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles/index'
 import Typography from '@material-ui/core/Typography/index'
 import Grid from '@material-ui/core/Grid'
 import { Link } from '@material-ui/core'
-import GoogleLogin from '../../containers/googleLogin'
+import GoogleLogin from '../../../containers/googleLogin'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -52,7 +52,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function ComoFunciona() {
+export default function ComoFunciona () {
   const classes = useStyles()
 
   return (
@@ -71,18 +71,20 @@ export default function ComoFunciona() {
           </Grid>
         </Grid>
 
-        <Grid container className={classes.loginButonContainer} direction='column' justify='flex-end' alignItems='flex-start'
-          item sm={7} md={6} xl={5}>
+        <Grid
+          container className={classes.loginButonContainer} direction='column' justify='flex-end' alignItems='flex-start'
+          item sm={7} md={6} xl={5}
+        >
           <Grid item sm={9} md={7} lg={5} style={{ width: '100%', maxHeight: 'min-content' }} container direction='column' justify='flex-start' alignItems='flex-start'>
             <GoogleLogin />
-            <Typography variant='body2' color='textSecondary' align='center' style={{marginTop: '0.5rem'}}>
+            <Typography variant='body2' color='textSecondary' align='center' style={{ marginTop: '0.5rem' }}>
               {'Ya tienes cuenta? '}
               <Link href=''>Inicia Sesion</Link>
             </Typography>
           </Grid>
         </Grid>
       </Grid>
-      <img className={classes.imgPrincipal} src={require('../../assets/compass.svg')} alt='imagen principal' />
+      <img className={classes.imgPrincipal} src={require('../../../assets/compass.svg')} alt='imagen principal' />
     </div>
   )
 }

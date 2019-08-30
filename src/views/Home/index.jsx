@@ -1,12 +1,12 @@
 import React from 'react'
-import NavBar from '../../components/navbar'
-import Home from '../Home/home'
-import ComoFunciona from '../Home/components/comoFunciona'
-import Contacto from '../Home/components/contacto'
-import Organizan from '../Home/components/organizan'
-import Proyectos from '../Home/components/proyectos'
-import Footer from '../../components/footer/index'
-import Sponsors from '../Home/components/sponsors'
+import NavBar from './components/navbar'
+import Home from '../Home/components/main'
+import ComoFunciona from './components/comoFunciona'
+import Contacto from './components/contacto'
+import Organizan from './components/organizan'
+import Proyectos from './components/proyectos'
+import Footer from './components/footer'
+import Sponsors from './components/sponsors'
 import { Container } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 
@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
       paddingLeft: '2rem',
       paddingRight: '2rem',
       paddingBottom: '3rem',
-      paddingTop: '3rem',
+      paddingTop: '3rem'
     },
     [theme.breakpoints.only('xs')]: {
       paddingLeft: '1rem',
@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.only('xl')]: {
       paddingLeft: '15rem',
       paddingRight: '15rem'
-    },
+    }
   },
   first: {
     paddingTop: '3rem !important',
@@ -47,26 +47,26 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: 'cover',
     [theme.breakpoints.down('md')]: {
       backgroundImage: `url('${svgRightMd}'), url('${svgLeft}')`,
-      backgroundPosition: 'right center, left center',
+      backgroundPosition: 'right center, left center'
     },
     [theme.breakpoints.down('sm')]: {
       paddingTop: '0rem !important',
       backgroundSize: 'auto',
       backgroundImage: `url('${svgLeftSm}')`,
-      backgroundPosition: 'left 300px',
+      backgroundPosition: 'left 300px'
     },
     [theme.breakpoints.down('xs')]: {
       backgroundSize: 'auto',
       backgroundImage: `url('${svgLeftXs}')`,
-      backgroundPosition: 'left 60vh',
-    },
+      backgroundPosition: 'left 60vh'
+    }
   },
-  last:{
-    paddingBottom: '2rem',
+  last: {
+    paddingBottom: '2rem'
   }
 }))
 
-export default function Index() {
+export default function Index () {
   const classes = useStyles()
 
   return (
