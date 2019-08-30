@@ -71,7 +71,7 @@ export default function Index() {
 
   return (
     <>
-      <Container maxWidth='xl' className={[classes.container, classes.first]}>
+      <Container maxWidth='xl' className={`${classes.container} ${classes.first}`}>
         <NavBar />
         <Home />
         <ComoFunciona />
@@ -85,7 +85,7 @@ export default function Index() {
       <Container maxWidth='xl' className={classes.container}>
         <Contacto />
       </Container>
-      <Container maxWidth='xl' className={[classes.container, classes.last]}>
+      <Container maxWidth='xl' className={`${classes.container} ${classes.last}`}>
         <Sponsors />
         <Footer />
       </Container>
