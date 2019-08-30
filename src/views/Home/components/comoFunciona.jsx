@@ -83,8 +83,8 @@ export default function ComoFunciona () {
                   <Typography variant='h5'>1</Typography>
                 </Avatar>
               </Grid>
-              <Grid item container justify='center' alignItems='center' className={classes.containerImgPasos}>
-                <img src={require('../../../assets/1.svg')} style={{ width: '12rem' }} className={classes.imgPasosItem} alt='pasos' />
+              <Grid item container justify='center' alignItems='center'>
+                <img src={require('../../../assets/1.svg')} style={{ width: '12rem' }} alt='pasos' />
               </Grid>
               <Grid item>
                 <Typography variant='h5' style={{ fontWeight: 'bold' }} align='center'>Inscribite</Typography>
@@ -99,8 +99,8 @@ export default function ComoFunciona () {
                   <Typography variant='h5'>2</Typography>
                 </Avatar>
               </Grid>
-              <Grid item container justify='center' alignItems='center' className={classes.containerImgPasos}>
-                <img src={require('../../../assets/2.svg')} style={{ width: '12rem' }} className={classes.imgPasosItem} alt='pasos' />
+              <Grid item container justify='center' alignItems='center'>
+                <img src={require('../../../assets/2.svg')} style={{ width: '12rem' }} alt='pasos' />
               </Grid>
               <Grid item>
                 <Typography variant='h5' style={{ fontWeight: 'bold' }} align='center'>Te validamos</Typography>
@@ -115,8 +115,8 @@ export default function ComoFunciona () {
                   <Typography variant='h5'>3</Typography>
                 </Avatar>
               </Grid>
-              <Grid item container justify='center' alignItems='center' className={classes.containerImgPasos}>
-                <img src={require('../../../assets/3.svg')} style={{ width: '12rem' }} className={classes.imgPasosItem} alt='pasos' />
+              <Grid item container justify='center' alignItems='center'>
+                <img src={require('../../../assets/3.svg')} style={{ width: '12rem' }} alt='pasos' />
               </Grid>
               <Grid item>
                 <Typography variant='h5' style={{ fontWeight: 'bold' }} align='center'>Participa</Typography>
