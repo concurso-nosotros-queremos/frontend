@@ -9,15 +9,14 @@ let theme = createMuiTheme({
     },
     secondary: {
       main: '#D37E01',
-      light: '#D37E01'
-
+      light: '#F9AA33'
     },
     error: {
       main: '#e53935'
     },
     text: {
       primary: 'rgba(0, 0, 0, 0.85)', // Contenido de Textfield
-      secondary: 'rgba(0, 0, 0, 0.54)', // Texto de ayuda, se elimina luego de escribir o con error
+      secondary: 'rgba(0, 0, 0, 0.65)', // Texto de ayuda, se elimina luego de escribir o con error
       disabled: 'rgba(0, 0, 0, 0.38)',
       hint: 'rgba(0, 0, 0, 0.38)'
     }
@@ -91,7 +90,7 @@ let theme = createMuiTheme({
       letterSpacing: '0.01071em'
     },
     button: {
-      fontWeight: 500,
+      fontWeight: 400,
       fontSize: '1rem',
       lineHeight: 1.75,
       letterSpacing: '0.02857em',

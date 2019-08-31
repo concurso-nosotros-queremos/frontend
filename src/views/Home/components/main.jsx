@@ -52,7 +52,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function ComoFunciona () {
+export default function ComoFunciona() {
   const classes = useStyles()
 
   return (
@@ -77,9 +77,9 @@ export default function ComoFunciona () {
         >
           <Grid item sm={9} md={7} lg={5} style={{ width: '100%', maxHeight: 'min-content' }} container direction='column' justify='flex-start' alignItems='flex-start'>
             <GoogleLogin />
-            <Typography variant='body2' color='textSecondary' align='center' style={{ marginTop: '0.5rem' }}>
+            <Typography variant='body2' align='center' style={{ marginTop: '0.5rem', color: 'white' }}>
               {'Ya tienes cuenta? '}
-              <Link href=''>Inicia Sesion</Link>
+              <Link style={{ color: 'white', textDecoration: 'underline' }} href='/login'>Inicia Sesion</Link>
             </Typography>
           </Grid>
         </Grid>

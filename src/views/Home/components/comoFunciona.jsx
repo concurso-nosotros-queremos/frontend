@@ -42,7 +42,7 @@ const useStyles = makeStyles(theme => ({
     color: 'black',
     backgroundColor: 'transparent',
     border: '3.5px solid',
-    borderColor: theme.palette.secondary.main,
+    borderColor: theme.palette.secondary.light,
     fontWeight: 'bold'
   },
   barraDecorativa: {
@@ -54,7 +54,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function ComoFunciona () {
+export default function ComoFunciona() {
   const classes = useStyles()
 
   return (
@@ -80,7 +80,7 @@ export default function ComoFunciona () {
             <Grid container item xs={12} sm={3} direction='column' justify='space-evenly' alignItems='center' className={classes.pasosItem}>
               <Grid item>
                 <Avatar className={classes.avatar}>
-                  <Typography variant='h5'>1</Typography>
+                  <Typography variant='h6'>1</Typography>
                 </Avatar>
               </Grid>
               <Grid item container justify='center' alignItems='center'>
@@ -93,10 +93,11 @@ export default function ComoFunciona () {
                 <Typography variant='body1' align='center'>Tu profe inscribe al grupo de alumn@s</Typography>
               </Grid>
             </Grid>
+
             <Grid container item xs={12} sm={3} direction='column' justify='space-evenly' alignItems='center' className={classes.pasosItem}>
               <Grid item>
                 <Avatar className={classes.avatar}>
-                  <Typography variant='h5'>2</Typography>
+                  <Typography variant='h6'>2</Typography>
                 </Avatar>
               </Grid>
               <Grid item container justify='center' alignItems='center'>
@@ -109,10 +110,11 @@ export default function ComoFunciona () {
                 <Typography variant='body1' align='center'>La fundación valida y contesta al grupo</Typography>
               </Grid>
             </Grid>
+
             <Grid container item xs={12} sm={3} direction='column' justify='space-evenly' alignItems='center' className={classes.pasosItem}>
               <Grid item>
                 <Avatar className={classes.avatar}>
-                  <Typography variant='h5'>3</Typography>
+                  <Typography variant='h6'>3</Typography>
                 </Avatar>
               </Grid>
               <Grid item container justify='center' alignItems='center'>
@@ -125,9 +127,10 @@ export default function ComoFunciona () {
                 <Typography variant='body1' align='center'>El grupo participa en el concurso por un premio!</Typography>
               </Grid>
             </Grid>
+
           </Grid>
           <Grid container direction='row' justify='space-around' alignItems='center'>
-            <Grid item style={{ margin: '1rem' }}>
+            <Grid item style={{ marginTop: '2rem', marginBottom: '1rem' }}>
               <Button size='large' variant='contained' color='primary' href='#root'>
                 Inscribi a tu grupo
               </Button>
