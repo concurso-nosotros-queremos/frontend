@@ -133,7 +133,7 @@ export default function Footer() {
             </Grid>
             <Grid item>
               <Typography variant='body2' color='textSecondary' align='center'>
-                <Link color='inherit' href='/bases-y-condiciones'>
+                <Link color='inherit' href={require('../../../assets/bases-y-condiciones-CNQ.pdf')} download>
                   Bases y condiciones
                 </Link>
               </Typography>

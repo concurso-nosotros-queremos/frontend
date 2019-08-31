@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function sponsors () {
+export default function Sponsors () {
   const classes = useStyles()
 
   return (
