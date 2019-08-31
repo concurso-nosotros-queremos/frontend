@@ -13,6 +13,8 @@ import MenuIcon from '@material-ui/icons/Menu'
 import withWidth from '@material-ui/core/withWidth'
 import CloseIcon from '@material-ui/icons/Close'
 
+import { Link } from 'react-scroll'
+
 const useStyles = makeStyles(theme => ({
   appBar: {
     position: 'relative',
@@ -88,11 +90,36 @@ function NavBar(props) {
           <Hidden smDown>
             <img alt='Concurso Nosotros Queremos' src='https://sanmartinadiario.com.ar/fotos/4262_5681.jpg' className={classes.cnq} />
             <Grid container>
-              <Button disableRipple className={classes.appBarButton} href='#comoFunciona'>Acerca</Button>
-              <Button disableRipple className={classes.appBarButton} href='#proyectos'>Proyectos</Button>
-              <Button disableRipple className={classes.appBarButton} href='#organizan'>Organizan</Button>
-              <Button disableRipple className={classes.appBarButton} href='#contacto'>Contactos</Button>
-              <Button disableRipple className={classes.appBarButton} href='#sponsors'>Sponsors</Button>
+              <Button disableRipple className={classes.appBarButton}>
+                <Link activeClass="active" className="test1" to="comoFunciona"
+                  spy={true} smooth={true} duration={400} ignoreCancelEvents={true} offset={-20}>
+                  Acerca
+                  </Link>
+              </Button>
+              <Button disableRipple className={classes.appBarButton}>
+                <Link activeClass="active" className="test1" to="proyectos"
+                  spy={true} smooth={true} duration={500} ignoreCancelEvents={true} offset={-20}>
+                  Proyectos
+                  </Link>
+              </Button>
+              <Button disableRipple className={classes.appBarButton}>
+                <Link activeClass="active" className="test1" to="organizan"
+                  spy={true} smooth={true} duration={600} ignoreCancelEvents={true} offset={-20}>
+                  Organizan
+                  </Link>
+              </Button>
+              <Button disableRipple className={classes.appBarButton}>
+                <Link activeClass="active" className="test1" to="contacto"
+                  spy={true} smooth={true} duration={700} ignoreCancelEvents={true} offset={-20}>
+                  Contactos
+                  </Link>
+              </Button>
+              <Button disableRipple className={classes.appBarButton}>
+                <Link activeClass="active" className="test1" to="sponsors"
+                  spy={true} smooth={true} duration={800} ignoreCancelEvents={true} offset={-20}>
+                  Sponsors
+                  </Link>
+              </Button>
             </Grid>
             <Grid item style={{ textAlign: 'right' }}>
               <img style={{ width: '12rem' }} alt='in' src={require('../../../assets/inclusion_logo_text.svg')} />
@@ -112,11 +139,36 @@ function NavBar(props) {
                       </IconButton>
                     </Grid>
                     <Grid container direction='column' justify='center' alignItems='center'>
-                      <Button disableRipple className={classes.appBarButton} href='#comoFunciona' onClick={handleClose}>Acerca</Button>
-                      <Button disableRipple className={classes.appBarButton} href='#proyectos' onClick={handleClose}>Proyectos</Button>
-                      <Button disableRipple className={classes.appBarButton} href='#organizan' onClick={handleClose}>Organizan</Button>
-                      <Button disableRipple className={classes.appBarButton} href='#contacto' onClick={handleClose}>Contactos</Button>
-                      <Button disableRipple className={classes.appBarButton} href='#sponsors' onClick={handleClose}>Sponsors</Button>
+                      <Button disableRipple className={classes.appBarButton} href='#comoFunciona'>
+                        <Link activeClass="active" className="test1" to="comoFunciona" onClick={handleClose}
+                          spy={true} smooth={true} duration={400} ignoreCancelEvents={true} offset={-20}>
+                          Acerca
+                        </Link>
+                      </Button>
+                      <Button disableRipple className={classes.appBarButton}>
+                        <Link activeClass="active" className="test1" to="proyectos" onClick={handleClose}
+                          spy={true} smooth={true} duration={500} ignoreCancelEvents={true} offset={-20}>
+                          Proyectos
+                        </Link>
+                      </Button>
+                      <Button disableRipple className={classes.appBarButton}>
+                        <Link activeClass="active" className="test1" to="organizan" onClick={handleClose}
+                          spy={true} smooth={true} duration={600} ignoreCancelEvents={true} offset={-20}>
+                          Organizan
+                        </Link>
+                      </Button>
+                      <Button disableRipple className={classes.appBarButton}>
+                        <Link activeClass="active" className="test1" to="contacto" onClick={handleClose}
+                          spy={true} smooth={true} duration={700} ignoreCancelEvents={true} offset={-20}>
+                          Contactos
+                        </Link>
+                      </Button>
+                      <Button disableRipple className={classes.appBarButton}>
+                        <Link activeClass="active" className="test1" to="sponsors" onClick={handleClose}
+                          spy={true} smooth={true} duration={800} ignoreCancelEvents={true} offset={-20}>
+                          Sponsors
+                        </Link>
+                      </Button>
                     </Grid>
                   </Grid>
                 </Paper>

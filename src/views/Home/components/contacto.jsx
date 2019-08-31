@@ -78,7 +78,7 @@ export default function Contacto () {
                   }
                   label={
                     <Typography variant='body2' style={{ color: 'rgba(0, 0, 0, 0.54)' }}>
-                      Acepto terminos y condiciones
+                      No soy un robot
                     </Typography>
                   }
                 />
