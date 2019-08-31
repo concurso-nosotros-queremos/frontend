@@ -154,7 +154,7 @@ export default function Proyectos () {
 
         <Grid container direction='row' justify='center' alignItems='center'>
           <Grid item style={{ margin: '1rem 1rem 0rem 1rem' }}>
-            <Button size='large' variant='contained' color='primary' href='#ver-proyectos'>
+            <Button size='large' variant='contained' color='primary' href='/ver-proyectos'>
               Ver todos
             </Button>
           </Grid>

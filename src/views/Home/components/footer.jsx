@@ -75,7 +75,7 @@ export default function Footer() {
             <Grid container direction='column' justify='flex-start' alignItems='flex-start' spacing={1} item className={classes.socialContainer}>
               <Grid item>
                 <Typography variant='h5' style={{ fontWeight: 'bold' }}>
-                  Social
+                  Redes
                 </Typography>
               </Grid>
               <Grid item>
@@ -133,7 +133,7 @@ export default function Footer() {
             </Grid>
             <Grid item>
               <Typography variant='body2' color='textSecondary' align='center'>
-                <Link color='inherit' href={require('../../../assets/bases-y-condiciones-CNQ.pdf')} download>
+                <Link color='inherit' href={require('../../../assets/bases-y-condiciones-CNQ.pdf')} download="bases-y-condiciones-CNQ">
                   Bases y condiciones
                 </Link>
               </Typography>

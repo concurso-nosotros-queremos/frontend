@@ -139,32 +139,32 @@ function NavBar(props) {
                       </IconButton>
                     </Grid>
                     <Grid container direction='column' justify='center' alignItems='center'>
-                      <Button disableRipple className={classes.appBarButton} href='#comoFunciona'>
-                        <Link activeClass="active" className="test1" to="comoFunciona" onClick={handleClose}
+                      <Button disableRipple className={classes.appBarButton}>
+                        <Link activeClass="active" className="test1" to="comoFunciona" onClick={handleClose} delay={50}
                           spy={true} smooth={true} duration={400} ignoreCancelEvents={true} offset={-20}>
                           Acerca
                         </Link>
                       </Button>
                       <Button disableRipple className={classes.appBarButton}>
-                        <Link activeClass="active" className="test1" to="proyectos" onClick={handleClose}
+                        <Link activeClass="active" className="test1" to="proyectos" onClick={handleClose} delay={50}
                           spy={true} smooth={true} duration={500} ignoreCancelEvents={true} offset={-20}>
                           Proyectos
                         </Link>
                       </Button>
                       <Button disableRipple className={classes.appBarButton}>
-                        <Link activeClass="active" className="test1" to="organizan" onClick={handleClose}
+                        <Link activeClass="active" className="test1" to="organizan" onClick={handleClose} delay={50}
                           spy={true} smooth={true} duration={600} ignoreCancelEvents={true} offset={-20}>
                           Organizan
                         </Link>
                       </Button>
                       <Button disableRipple className={classes.appBarButton}>
-                        <Link activeClass="active" className="test1" to="contacto" onClick={handleClose}
+                        <Link activeClass="active" className="test1" to="contacto" onClick={handleClose} delay={50}
                           spy={true} smooth={true} duration={700} ignoreCancelEvents={true} offset={-20}>
                           Contactos
                         </Link>
                       </Button>
                       <Button disableRipple className={classes.appBarButton}>
-                        <Link activeClass="active" className="test1" to="sponsors" onClick={handleClose}
+                        <Link activeClass="active" className="test1" to="sponsors" onClick={handleClose} delay={50}
                           spy={true} smooth={true} duration={800} ignoreCancelEvents={true} offset={-20}>
                           Sponsors
                         </Link>

@@ -133,7 +133,7 @@ export default function ComoFunciona() {
           </Grid>
           <Grid container direction='row' justify='space-around' alignItems='center'>
             <Grid item style={{ marginTop: '2rem', marginBottom: '1rem' }}>
-              <Button size='large' variant='contained' color='primary' href='#root'>
+              <Button size='large' variant='contained' color='primary' href='/login'>
                 Inscribi a tu grupo
               </Button>
             </Grid>
