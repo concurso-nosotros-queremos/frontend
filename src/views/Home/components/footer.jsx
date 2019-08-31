@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Footer () {
+export default function Footer() {
   const classes = useStyles()
 
   return (
@@ -128,6 +128,13 @@ export default function Footer () {
                 {'Creado con '} {'\u2764'} {' - Alumnos del '}
                 <Link color='inherit' href='https://www.itsv.edu.ar/'>
                   ITS Villada
+                </Link>
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant='body2' color='textSecondary' align='center'>
+                <Link color='inherit' href='/bases-y-condiciones'>
+                  Bases y condiciones
                 </Link>
               </Typography>
             </Grid>

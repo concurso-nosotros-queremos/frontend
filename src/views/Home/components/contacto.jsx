@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function ComoFunciona () {
+export default function Contacto () {
   const classes = useStyles()
 
   return (
@@ -33,7 +33,7 @@ export default function ComoFunciona () {
           </Grid>
           <Grid item lg={8} xl={6} md={8}>
             <Typography variant='subtitle1'>
-              ¡No hay problema! Déjanos tu pregunta y te respondemos a la brevedad :)
+              ¡No hay problema! Dejanos tu pregunta y te respondemos a la brevedad :)
             </Typography>
           </Grid>
         </Grid>

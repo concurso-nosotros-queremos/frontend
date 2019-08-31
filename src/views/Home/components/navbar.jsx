@@ -46,12 +46,6 @@ const useStyles = makeStyles(theme => ({
     fontFamily: 'Roboto Slab',
     fontWeight: 500,
   },
-  modalButton: {
-    '&:hover': {
-      backgroundColor: 'rgba(0,0,0,0)'
-    },
-    textTransform: 'none'
-  },
   modal: {
     borderRadius: '0',
     display: 'flex',
@@ -75,7 +69,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-function NavBar (props) {
+function NavBar(props) {
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
 
@@ -101,17 +95,14 @@ function NavBar (props) {
               <Button disableRipple className={classes.appBarButton} href='#sponsors'>Sponsors</Button>
             </Grid>
             <Grid item style={{ textAlign: 'right' }}>
-              <img style={{ width: '12rem' }} alt='in' src={require('../../../assets/inclusion_logo_text.svg')}/>
+              <img style={{ width: '12rem' }} alt='in' src={require('../../../assets/inclusion_logo_text.svg')} />
             </Grid>
           </Hidden>
           <Hidden mdUp>
             <IconButton disableRipple edge='start' color='default' aria-label='menu' onClick={handleOpen}>
               <MenuIcon />
             </IconButton>
-            <Modal
-              open={open}
-              onClose={handleClose}
-            >
+            <Modal open={open} onClose={handleClose}>
               <Fade in={open}>
                 <Paper className={classes.modal}>
                   <Grid container style={{ height: '100%' }}>
@@ -121,11 +112,11 @@ function NavBar (props) {
                       </IconButton>
                     </Grid>
                     <Grid container direction='column' justify='center' alignItems='center'>
-                      <Button disableRipple className={classes.modalButton} href='#comoFunciona' onClick={handleClose}>Acerca</Button>
-                      <Button disableRipple className={classes.modalButton} href='#proyectos' onClick={handleClose}>Proyectos</Button>
-                      <Button disableRipple className={classes.modalButton} href='#organizan' onClick={handleClose}>Organizan</Button>
-                      <Button disableRipple className={classes.modalButton} href='#contacto' onClick={handleClose}>Contactos</Button>
-                      <Button disableRipple className={classes.modalButton} href='#sponsors' onClick={handleClose}>Sponsors</Button>
+                      <Button disableRipple className={classes.appBarButton} href='#comoFunciona' onClick={handleClose}>Acerca</Button>
+                      <Button disableRipple className={classes.appBarButton} href='#proyectos' onClick={handleClose}>Proyectos</Button>
+                      <Button disableRipple className={classes.appBarButton} href='#organizan' onClick={handleClose}>Organizan</Button>
+                      <Button disableRipple className={classes.appBarButton} href='#contacto' onClick={handleClose}>Contactos</Button>
+                      <Button disableRipple className={classes.appBarButton} href='#sponsors' onClick={handleClose}>Sponsors</Button>
                     </Grid>
                   </Grid>
                 </Paper>

@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Footer () {
+export default function sponsors () {
   const classes = useStyles()
 
   return (

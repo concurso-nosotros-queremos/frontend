@@ -26,9 +26,11 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('lg')]: {
       paddingLeft: '12rem',
       paddingRight: '12rem'
-    }
+    },
+    marginBottom: '1rem'
   },
   pasosItem: {
+    paddingTop: '1rem',
     minWidth: 'min-content',
     height: '100%',
     [theme.breakpoints.down('sm')]: {
@@ -107,7 +109,7 @@ export default function ComoFunciona() {
                 <Typography variant='h5' style={{ fontWeight: 'bold' }} align='center'>Te validamos</Typography>
               </Grid>
               <Grid item className={classes.PasosTextContainer}>
-                <Typography variant='body1' align='center'>La fundación valida y contesta al grupo</Typography>
+                <Typography variant='body1' align='center'>La fundación se pone en contacto</Typography>
               </Grid>
             </Grid>
 
