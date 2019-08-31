@@ -29,6 +29,7 @@ const useStyles = makeStyles(theme => ({
   appBarButton: {
     '&:hover': {
       backgroundColor: 'rgba(0,0,0,0)',
+      fontWeight: 'bold',
       '&::after': {
         content: '\'\'',
         width: '45px',
@@ -36,10 +37,9 @@ const useStyles = makeStyles(theme => ({
         position: 'absolute',
         backgroundColor: theme.palette.primary.main,
         borderRadius: 'inherit',
-        marginTop: '1rem'
+        marginTop: '1rem',
       }
     },
-    fontSize: '1rem',
     textTransform: 'none',
     marginRight: '0.8rem',
     marginLeft: '0.8rem'
@@ -99,7 +99,7 @@ function NavBar (props) {
               <Button disableRipple className={classes.appBarButton} href='#sponsors'>Sponsors</Button>
             </Grid>
             <Grid item style={{ textAlign: 'right' }}>
-              <img style={{ width: '12rem' }} alt='' />
+              <img style={{ width: '12rem' }} alt='in' src={require('../../../assets/inclusion_logo_text.svg')}/>
             </Grid>
           </Hidden>
           <Hidden mdUp>

@@ -92,7 +92,7 @@ let theme = createMuiTheme({
     },
     button: {
       fontWeight: 500,
-      fontSize: '0.875rem',
+      fontSize: '1rem',
       lineHeight: 1.75,
       letterSpacing: '0.02857em',
       textTransform: 'uppercase',
