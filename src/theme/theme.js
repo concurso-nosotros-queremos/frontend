@@ -13,7 +13,7 @@ let theme = createMuiTheme({
 
     },
     error: {
-      main: '#ff1744'
+      main: '#e53935'
     },
     text: {
       primary: 'rgba(0, 0, 0, 0.85)', // Contenido de Textfield
