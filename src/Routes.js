@@ -4,6 +4,7 @@ import RouteWithLayout from './components/routeWithLayout'
 import Index from './views/Index/index'
 import { connect } from 'react-redux'
 import InscriptionWrapper from './containers/projectInscription'
+import Main from './layouts/Main/Main'
 
 const ProtectedRoute = ({ isAllowed, ...props }) => {
   return (
@@ -13,33 +14,33 @@ const ProtectedRoute = ({ isAllowed, ...props }) => {
 
 const Routes = (props) => {
   return (
-    <Switch >
+    <Switch>
       <Route
         exact
         path='/'
         render={() => (
           props.isLoggedIn
             ? <Redirect to='/dashboard' />
-            : <RouteWithLayout component={Index} layout={<></>} exact path='/' />
+            : <RouteWithLayout component={Index} layout={Main} exact path='/' />
         )}
       />
       <ProtectedRoute
         isAllowed={props.isLoggedIn}
         component={InscriptionWrapper}
-        layout={<></>}
+        layout={Main}
         exact
         path='/dashboard'
       />
       <ProtectedRoute
         isAllowed={props.isLoggedIn}
         component={InscriptionWrapper}
-        layout={<></>}
+        layout={Main}
         exact
         path='/dashboard/inscription'
       />
       <RouteWithLayout
         component={() => <h1>404</h1>}
-        layout={<></>}
+        layout={Main}
         exact
         path='/not-found'
       />
@@ -57,7 +58,7 @@ const MainRouter = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  isLoggedIn: state.auth.isLoggedIn
+  isLoggedIn: true // state.auth.isLoggedIn
 })
 
 export default connect(mapStateToProps)(MainRouter)
