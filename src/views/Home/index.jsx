@@ -17,6 +17,7 @@ import svgLeftSm from '../../assets/homePageLeftSm.svg'
 import svgLeftXs from '../../assets/homePageLeftXs.svg'
 
 import svgRightXs from '../../assets/homePageRightXs.svg'
+import svgRightSm from '../../assets/homePageRightSm.svg'
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -53,9 +54,9 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.down('sm')]: {
       paddingTop: '0rem !important',
+      backgroundImage: `url('${svgLeftSm}'), url('${svgRightSm}')`,
+      backgroundPosition: 'left 320px, right top',
       backgroundSize: 'auto',
-      backgroundImage: `url('${svgLeftSm}')`,
-      backgroundPosition: 'left 320px'
     },
     [theme.breakpoints.down('xs')]: {
       backgroundImage: `url('${svgLeftXs}'), url('${svgRightXs}')`,
