@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/styles'
-import { AppBar, Toolbar, Hidden, IconButton } from '@material-ui/core'
+import { AppBar, Toolbar, Hidden, IconButton, Avatar, Typography, Grid } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 
 const useStyles = makeStyles(theme => ({
@@ -10,13 +10,13 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('lg')]: {
       width: 'calc(100% - 240px)'
     },
-    boxShadow: 'none'
-  },
-  flexGrow: {
+    boxShadow: 'none',
+    backgroundColor: '#FFFFFF',
+    borderBottom: '1px solid #232F3424',
     flexGrow: 1
   },
-  signOutButton: {
-    marginLeft: theme.spacing(1)
+  userContainer: {
+    marginRight: theme.spacing(2)
   }
 }))
 
@@ -39,6 +39,20 @@ const Topbar = props => {
             <MenuIcon />
           </IconButton>
         </Hidden>
+        <div style={{ flexGrow: 1 }} />
+        <Grid container className={classes.userContainer}>
+          <Grid item container xs={12} justify='flex-end'>
+            <Typography variant='body1' color='textPrimary'>
+              Inclusion social
+            </Typography>
+          </Grid>
+          <Grid item container xs={12} justify='flex-end'>
+            <Typography variant='body2' color='textPrimary'>
+              Usuario administrador
+            </Typography>
+          </Grid>
+        </Grid>
+        <Avatar style={{ marginRight: 12 }} src='https://i.pinimg.com/originals/f1/01/42/f1014279f4408172017f0c84c26cf639.jpg' className={classes.avatar} />
       </Toolbar>
     </AppBar>
   )

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import clsx from 'clsx'
 import { makeStyles, useTheme } from '@material-ui/styles'
-import { useMediaQuery } from '@material-ui/core'
+import { Grid, useMediaQuery } from '@material-ui/core'
 
 import Sidebar from './components/Sidebar/Sidebar'
 import Topbar from './components/Topbar'
@@ -18,7 +18,8 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: 240
   },
   content: {
-    height: '100%'
+    height: '100%',
+    padding: theme.spacing(4)
   }
 }))
 
@@ -56,9 +57,9 @@ const Main = props => {
         open={shouldOpenSidebar}
         variant={isDesktop ? 'persistent' : 'temporary'}
       />
-      <main className={classes.content}>
+      <Grid className={classes.content} container>
         {children}
-      </main>
+      </Grid>
     </div>
   )
 }

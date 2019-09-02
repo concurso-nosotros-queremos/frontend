@@ -2,16 +2,20 @@ import React from 'react'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/styles'
 import { Divider, Drawer } from '@material-ui/core'
-import DashboardIcon from '@material-ui/icons/Dashboard'
+import DashboardIconOutlined from '@material-ui/icons/DashboardOutlined'
 
 import SidebarNav from './components/SidebarNav'
 
 const useStyles = makeStyles(theme => ({
   drawer: {
     width: 240,
-    [theme.breakpoints.up('lg')]: {
-      paddingTop: 64,
-      height: 'calc(100% - 64px)'
+    [theme.breakpoints.down('xs')]: {
+      paddingTop: 24,
+      height: 'calc(100% - 24px)'
+    },
+    [theme.breakpoints.up('sm')]: {
+      paddingTop: 32,
+      height: 'calc(100% - 32px)'
     },
     backgroundColor: '#232F34'
   },
@@ -23,7 +27,8 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2)
   },
   divider: {
-    margin: theme.spacing(2, 0)
+    margin: theme.spacing(2, 0),
+    backgroundColor: '#FFFFFF24'
   },
   nav: {
     marginBottom: theme.spacing(2)
@@ -39,7 +44,7 @@ const Sidebar = props => {
     {
       title: 'Dashboard',
       href: '/dashboard',
-      icon: <DashboardIcon />
+      icon: <DashboardIconOutlined color='inherit' />
     }
   ]
 
