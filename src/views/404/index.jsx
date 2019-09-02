@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Error404 () {
+export default function Error404 (props) {
   const classes = useStyles()
 
   return (
@@ -55,7 +55,7 @@ export default function Error404 () {
           <div className={classes.imgError} />
         </Grid>
         <Grid item>
-          <Button size='large' className={classes.button} disableRipple href='/'>
+          <Button size='large' className={classes.button} disableRipple onClick={() => props.history.goBack()}>
             <KeyboardArrowLeftIcon style={{ width: '2rem', height: '2rem' }} />
             Regresar
           </Button>
