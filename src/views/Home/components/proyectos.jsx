@@ -70,7 +70,7 @@ export default function Proyectos () {
                 />
                 <CardContent>
                   <Typography gutterBottom variant='h5' component='h2'>Animarse a más</Typography>
-                  <Typography variant='body2' color='textSecondary' component='p'>
+                  <Typography variant='body2' component='p'>
                     Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
                     across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
                     across all continents except Antarctica
@@ -80,7 +80,7 @@ export default function Proyectos () {
                 <CardActions>
                   <Grid container justify='flex-end' alignItems='center'>
                     <Grid item>
-                      <Button size='large' color='secondary'>
+                      <Button size='large'>
                         Conocer mas
                       </Button>
                     </Grid>
@@ -100,7 +100,7 @@ export default function Proyectos () {
                 />
                 <CardContent>
                   <Typography gutterBottom variant='h5' component='h2'>Animarse a más</Typography>
-                  <Typography variant='body2' color='textSecondary' component='p'>
+                  <Typography variant='body2' component='p'>
                     Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
                     across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
                     across all continents except Antarctica
@@ -109,7 +109,7 @@ export default function Proyectos () {
                 <CardActions>
                   <Grid container justify='flex-end' alignItems='center'>
                     <Grid item>
-                      <Button size='large' color='secondary'>
+                      <Button size='large'>
                         Conocer mas
                       </Button>
                     </Grid>
@@ -130,7 +130,7 @@ export default function Proyectos () {
                   />
                   <CardContent>
                     <Typography gutterBottom variant='h5' component='h2'>Animarse a más</Typography>
-                    <Typography variant='body2' color='textSecondary' component='p'>
+                    <Typography variant='body2' component='p'>
                       Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
                       across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
                       across all continents except Antarctica
@@ -139,7 +139,7 @@ export default function Proyectos () {
                   <CardActions>
                     <Grid container justify='flex-end' alignItems='center'>
                       <Grid item>
-                        <Button size='large' color='secondary'>
+                        <Button size='large'>
                           Conocer mas
                         </Button>
                       </Grid>
