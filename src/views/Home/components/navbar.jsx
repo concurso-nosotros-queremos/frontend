@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: '0.8rem',
     marginLeft: '0.8rem',
     fontFamily: 'Roboto Slab',
-    fontWeight: 500,
+    color: '#424242'
   },
   modal: {
     borderRadius: '0',

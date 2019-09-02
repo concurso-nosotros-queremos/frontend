@@ -24,52 +24,55 @@ let theme = createMuiTheme({
   typography: {
     fontFamily: "'Roboto Slab', 'Roboto'",
     fontSize: 12,
-    fontWeightLight: 300,
-    fontWeightRegular: 400,
-    fontWeightMedium: 500,
-    fontWeightBold: 700,
     h1: {
       fontSize: '4rem',
       lineHeight: 1,
       letterSpacing: '-0.01562em',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      color: '#263238'
     },
     h2: {
       fontWeight: 'bold',
       fontSize: '3.75rem',
       lineHeight: 1,
-      letterSpacing: '-0.00833em'
+      letterSpacing: '-0.00833em',
+      color: '#263238',
     },
     h3: {
       fontWeight: 400,
       fontSize: '3rem',
       lineHeight: 1.04,
-      letterSpacing: '0em'
+      letterSpacing: '0em',
+      color: '#263238',
     },
     h4: {
       fontWeight: 400,
       fontSize: '2.125rem',
       lineHeight: 1.17,
-      letterSpacing: '0.00735em'
+      letterSpacing: '0.00735em',
+      color: '#263238',
     },
     h5: {
       fontWeight: 400,
       fontSize: '1.5rem',
       lineHeight: 1.33,
-      letterSpacing: '0em'
+      letterSpacing: '0em',
+      color: '#263238',
     },
     h6: {
       fontWeight: 500,
       fontSize: '1.25rem',
       lineHeight: 1.6,
-      letterSpacing: '0.0075em'
+      letterSpacing: '0.0075em',
+      color: '#263238',
     },
     subtitle1: {
       fontWeight: 400,
-      fontSize: '1rem',
-      lineHeight: 1.75,
+      fontSize: '1.2rem',
+      lineHeight: 1.35,
       letterSpacing: '0.00938em',
-      fontFamily: 'Roboto'
+      fontFamily: 'Roboto',
+      color: '#616161'
     },
     subtitle2: {
       fontWeight: 500,
