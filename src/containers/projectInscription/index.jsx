@@ -31,7 +31,7 @@ export default class InscriptionWrapper extends Component {
 
   render () {
     return (
-      <Grid item xs={10} sm={6}>
+      <Grid item xs={12}>
         <h1>Inscripción</h1>
         <Formik
           initialValues={initialValues}
@@ -50,16 +50,26 @@ export default class InscriptionWrapper extends Component {
             </Form>
           )}
         </Formik>
-        <Button disabled={this.state.index === 0} onClick={() => {
-          this.setState((state) => {
-            return { index: state.index > 0 ? state.index - 1 : state.index }
-          })
-        }}>Atras</Button>
-        <Button disabled={this.state.index > 2} onClick={() => {
-          this.setState((state) => {
-            return { index: state.index + 1 }
-          })
-        }}>Siguiente</Button>
+        <Button
+          disabled={this.state.index === 0}
+          onClick={() => {
+            this.setState((state) => {
+              return { index: state.index > 0 ? state.index - 1 : state.index }
+            })
+          }}
+        >
+          Atras
+        </Button>
+        <Button
+          disabled={this.state.index > 2}
+          onClick={() => {
+            this.setState((state) => {
+              return { index: state.index + 1 }
+            })
+          }}
+        >
+          Siguiente
+        </Button>
       </Grid>
     )
   }
