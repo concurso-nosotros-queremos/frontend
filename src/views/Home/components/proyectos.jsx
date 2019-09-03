@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography/index'
 import Grid from '@material-ui/core/Grid'
 import { Button, Card, CardActions, CardContent, CardMedia, Hidden } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
+import LinesEllipsis from 'react-lines-ellipsis'
 
 const useStyles = makeStyles(theme => ({
   barraDecorativa: {
@@ -96,6 +97,13 @@ export default function Proyectos() {
                 <CardContent>
                   <Typography gutterBottom variant='h5'>{el.name}</Typography>
                   <Typography variant='body1' component='p'>
+                    <LinesEllipsis
+                      text={el.solution}
+                      maxLine='4'
+                      ellipsis='...'
+                      trimRight
+                      basedOn='letters'
+                    />
                   </Typography>
                 </CardContent>
 
