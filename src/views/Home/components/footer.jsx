@@ -51,7 +51,7 @@ export default function Footer() {
       <Grid container direction='column' justify='center' alignItems='stretch'>
         <Grid container direction='row' justify='space-between' alignItems='flex-start' className={classes.section1}>
 
-          <Grid item>
+          <Grid item style={{marginRight: '3rem', marginBottom: '2rem'}}>
             <Grid container direction='column' justify='flex-start' alignItems='flex-start' spacing={1} item>
               <Grid item>
                 <Typography variant='h5'>
