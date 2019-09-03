@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexWrap: 'nowrap',
     [theme.breakpoints.only('xs')]: {
-      height: 'calc(90vh - 56px)'
+      height: 'calc(90vh - 56px)',
     },
     [theme.breakpoints.only('sm')]: {
       height: 'calc(70vh - 64px)',
@@ -19,6 +19,11 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('md')]: {
       height: '28rem'
     }
+  },
+  secondaryContainer:{
+    [theme.breakpoints.only('xs')]: {
+      marginTop: '1.5rem'
+    },
   },
   textoComplementarioTitulo: {
     marginTop: '2rem',
@@ -58,7 +63,7 @@ export default function Main() {
   return (
     <div style={{ position: 'relative' }}>
       <Grid container className={classes.root} direction='column' justify='space-between' alignItems='flex-start'>
-        <Grid container direction='column' item sm={8} md={5} lg={4}>
+        <Grid container direction='column' item sm={8} md={5} lg={4} className={classes.secondaryContainer}>
           <Grid container direction='column'>
             <Typography variant='h1' className={classes.titleText}>Participa.</Typography>
             <Typography variant='h1' className={classes.titleText}>Impacta.</Typography>
