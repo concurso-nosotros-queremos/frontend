@@ -73,7 +73,7 @@ let theme = createMuiTheme({
     },
     subtitle1: {
       fontSize: '1rem',
-      fontWeight: 500,
+      fontWeight: 400,
       color: 'rgba(35, 47, 52, 0.65)',
       fontFamily: 'Roboto',
       lineHeight: 1.35,
@@ -99,7 +99,6 @@ let theme = createMuiTheme({
     body2: {
       fontSize: '0.875rem',
       fontWeight: 400,
-      color: 'blue',
       lineHeight: 1.43,
       letterSpacing: '0.01071rem',
       fontFamily: 'Roboto',
@@ -107,7 +106,6 @@ let theme = createMuiTheme({
     button: {
       fontSize: '1rem',
       fontWeight: 400,
-      color: 'yellow',
       fontFamily: 'Roboto',
       lineHeight: 1.75,
       letterSpacing: '0.04rem',
