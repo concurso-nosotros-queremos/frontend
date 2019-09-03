@@ -38,7 +38,8 @@ const useStyles = makeStyles(theme => ({
     }
   },
   PasosTextContainer: {
-    minHeight: '3.2rem'
+    minHeight: '3.2rem',
+    marginTop: '1rem'
   },
   avatar: {
     color: 'black',
@@ -66,14 +67,14 @@ export default function ComoFunciona() {
           <Grid container wrap='nowrap' className={classes.titleContainer} direction='column' justify='center' alignItems='center'>
             <Grid item container style={{ marginBottom: '2rem' }} direction='column' justify='center' alignItems='center'>
               <Grid item style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <Typography variant='h3' align='center' style={{ fontWeight: 'bold' }}>
+                <Typography variant='h3' align='center'>
                   ¿Como funciona?
                 </Typography>
                 <div className={classes.barraDecorativa} />
               </Grid>
             </Grid>
             <Grid item>
-              <Typography variant='subtitle1' align='center'>
+              <Typography variant='subtitle2' align='center'>
                 Nosotros Queremos es un concurso anual de emprendimientos que apunta a despertar el espíritu emprendedor de los jovenes en los ultimos años de la secundaria.
               </Typography>
             </Grid>
@@ -89,7 +90,7 @@ export default function ComoFunciona() {
                 <img src={require('../../../assets/1.svg')} style={{ width: '12rem' }} alt='pasos' />
               </Grid>
               <Grid item>
-                <Typography variant='h5' style={{ fontWeight: 'bold' }} align='center'>Inscribite</Typography>
+                <Typography variant='h5' align='center'>Inscribite</Typography>
               </Grid>
               <Grid item className={classes.PasosTextContainer}>
                 <Typography variant='body1' align='center'>Tu profe inscribe al grupo de alumn@s</Typography>
@@ -106,7 +107,7 @@ export default function ComoFunciona() {
                 <img src={require('../../../assets/2.svg')} style={{ width: '12rem' }} alt='pasos' />
               </Grid>
               <Grid item>
-                <Typography variant='h5' style={{ fontWeight: 'bold' }} align='center'>Te validamos</Typography>
+                <Typography variant='h5'align='center'>Te validamos</Typography>
               </Grid>
               <Grid item className={classes.PasosTextContainer}>
                 <Typography variant='body1' align='center'>La fundación se pone en contacto</Typography>
@@ -123,7 +124,7 @@ export default function ComoFunciona() {
                 <img src={require('../../../assets/3.svg')} style={{ width: '12rem' }} alt='pasos' />
               </Grid>
               <Grid item>
-                <Typography variant='h5' style={{ fontWeight: 'bold' }} align='center'>Participa</Typography>
+                <Typography variant='h5'align='center'>Participa</Typography>
               </Grid>
               <Grid item className={classes.PasosTextContainer}>
                 <Typography variant='body1' align='center'>El grupo participa en el concurso por un premio!</Typography>
@@ -132,7 +133,7 @@ export default function ComoFunciona() {
 
           </Grid>
           <Grid container direction='row' justify='space-around' alignItems='center'>
-            <Grid item style={{ marginTop: '2rem', marginBottom: '1rem' }}>
+            <Grid item style={{ marginTop: '1rem', marginBottom: '1rem' }}>
               <Button size='large' variant='contained' color='primary' href='/login'>
                 Inscribi a tu grupo
               </Button>

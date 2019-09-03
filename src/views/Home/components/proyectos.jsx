@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Proyectos () {
+export default function Proyectos() {
   const classes = useStyles()
 
   return (
@@ -51,7 +51,7 @@ export default function Proyectos () {
       <Grid container className={classes.root} justify='center' id='proyectos'>
         <Grid container wrap='nowrap' direction='column' justify='center' alignItems='center' style={{ marginBottom: '3rem' }}>
           <Grid item style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Typography variant='h3' align='center' style={{ fontWeight: 'bold' }}>
+            <Typography variant='h3' align='center'>
               Algunos proyectos
             </Typography>
             <div className={classes.barraDecorativa} />
@@ -69,8 +69,8 @@ export default function Proyectos () {
                   image={require('../../../assets/Estudiantes.jpg')}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant='h5' component='h2'>Animarse a más</Typography>
-                  <Typography variant='body2' component='p'>
+                  <Typography gutterBottom variant='h5'>Animarse a más</Typography>
+                  <Typography variant='body1' component='p'>
                     Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
                     across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
                     across all continents except Antarctica
@@ -80,7 +80,7 @@ export default function Proyectos () {
                 <CardActions>
                   <Grid container justify='flex-end' alignItems='center'>
                     <Grid item>
-                      <Button size='large'>
+                      <Button size='small' color='secondary'>
                         Conocer mas
                       </Button>
                     </Grid>
@@ -99,8 +99,8 @@ export default function Proyectos () {
                   image={require('../../../assets/Estudiantes.jpg')}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant='h5' component='h2'>Animarse a más</Typography>
-                  <Typography variant='body2' component='p'>
+                  <Typography gutterBottom variant='h5'>Animarse a más</Typography>
+                  <Typography variant='body1' component='p'>
                     Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
                     across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
                     across all continents except Antarctica
@@ -109,7 +109,7 @@ export default function Proyectos () {
                 <CardActions>
                   <Grid container justify='flex-end' alignItems='center'>
                     <Grid item>
-                      <Button size='large'>
+                      <Button size='small' color='secondary'>
                         Conocer mas
                       </Button>
                     </Grid>
@@ -129,8 +129,10 @@ export default function Proyectos () {
                     image={require('../../../assets/Estudiantes.jpg')}
                   />
                   <CardContent>
-                    <Typography gutterBottom variant='h5' component='h2'>Animarse a más</Typography>
-                    <Typography variant='body2' component='p'>
+                    <Typography gutterBottom variant='h5'>
+                      Animarse a más
+                      </Typography>
+                    <Typography variant='body1' component='p'>
                       Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
                       across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
                       across all continents except Antarctica
@@ -139,7 +141,7 @@ export default function Proyectos () {
                   <CardActions>
                     <Grid container justify='flex-end' alignItems='center'>
                       <Grid item>
-                        <Button size='large'>
+                        <Button size='small' color='secondary'>
                           Conocer mas
                         </Button>
                       </Grid>

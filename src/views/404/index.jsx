@@ -46,7 +46,7 @@ export default function Error404 (props) {
             </Typography>
           </Grid>
           <Grid item>
-            <Typography variant='h5' style={{ fontFamily: 'Roboto' }} color='textSecondary'>
+            <Typography variant='h5' style={{ fontWeight: '400' }} color='textSecondary'>
               La página que estás buscando no existe
             </Typography>
           </Grid>

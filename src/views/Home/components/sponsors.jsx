@@ -38,16 +38,16 @@ export default function Sponsors() {
 
   return (
     <>
-      <Grid container wrap='nowrap' direction='column' justify='center' alignItems='center' style={{ marginBottom: '3rem' }}>
+      <Grid container wrap='nowrap' direction='column' justify='center' alignItems='center' style={{ marginBottom: '3rem' }} id='sponsors'>
         <Grid item style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <Typography variant='h3' align='center' style={{ fontWeight: 'bold' }}>
+          <Typography variant='h3' align='center'>
             Sponsors
             </Typography>
           <div className={classes.barraDecorativa} />
         </Grid>
       </Grid>
 
-      <Grid container direction='row' justify='space-around' className={classes.root} id='sponsors'>
+      <Grid container direction='row' justify='space-around' className={classes.root}>
         <Grid item xs={6} sm='auto' className={classes.imgItem}>
           <img className={classes.imgSponsor} alt='sponsor' src={require('../../../assets/sponsors/Luigi-Bosca.jpg')} />
         </Grid>

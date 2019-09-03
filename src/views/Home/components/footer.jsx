@@ -54,17 +54,17 @@ export default function Footer() {
           <Grid item>
             <Grid container direction='column' justify='flex-start' alignItems='flex-start' spacing={1} item>
               <Grid item>
-                <Typography variant='h5' style={{ fontWeight: 'bold' }}>
+                <Typography variant='h5'>
                   Fundacion Inclusión Social
                 </Typography>
               </Grid>
               <Grid item>
-                <Typography variant='body2'>
+                <Typography variant='body1'>
                   Miguel C. del Corro 517, Córdoba
                 </Typography>
               </Grid>
               <Grid item>
-                <Typography variant='body2'>
+                <Typography variant='body1'>
                   + 54 (351) 423-2674
                 </Typography>
               </Grid>
@@ -74,7 +74,7 @@ export default function Footer() {
           <Grid item>
             <Grid container direction='column' justify='flex-start' alignItems='flex-start' spacing={1} item className={classes.socialContainer}>
               <Grid item>
-                <Typography variant='h5' style={{ fontWeight: 'bold' }}>
+                <Typography variant='h5'>
                   Redes
                 </Typography>
               </Grid>
@@ -84,7 +84,7 @@ export default function Footer() {
                     <Grid item>
                       <li>
                         <img src={require('../../../assets/facebook.png')} alt='facebook' className={classes.liIconStyle} />
-                        <Link href='https://www.facebook.com/inclusionsocial/' variant='body2' className={classes.liStyle} color='initial'>
+                        <Link href='https://www.facebook.com/inclusionsocial/' variant='body1' className={classes.liStyle} color='initial'>
                           Facebook
                         </Link>
                       </li>
@@ -92,7 +92,7 @@ export default function Footer() {
                     <Grid item>
                       <li>
                         <img src={require('../../../assets/instagram.png')} alt='instagram' className={classes.liIconStyle} />
-                        <Link href='https://www.instagram.com/fundacionin/' variant='body2' className={classes.liStyle} color='initial'>
+                        <Link href='https://www.instagram.com/fundacionin/' variant='body1' className={classes.liStyle} color='initial'>
                           Instagram
                         </Link>
                       </li>
@@ -100,7 +100,7 @@ export default function Footer() {
                     <Grid item>
                       <li>
                         <img src={require('../../../assets/twitter.png')} alt='twitter' className={classes.liIconStyle} />
-                        <Link href='https://twitter.com/FundacionIN_' variant='body2' className={classes.liStyle} color='initial'>
+                        <Link href='https://twitter.com/FundacionIN_' variant='body1' className={classes.liStyle} color='initial'>
                           Twitter
                         </Link>
                       </li>
@@ -108,7 +108,7 @@ export default function Footer() {
                     <Grid item>
                       <li>
                         <img src={require('../../../assets/linkedin.png')} alt='linkedin' className={classes.liIconStyle} />
-                        <Link href='https://www.linkedin.com/company/fundación-inclusión-social' variant='body2' className={classes.liStyle} color='initial'>
+                        <Link href='https://www.linkedin.com/company/fundación-inclusión-social' variant='body1' className={classes.liStyle} color='initial'>
                           LinkedIn
                         </Link>
                       </li>
@@ -124,7 +124,7 @@ export default function Footer() {
         <Grid container className={classes.section2}>
           <Grid container direction='row' justify='space-between' alignItems='center' spacing={2} className={classes.section2b}>
             <Grid item>
-              <Typography variant='body2' align='center'>
+              <Typography variant='body1' align='center'>
                 {'Creado con '} {'\u2764'} {' - Alumnos del '}
                 <Link color='inherit' href='https://www.itsv.edu.ar/'>
                   ITS Villada
@@ -132,14 +132,14 @@ export default function Footer() {
               </Typography>
             </Grid>
             <Grid item>
-              <Typography variant='body2' align='center'>
+              <Typography variant='body1' align='center'>
                 <Link color='inherit' href={require('../../../assets/bases-y-condiciones-CNQ.pdf')} download="bases-y-condiciones-CNQ">
                   Bases y condiciones
                 </Link>
               </Typography>
             </Grid>
             <Grid item>
-              <Typography variant='body2' align='center'>
+              <Typography variant='body1' align='center'>
                 {'© '}{new Date().getFullYear()}{' Todos los derechos reservados.'}
               </Typography>
             </Grid>

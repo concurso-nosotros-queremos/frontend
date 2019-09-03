@@ -29,7 +29,7 @@ let theme = createMuiTheme({
     fontWeightMedium: 500,
     fontWeightBold: 700,
     h1: {
-      fontSize: '4rem',
+      fontSize: '4.5rem',
       fontWeight: 'bold',
       color: '#232f34',
       lineHeight: 1,
@@ -48,6 +48,7 @@ let theme = createMuiTheme({
       color: '#232f34',
       lineHeight: 1.04,
       letterSpacing: '0rem',
+      fontWeight: 'bold'
     },
     h4: {
       fontSize: '2.125rem',
@@ -58,7 +59,7 @@ let theme = createMuiTheme({
     },
     h5: {
       fontSize: '1.5rem',
-      fontWeight: 400,
+      fontWeight: 'bold',
       color: '#232f34',
       lineHeight: 1.33,
       letterSpacing: '0rem',
@@ -72,25 +73,25 @@ let theme = createMuiTheme({
     },
     subtitle1: {
       fontSize: '1rem',
-      fontWeight: 400,
-      color: 'brown',
+      fontWeight: 500,
+      color: 'rgba(35, 47, 52, 0.65)',
       fontFamily: 'Roboto',
       lineHeight: 1.35,
       letterSpacing: '0.00938rem',
       fontFamily: 'Roboto',
     },
     subtitle2: {
-      fontSize: '0.875rem',
+      fontSize: '15.2px',
       fontWeight: 500,
-      color: 'green',
+      color: 'rgba(35, 47, 52, 0.55)',
       lineHeight: 1.57,
-      letterSpacing: '0.00714rem',
+      letterSpacing: '0.0095rem',
       fontFamily: 'Roboto',
     },
     body1: {
       fontSize: '14px',
       fontWeight: 400,
-      color: 'red',
+      color: 'rgba(35, 47, 52, 0.8)',
       lineHeight: 1.5,
       letterSpacing: '0.00938rem',
       fontFamily: 'Roboto',
@@ -109,7 +110,7 @@ let theme = createMuiTheme({
       color: 'yellow',
       fontFamily: 'Roboto',
       lineHeight: 1.75,
-      letterSpacing: '0.02857rem',
+      letterSpacing: '0.04rem',
     },
   },
   mixins: {
@@ -122,15 +123,10 @@ let theme = createMuiTheme({
   },
   spacing: 8,
   overrides: {
-    MuiFormLabel: {
-      root: {
-
-      }
-    },
-    MuiButton: {
-      sizeLarge: {
-        padding: '10px 50px'
-      }
+  },
+  MuiButton: {
+    sizeLarge: {
+      padding: '10px 50px'
     }
   }
 })

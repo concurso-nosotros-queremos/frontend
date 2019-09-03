@@ -58,7 +58,7 @@ export default function Organizan () {
       <Grid container className={classes.root} alignItems='flex-start' id='organizan'>
         <Grid container direction='column' alignItems='flex-start' className={classes.organizanTitleContainer}>
           <Grid item style={{ alignItems: 'left' }}>
-            <Typography variant='h3' align='left' style={{ fontWeight: 'bold' }}>
+            <Typography variant='h3' align='left'>
               Organizan
             </Typography>
             <div className={classes.barraDecorativa} />
@@ -73,7 +73,7 @@ export default function Organizan () {
                   <Avatar alt='Remy Sharp' src={require('../../../assets/persona1.jpg')} className={classes.avatarImg} />
                 </Grid>
                 <Grid item className={classes.txtOrganizadores}>
-                  <Typography variant='h5' style={{ fontWeight: 'bold' }}>Virginia Barbera</Typography>
+                  <Typography variant='h5'>Virginia Barbera</Typography>
                   <Typography variant='subtitle1'>Directora general</Typography>
                 </Grid>
               </Grid>
@@ -84,7 +84,7 @@ export default function Organizan () {
                   </Grid>
                 </Grid>
                 <Grid item className={classes.txtOrganizadores}>
-                  <Typography variant='h5' style={{ fontWeight: 'bold' }}>Maria Garcia</Typography>
+                  <Typography variant='h5'>Maria Garcia</Typography>
                   <Typography variant='subtitle1'>Coordinadora Nosotros Queremos</Typography>
                 </Grid>
               </Grid>
@@ -95,7 +95,7 @@ export default function Organizan () {
                   </Grid>
                 </Grid>
                 <Grid item className={classes.txtOrganizadores}>
-                  <Typography variant='h5' style={{ fontWeight: 'bold' }}>Mateo Perez</Typography>
+                  <Typography variant='h5'>Mateo Perez</Typography>
                   <Typography variant='subtitle1'>Coordinador Nosotros Queremos</Typography>
                 </Grid>
               </Grid>

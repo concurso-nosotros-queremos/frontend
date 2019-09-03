@@ -92,7 +92,7 @@ function NavBar(props) {
                 <Link activeClass="active" className="test1" to="comoFunciona"
                   spy={true} smooth={true} duration={400} ignoreCancelEvents={true} offset={-20}>
                   Acerca
-                  </Link>
+                </Link>
               </Button>
               <Button disableRipple className={classes.appBarButton}>
                 <Link activeClass="active" className="test1" to="proyectos"

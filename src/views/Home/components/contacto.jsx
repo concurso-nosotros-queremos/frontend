@@ -29,11 +29,11 @@ export default function Contacto () {
       <Grid container className={classes.root} alignItems='flex-start' id='contacto'>
         <Grid container item md={6} className={classes.titleContainer} direction='column' justify='flex-start' alignItems='flex-start'>
           <Grid item lg={8} xl={8} md={10} style={{ marginBottom: '2rem' }}>
-            <Typography variant='h3' style={{ fontWeight: 'bold' }}>¿Te quedaste con alguna duda?</Typography>
+            <Typography variant='h3'>¿Te quedaste con alguna duda?</Typography>
           </Grid>
           <Grid item lg={8} xl={6} md={8}>
             <Typography variant='subtitle1'>
-              ¡No hay problema! Dejanos tu pregunta y te respondemos a la brevedad :)
+              ¡No hay problema! Dejanos tu pregunta y te respondemos a la brevedad.
             </Typography>
           </Grid>
         </Grid>
@@ -77,7 +77,7 @@ export default function Contacto () {
                     />
                   }
                   label={
-                    <Typography variant='body2'>
+                    <Typography variant='body1'>
                       No soy un robot
                     </Typography>
                   }
