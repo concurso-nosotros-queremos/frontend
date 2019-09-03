@@ -86,7 +86,7 @@ function NavBar(props) {
       <AppBar className={classes.appBar} id='navbar'>
         <Toolbar disableGutters>
           <Hidden smDown>
-            <img alt='Concurso Nosotros Queremos' src='https://sanmartinadiario.com.ar/fotos/4262_5681.jpg' className={classes.cnq} />
+            <img alt='Concurso Nosotros Queremos' src={require('../../../assets/cnq.png')} className={classes.cnq} />
             <Grid container>
               <Button disableRipple className={classes.appBarButton}>
                 <Link activeClass="active" className="test1" to="comoFunciona"
