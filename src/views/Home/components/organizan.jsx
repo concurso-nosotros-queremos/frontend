@@ -46,13 +46,23 @@ const useStyles = makeStyles(theme => ({
     marginBottom: '5rem',
     [theme.breakpoints.down('sm')]: {
       marginBottom: '2rem'
+    },
+    [theme.breakpoints.down('xs')]: {
+      alignItems: 'center',
     }
   },
   cardOrganizan: {
     minHeight: '25rem',
     backgroundColor: '#fff',
     borderRadius: '10px',
-  }
+  },
+  organizanTitleItem: {
+    [theme.breakpoints.down('xs')]: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    }
+  },
 }))
 
 export default function Organizan() {
@@ -62,7 +72,7 @@ export default function Organizan() {
     <>
       <Grid container className={classes.root} alignItems='flex-start' id='organizan'>
         <Grid container direction='column' alignItems='flex-start' className={classes.organizanTitleContainer}>
-          <Grid item style={{ alignItems: 'left' }}>
+          <Grid item className={classes.organizanTitleItem}>
             <Typography variant='h3' align='left'>
               Organizan
             </Typography>
