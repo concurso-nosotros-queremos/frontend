@@ -47,10 +47,15 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('sm')]: {
       marginBottom: '2rem'
     }
+  },
+  cardOrganizan: {
+    minHeight: '25rem',
+    backgroundColor: '#fff',
+    borderRadius: '10px',
   }
 }))
 
-export default function Organizan () {
+export default function Organizan() {
   const classes = useStyles()
 
   return (
@@ -65,8 +70,8 @@ export default function Organizan () {
           </Grid>
         </Grid>
 
-        <Grid container item xs={12} sm={10} md={6} lg={6} direction='row' justify='flex-start' style={{ minHeight: '25rem', backgroundColor: '#fff' }}>
-          <Box boxShadow={6} style={{ width: '100%', padding: '2rem' }}>
+        <Grid container item xs={12} sm={10} md={6} lg={6} direction='row' justify='flex-start' className={classes.cardOrganizan}>
+          <Box boxShadow={6} style={{ width: '100%', padding: '2rem', borderRadius: '10px' }}>
             <Grid container direction='column' justify='space-between' style={{ minHeight: '100%' }}>
               <Grid container direction='row' justify='flex-start' alignItems='center' wrap='nowrap'>
                 <Grid item>

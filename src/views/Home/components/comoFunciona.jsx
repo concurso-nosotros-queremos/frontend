@@ -62,7 +62,7 @@ export default function ComoFunciona() {
 
   return (
     <div className={classes.root}>
-      <Paper elevation={5} id='comoFunciona'>
+      <Paper elevation={5} id='comoFunciona' style={{ borderRadius: '10px', }}>
         <Grid container className={classes.mainGrid} justify='center'>
           <Grid container wrap='nowrap' className={classes.titleContainer} direction='column' justify='center' alignItems='center'>
             <Grid item container style={{ marginBottom: '2rem' }} direction='column' justify='center' alignItems='center'>
@@ -107,7 +107,7 @@ export default function ComoFunciona() {
                 <img src={require('../../../assets/2.svg')} style={{ width: '12rem' }} alt='pasos' />
               </Grid>
               <Grid item>
-                <Typography variant='h5'align='center'>Te validamos</Typography>
+                <Typography variant='h5' align='center'>Te validamos</Typography>
               </Grid>
               <Grid item className={classes.PasosTextContainer}>
                 <Typography variant='body1' align='center'>La fundación se pone en contacto</Typography>
@@ -124,7 +124,7 @@ export default function ComoFunciona() {
                 <img src={require('../../../assets/3.svg')} style={{ width: '12rem' }} alt='pasos' />
               </Grid>
               <Grid item>
-                <Typography variant='h5'align='center'>Participa</Typography>
+                <Typography variant='h5' align='center'>Participa</Typography>
               </Grid>
               <Grid item className={classes.PasosTextContainer}>
                 <Typography variant='body1' align='center'>El grupo participa en el concurso por un premio!</Typography>
