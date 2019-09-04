@@ -21,7 +21,7 @@ let theme = createMuiTheme({
     }
   },
   typography: {
-    fontFamily: "'Roboto Slab', 'Roboto'",
+    fontFamily: "'Roboto','Roboto Slab'",
     fontSize: 14,
     htmlFontSize: 16,
     fontWeightLight: 300,
@@ -34,6 +34,7 @@ let theme = createMuiTheme({
       color: '#232f34',
       lineHeight: 1,
       letterSpacing: '-0.01562rem',
+      fontFamily: 'Roboto Slab',
     },
     h2: {
       fontSize: '3.75rem',
@@ -41,6 +42,7 @@ let theme = createMuiTheme({
       color: '#232f34',
       lineHeight: 1,
       letterSpacing: '-0.00833rem',
+      fontFamily: 'Roboto Slab',
     },
     h3: {
       fontSize: '3rem',
@@ -48,7 +50,8 @@ let theme = createMuiTheme({
       color: '#232f34',
       lineHeight: 1.04,
       letterSpacing: '0rem',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      fontFamily: 'Roboto Slab',
     },
     h4: {
       fontSize: '2.125rem',
@@ -56,6 +59,7 @@ let theme = createMuiTheme({
       color: '#232f34',
       lineHeight: 1.17,
       letterSpacing: '0.00735rem',
+      fontFamily: 'Roboto Slab',
     },
     h5: {
       fontSize: '1.5rem',
@@ -63,6 +67,7 @@ let theme = createMuiTheme({
       color: '#232f34',
       lineHeight: 1.33,
       letterSpacing: '0rem',
+      fontFamily: 'Roboto Slab',
     },
     h6: {
       fontSize: '1.25rem',
@@ -70,6 +75,7 @@ let theme = createMuiTheme({
       color: '#232f34',
       lineHeight: 1.6,
       letterSpacing: '0.0075rem',
+      fontFamily: 'Roboto Slab',
     },
     subtitle1: {
       fontSize: '1rem',
@@ -78,7 +84,6 @@ let theme = createMuiTheme({
       fontFamily: 'Roboto',
       lineHeight: 1.35,
       letterSpacing: '0.00938rem',
-      fontFamily: 'Roboto',
     },
     subtitle2: {
       fontSize: '15.2px',
