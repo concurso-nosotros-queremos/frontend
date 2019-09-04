@@ -42,7 +42,7 @@ const Topbar = props => {
         <div style={{ flexGrow: 1 }} />
         <Grid container className={classes.userContainer}>
           <Grid item container xs={12} justify='flex-end'>
-            <Typography variant='body1' color='textPrimary'>
+            <Typography variant='body1' color='textPrimary' style={{ fontWeight: 600 }}>
               Inclusion social
             </Typography>
           </Grid>
