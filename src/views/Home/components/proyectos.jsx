@@ -25,7 +25,6 @@ const useStyles = makeStyles(theme => ({
     borderRadius: theme.shape.borderRadius,
   },
   contenedorCards: {
-    maxHeight: '40rem',
     [theme.breakpoints.down('md')]: {
       justifyContent: 'space-between'
     }
