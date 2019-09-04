@@ -127,6 +127,9 @@ let theme = createMuiTheme({
   spacing: 8,
   overrides: {
   },
+  shape: {
+    borderRadius: 4
+  },
   MuiButton: {
     sizeLarge: {
       padding: '10px 50px'

@@ -5,13 +5,16 @@ import Grid from '@material-ui/core/Grid'
 import { Button, Card, CardActions, CardContent, CardMedia, Hidden } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import LinesEllipsis from 'react-lines-ellipsis'
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
+ 
+const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
 const useStyles = makeStyles(theme => ({
   barraDecorativa: {
     width: '50%',
     height: '5px',
     backgroundColor: theme.palette.secondary.main,
-    borderRadius: '5px',
+    borderRadius: theme.shape.borderRadius,
     marginTop: '.6rem'
   },
   card: {
@@ -19,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     maxHeight: '26rem',
     height: "100%",
-    borderRadius: '10px'
+    borderRadius: theme.shape.borderRadius,
   },
   contenedorCards: {
     maxHeight: '40rem',
@@ -29,7 +32,7 @@ const useStyles = makeStyles(theme => ({
   },
   itemCard: {
     height: "100%",
-    borderRadius: '10px',
+    borderRadius: theme.shape.borderRadius,
     marginBottom: '1rem',
     [theme.breakpoints.down('xl')]: {
       flexBasis: '30%'
@@ -110,7 +113,7 @@ export default function Proyectos() {
                       basedOn='words' />
                   </Typography>
                   <Typography variant='body1' component='p'>
-                    <LinesEllipsis
+                    <ResponsiveEllipsis
                       text={el.solution}
                       maxLine='4'
                       ellipsis='...'

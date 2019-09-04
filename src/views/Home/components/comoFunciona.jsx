@@ -52,8 +52,11 @@ const useStyles = makeStyles(theme => ({
     width: '50%',
     height: '5px',
     backgroundColor: theme.palette.secondary.main,
-    borderRadius: '5px',
+    borderRadius: theme.shape.borderRadius,
     marginTop: '.6rem'
+  },
+  paperStyle: {
+    borderRadius: theme.shape.borderRadius,
   }
 }))
 
@@ -62,7 +65,7 @@ export default function ComoFunciona() {
 
   return (
     <div className={classes.root}>
-      <Paper elevation={5} id='comoFunciona' style={{ borderRadius: '10px', }}>
+      <Paper elevation={5} id='comoFunciona' className={classes.paperStyle}>
         <Grid container className={classes.mainGrid} justify='center'>
           <Grid container wrap='nowrap' className={classes.titleContainer} direction='column' justify='center' alignItems='center'>
             <Grid item container style={{ marginBottom: '2rem' }} direction='column' justify='center' alignItems='center'>

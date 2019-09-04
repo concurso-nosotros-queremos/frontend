@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
     width: '70%',
     height: '5px',
     backgroundColor: theme.palette.secondary.main,
-    borderRadius: '5px',
+    borderRadius: theme.shape.borderRadius,
     marginTop: '.6rem'
   },
   fotoOrganizadores: {
@@ -58,7 +58,7 @@ const useStyles = makeStyles(theme => ({
   cardOrganizan: {
     minHeight: '25rem',
     backgroundColor: '#fff',
-    borderRadius: '10px',
+    borderRadius: theme.shape.borderRadius,
   },
   organizanTitleItem: {
     [theme.breakpoints.down('xs')]: {
@@ -67,18 +67,23 @@ const useStyles = makeStyles(theme => ({
       alignItems: 'center',
     }
   },
+  boxStyle: {
+    borderRadius: theme.shape.borderRadius,
+    width: '100%',
+    padding: '2rem',
+  }
 }))
 
 const data = [
   {
     nombre: 'Virginia Barbera',
-    cargo: 'Directora general',
+    cargo: 'Directora Ejecutiva',
     image_url: persona1,
   },
   {
-    nombre: 'Maria Garcia',
+    nombre: 'Belen Ramoska',
     cargo: 'Coordinadora Nosotros Queremos',
-    image_url: persona2,
+    image_url: persona1,
   },
   {
     nombre: 'Mateo Perez',
@@ -103,7 +108,7 @@ export default function Organizan() {
         </Grid>
 
         <Grid container item xs={12} sm={10} md={6} lg={6} direction='row' justify='flex-start' className={classes.cardOrganizan}>
-          <Box boxShadow={6} style={{ width: '100%', padding: '2rem', borderRadius: '10px' }}>
+          <Box boxShadow={6} className={classes.boxStyle}>
             <Grid container direction='column' justify='space-between' style={{ minHeight: '100%' }}>
 
               {data.map((el, idx) =>
