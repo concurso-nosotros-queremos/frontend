@@ -22,11 +22,13 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '10px'
   },
   contenedorCards: {
+    maxHeight: '40rem',
     [theme.breakpoints.down('md')]: {
       justifyContent: 'space-between'
     }
   },
   itemCard: {
+    height: "100%",
     borderRadius: '10px',
     marginBottom: '1rem',
     [theme.breakpoints.down('xl')]: {
@@ -40,10 +42,14 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('sm')]: {
       flexBasis: '45%',
       marginLeft: '0.3rem',
-      marginRight: '0.3rem'
-    },
-    [theme.breakpoints.down('xs')]: {
-      flexBasis: '100%'
+      marginRight: '0.3rem',
+      '&:last-child': {
+        display: 'none'
+      },
+      [theme.breakpoints.down('xs')]: {
+        flexBasis: '100%',
+        height: "auto",
+      }
     }
   }
 }))
@@ -86,7 +92,7 @@ export default function Proyectos() {
 
         <Grid container direction='row' justify='space-between' alignItems='center' className={classes.contenedorCards}>
           {data.map((el, idx) =>
-            <Box boxShadow={5} className={classes.itemCard}>
+            <Box boxShadow={6} className={classes.itemCard}>
               <Card className={classes.card}>
                 <CardMedia
                   component='img'
@@ -94,15 +100,22 @@ export default function Proyectos() {
                   height='140'
                   image={el.image_url}
                 />
-                <CardContent>
-                  <Typography gutterBottom variant='h5'>{el.name}</Typography>
+                <CardContent style={{ flex: '1' }}>
+                  <Typography gutterBottom variant='h5'>
+                    <LinesEllipsis
+                      text={el.name}
+                      maxLine='2'
+                      ellipsis='...'
+                      trimRight
+                      basedOn='words' />
+                  </Typography>
                   <Typography variant='body1' component='p'>
                     <LinesEllipsis
                       text={el.solution}
                       maxLine='4'
                       ellipsis='...'
                       trimRight
-                      basedOn='letters'
+                      basedOn='words'
                     />
                   </Typography>
                 </CardContent>
@@ -121,7 +134,7 @@ export default function Proyectos() {
           )}
         </Grid>
         <Grid container direction='row' justify='center' alignItems='center'>
-          <Grid item style={{ margin: '1rem 1rem 0rem 1rem' }}>
+          <Grid item style={{ marginTop: '3rem' }}>
             <Button size='large' variant='contained' color='primary' href='/ver-proyectos'>
               Ver todos
             </Button>
