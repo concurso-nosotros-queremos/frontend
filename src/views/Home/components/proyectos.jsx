@@ -62,13 +62,13 @@ const data = [
     image_url: 'https://source.unsplash.com/random/500x201',
   },
   {
-    name: 'Miel coperativa',
+    name: 'Comunidad unida',
     solution: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica.',
     url: '/projects/4',
     image_url: 'https://source.unsplash.com/random/500x200',
   },
   {
-    name: 'Bosques nativos',
+    name: 'Explosion creativa',
     solution: 'En el caso del primer tramo, la obra avanzará sobre bosques nativos de categoría 1, es decir, sobre áreas consideradas de muy alto valor de conservación y que no deben transformarse. Se trata de un ecosistema peculiar en Argentina, ya que es el único punto donde el bosque se encuentra con el mar. Hasta ahora, esa franja costera permanecía sin intervención significativa del ser humano.',
     url: '/projects/5',
     image_url: 'https://source.unsplash.com/random/501x200',

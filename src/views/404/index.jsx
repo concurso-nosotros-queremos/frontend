@@ -30,6 +30,13 @@ const useStyles = makeStyles(theme => ({
     '&:hover': {
       backgroundColor: 'rgba(0,0,0,0)'
     }
+  },
+  imgContainer:{
+    width: '100%', 
+    height: '25rem',
+    [theme.breakpoints.up('lg')]: {
+      height: '20rem'
+    },
   }
 }))
 
@@ -51,7 +58,7 @@ export default function Error404 (props) {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item style={{ width: '100%', height: '25rem' }}>
+        <Grid item className={classes.imgContainer}>
           <div className={classes.imgError} />
         </Grid>
         <Grid item>
