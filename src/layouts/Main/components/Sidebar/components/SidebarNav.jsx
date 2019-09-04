@@ -1,24 +1,37 @@
 import React, { forwardRef } from 'react'
-import { NavLink as RouterLink } from 'react-router-dom'
+import { NavLink as RouterLink, withRouter } from 'react-router-dom'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/styles'
-import { List, ListItem, Button, colors } from '@material-ui/core'
+import { List, ListItem, Button } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
-  root: {},
+  root: {
+    padding: '16px 0px'
+  },
   item: {
     display: 'flex',
     paddingTop: 0,
     paddingBottom: 0
   },
   button: {
-    color: colors.blueGrey[800],
     padding: '10px 8px',
+    marginBottom: theme.spacing(1),
     justifyContent: 'flex-start',
     textTransform: 'none',
     letterSpacing: 0,
-    width: '100%',
-    fontWeight: theme.typography.fontWeightMedium
+    width: 'calc(100% - 8px)',
+    fontWeight: theme.typography.fontWeightMedium,
+    color: '#FFFFFF',
+    '& $icon': {
+      color: '#FFFFFF'
+    },
+    borderTopLeftRadius: '0px',
+    borderTopRightRadius: '50px',
+    borderBottomLeftRadius: '0px',
+    borderBottomRightRadius: '50px'
+  },
+  buttonActive: {
+    background: `${theme.palette.primary.main}36`
   },
   icon: {
     color: '#FFFFFFCC',
@@ -27,13 +40,6 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     marginRight: theme.spacing(1)
-  },
-  active: {
-    color: '#FFFFFF',
-    fontWeight: theme.typography.fontWeightMedium,
-    '& $icon': {
-      color: '#FFFFFF'
-    }
   }
 }))
 
@@ -51,6 +57,9 @@ const SidebarNav = props => {
 
   const classes = useStyles()
 
+  console.log(props)
+  console.log(pages)
+
   return (
     <List
       {...rest}
@@ -62,9 +71,9 @@ const SidebarNav = props => {
           disableGutters
           key={page.title}
         >
+          {console.log(props.location.pathname === page.href)}
           <Button
-            activeClassName={classes.active}
-            className={classes.button}
+            classes={{ root: clsx({ [classes.button]: true, [classes.buttonActive]: props.location.pathname === page.href }) }}
             component={CustomRouterLink}
             to={page.href}
           >
@@ -77,4 +86,4 @@ const SidebarNav = props => {
   )
 }
 
-export default SidebarNav
+export default withRouter(SidebarNav)

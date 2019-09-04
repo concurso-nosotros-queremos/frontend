@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     height: '100%',
-    padding: theme.spacing(2)
+    paddingTop: theme.spacing(2)
   },
   divider: {
     margin: theme.spacing(2, 0),
