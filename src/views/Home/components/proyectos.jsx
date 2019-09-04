@@ -56,22 +56,22 @@ const useStyles = makeStyles(theme => ({
 
 const data = [
   {
-    name: 'Nombre bonito',
-    solution: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letrap',
+    name: 'IgualAR',
+    solution: 'A medida que avanza el cronograma electoral, el Gobierno potencia la figura de Bullrich. Con la lucha contra el narcotráfico como principal bandera, la seguridad se transformó en uno de los ejes discursivos de la Casa Rosada. Es uno de los antídotos que utiliza el presidente Mauricio Macri para intentar morigerar los impactos de la crisis económica.',
     url: '/projects/3',
-    image_url: 'https://source.unsplash.com/random/500x200',
+    image_url: 'https://source.unsplash.com/random/500x201',
   },
   {
-    name: 'Nombre bonito',
+    name: 'Miel coperativa',
     solution: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica.',
     url: '/projects/4',
     image_url: 'https://source.unsplash.com/random/500x200',
   },
   {
-    name: 'Nombre bonito',
-    solution: 'Lizards',
+    name: 'Bosques nativos',
+    solution: 'En el caso del primer tramo, la obra avanzará sobre bosques nativos de categoría 1, es decir, sobre áreas consideradas de muy alto valor de conservación y que no deben transformarse. Se trata de un ecosistema peculiar en Argentina, ya que es el único punto donde el bosque se encuentra con el mar. Hasta ahora, esa franja costera permanecía sin intervención significativa del ser humano.',
     url: '/projects/5',
-    image_url: 'https://source.unsplash.com/random/500x200',
+    image_url: 'https://source.unsplash.com/random/501x200',
   },
 ]
 
