@@ -6,7 +6,7 @@ import { Button, Card, CardActions, CardContent, CardMedia, Hidden } from '@mate
 import Box from '@material-ui/core/Box'
 import LinesEllipsis from 'react-lines-ellipsis'
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
- 
+
 const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
 const useStyles = makeStyles(theme => ({
@@ -17,22 +17,20 @@ const useStyles = makeStyles(theme => ({
     borderRadius: theme.shape.borderRadius,
     marginTop: '.6rem'
   },
+  contenedorCards: {
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'space-between'
+    }
+  },
+
   card: {
     display: 'flex',
     flexDirection: 'column',
     maxHeight: '26rem',
     height: "100%",
     borderRadius: theme.shape.borderRadius,
-  },
-  contenedorCards: {
-    [theme.breakpoints.down('md')]: {
-      justifyContent: 'space-between'
-    }
-  },
-  itemCard: {
-    height: "100%",
-    borderRadius: theme.shape.borderRadius,
     marginBottom: '1rem',
+
     [theme.breakpoints.down('xl')]: {
       flexBasis: '30%'
     },
@@ -94,45 +92,43 @@ export default function Proyectos() {
 
         <Grid container direction='row' justify='space-between' alignItems='center' className={classes.contenedorCards}>
           {data.map((el, idx) =>
-            <Box boxShadow={6} className={classes.itemCard}>
-              <Card className={classes.card}>
-                <CardMedia
-                  component='img'
-                  alt='Contemplative Reptile'
-                  height='140'
-                  image={el.image_url}
-                />
-                <CardContent style={{ flex: '1' }}>
-                  <Typography gutterBottom variant='h5'>
-                    <LinesEllipsis
-                      text={el.name}
-                      maxLine='2'
-                      ellipsis='...'
-                      trimRight
-                      basedOn='words' />
-                  </Typography>
-                  <Typography variant='body1' component='p'>
-                    <ResponsiveEllipsis
-                      text={el.solution}
-                      maxLine='4'
-                      ellipsis='...'
-                      trimRight
-                      basedOn='words'
-                    />
-                  </Typography>
-                </CardContent>
+            <Card className={classes.card} elevation={2}>
+              <CardMedia
+                component='img'
+                alt='Contemplative Reptile'
+                height='140'
+                image={el.image_url}
+              />
+              <CardContent style={{ flex: '1' }}>
+                <Typography gutterBottom variant='h5'>
+                  <LinesEllipsis
+                    text={el.name}
+                    maxLine='2'
+                    ellipsis='...'
+                    trimRight
+                    basedOn='words' />
+                </Typography>
+                <Typography variant='body1' component='p'>
+                  <ResponsiveEllipsis
+                    text={el.solution}
+                    maxLine='4'
+                    ellipsis='...'
+                    trimRight
+                    basedOn='words'
+                  />
+                </Typography>
+              </CardContent>
 
-                <CardActions>
-                  <Grid container justify='flex-end' alignItems='center'>
-                    <Grid item>
-                      <Button size='small' color='secondary' href={el.url}>
-                        Conocer mas
+              <CardActions>
+                <Grid container justify='flex-end' alignItems='center'>
+                  <Grid item>
+                    <Button size='small' color='secondary' href={el.url}>
+                      Conocer mas
                     </Button>
-                    </Grid>
                   </Grid>
-                </CardActions>
-              </Card>
-            </Box>
+                </Grid>
+              </CardActions>
+            </Card>
           )}
         </Grid>
         <Grid container direction='row' justify='center' alignItems='center'>

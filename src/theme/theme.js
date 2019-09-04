@@ -134,6 +134,11 @@ let theme = createMuiTheme({
     sizeLarge: {
       padding: '10px 50px'
     }
+  },
+  MuiFormHelperText: {
+    root: {
+      fontWeight: 400
+    }
   }
 })
 

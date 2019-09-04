@@ -108,7 +108,7 @@ export default function Organizan() {
         </Grid>
 
         <Grid container item xs={12} sm={10} md={6} lg={6} direction='row' justify='flex-start' className={classes.cardOrganizan}>
-          <Box boxShadow={6} className={classes.boxStyle}>
+          <Box className={classes.boxStyle} boxShadow={2}>
             <Grid container direction='column' justify='space-between' style={{ minHeight: '100%' }}>
 
               {data.map((el, idx) =>
