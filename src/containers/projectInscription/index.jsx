@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { Formik, Form } from 'formik'
-import { Grid } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import { validationSchema, initialValues } from './forms/_schemas'
 import fetchResource from '../../services/apiHandler'
@@ -33,18 +33,18 @@ const forms = [
   }
 ]
 
-export default class InscriptionWrapper extends Component {
-  constructor (props) {
-    super(props)
+const InscriptionWrapper = props => {
+  const [active, setActive] = useState(0)
 
-    this.state = {
-      active: 0
-    }
+  const handleNext = () => {
+    active !== forms.length - 1 && setActive(active + 1)
   }
 
-  submitHandler (form) {
-    console.log(JSON.stringify(form, null, 2))
+  const handlePrevious = () => {
+    active !== 0 && setActive(active - 1)
+  }
 
+  const handleSubmit = (form) => {
     return fetchResource('rest/group/', {
       method: 'POST',
       body: {
@@ -53,50 +53,47 @@ export default class InscriptionWrapper extends Component {
     })
   }
 
-  render () {
-    const Fragment = forms[this.state.active].component
+  const Fragment = forms[active].component
 
-    return (
-      <Grid item xs={12}>
-        <h1>Inscripción</h1>
-        <HorizontalLinearStepper steps={forms} active={this.state.active} />
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          validateOnChange={false}
-          validateOnBlur
-          onSubmit={(values, { setStatus, setSubmitting }) => {
-            this.submitHandler(validationSchema.cast(values)).then((response) => { console.log(response) }).catch((error) => { setStatus({ ...error.response }); setSubmitting(false) })
-          }}
-        >
-          {({ errors, touched, status, isValid, isSubmitting }) => (
-            <Form>
-              <Fragment errors={errors} status={status} touched={touched} />
-              <Button type='submit' disabled={!isValid || isSubmitting}>Enviar</Button>
-            </Form>
-          )}
-        </Formik>
-        <Button
-          disabled={this.state.active === 0}
-          onClick={() => {
-            this.setState((state) => {
-              return { active: state.active > 0 ? state.active - 1 : state.active }
-            })
-          }}
-        >
-          Atras
-        </Button>
-        <Button
-          disabled={this.state.active > 2}
-          onClick={() => {
-            this.setState((state) => {
-              return { active: state.active + 1 }
-            })
-          }}
-        >
-          Siguiente
-        </Button>
-      </Grid>
-    )
-  }
+  return (
+    <Grid item xs={12}>
+      <Typography variant='h4'>Inscripción</Typography>
+      <HorizontalLinearStepper steps={forms} active={active} />
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        validateOnChange={false}
+        validateOnBlur
+        onSubmit={(values, { setStatus, setSubmitting }) => {
+          handleSubmit(validationSchema.cast(values)).then((response) => {
+            console.log(response)
+          }).catch((error) => {
+            setStatus({ ...error.response })
+            setSubmitting(false)
+          })
+        }}
+      >
+        {({ errors, touched, status, submitForm }) => (
+          <Form>
+            <Fragment errors={errors} status={status} touched={touched} />
+            <Grid container direction='row' spacing={2}>
+              {active !== 0 &&
+              <Button onClick={handlePrevious}>
+                Atras
+              </Button>}
+              {active === forms.length - 1
+                ? <Button variant='contained' color='primary' onClick={submitForm}>
+                  Enviar
+                </Button>
+                : <Button variant='contained' onClick={handleNext}>
+                Siguiente
+                </Button>}
+            </Grid>
+          </Form>
+        )}
+      </Formik>
+    </Grid>
+  )
 }
+
+export default InscriptionWrapper
