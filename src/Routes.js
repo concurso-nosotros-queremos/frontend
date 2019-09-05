@@ -1,7 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Redirect, Route } from 'react-router-dom'
 import RouteWithLayout from './components/routeWithLayout'
-import Index from './views/Index/index'
+import Index from './views/Home/index'
+import Error404 from './views/404/index'
 import { connect } from 'react-redux'
 import InscriptionWrapper from './containers/projectInscription'
 
@@ -13,7 +14,7 @@ const ProtectedRoute = ({ isAllowed, ...props }) => {
 
 const Routes = (props) => {
   return (
-    <Switch >
+    <Switch>
       <Route
         exact
         path='/'
@@ -38,7 +39,7 @@ const Routes = (props) => {
         path='/dashboard/inscription'
       />
       <RouteWithLayout
-        component={() => <h1>404</h1>}
+        component={Error404}
         layout={<></>}
         exact
         path='/not-found'

@@ -14,9 +14,11 @@
         "react-facebook-login": "^4.1.1",
         "react-google-font-loader": "^1.0.5",
         "react-google-login": "^5.0.5",
+        "react-lines-ellipsis": "^0.14.1",
         "react-redux": "^7.1.0",
         "react-router-dom": "^5.0.1",
         "react-scripts": "3.0.1",
+        "react-scroll": "^1.7.14",
         "redux": "^4.0.4",
         "redux-logger": "^3.0.6",
         "yup": "^0.27.0"
@@ -43,7 +45,7 @@
         ]
     },
     "devDependencies": {
-        "standard": "^12.0.1"
+        "standard": "^14.0.2"
     },
     "standard": {
         "env": [

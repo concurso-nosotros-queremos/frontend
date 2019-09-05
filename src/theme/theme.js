@@ -9,107 +9,110 @@ let theme = createMuiTheme({
     },
     secondary: {
       main: '#D37E01',
-      light: '#D37E01'
-
+      light: '#F9AA33'
     },
-    error: {
-      main: '#ff1744'
+    eror: {
+      main: '#E53935'
     },
     text: {
-      primary: 'rgba(0, 0, 0, 0.85)', // Contenido de Textfield
-      secondary: 'rgba(0, 0, 0, 0.54)', // Texto de ayuda, se elimina luego de escribir o con error
-      disabled: 'rgba(0, 0, 0, 0.38)',
-      hint: 'rgba(0, 0, 0, 0.38)'
+      primary: 'rgba(0, 0, 0, 0.85)',
+      secondary: 'rgba(0, 0, 0, 0.65)',
+      disabled: 'rgba(0, 0, 0, 0.38)'
     }
   },
   typography: {
-    fontFamily: "'Roboto Slab', 'Roboto'",
-    fontSize: 12,
+    fontFamily: "'Roboto','Roboto Slab'",
+    fontSize: 14,
+    htmlFontSize: 16,
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
     fontWeightBold: 700,
     h1: {
-      fontSize: '4rem',
+      fontSize: '4.5rem',
+      fontWeight: 'bold',
+      color: '#232f34',
       lineHeight: 1,
-      letterSpacing: '-0.01562em',
-      fontWeight: 'bold'
+      letterSpacing: '-0.01562rem',
+      fontFamily: 'Roboto Slab'
     },
     h2: {
-      fontWeight: 'bold',
       fontSize: '3.75rem',
+      fontWeight: 'bold',
+      color: '#232f34',
       lineHeight: 1,
-      letterSpacing: '-0.00833em'
+      letterSpacing: '-0.00833rem',
+      fontFamily: 'Roboto Slab'
     },
     h3: {
-      fontWeight: 400,
       fontSize: '3rem',
+      color: '#232f34',
       lineHeight: 1.04,
-      letterSpacing: '0em'
+      letterSpacing: '0rem',
+      fontWeight: 'bold',
+      fontFamily: 'Roboto Slab'
     },
     h4: {
-      fontWeight: 400,
       fontSize: '2.125rem',
+      fontWeight: 400,
+      color: '#232f34',
       lineHeight: 1.17,
-      letterSpacing: '0.00735em'
+      letterSpacing: '0.00735rem',
+      fontFamily: 'Roboto Slab'
     },
     h5: {
-      fontWeight: 400,
       fontSize: '1.5rem',
+      fontWeight: 'bold',
+      color: '#232f34',
       lineHeight: 1.33,
-      letterSpacing: '0em'
+      letterSpacing: '0rem',
+      fontFamily: 'Roboto Slab'
     },
     h6: {
-      fontWeight: 500,
       fontSize: '1.25rem',
+      fontWeight: 500,
+      color: '#232f34',
       lineHeight: 1.6,
-      letterSpacing: '0.0075em'
+      letterSpacing: '0.0075rem',
+      fontFamily: 'Roboto Slab'
     },
     subtitle1: {
-      fontWeight: 400,
       fontSize: '1rem',
-      lineHeight: 1.75,
-      letterSpacing: '0.00938em',
-      fontFamily: 'Roboto'
+      fontWeight: 400,
+      color: 'rgba(35, 47, 52, 0.65)',
+      fontFamily: 'Roboto',
+      lineHeight: 1.35,
+      letterSpacing: '0.00938rem'
     },
     subtitle2: {
+      fontSize: '15.2px',
       fontWeight: 500,
-      fontSize: '0.875rem',
+      color: 'rgba(35, 47, 52, 0.55)',
       lineHeight: 1.57,
-      letterSpacing: '0.00714em'
-    },
-    body1: {
-      fontWeight: 400,
-      fontSize: '1rem',
-      lineHeight: 1.5,
-      letterSpacing: '0.00938em'
-    },
-    body2: {
-      fontWeight: 400,
-      fontSize: '0.875rem',
-      lineHeight: 1.43,
-      letterSpacing: '0.01071em'
-    },
-    button: {
-      fontWeight: 500,
-      fontSize: '0.875rem',
-      lineHeight: 1.75,
-      letterSpacing: '0.02857em',
-      textTransform: 'uppercase',
+      letterSpacing: '0.0095rem',
       fontFamily: 'Roboto'
     },
-    caption: {
-      fontWeight: 600,
-      fontSize: '0.75rem',
-      lineHeight: 1.66,
-      letterSpacing: '0.03333em'
-    },
-    overline: {
+    body1: {
+      fontSize: '14px',
       fontWeight: 400,
-      fontSize: '0.75rem',
-      lineHeight: 2.66,
-      letterSpacing: '0.08333em',
-      textTransform: 'uppercase'
+      color: 'rgba(35, 47, 52, 0.8)',
+      lineHeight: 1.5,
+      letterSpacing: '0.00938rem',
+      fontFamily: 'Roboto'
+    },
+    body2: {
+      fontSize: '0.875rem',
+      fontWeight: 400,
+      lineHeight: 1.43,
+      letterSpacing: '0.01071rem',
+      fontFamily: 'Roboto'
+    },
+    button: {
+      fontSize: '1rem',
+      fontWeight: 400,
+      fontFamily: 'Roboto',
+      lineHeight: 1.75,
+      letterSpacing: '0.04rem'
     }
   },
   mixins: {
@@ -122,10 +125,18 @@ let theme = createMuiTheme({
   },
   spacing: 8,
   overrides: {
-    MuiFormLabel: {
-      root: {
-        fontFamily: 'Roboto'
-      }
+  },
+  shape: {
+    borderRadius: 4
+  },
+  MuiButton: {
+    sizeLarge: {
+      padding: '10px 50px'
+    }
+  },
+  MuiFormHelperText: {
+    root: {
+      fontWeight: 400
     }
   }
 })

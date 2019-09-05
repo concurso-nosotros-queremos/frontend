@@ -15,45 +15,52 @@ export default class ProjectWrapper extends Component {
             <FastField
               name='raw_project.name'
               render={({ field }) => (
-                <TextField {...field}
+                <TextField
+                  {...field}
                   fullWidth
                   variant='outlined'
                   label='Nombre'
                   error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
+                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
+                />)}
             />
           </Grid>
           <Grid item xs={12}>
             <FastField
               name='raw_project.problem'
               render={({ field }) => (
-                <TextField {...field}
+                <TextField
+                  {...field}
                   fullWidth
                   multiline
                   variant='outlined'
                   label='Problema'
                   error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
+                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
+                />)}
             />
           </Grid>
           <Grid item xs={12}>
             <FastField
               name='raw_project.solution'
               render={({ field }) => (
-                <TextField {...field}
+                <TextField
+                  {...field}
                   fullWidth
                   multiline
                   variant='outlined'
                   label='Solucion'
                   error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
+                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
+                />)}
             />
           </Grid>
           <Grid item xs={12}>
             <FastField
               name='raw_project.diffusion'
               render={({ field }) => (
-                <TextField {...field}
+                <TextField
+                  {...field}
                   select
                   fullWidth
                   variant='outlined'

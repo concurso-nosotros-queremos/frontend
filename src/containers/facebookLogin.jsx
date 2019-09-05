@@ -62,11 +62,10 @@ class FacebookLoginContainer extends Component {
               <Box width='90%' style={{ width: 'max-content', display: 'flex', justifyContent: 'center' }}>
                 Inscribite con Facebook
               </Box>
-            </Button >
-          )
-          }
+            </Button>
+          )}
         />
-      </div >
+      </div>
     )
   }
 }
