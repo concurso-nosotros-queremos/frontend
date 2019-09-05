@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Footer() {
+export default function Footer () {
   const classes = useStyles()
 
   return (
@@ -51,7 +51,7 @@ export default function Footer() {
       <Grid container direction='column' justify='center' alignItems='stretch'>
         <Grid container direction='row' justify='space-between' alignItems='flex-start' className={classes.section1}>
 
-          <Grid item style={{marginRight: '3rem', marginBottom: '2rem'}}>
+          <Grid item style={{ marginRight: '3rem', marginBottom: '2rem' }}>
             <Grid container direction='column' justify='flex-start' alignItems='flex-start' spacing={1} item>
               <Grid item>
                 <Typography variant='h5'>
@@ -133,7 +133,7 @@ export default function Footer() {
             </Grid>
             <Grid item>
               <Typography variant='body1' align='center'>
-                <Link color='inherit' href={require('../../../assets/bases-y-condiciones-CNQ.pdf')} download="bases-y-condiciones-CNQ">
+                <Link color='inherit' href={require('../../../assets/bases-y-condiciones-CNQ.pdf')} download='bases-y-condiciones-CNQ'>
                   Bases y condiciones
                 </Link>
               </Typography>

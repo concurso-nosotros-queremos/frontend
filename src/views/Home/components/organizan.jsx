@@ -6,7 +6,6 @@ import { Box, Avatar } from '@material-ui/core'
 import Background from '../../../assets/organizanImage.svg'
 
 import persona1 from '../../../assets/persona1.jpg'
-import persona2 from '../../../assets/persona2.png'
 import persona3 from '../../../assets/persona3.jpg'
 
 const useStyles = makeStyles(theme => ({
@@ -52,25 +51,25 @@ const useStyles = makeStyles(theme => ({
       marginBottom: '2rem'
     },
     [theme.breakpoints.down('xs')]: {
-      alignItems: 'center',
+      alignItems: 'center'
     }
   },
   cardOrganizan: {
     minHeight: '25rem',
     backgroundColor: '#fff',
-    borderRadius: theme.shape.borderRadius,
+    borderRadius: theme.shape.borderRadius
   },
   organizanTitleItem: {
     [theme.breakpoints.down('xs')]: {
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'center',
+      alignItems: 'center'
     }
   },
   boxStyle: {
     borderRadius: theme.shape.borderRadius,
     width: '100%',
-    padding: '2rem',
+    padding: '2rem'
   }
 }))
 
@@ -78,21 +77,21 @@ const data = [
   {
     nombre: 'Virginia Barbera',
     cargo: 'Directora Ejecutiva',
-    image_url: persona1,
+    image_url: persona1
   },
   {
     nombre: 'Belen Ramoska',
     cargo: 'Coordinadora Nosotros Queremos',
-    image_url: persona1,
+    image_url: persona1
   },
   {
     nombre: 'Mateo Perez',
     cargo: 'Coordinadora Nosotros Queremos',
-    image_url: persona3,
-  },
+    image_url: persona3
+  }
 ]
 
-export default function Organizan() {
+export default function Organizan () {
   const classes = useStyles()
 
   return (
@@ -112,7 +111,7 @@ export default function Organizan() {
             <Grid container direction='column' justify='space-between' style={{ minHeight: '100%' }}>
 
               {data.map((el, idx) =>
-                <Grid container direction='row' justify='flex-start' alignItems='center' wrap='nowrap'>
+                <Grid key={idx} container direction='row' justify='flex-start' alignItems='center' wrap='nowrap'>
                   <Grid item>
                     <Avatar alt='Remy Sharp' src={el.image_url} className={classes.avatarImg} />
                   </Grid>

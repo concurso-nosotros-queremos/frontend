@@ -2,8 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles/index'
 import Typography from '@material-ui/core/Typography/index'
 import Grid from '@material-ui/core/Grid'
-import { Button, Card, CardActions, CardContent, CardMedia, Hidden } from '@material-ui/core'
-import Box from '@material-ui/core/Box'
+import { Button, Card, CardActions, CardContent, CardMedia } from '@material-ui/core'
 import LinesEllipsis from 'react-lines-ellipsis'
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 
@@ -27,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     maxHeight: '26rem',
-    height: "100%",
+    height: '100%',
     borderRadius: theme.shape.borderRadius,
     marginBottom: '1rem',
 
@@ -48,7 +47,7 @@ const useStyles = makeStyles(theme => ({
       },
       [theme.breakpoints.down('xs')]: {
         flexBasis: '100%',
-        height: "auto",
+        height: 'auto'
       }
     }
   }
@@ -59,23 +58,23 @@ const data = [
     name: 'IgualAR',
     solution: 'A medida que avanza el cronograma electoral, el Gobierno potencia la figura de Bullrich. Con la lucha contra el narcotráfico como principal bandera, la seguridad se transformó en uno de los ejes discursivos de la Casa Rosada. Es uno de los antídotos que utiliza el presidente Mauricio Macri para intentar morigerar los impactos de la crisis económica.',
     url: '/projects/3',
-    image_url: 'https://source.unsplash.com/random/500x201',
+    image_url: 'https://source.unsplash.com/random/500x201'
   },
   {
     name: 'Comunidad unida',
     solution: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica.',
     url: '/projects/4',
-    image_url: 'https://source.unsplash.com/random/500x200',
+    image_url: 'https://source.unsplash.com/random/500x200'
   },
   {
     name: 'Explosion creativa',
     solution: 'En el caso del primer tramo, la obra avanzará sobre bosques nativos de categoría 1, es decir, sobre áreas consideradas de muy alto valor de conservación y que no deben transformarse. Se trata de un ecosistema peculiar en Argentina, ya que es el único punto donde el bosque se encuentra con el mar. Hasta ahora, esa franja costera permanecía sin intervención significativa del ser humano.',
     url: '/projects/5',
-    image_url: 'https://source.unsplash.com/random/501x200',
-  },
+    image_url: 'https://source.unsplash.com/random/501x200'
+  }
 ]
 
-export default function Proyectos() {
+export default function Proyectos () {
   const classes = useStyles()
 
   return (
@@ -92,7 +91,7 @@ export default function Proyectos() {
 
         <Grid container direction='row' justify='space-between' alignItems='center' className={classes.contenedorCards}>
           {data.map((el, idx) =>
-            <Card className={classes.card} elevation={2}>
+            <Card key={idx} className={classes.card} elevation={2}>
               <CardMedia
                 component='img'
                 alt='Contemplative Reptile'
@@ -106,7 +105,8 @@ export default function Proyectos() {
                     maxLine='2'
                     ellipsis='...'
                     trimRight
-                    basedOn='words' />
+                    basedOn='words'
+                  />
                 </Typography>
                 <Typography variant='body1' component='p'>
                   <ResponsiveEllipsis

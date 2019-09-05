@@ -4,10 +4,10 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
-  root:{
+  root: {
     [theme.breakpoints.only('xs')]: {
       flexDirection: 'column'
-    },
+    }
   },
   imgSponsor: {
     maxWidth: '100%',
@@ -30,10 +30,10 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.main,
     borderRadius: theme.shape.borderRadius,
     marginTop: '.6rem'
-  },
+  }
 }))
 
-export default function Sponsors() {
+export default function Sponsors () {
   const classes = useStyles()
 
   return (
@@ -42,7 +42,7 @@ export default function Sponsors() {
         <Grid item style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Typography variant='h3' align='center'>
             Sponsors
-            </Typography>
+          </Typography>
           <div className={classes.barraDecorativa} />
         </Grid>
       </Grid>

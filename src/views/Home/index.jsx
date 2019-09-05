@@ -56,12 +56,12 @@ const useStyles = makeStyles(theme => ({
       paddingTop: '0rem !important',
       backgroundImage: `url('${svgLeftSm}'), url('${svgRightSm}')`,
       backgroundPosition: 'left 320px, right top',
-      backgroundSize: 'auto',
+      backgroundSize: 'auto'
     },
     [theme.breakpoints.down('xs')]: {
       backgroundImage: `url('${svgLeftXs}'), url('${svgRightXs}')`,
       backgroundPosition: 'left 60vh, right top',
-      backgroundSize: 'auto',
+      backgroundSize: 'auto'
     }
   },
   last: {

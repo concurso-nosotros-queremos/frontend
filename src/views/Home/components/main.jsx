@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexWrap: 'nowrap',
     [theme.breakpoints.only('xs')]: {
-      height: 'calc(90vh - 56px)',
+      height: 'calc(90vh - 56px)'
     },
     [theme.breakpoints.only('sm')]: {
       height: 'calc(70vh - 64px)',
@@ -20,10 +20,10 @@ const useStyles = makeStyles(theme => ({
       height: '28rem'
     }
   },
-  secondaryContainer:{
+  secondaryContainer: {
     [theme.breakpoints.only('xs')]: {
       marginTop: '1.5rem'
-    },
+    }
   },
   textoComplementarioTitulo: {
     marginTop: '2rem',
@@ -57,7 +57,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Main() {
+export default function Main () {
   const classes = useStyles()
 
   return (

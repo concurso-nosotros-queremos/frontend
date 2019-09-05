@@ -21,12 +21,12 @@ const useStyles = ({
   text: {
     textTransform: 'none',
     fontFamily: 'Roboto',
-    fontSize: '1rem',
+    fontSize: '1rem'
   }
 })
 
 class GoogleLoginContainer extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     this.googleLoginRequestHandler = this.googleLoginRequestHandler.bind(this)
@@ -34,19 +34,19 @@ class GoogleLoginContainer extends Component {
     this.googleLoginErrorHandler = this.googleLoginErrorHandler.bind(this)
   }
 
-  googleLoginRequestHandler() {
+  googleLoginRequestHandler () {
     this.props.googleLoginRequest()
   }
 
-  googleLoginSuccessHandler(response) {
+  googleLoginSuccessHandler (response) {
     this.props.googleLoginSuccess(response)
   }
 
-  googleLoginErrorHandler(response) {
+  googleLoginErrorHandler (response) {
     this.props.googleLoginError(response)
   }
 
-  render() {
+  render () {
     const { classes } = this.props
     return (
       <GoogleLogin

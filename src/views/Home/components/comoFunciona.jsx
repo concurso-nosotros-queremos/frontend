@@ -56,11 +56,11 @@ const useStyles = makeStyles(theme => ({
     marginTop: '.6rem'
   },
   paperStyle: {
-    borderRadius: theme.shape.borderRadius,
+    borderRadius: theme.shape.borderRadius
   }
 }))
 
-export default function ComoFunciona() {
+export default function ComoFunciona () {
   const classes = useStyles()
 
   return (
