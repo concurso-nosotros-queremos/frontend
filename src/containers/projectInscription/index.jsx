@@ -78,16 +78,22 @@ const InscriptionWrapper = props => {
             <Fragment errors={errors} status={status} touched={touched} />
             <Grid container direction='row' spacing={2}>
               {active !== 0 &&
-              <Button type='button' onClick={handlePrevious}>
-                Atras
-              </Button>}
-              {active === forms.length - 1
-                ? <Button type='button' variant='contained' color='primary' onClick={submitForm}>
-                  Enviar
+              <Grid item>
+                <Button type='button' onClick={handlePrevious}>
+                  Atras
                 </Button>
-                : <Button type='button' variant='contained' onClick={handleNext}>
-                Siguiente
-                </Button>}
+              </Grid>}
+              {active === forms.length - 1
+                ? <Grid item>
+                  <Button type='button' variant='contained' color='primary' onClick={submitForm}>
+                    Enviar
+                  </Button>
+                </Grid>
+                : <Grid item>
+                  <Button type='button' variant='contained' onClick={handleNext}>
+                    Siguiente
+                  </Button>
+                </Grid>}
             </Grid>
           </Form>
         )}
