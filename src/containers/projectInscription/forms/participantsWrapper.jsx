@@ -6,12 +6,15 @@ import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
 import AddOutlined from '@material-ui/icons/AddOutlined'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import WarningOutlined from '@material-ui/icons/WarningOutlined'
+
 import { hasError, errorMessageBuilder } from './_utils'
 import { makeStyles } from '@material-ui/styles'
 
 const useStyles = makeStyles((theme) => ({
   panelError: {
-    backgroundColor: theme.palette.error.main
+    borderRight: `4px solid ${theme.palette.error.main}`,
+    borderRadius: `0px 3px 3px 0px`
   }
 }))
 
@@ -27,7 +30,7 @@ const ParticipantsWrapper = props => {
       inputRef.current.focus()
       setFocus(false)
     }
-  })
+  }, [focus, inputRef])
 
   const handleExpansion = index => {
     if (expanded !== index) {
@@ -72,7 +75,16 @@ const ParticipantsWrapper = props => {
                     expandIcon={<ExpandMoreIcon color='primary' />}
                     onClick={() => { handleExpansion(index) }}
                   >
-                    <Typography>{expanded !== index ? `${participant.first_name} ${participant.last_name}` : 'Nuevo participante'}</Typography>
+                    <Grid container spacing={1}>
+                      {hasError(props.errors, props.status, props.touched, `raw_participant.${index}`) &&
+                        <Grid item>
+                          <WarningOutlined color='error' />
+                        </Grid>
+                      }
+                      <Grid item>
+                        <Typography>{expanded !== index ? `${participant.first_name} ${participant.last_name}` : 'Nuevo participante'}</Typography>
+                      </Grid>
+                    </Grid>
                   </ExpansionPanelSummary>
                   <ExpansionPanelDetails>
                     <Grid container spacing={2}>
