@@ -13,7 +13,7 @@ const CityPicker = props => {
     if (state) {
       const city = props.states.find(el => el.id === state).city
       if (city) {
-        return city.map(el => <MenuItem value={el.id}>{el.name}</MenuItem>)
+        return city.map(el => <MenuItem key={el.id} value={el.id}>{el.name}</MenuItem>)
       }
     }
 
@@ -21,7 +21,7 @@ const CityPicker = props => {
   }
 
   const buildStates = () => {
-    return props.states.map(el => <MenuItem value={el.id}>{el.name}</MenuItem>)
+    return props.states.map(el => <MenuItem key={el.id} value={el.id}>{el.name}</MenuItem>)
   }
 
   return (
@@ -32,6 +32,8 @@ const CityPicker = props => {
             <TextField
               {...props}
               label='Provincia'
+              error={false}
+              helperText={null}
               value={state}
               onChange={handleChange}
               select
