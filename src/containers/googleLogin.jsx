@@ -56,7 +56,7 @@ class GoogleLoginContainer extends Component {
           </Button>
         )}
         className={classes.google}
-        clientId='254472747355-6umtrkcedqn00tg7ec17l705ftttam0r.apps.googleusercontent.com'
+        clientId='246477987916-97olebrvqhp82rki0n5h17u679m4tmpi.apps.googleusercontent.com'
         buttonText='Login with Google'
         onRequest={this.googleLoginRequestHandler}
         onSuccess={this.googleLoginSuccessHandler}
