@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
 import { errorMessageBuilder, hasError } from './_utils'
 import { Grid, Fade, Typography } from '@material-ui/core'
+import CityPicker from './cityPicker'
 
 const SchoolWrapper = props => {
   return (
@@ -51,7 +52,8 @@ const SchoolWrapper = props => {
             <FastField
               name='raw_school.city'
               render={({ field }) => (
-                <TextField {...field}
+                <CityPicker
+                  field={field}
                   fullWidth
                   variant='outlined'
                   label='Ciudad'
