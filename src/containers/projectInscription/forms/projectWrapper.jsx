@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { FastField } from 'formik'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
 import { errorMessageBuilder, hasError } from './_utils'
-import { Grid } from '@material-ui/core'
+import { Grid, Fade, Typography } from '@material-ui/core'
 
-export default class ProjectWrapper extends Component {
-  render () {
-    return (
-      <>
+const ProjectWrapper = props => {
+  return (
+    <Fade in mountOnEnter unmountOnExit>
+      <div>
+        <Typography variant='h6'>Idea emprendedora</Typography>
         <Grid container spacing={2}>
-          <h2>Idea emprendedora</h2>
           <Grid item xs={12}>
             <FastField
               name='raw_project.name'
@@ -20,9 +20,8 @@ export default class ProjectWrapper extends Component {
                   fullWidth
                   variant='outlined'
                   label='Nombre'
-                  error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
-                />)}
+                  error={hasError(props.errors, props.status, props.touched, field.name)}
+                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)} />)}
             />
           </Grid>
           <Grid item xs={12}>
@@ -35,9 +34,8 @@ export default class ProjectWrapper extends Component {
                   multiline
                   variant='outlined'
                   label='Problema'
-                  error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
-                />)}
+                  error={hasError(props.errors, props.status, props.touched, field.name)}
+                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)} />)}
             />
           </Grid>
           <Grid item xs={12}>
@@ -50,9 +48,8 @@ export default class ProjectWrapper extends Component {
                   multiline
                   variant='outlined'
                   label='Solucion'
-                  error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
-                />)}
+                  error={hasError(props.errors, props.status, props.touched, field.name)}
+                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)} />)}
             />
           </Grid>
           <Grid item xs={12}>
@@ -65,8 +62,8 @@ export default class ProjectWrapper extends Component {
                   fullWidth
                   variant='outlined'
                   label='Difusion'
-                  error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
+                  error={hasError(props.errors, props.status, props.touched, field.name)}
+                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
                 >
                   <MenuItem value='4'>He participado en años anteriores</MenuItem>
                   <MenuItem value='3'>Medios de comunicacion tradicionales</MenuItem>
@@ -78,7 +75,9 @@ export default class ProjectWrapper extends Component {
             />
           </Grid>
         </Grid>
-      </>
-    )
-  }
+      </div>
+    </Fade>
+  )
 }
+
+export default ProjectWrapper
