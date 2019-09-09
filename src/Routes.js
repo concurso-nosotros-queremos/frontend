@@ -5,6 +5,7 @@ import Index from './views/Home/index'
 import Error404 from './views/404/index'
 import { connect } from 'react-redux'
 import InscriptionWrapper from './containers/projectInscription'
+import Main from './layouts/Main/Main'
 
 const ProtectedRoute = ({ isAllowed, ...props }) => {
   return (
@@ -21,26 +22,25 @@ const Routes = (props) => {
         render={() => (
           props.isLoggedIn
             ? <Redirect to='/dashboard' />
-            : <RouteWithLayout component={Index} layout={<></>} exact path='/' />
+            : <Route component={Index} exact path='/' />
         )}
       />
       <ProtectedRoute
         isAllowed={props.isLoggedIn}
         component={InscriptionWrapper}
-        layout={<></>}
+        layout={Main}
         exact
         path='/dashboard'
       />
       <ProtectedRoute
         isAllowed={props.isLoggedIn}
         component={InscriptionWrapper}
-        layout={<></>}
+        layout={Main}
         exact
         path='/dashboard/inscription'
       />
-      <RouteWithLayout
+      <Route
         component={Error404}
-        layout={<></>}
         exact
         path='/not-found'
       />
