@@ -41,7 +41,7 @@ export default function Contacto () {
           <form style={{ width: '100%' }}>
             <Grid item>
               <TextField
-                id='outlined-full-width'
+                id='name'
                 label='Nombre y Apellido'
                 fullWidth
                 variant='outlined'
@@ -49,7 +49,7 @@ export default function Contacto () {
             </Grid>
             <Grid item>
               <TextField
-                id='outlined-full-width'
+                id='email'
                 label='Email'
                 fullWidth
                 margin='normal'
@@ -58,7 +58,7 @@ export default function Contacto () {
             </Grid>
             <Grid item>
               <TextField
-                id='outlined-multiline-static'
+                id='message'
                 label='Mensaje'
                 fullWidth
                 multiline
