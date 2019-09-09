@@ -45,7 +45,8 @@ const useStyles = makeStyles(theme => ({
     borderTop: '1px solid #232F3424',
     [theme.breakpoints.up('lg')]: {
       width: 'calc(100% - 232px)'
-    }
+    },
+    zIndex: 1
   }
 }))
 
