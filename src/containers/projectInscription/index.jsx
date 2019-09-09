@@ -9,6 +9,7 @@ import SchoolWrapper from './forms/schoolWrapper'
 import ProjectWrapper from './forms/projectWrapper'
 import ContactWrapper from './forms/contactWrapper'
 import HorizontalLinearStepper from '../../components/horizontalLinearStepper'
+import { makeStyles } from '@material-ui/styles'
 
 const forms = [
   {
@@ -33,7 +34,23 @@ const forms = [
   }
 ]
 
+const useStyles = makeStyles(theme => ({
+  fixedActions: {
+    position: 'fixed',
+    bottom: 0,
+    right: 0,
+    paddingBottom: theme.spacing(1),
+    paddingRight: theme.spacing(4),
+    backgroundColor: '#FFFFFF',
+    borderTop: '1px solid #232F3424',
+    [theme.breakpoints.up('lg')]: {
+      width: 'calc(100% - 232px)'
+    }
+  }
+}))
+
 const InscriptionWrapper = props => {
+  const classes = useStyles()
   const [active, setActive] = useState(0)
 
   const handleNext = () => {
@@ -76,7 +93,7 @@ const InscriptionWrapper = props => {
         {({ errors, touched, status, submitForm }) => (
           <Form>
             <Fragment errors={errors} status={status} touched={touched} />
-            <Grid container direction='row' spacing={2}>
+            <Grid className={classes.fixedActions} container direction='row' justify='flex-end' spacing={2}>
               {active !== 0 &&
               <Grid item>
                 <Button type='button' onClick={handlePrevious}>
