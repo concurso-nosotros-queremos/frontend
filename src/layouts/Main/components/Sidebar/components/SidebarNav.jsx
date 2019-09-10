@@ -1,8 +1,11 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useState } from 'react'
 import { NavLink as RouterLink, withRouter } from 'react-router-dom'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/styles'
-import { List, ListItem, Button } from '@material-ui/core'
+import { List, ListItem, ListItemText, Collapse, IconButton, ListItemSecondaryAction, ListItemAvatar } from '@material-ui/core'
+import { getIn } from 'formik'
+import ExpandLess from '@material-ui/icons/ExpandLess'
+import ExpandMore from '@material-ui/icons/ExpandMore'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -34,12 +37,10 @@ const useStyles = makeStyles(theme => ({
     background: `${theme.palette.primary.main}36`
   },
   icon: {
-    color: '#FFFFFFCC',
-    width: 24,
-    height: 24,
-    display: 'flex',
-    alignItems: 'center',
-    marginRight: theme.spacing(1)
+    color: '#FFFFFFCC'
+  },
+  nested: {
+    paddingLeft: theme.spacing(4)
   }
 }))
 
@@ -52,36 +53,98 @@ const CustomRouterLink = forwardRef((props, ref) => (
   </div>
 ))
 
-const SidebarNav = props => {
-  const { pages, className, ...rest } = props
+const CollapsibleList = props => {
+  const classes = useStyles()
+  const [open, setOpen] = useState(true)
+  const { page, children } = props
 
+  const handleClick = () => {
+    setOpen(!open)
+  }
+
+  console.log(page)
+
+  return (
+    <>
+      <ListItem
+        className={classes.item}
+        classes={{ root: clsx({ [classes.button]: true, [classes.buttonActive]: props.location.pathname === page.href }) }}
+        dense
+        button
+        component={CustomRouterLink}
+        to={page.href}
+        key={page.title}
+      >
+        <ListItemAvatar>
+          {page.icon}
+        </ListItemAvatar>
+        <ListItemText>
+          {page.title}
+        </ListItemText>
+        <ListItemSecondaryAction>
+          {open
+            ? (
+              <IconButton onClick={handleClick}>
+                <ExpandLess className={classes.icon} />
+              </IconButton>
+            )
+            : (
+              <IconButton onClick={handleClick}>
+                <ExpandMore className={classes.icon} />
+              </IconButton>
+            )}
+        </ListItemSecondaryAction>
+      </ListItem>
+      <Collapse in={open} timeout='auto' unmountOnExit>
+        <List className={classes.nested} component='div' disablePadding>
+          {children}
+        </List>
+      </Collapse>
+    </>
+  )
+}
+
+const SidebarNav = props => {
+  const { className, ...rest } = props
   const classes = useStyles()
 
-  console.log(props)
-  console.log(pages)
+  const buildPages = (pages) => {
+    return pages.map(page => (
+      <>
+        {getIn(page, 'children.length')
+          ? (
+            <CollapsibleList page={page} {...props}>
+              {buildPages(page.children)}
+            </CollapsibleList>
+          )
+          : (
+            <ListItem
+              className={classes.item}
+              classes={{ root: clsx({ [classes.button]: true, [classes.buttonActive]: props.location.pathname === page.href }) }}
+              dense
+              button
+              component={CustomRouterLink}
+              to={page.href}
+              key={page.title}
+            >
+              <ListItemAvatar>
+                {page.icon}
+              </ListItemAvatar>
+              <ListItemText>
+                {page.title}
+              </ListItemText>
+            </ListItem>
+          )}
+      </>
+    ))
+  }
 
   return (
     <List
       {...rest}
       className={clsx(classes.root, className)}
     >
-      {pages.map(page => (
-        <ListItem
-          className={classes.item}
-          disableGutters
-          key={page.title}
-        >
-          {console.log(props.location.pathname === page.href)}
-          <Button
-            classes={{ root: clsx({ [classes.button]: true, [classes.buttonActive]: props.location.pathname === page.href }) }}
-            component={CustomRouterLink}
-            to={page.href}
-          >
-            <div className={classes.icon}>{page.icon}</div>
-            {page.title}
-          </Button>
-        </ListItem>
-      ))}
+      {buildPages(props.pages)}
     </List>
   )
 }

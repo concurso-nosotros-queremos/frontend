@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/styles'
 import { Divider, Drawer } from '@material-ui/core'
 import DashboardIconOutlined from '@material-ui/icons/DashboardOutlined'
 import PeopleIconOutlined from '@material-ui/icons/PeopleOutlined'
+import AddIconOutlined from '@material-ui/icons/AddOutlined'
 
 import SidebarNav from './components/SidebarNav'
 
@@ -50,7 +51,14 @@ const Sidebar = props => {
     {
       title: 'Mis grupos',
       href: '/groups',
-      icon: <PeopleIconOutlined color='inherit' />
+      icon: <PeopleIconOutlined color='inherit' />,
+      children: [
+        {
+          title: 'Añadir',
+          href: '/groups/add',
+          icon: <AddIconOutlined color='inherit' />
+        }
+      ]
     }
   ]
 
