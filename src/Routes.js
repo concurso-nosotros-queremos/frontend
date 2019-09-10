@@ -6,6 +6,7 @@ import Error404 from './views/404/index'
 import { connect } from 'react-redux'
 import InscriptionWrapper from './containers/projectInscription'
 import Main from './layouts/Main/Main'
+import Groups from './views/Groups/Groups'
 
 const ProtectedRoute = ({ isAllowed, ...props }) => {
   return (
@@ -27,17 +28,24 @@ const Routes = (props) => {
       />
       <ProtectedRoute
         isAllowed={props.isLoggedIn}
-        component={InscriptionWrapper}
+        component={() => <></>}
         layout={Main}
         exact
         path='/dashboard'
       />
       <ProtectedRoute
         isAllowed={props.isLoggedIn}
+        component={Groups}
+        layout={Main}
+        exact
+        path='/groups'
+      />
+      <ProtectedRoute
+        isAllowed={props.isLoggedIn}
         component={InscriptionWrapper}
         layout={Main}
         exact
-        path='/dashboard/inscription'
+        path='/groups/add'
       />
       <Route
         component={Error404}
@@ -58,7 +66,7 @@ const MainRouter = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  isLoggedIn: state.auth.isLoggedIn
+  isLoggedIn: true // state.auth.isLoggedIn
 })
 
 export default connect(mapStateToProps)(MainRouter)

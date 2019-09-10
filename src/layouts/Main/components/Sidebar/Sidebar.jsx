@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import { makeStyles } from '@material-ui/styles'
 import { Divider, Drawer } from '@material-ui/core'
 import DashboardIconOutlined from '@material-ui/icons/DashboardOutlined'
+import PeopleIconOutlined from '@material-ui/icons/PeopleOutlined'
 
 import SidebarNav from './components/SidebarNav'
 
@@ -45,6 +46,11 @@ const Sidebar = props => {
       title: 'Dashboard',
       href: '/dashboard',
       icon: <DashboardIconOutlined color='inherit' />
+    },
+    {
+      title: 'Mis grupos',
+      href: '/groups',
+      icon: <PeopleIconOutlined color='inherit' />
     }
   ]
 
