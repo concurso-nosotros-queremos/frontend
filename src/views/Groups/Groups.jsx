@@ -10,13 +10,16 @@ import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined'
 import NavigateNextIcon from '@material-ui/icons/NavigateNext'
 import AddIcon from '@material-ui/icons/Add';
 
+import { Link } from "react-router-dom"
+
 const useStyles = makeStyles(theme => ({
   card: {
     width: '100%',
     border: '1px solid',
-    borderColor: theme.palette.text.disabled
+    borderColor: theme.palette.text.disabled,
   },
   button: {
+    borderColor: theme.palette.text.disabled,
     width: '100%',
     [theme.breakpoints.only('xs')]: {
       height: '129px'
@@ -28,6 +31,9 @@ const useStyles = makeStyles(theme => ({
       height: '139px'
     },
     fontSize: '14px'
+  },
+  root: {
+    padding: '16px'
   }
 }))
 
@@ -55,7 +61,7 @@ const Groups = props => {
   return (
     <>
       {data.map((el, idx) =>
-        <Grid container item xs={12} sm={6} md={4} lg={5} xl={3} key={idx}>
+        <Grid container item xs={12} sm={6} md={4} lg={6} xl={3} key={idx} className={classes.root}>
           <Card className={classes.card} elevation={0}>
             <CardHeader
               title={
@@ -87,8 +93,8 @@ const Groups = props => {
         </Grid>
       )}
 
-      <Grid container item xs={12} sm={6} md={4} lg={5} xl={3}>
-        <Button variant="contained" className={classes.button} color='inherit' href='/groups/add'>
+      <Grid container item xs={12} sm={6} md={4} lg={6} xl={3} className={classes.root}>
+        <Button variant="outlined" className={classes.button} color='inherit' to="/groups/add" component={Link} >
           <Grid container direction="column" justify="center" alignItems="center"
             style={{ height: '100%' }}>
             <AddIcon fontSize="large" />
