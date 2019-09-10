@@ -125,6 +125,11 @@ let theme = createMuiTheme({
   },
   spacing: 8,
   overrides: {
+    MuiCardHeader:{
+      content:{
+        overflow: 'hidden'
+      }
+    }
   },
   shape: {
     borderRadius: 4
@@ -138,7 +143,7 @@ let theme = createMuiTheme({
     root: {
       fontWeight: 400
     }
-  }
+  },
 })
 
 theme = responsiveFontSizes(theme)

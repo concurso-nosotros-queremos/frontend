@@ -57,7 +57,7 @@ const Main = props => {
         open={shouldOpenSidebar}
         variant={isDesktop ? 'persistent' : 'temporary'}
       />
-      <Grid className={classes.content} container>
+      <Grid container direction="row" justify="flex-start" alignItems="flex-start" className={classes.content} spacing={4}>
         {children}
       </Grid>
     </div>
