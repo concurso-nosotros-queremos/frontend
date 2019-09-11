@@ -9,12 +9,20 @@ const participantsSchema = Yup.array().of(
   }).noUnknown()
 ).min(1, 'Debe agregar al menos 1 participante')
 
+export const participantsSchemaRaw = Yup.object().shape({
+  raw_participant: participantsSchema
+}).noUnknown()
+
 const schoolSchema = Yup.object().shape({
   name: Yup.string().required('Nombre es un campo obligatorio'),
   street_name: Yup.string().required('Calle es un campo obligatorio'),
   street_number: Yup.number().integer().typeError('Introduzca un numero de calle valido').required('Numero de calle es un campo obligatorio'),
   city: Yup.number().integer().typeError('Introduzca una ciudad valida').required('Ciudad es un campo obligatorio'),
   school_types: Yup.number().integer().typeError('Introduzca un tipo de escuela valido').required('Tipo de escuela es un campo obligatorio')
+}).noUnknown()
+
+export const schoolSchemaRaw = Yup.object().shape({
+  raw_school: schoolSchema
 }).noUnknown()
 
 const projectSchema = Yup.object().shape({
@@ -24,10 +32,18 @@ const projectSchema = Yup.object().shape({
   diffusion: Yup.number().integer().typeError('Introduzca una difusion valida').required('Difusion es un campo obligatorio')
 }).noUnknown()
 
+export const projectSchemaRaw = Yup.object().shape({
+  raw_project: projectSchema
+}).noUnknown()
+
 const contactSchema = Yup.object().shape({
   phone_number: Yup.string(),
   alternative_email: Yup.string(),
   alternative_phone_number: Yup.string()
+}).noUnknown()
+
+export const contactSchemaRaw = Yup.object().shape({
+  raw_contact: contactSchema
 }).noUnknown()
 
 export const validationSchema = Yup.object().shape({

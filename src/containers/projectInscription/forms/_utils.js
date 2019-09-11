@@ -24,5 +24,5 @@ export function errorMessageBuilder (errors, status, touched, name) {
 }
 
 export function hasError (errors, status, touched, name) {
-  return (getIn(errors, name) && getIn(touched, name)) || getIn(status, name)
+  return (getIn(errors, name) !== undefined && getIn(touched, name) !== undefined) || getIn(status, name) !== undefined
 }

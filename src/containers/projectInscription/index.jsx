@@ -11,26 +11,32 @@ import ContactWrapper from './forms/contactWrapper'
 import HorizontalLinearStepper from '../../components/horizontalLinearStepper'
 import { makeStyles } from '@material-ui/styles'
 
+// const validators = [participantsSchemaRaw, schoolSchemaRaw, projectSchemaRaw, contactSchemaRaw]
+
 const forms = [
   {
     title: 'Participantes',
     helper: '',
-    component: ParticipantsWrapper
+    component: ParticipantsWrapper,
+    raw: 'raw_participant'
   },
   {
     title: 'Escuela',
     helper: '',
-    component: SchoolWrapper
+    component: SchoolWrapper,
+    raw: 'raw_school'
   },
   {
     title: 'Proyecto',
     helper: '',
-    component: ProjectWrapper
+    component: ProjectWrapper,
+    raw: 'raw_project'
   },
   {
     title: 'Contacto',
     helper: '',
-    component: ContactWrapper
+    component: ContactWrapper,
+    raw: 'raw_contact'
   }
 ]
 
@@ -71,12 +77,11 @@ const InscriptionWrapper = props => {
     })
   }
 
-  const Fragment = forms[active].component
+  const Fragment = forms[active]
 
   return (
     <Grid item xs={12}>
       <Typography variant='h4'>Inscripción</Typography>
-      <HorizontalLinearStepper steps={forms} active={active} />
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -84,7 +89,6 @@ const InscriptionWrapper = props => {
         validateOnBlur
         onSubmit={(values, { setStatus, setSubmitting }) => {
           handleSubmit(validationSchema.cast(values)).then((response) => {
-            console.log(response)
           }).catch((error) => {
             setStatus({ ...error.response })
             setSubmitting(false)
@@ -92,28 +96,36 @@ const InscriptionWrapper = props => {
         }}
       >
         {({ errors, touched, status, submitForm }) => (
-          <Form>
-            <Fragment errors={errors} status={status} touched={touched} />
-            <Grid className={classes.fixedActions} container direction='row' justify='flex-end' spacing={2}>
-              {active !== 0 &&
-              <Grid item>
-                <Button type='button' onClick={handlePrevious}>
-                  Atras
-                </Button>
-              </Grid>}
-              {active === forms.length - 1
-                ? <Grid item>
-                  <Button type='button' variant='contained' color='primary' onClick={submitForm}>
-                    Enviar
-                  </Button>
-                </Grid>
-                : <Grid item>
-                  <Button type='button' variant='contained' onClick={handleNext}>
-                    Siguiente
-                  </Button>
-                </Grid>}
-            </Grid>
-          </Form>
+          <>
+            <HorizontalLinearStepper steps={forms} active={active} errors={errors} status={status} touched={touched} />
+            <Form>
+              <Fragment.component errors={errors} status={status} touched={touched} />
+              <Grid className={classes.fixedActions} container direction='row' justify='flex-end' spacing={2}>
+                {active !== 0 && (
+                  <Grid item>
+                    <Button type='button' onClick={handlePrevious}>
+                      Atras
+                    </Button>
+                  </Grid>
+                )}
+                {active === forms.length - 1
+                  ? (
+                    <Grid item>
+                      <Button type='button' variant='contained' color='primary' onClick={submitForm}>
+                        Enviar
+                      </Button>
+                    </Grid>
+                  )
+                  : (
+                    <Grid item>
+                      <Button type='button' variant='contained' onClick={handleNext}>
+                        Siguiente
+                      </Button>
+                    </Grid>
+                  )}
+              </Grid>
+            </Form>
+          </>
         )}
       </Formik>
     </Grid>

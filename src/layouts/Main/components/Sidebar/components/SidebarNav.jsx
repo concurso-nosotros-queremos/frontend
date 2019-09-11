@@ -62,8 +62,6 @@ const CollapsibleList = props => {
     setOpen(!open)
   }
 
-  console.log(page)
-
   return (
     <>
       <ListItem
