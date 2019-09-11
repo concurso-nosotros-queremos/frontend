@@ -30,7 +30,7 @@ const projectSchema = Yup.object().shape({
   problem: Yup.string().required('Problema es un campo obligatorio'),
   solution: Yup.string().required('Solucion es un campo obligatorio'),
   diffusion: Yup.number().integer().typeError('Introduzca una difusion valida').required('Difusion es un campo obligatorio')
-}).noUnknown()
+})
 
 export const projectSchemaRaw = Yup.object().shape({
   raw_project: projectSchema
@@ -71,7 +71,8 @@ export const initialValues = {
     name: '',
     problem: '',
     solution: '',
-    diffusion: ''
+    diffusion: '',
+    category: [0]
   },
   raw_contact: {
     phone_number: '',

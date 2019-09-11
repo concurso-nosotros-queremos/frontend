@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import { Formik, Form } from 'formik'
 import { Grid, Typography } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
@@ -71,6 +72,9 @@ const InscriptionWrapper = props => {
   const handleSubmit = (form) => {
     return fetchResource('rest/group/', {
       method: 'POST',
+      headers: {
+        Authorization: `Bearer ${props.token}`
+      },
       body: {
         ...form
       }
@@ -132,4 +136,8 @@ const InscriptionWrapper = props => {
   )
 }
 
-export default InscriptionWrapper
+const mapStateToProps = (state) => ({
+  token: state.auth.convertedToken.accessToken
+})
+
+export default connect(mapStateToProps)(InscriptionWrapper)
