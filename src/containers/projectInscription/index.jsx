@@ -74,7 +74,7 @@ const InscriptionWrapper = props => {
   const Fragment = forms[active].component
 
   return (
-    <Grid item xs={12}>
+    <Grid item xs={12} style={{width: '100%'}}>
       <Typography variant='h4'>Inscripción</Typography>
       <HorizontalLinearStepper steps={forms} active={active} />
       <Formik

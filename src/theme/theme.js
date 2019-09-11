@@ -15,10 +15,10 @@ let theme = createMuiTheme({
       main: '#E53935'
     },
     text: {
-      primary: 'rgba(0, 0, 0, 0.85)',
-      secondary: 'rgba(0, 0, 0, 0.65)',
+      primary: '#232F34',
+      secondary: '#232F348F',
       disabled: 'rgba(0, 0, 0, 0.38)'
-    }
+    },
   },
   typography: {
     fontFamily: "'Roboto','Roboto Slab'",
@@ -144,6 +144,9 @@ let theme = createMuiTheme({
       fontWeight: 400
     }
   },
+  border: {
+    primary: '1.45px solid #232f3424'
+  }
 })
 
 theme = responsiveFontSizes(theme)

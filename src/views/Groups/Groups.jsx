@@ -15,43 +15,41 @@ import { Link } from "react-router-dom"
 const useStyles = makeStyles(theme => ({
   card: {
     width: '100%',
-    border: '1px solid',
-    borderColor: theme.palette.text.disabled,
+    border: theme.border.primary
   },
   button: {
-    borderColor: theme.palette.text.disabled,
+    border: theme.border.primary,
     width: '100%',
-    [theme.breakpoints.only('xs')]: {
-      height: '129px'
-    },
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('xs')]: {
       height: '135px'
     },
     [theme.breakpoints.up('lg')]: {
-      height: '139px'
+      height: '135px'
     },
     fontSize: '14px'
   },
   root: {
     padding: '16px'
-  }
+  },
+  title: {
+    fontWeight: 'bold',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    fontSize: '22px'
+  },
 }))
 
 const data = [
   {
     nombre: 'IgualAR',
     total: '23',
-    url: '/groups/1'
+    url: ''
   },
   {
     nombre: 'Explosion creativa escolar',
     total: '41',
-    url: '/groups/1'
-  },
-  {
-    nombre: 'Comunidad unida',
-    total: '8',
-    url: '/groups/1'
+    url: ''
   },
 ]
 
@@ -60,47 +58,48 @@ const Groups = props => {
 
   return (
     <>
-      {data.map((el, idx) =>
-        <Grid container item xs={12} sm={6} md={4} lg={6} xl={3} key={idx} className={classes.root}>
-          <Card className={classes.card} elevation={0}>
-            <CardHeader
-              title={
-                <Typography variant="h4"
-                  style={{ fontWeight: 'bold', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                  {el.nombre}
-                </Typography>}
-            />
+      <Grid container direction="row" justify="flex-start" alignItems="flex-start">
 
-            <CardActions style={{ padding: '16px' }}>
-              <Grid container direction="row" justify="space-between" alignItems="center">
-                <Grid container item xs direction="row" justify="flex-start" alignItems="center" >
-                  <Typography variant="h5" style={{ fontWeight: 'bold', marginRight: '0.5rem' }}>
-                    {el.total}
+        {data.map((el, idx) =>
+          <Grid container item xs={12} sm={6} md={4} lg={6} xl={3} key={idx} className={classes.root}>
+            <Card className={classes.card} elevation={0}>
+              <CardHeader
+                title={
+                  <Typography className={classes.title}>
+                    {el.nombre}
                   </Typography>
-                  <PermIdentityOutlinedIcon />
-                </Grid>
-                <Grid item>
-                  <Button variant="text" color="primary" href={el.url}>
-                    <Typography color="primary">
-                      Ver mas
+                } />
+              <CardActions style={{ padding: '16px' }}>
+                <Grid container direction="row" justify="space-between" alignItems="center">
+                  <Grid container item xs direction="row" justify="flex-start" alignItems="center" >
+                    <Typography style={{ marginRight: '0.5rem', fontSize: '20px', fontWeight: '500' }}>
+                      {el.total}
+                    </Typography>
+                    <PermIdentityOutlinedIcon htmlColor="rgba(35, 47, 52, 0.8)" />
+                  </Grid>
+                  <Grid item>
+                    <Button variant="text" color="primary" href={el.url}>
+                      <Typography color="primary">
+                        Ver mas
                       </Typography>
-                    <NavigateNextIcon />
-                  </Button>
+                      <NavigateNextIcon />
+                    </Button>
+                  </Grid>
                 </Grid>
-              </Grid>
-            </CardActions>
-          </Card>
-        </Grid>
-      )}
-
-      <Grid container item xs={12} sm={6} md={4} lg={6} xl={3} className={classes.root}>
-        <Button variant="outlined" className={classes.button} color='inherit' to="/groups/add" component={Link} >
-          <Grid container direction="column" justify="center" alignItems="center"
-            style={{ height: '100%' }}>
-            <AddIcon fontSize="large" />
-            Agregar un nuevo grupo
+              </CardActions>
+            </Card>
           </Grid>
-        </Button>
+        )}
+
+        <Grid container item xs={12} sm={6} md={4} lg={6} xl={3} className={classes.root}>
+          <Button variant="outlined" className={classes.button} color='default' to="/groups/add" component={Link} >
+            <Grid container direction="column" justify="center" alignItems="center"
+              style={{ height: '100%' }}>
+              <AddIcon fontSize="large" />
+              Agregar un nuevo grupo
+          </Grid>
+          </Button>
+        </Grid>
       </Grid>
     </>
 

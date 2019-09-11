@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import InscriptionWrapper from './containers/projectInscription'
 import Main from './layouts/Main/Main'
 import Groups from './views/Groups/Groups'
+import Dashboard from './views/Dashboard/Dashboard'
 
 const ProtectedRoute = ({ isAllowed, ...props }) => {
   return (
@@ -28,7 +29,7 @@ const Routes = (props) => {
       />
       <ProtectedRoute
         isAllowed={props.isLoggedIn}
-        component={() => <></>}
+        component={Dashboard}
         layout={Main}
         exact
         path='/dashboard'
@@ -49,10 +50,7 @@ const Routes = (props) => {
       />
       <Route
         component={Error404}
-        exact
-        path='/not-found'
       />
-      <Redirect to='/not-found' />
     </Switch>
   )
 }
