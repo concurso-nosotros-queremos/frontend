@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: 240
   },
   content: {
-    height: '100%',
+    height: 'calc(100vh - 64px)',
     padding: theme.spacing(4)
   }
 }))

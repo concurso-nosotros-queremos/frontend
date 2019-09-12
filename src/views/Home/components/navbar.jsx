@@ -69,7 +69,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-function NavBar (props) {
+function NavBar(props) {
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
 
@@ -88,46 +88,38 @@ function NavBar (props) {
           <Hidden smDown>
             <img alt='Concurso Nosotros Queremos' src={require('../../../assets/cnq.png')} className={classes.cnq} />
             <Grid container>
-              <Button disableRipple className={classes.appBarButton}>
-                <Link
-                  activeClass='active' className='test1' to='comoFunciona'
-                  spy smooth duration={400} ignoreCancelEvents offset={-20}
-                >
+              <Link
+                activeClass='active' className='test1' to='comoFunciona' spy smooth duration={400} ignoreCancelEvents offset={-20}>
+                <Button disableRipple className={classes.appBarButton}>
                   Acerca
-                </Link>
-              </Button>
-              <Button disableRipple className={classes.appBarButton}>
-                <Link
-                  activeClass='active' className='test1' to='proyectos'
-                  spy smooth duration={500} ignoreCancelEvents offset={-20}
-                >
+                </Button>
+              </Link>
+              <Link activeClass='active' className='test1' to='proyectos' spy smooth duration={500} ignoreCancelEvents offset={-20}>
+                <Button disableRipple className={classes.appBarButton}>
                   Proyectos
-                </Link>
-              </Button>
-              <Button disableRipple className={classes.appBarButton}>
-                <Link
-                  activeClass='active' className='test1' to='organizan'
-                  spy smooth duration={600} ignoreCancelEvents offset={-20}
-                >
+                  </Button>
+              </Link>
+              <Link
+                activeClass='active' className='test1' to='organizan'
+                spy smooth duration={600} ignoreCancelEvents offset={-20}>
+                <Button disableRipple className={classes.appBarButton}>
                   Organizan
-                </Link>
-              </Button>
-              <Button disableRipple className={classes.appBarButton}>
-                <Link
-                  activeClass='active' className='test1' to='contacto'
-                  spy smooth duration={700} ignoreCancelEvents offset={-20}
-                >
+                </Button>
+              </Link>
+              <Link
+                activeClass='active' className='test1' to='contacto'
+                spy smooth duration={700} ignoreCancelEvents offset={-20}>
+                <Button disableRipple className={classes.appBarButton}>
                   Contactos
-                </Link>
-              </Button>
-              <Button disableRipple className={classes.appBarButton}>
-                <Link
-                  activeClass='active' className='test1' to='sponsors'
-                  spy smooth duration={800} ignoreCancelEvents offset={-20}
-                >
+                </Button>
+              </Link>
+              <Link
+                activeClass='active' className='test1' to='sponsors'
+                spy smooth duration={800} ignoreCancelEvents offset={-20}>
+                <Button disableRipple className={classes.appBarButton}>
                   Sponsors
-                </Link>
-              </Button>
+                </Button>
+              </Link>
             </Grid>
             <Grid item style={{ textAlign: 'right' }}>
               <img style={{ width: '12rem' }} alt='in' src={require('../../../assets/inclusion_logo_text.svg')} />
@@ -147,46 +139,46 @@ function NavBar (props) {
                       </IconButton>
                     </Grid>
                     <Grid container direction='column' justify='center' alignItems='center'>
-                      <Button disableRipple className={classes.appBarButton}>
-                        <Link
-                          activeClass='active' className='test1' to='comoFunciona' onClick={handleClose} delay={50}
-                          spy smooth duration={400} ignoreCancelEvents offset={-20}
-                        >
+                      <Link
+                        activeClass='active' className='test1' to='comoFunciona' onClick={handleClose} delay={50}
+                        spy smooth duration={400} ignoreCancelEvents offset={-20}
+                      >
+                        <Button disableRipple className={classes.appBarButton}>
                           Acerca
-                        </Link>
-                      </Button>
-                      <Button disableRipple className={classes.appBarButton}>
-                        <Link
-                          activeClass='active' className='test1' to='proyectos' onClick={handleClose} delay={50}
-                          spy smooth duration={500} ignoreCancelEvents offset={-20}
-                        >
+                        </Button>
+                      </Link>
+                      <Link
+                        activeClass='active' className='test1' to='proyectos' onClick={handleClose} delay={50}
+                        spy smooth duration={500} ignoreCancelEvents offset={-20}
+                      >
+                        <Button disableRipple className={classes.appBarButton}>
                           Proyectos
-                        </Link>
-                      </Button>
-                      <Button disableRipple className={classes.appBarButton}>
-                        <Link
-                          activeClass='active' className='test1' to='organizan' onClick={handleClose} delay={50}
-                          spy smooth duration={600} ignoreCancelEvents offset={-20}
-                        >
+                        </Button>
+                      </Link>
+                      <Link
+                        activeClass='active' className='test1' to='organizan' onClick={handleClose} delay={50}
+                        spy smooth duration={600} ignoreCancelEvents offset={-20}
+                      >
+                        <Button disableRipple className={classes.appBarButton}>
                           Organizan
-                        </Link>
-                      </Button>
-                      <Button disableRipple className={classes.appBarButton}>
-                        <Link
-                          activeClass='active' className='test1' to='contacto' onClick={handleClose} delay={50}
-                          spy smooth duration={700} ignoreCancelEvents offset={-20}
-                        >
+                         </Button>
+                      </Link>
+                      <Link
+                        activeClass='active' className='test1' to='contacto' onClick={handleClose} delay={50}
+                        spy smooth duration={700} ignoreCancelEvents offset={-20}
+                      >
+                        <Button disableRipple className={classes.appBarButton}>
                           Contactos
-                        </Link>
-                      </Button>
-                      <Button disableRipple className={classes.appBarButton}>
-                        <Link
-                          activeClass='active' className='test1' to='sponsors' onClick={handleClose} delay={50}
-                          spy smooth duration={800} ignoreCancelEvents offset={-20}
-                        >
+                        </Button>
+                      </Link>
+                      <Link
+                        activeClass='active' className='test1' to='sponsors' onClick={handleClose} delay={50}
+                        spy smooth duration={800} ignoreCancelEvents offset={-20}
+                      >
+                        <Button disableRipple className={classes.appBarButton}>
                           Sponsors
-                        </Link>
-                      </Button>
+                        </Button>
+                      </Link>
                     </Grid>
                   </Grid>
                 </Paper>

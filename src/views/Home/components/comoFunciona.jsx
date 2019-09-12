@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography/index'
 import Grid from '@material-ui/core/Grid'
 import Avatar from '@material-ui/core/Avatar'
 import { Button } from '@material-ui/core'
+import { Link } from 'react-scroll'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -60,7 +61,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function ComoFunciona () {
+export default function ComoFunciona() {
   const classes = useStyles()
 
   return (
@@ -137,9 +138,14 @@ export default function ComoFunciona () {
           </Grid>
           <Grid container direction='row' justify='space-around' alignItems='center'>
             <Grid item style={{ marginTop: '1rem', marginBottom: '1rem' }}>
-              <Button size='large' variant='contained' color='primary' href='/login'>
-                Inscribi a tu grupo
-              </Button>
+              <Link
+                activeClass='active' to='googleLogin'
+                spy smooth duration={600} ignoreCancelEvents offset={-20}
+              >
+                <Button size='large' variant='contained' color='primary'>
+                  Inscribi a tu grupo
+                  </Button>
+              </Link>
             </Grid>
           </Grid>
         </Grid>

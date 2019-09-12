@@ -42,12 +42,7 @@ const useStyles = makeStyles(theme => ({
 
 const data = [
   {
-    nombre: 'IgualAR',
-    total: '23',
-    url: ''
-  },
-  {
-    nombre: 'Explosion creativa escolar',
+    nombre: 'Damajuana solidaria',
     total: '41',
     url: ''
   }

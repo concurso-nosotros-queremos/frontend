@@ -8,6 +8,7 @@ import InscriptionWrapper from './containers/projectInscription'
 import Main from './layouts/Main/Main'
 import Groups from './views/Groups/Groups'
 import Dashboard from './views/Dashboard/Dashboard'
+import FormSuccess from './views/Dashboard/FormSuccess'
 
 const ProtectedRoute = ({ isAllowed, ...props }) => {
   return (
@@ -47,6 +48,13 @@ const Routes = (props) => {
         layout={Main}
         exact
         path='/groups/add'
+      />
+      <ProtectedRoute
+        isAllowed={props.isLoggedIn}
+        component={FormSuccess}
+        layout={Main}
+        exact
+        path='/groups/add/success'
       />
       <Route
         component={Error404}

@@ -57,11 +57,11 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Main () {
+export default function Main() {
   const classes = useStyles()
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: 'relative' }} id='main'>
       <Grid container className={classes.root} direction='column' justify='space-between' alignItems='flex-start'>
         <Grid container direction='column' item sm={8} md={5} lg={4} className={classes.secondaryContainer}>
           <Grid container direction='column'>
@@ -76,8 +76,7 @@ export default function Main () {
           </Grid>
         </Grid>
 
-        <Grid
-          container className={classes.loginButonContainer} direction='column' justify='flex-end' alignItems='flex-start'
+        <Grid id="googleLogin" container className={classes.loginButonContainer} direction='column' justify='flex-end' alignItems='flex-start'
           item sm={7} md={6} xl={5}
         >
           <Grid item sm={9} md={7} lg={5} style={{ width: '100%', maxHeight: 'min-content' }} container direction='column' justify='flex-start' alignItems='flex-start'>
