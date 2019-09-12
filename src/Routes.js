@@ -64,7 +64,7 @@ const MainRouter = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  isLoggedIn: true // state.auth.isLoggedIn
+  isLoggedIn: state.auth.isLoggedIn
 })
 
 export default connect(mapStateToProps)(MainRouter)
