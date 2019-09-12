@@ -11,6 +11,7 @@ import ProjectWrapper from './forms/projectWrapper'
 import ContactWrapper from './forms/contactWrapper'
 import HorizontalLinearStepper from '../../components/horizontalLinearStepper'
 import { makeStyles } from '@material-ui/styles'
+import { BrowserRouter as Redirect } from 'react-router-dom'
 
 // const validators = [participantsSchemaRaw, schoolSchemaRaw, projectSchemaRaw, contactSchemaRaw]
 
@@ -60,6 +61,7 @@ const useStyles = makeStyles(theme => ({
 const InscriptionWrapper = props => {
   const classes = useStyles()
   const [active, setActive] = useState(0)
+  const [redirect, setRedirect] = useState(false)
 
   const handleNext = () => {
     active !== forms.length - 1 && setActive(active + 1)
@@ -93,6 +95,7 @@ const InscriptionWrapper = props => {
         validateOnBlur
         onSubmit={(values, { setStatus, setSubmitting }) => {
           handleSubmit(validationSchema.cast(values)).then((response) => {
+            setRedirect(true)
           }).catch((error) => {
             setStatus({ ...error.response })
             setSubmitting(false)
@@ -101,6 +104,7 @@ const InscriptionWrapper = props => {
       >
         {({ errors, touched, status, submitForm }) => (
           <>
+            {redirect && <Redirect to='/groups/add/success' />}
             <HorizontalLinearStepper steps={forms} active={active} errors={errors} status={status} touched={touched} />
             <Form>
               <Fragment.component errors={errors} status={status} touched={touched} />
