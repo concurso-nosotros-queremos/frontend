@@ -32,7 +32,6 @@ export default function HorizontalLinearStepper (props) {
 
   return (
     <div className={classes.root}>
-      {console.log(props)}
       <Stepper className={classes.stepper} activeStep={props.active}>
         {props.steps.map((el, idx) => {
           const labelProps = {}
