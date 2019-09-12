@@ -72,7 +72,7 @@ export const initialValues = {
     problem: '',
     solution: '',
     diffusion: '',
-    category: [0]
+    category: [1]
   },
   raw_contact: {
     phone_number: '',
