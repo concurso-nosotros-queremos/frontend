@@ -51,7 +51,7 @@ const CityPicker = props => {
               {buildCities()}
             </TextField>
           </Grid>
-    </> : <CircularProgress />}
+        </> : <CircularProgress />}
     </Grid>
   )
 }

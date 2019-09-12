@@ -18,7 +18,7 @@ let theme = createMuiTheme({
       primary: '#232F34',
       secondary: '#232F348F',
       disabled: 'rgba(0, 0, 0, 0.38)'
-    },
+    }
   },
   typography: {
     fontFamily: "'Roboto','Roboto Slab'",
@@ -125,8 +125,8 @@ let theme = createMuiTheme({
   },
   spacing: 8,
   overrides: {
-    MuiCardHeader:{
-      content:{
+    MuiCardHeader: {
+      content: {
         overflow: 'hidden'
       }
     }

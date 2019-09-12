@@ -23,7 +23,7 @@ const Routes = (props) => {
         path='/'
         render={() => (
           props.isLoggedIn
-            ? <Redirect to='/dashboard' />
+            ? <Redirect to='/groups' />
             : <Route component={Index} exact path='/' />
         )}
       />

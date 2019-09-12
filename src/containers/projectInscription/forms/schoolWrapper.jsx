@@ -22,7 +22,8 @@ const SchoolWrapper = props => {
                   variant='outlined'
                   label='Nombre'
                   error={hasError(props.errors, props.status, props.touched, field.name)}
-                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)} />)}
+                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
+                />)}
             />
           </Grid>
           <Grid item xs={12} sm={8}>
@@ -35,7 +36,8 @@ const SchoolWrapper = props => {
                   variant='outlined'
                   label='Nombre de la calle'
                   error={hasError(props.errors, props.status, props.touched, field.name)}
-                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)} />)}
+                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
+                />)}
             />
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -48,7 +50,8 @@ const SchoolWrapper = props => {
                   variant='outlined'
                   label='Altura'
                   error={hasError(props.errors, props.status, props.touched, field.name)}
-                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)} />)}
+                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
+                />)}
             />
           </Grid>
           <Grid item xs={12}>
@@ -61,7 +64,8 @@ const SchoolWrapper = props => {
                   variant='outlined'
                   label='Ciudad'
                   error={hasError(props.errors, props.status, props.touched, field.name)}
-                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)} />)}
+                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
+                />)}
             />
           </Grid>
           <Grid item xs={12}>

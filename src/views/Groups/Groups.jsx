@@ -8,9 +8,9 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined'
 import NavigateNextIcon from '@material-ui/icons/NavigateNext'
-import AddIcon from '@material-ui/icons/Add';
+import AddIcon from '@material-ui/icons/Add'
 
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     fontSize: '22px'
-  },
+  }
 }))
 
 const data = [
@@ -50,7 +50,7 @@ const data = [
     nombre: 'Explosion creativa escolar',
     total: '41',
     url: ''
-  },
+  }
 ]
 
 const Groups = props => {
@@ -58,7 +58,7 @@ const Groups = props => {
 
   return (
     <>
-      <Grid container direction="row" justify="flex-start" alignItems="flex-start">
+      <Grid container direction='row' justify='flex-start' alignItems='flex-start'>
 
         {data.map((el, idx) =>
           <Grid container item xs={12} sm={6} md={4} lg={6} xl={3} key={idx} className={classes.root}>
@@ -68,18 +68,19 @@ const Groups = props => {
                   <Typography className={classes.title}>
                     {el.nombre}
                   </Typography>
-                } />
+                }
+              />
               <CardActions style={{ padding: '16px' }}>
-                <Grid container direction="row" justify="space-between" alignItems="center">
-                  <Grid container item xs direction="row" justify="flex-start" alignItems="center" >
+                <Grid container direction='row' justify='space-between' alignItems='center'>
+                  <Grid container item xs direction='row' justify='flex-start' alignItems='center'>
                     <Typography style={{ marginRight: '0.5rem', fontSize: '20px', fontWeight: '500' }}>
                       {el.total}
                     </Typography>
-                    <PermIdentityOutlinedIcon htmlColor="rgba(35, 47, 52, 0.8)" />
+                    <PermIdentityOutlinedIcon htmlColor='rgba(35, 47, 52, 0.8)' />
                   </Grid>
                   <Grid item>
-                    <Button variant="text" color="primary" href={el.url}>
-                      <Typography color="primary">
+                    <Button variant='text' color='primary' href={el.url}>
+                      <Typography color='primary'>
                         Ver mas
                       </Typography>
                       <NavigateNextIcon />
@@ -92,12 +93,14 @@ const Groups = props => {
         )}
 
         <Grid container item xs={12} sm={6} md={4} lg={6} xl={3} className={classes.root}>
-          <Button variant="outlined" className={classes.button} color='default' to="/groups/add" component={Link} >
-            <Grid container direction="column" justify="center" alignItems="center"
-              style={{ height: '100%' }}>
-              <AddIcon fontSize="large" />
+          <Button variant='outlined' className={classes.button} color='default' to='/groups/add' component={Link}>
+            <Grid
+              container direction='column' justify='center' alignItems='center'
+              style={{ height: '100%' }}
+            >
+              <AddIcon fontSize='large' />
               Agregar un nuevo grupo
-          </Grid>
+            </Grid>
           </Button>
         </Grid>
       </Grid>

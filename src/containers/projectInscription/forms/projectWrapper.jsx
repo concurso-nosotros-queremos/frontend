@@ -21,7 +21,8 @@ const ProjectWrapper = props => {
                   variant='outlined'
                   label='Nombre'
                   error={hasError(props.errors, props.status, props.touched, field.name)}
-                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)} />)}
+                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
+                />)}
             />
           </Grid>
           <Grid item xs={12}>
@@ -35,7 +36,8 @@ const ProjectWrapper = props => {
                   variant='outlined'
                   label='Problema'
                   error={hasError(props.errors, props.status, props.touched, field.name)}
-                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)} />)}
+                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
+                />)}
             />
           </Grid>
           <Grid item xs={12}>
@@ -49,7 +51,8 @@ const ProjectWrapper = props => {
                   variant='outlined'
                   label='Solucion'
                   error={hasError(props.errors, props.status, props.touched, field.name)}
-                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)} />)}
+                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
+                />)}
             />
           </Grid>
           <Grid item xs={12}>

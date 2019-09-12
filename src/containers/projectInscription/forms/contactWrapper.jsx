@@ -20,7 +20,8 @@ const ContactWrapper = props => {
                   variant='outlined'
                   label='Telefono particular'
                   error={hasError(props.errors, props.status, props.touched, field.name)}
-                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)} />)}
+                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
+                />)}
             />
           </Grid>
           <Grid item xs={12}>
@@ -33,7 +34,8 @@ const ContactWrapper = props => {
                   variant='outlined'
                   label='Telefono alternativo'
                   error={hasError(props.errors, props.status, props.touched, field.name)}
-                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)} />)}
+                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
+                />)}
             />
           </Grid>
           <Grid item xs={12}>
@@ -46,7 +48,8 @@ const ContactWrapper = props => {
                   variant='outlined'
                   label='Email alternativo'
                   error={hasError(props.errors, props.status, props.touched, field.name)}
-                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)} />)}
+                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
+                />)}
             />
           </Grid>
         </Grid>

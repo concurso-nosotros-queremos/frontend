@@ -14,7 +14,7 @@ import { makeStyles } from '@material-ui/styles'
 const useStyles = makeStyles((theme) => ({
   panelError: {
     borderRight: `4px solid ${theme.palette.error.main}`,
-    borderRadius: `0px 3px 3px 0px`
+    borderRadius: '0px 3px 3px 0px'
   }
 }))
 
@@ -23,7 +23,7 @@ const ParticipantsWrapper = props => {
   const [focus, setFocus] = useState(false)
   const [expanded, setExpanded] = useState(0)
 
-  let inputRef = React.createRef()
+  const inputRef = React.createRef()
 
   useEffect(() => {
     if (focus) {
@@ -79,8 +79,7 @@ const ParticipantsWrapper = props => {
                       {hasError(props.errors, props.status, props.touched, `raw_participant.${index}`) &&
                         <Grid item>
                           <WarningOutlined color='error' />
-                        </Grid>
-                      }
+                        </Grid>}
                       <Grid item>
                         <Typography>{expanded !== index ? `${participant.first_name} ${participant.last_name}` : 'Nuevo participante'}</Typography>
                       </Grid>
@@ -93,10 +92,12 @@ const ParticipantsWrapper = props => {
                           <FastField
                             name={`raw_participant.${index}.first_name`}
                             render={({ field }) => (
-                              <TextField fullWidth variant='outlined' {...field} label='Nombre'
+                              <TextField
+                                fullWidth variant='outlined' {...field} label='Nombre'
                                 inputRef={index === arrayHelpers.form.values.raw_participant.length - 1 ? inputRef : null}
                                 error={hasError(props.errors, props.status, props.touched, field.name)}
-                                helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)} />)}
+                                helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
+                              />)}
                           />
                         </Box>
                       </Grid>
@@ -104,25 +105,30 @@ const ParticipantsWrapper = props => {
                         <FastField
                           name={`raw_participant.${index}.last_name`}
                           render={({ field }) => (
-                            <TextField fullWidth variant='outlined' {...field} label='Apellido'
+                            <TextField
+                              fullWidth variant='outlined' {...field} label='Apellido'
                               error={hasError(props.errors, props.status, props.touched, field.name)}
-                              helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)} />)}
+                              helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
+                            />)}
                         />
                       </Grid>
                       <Grid item xs={12} sm={6}>
                         <FastField
                           name={`raw_participant.${index}.dni`}
                           render={({ field }) => (
-                            <TextField fullWidth variant='outlined' {...field} label='D.N.I.'
+                            <TextField
+                              fullWidth variant='outlined' {...field} label='D.N.I.'
                               error={hasError(props.errors, props.status, props.touched, field.name)}
-                              helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)} />)}
+                              helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
+                            />)}
                         />
                       </Grid>
                       <Grid item xs={12} sm={6}>
                         <FastField
                           name={`raw_participant.${index}.grade_choices`}
                           render={({ field }) => (
-                            <TextField fullWidth variant='outlined' {...field} select label='Año de cursado'
+                            <TextField
+                              fullWidth variant='outlined' {...field} select label='Año de cursado'
                               error={hasError(props.errors, props.status, props.touched, field.name)}
                               helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
                             >
@@ -134,7 +140,7 @@ const ParticipantsWrapper = props => {
                           )}
                         />
                       </Grid>
-                      <Grid item xs={12} >
+                      <Grid item xs={12}>
                         <Button fullWidth onClick={() => { removeParticipant(arrayHelpers, index) }}>Borrar</Button>
                       </Grid>
                     </Grid>
