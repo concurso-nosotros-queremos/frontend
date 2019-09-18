@@ -1,4 +1,5 @@
 import React from 'react'
+import clsx from 'clsx'
 import { makeStyles } from '@material-ui/styles'
 import { Grid, CardContent } from '@material-ui/core'
 import { connect } from 'react-redux'
@@ -8,6 +9,8 @@ import CardHeader from '@material-ui/core/CardHeader'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import PeopleIconOutlined from '@material-ui/icons/PeopleOutlined'
+import PersonOutlinedIcon from '@material-ui/icons/PersonOutlined';
+
 import withGroupCount from '../../hoc/withGroupCount'
 
 const useStyles = makeStyles(theme => ({
@@ -17,7 +20,10 @@ const useStyles = makeStyles(theme => ({
   card: {
     padding: '8px',
     width: '100%',
-    border: theme.border.primary
+    border: theme.border.primary,
+  },
+  green: {
+    backgroundColor: theme.palette.primary.main
   }
 }))
 
@@ -38,14 +44,34 @@ const Dashboard = props => {
                   <PeopleIconOutlined color='primary' />
                 </Grid>
                 <Typography variant='h4' style={{ fontFamily: 'Roboto' }}>
-                  {props.total}
+                  36
                 </Typography>
               </CardContent>
               <CardActions style={{ justifyContent: 'flex-end' }}>
-                <Button size='small' color='primary' style={{ fontWeight: 'bold', letterSpacing: '0.01rem' }}>Ver todos</Button>
+                <Button size='small' color='primary' style={{ fontWeight: '600', letterSpacing: '0.01rem' }}>Ver todos</Button>
               </CardActions>
             </Card>
           </Grid>
+
+          <Grid container item xs={12} sm={6} md={4} className={classes.root}>
+            <Card className={clsx(classes.card, classes.green)} elevation={0}>
+              <CardContent>
+                <Grid container justify='space-between' aling='center'>
+                  <Typography gutterBottom style={{ fontWeight: 'bold', color: '#90BFB8', textTransform: 'uppercase' }}>
+                    Alumnos inscriptos
+                  </Typography>
+                  <PersonOutlinedIcon style={{ color: 'white' }} />
+                </Grid>
+                <Typography variant='h4' style={{ fontFamily: 'Roboto', color: 'white' }}>
+                  237
+                </Typography>
+              </CardContent>
+              <CardActions style={{ justifyContent: 'flex-end' }}>
+                <Button size='small' style={{ fontWeight: '500', letterSpacing: '0.01rem', color: 'white' }}>Ver todos</Button>
+              </CardActions>
+            </Card>
+          </Grid>
+
         </Grid>
       </Grid>
     </>

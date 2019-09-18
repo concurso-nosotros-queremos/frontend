@@ -45,6 +45,11 @@ const data = [
     nombre: 'Damajuana solidaria',
     total: '41',
     url: ''
+  },
+  {
+    nombre: 'El termoDinamico',
+    total: '13',
+    url: ''
   }
 ]
 
