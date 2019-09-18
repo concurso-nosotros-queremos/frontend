@@ -5,7 +5,6 @@ import { Grid, CardContent } from '@material-ui/core'
 import { connect } from 'react-redux'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
-import CardHeader from '@material-ui/core/CardHeader'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import PeopleIconOutlined from '@material-ui/icons/PeopleOutlined'
@@ -54,7 +53,7 @@ const Dashboard = props => {
             <Card className={classes.card} elevation={0}>
               <CardContent>
                 <Grid container justify='space-between' aling='center'>
-                  <Typography gutterBottom style={{ fontWeight: 'bold', color: '#232F348F', textTransform: 'uppercase' }}>
+                  <Typography gutterBottom style={{ fontWeight: 'bold', color: 'rgba(35, 47, 52, 0.56)', textTransform: 'uppercase' }}>
                     Grupos inscriptos
                   </Typography>
                   <PeopleIconOutlined color='primary' />
@@ -73,7 +72,7 @@ const Dashboard = props => {
             <Card className={clsx(classes.card, classes.green)} elevation={0}>
               <CardContent>
                 <Grid container justify='space-between' aling='center'>
-                  <Typography gutterBottom style={{ fontWeight: 'bold', color: '#90BFB8', textTransform: 'uppercase' }}>
+                  <Typography gutterBottom style={{ fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.56)', textTransform: 'uppercase' }}>
                     Alumnos inscriptos
                   </Typography>
                   <PersonOutlinedIcon style={{ color: 'white' }} />
@@ -92,7 +91,7 @@ const Dashboard = props => {
             <Card className={clsx(classes.card, classes.red)} elevation={0}>
               <CardContent>
                 <Grid container justify='space-between' aling='center'>
-                  <Typography gutterBottom style={{ fontWeight: 'bold', color: '#f6a6a6', textTransform: 'uppercase' }}>
+                  <Typography gutterBottom style={{ fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.56)', textTransform: 'uppercase' }}>
                     Cierre inscripciones
                   </Typography>
                   <AssignmentOutlinedIcon style={{ color: 'white' }} />
