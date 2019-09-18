@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   card: {
     padding: '8px',
     width: '100%',
-    border: theme.border.primary,
+    border: theme.border.primary
   },
   green: {
     backgroundColor: theme.palette.primary.main
@@ -31,15 +31,15 @@ const useStyles = makeStyles(theme => ({
   },
   button: {
     fontWeight: '500',
-    letterSpacing: '0.01rem',
+    letterSpacing: '0.01rem'
   },
-  containedButton:{
+  containedButton: {
     backgroundColor: 'white',
     color: theme.palette.error.main,
     boxShadow: 'none',
     '&:active': {
-      boxShadow: 'none',
-    },
+      boxShadow: 'none'
+    }
   }
 }))
 
@@ -104,7 +104,7 @@ const Dashboard = props => {
               <CardActions style={{ justifyContent: 'flex-end' }}>
 
                 <Button size='small' className={classes.button} style={{ color: 'white' }}>Cerrar</Button>
-                <Button size='small' variant="contained" className={clsx(classes.button, classes.containedButton)}>Extender</Button>
+                <Button size='small' variant='contained' className={clsx(classes.button, classes.containedButton)}>Extender</Button>
               </CardActions>
             </Card>
           </Grid>

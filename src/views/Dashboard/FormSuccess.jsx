@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft'
 import ImagenError404 from '../../assets/successSvg.svg'
@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     height: '100%',
     height: '15rem',
-    marginBottom: '2rem',
+    marginBottom: '2rem'
   }
 }))
 
@@ -42,13 +42,13 @@ const FormSuccess = props => {
       <Grid item>
         <Typography variant='h6' style={{ fontFamily: 'Roboto', fontWeight: '400' }}>
           Pronto estaremos en contacto...
-      </Typography>
+        </Typography>
       </Grid>
-      <Grid item>        
-        <Button size='large' className={classes.button} disableRipple to="/groups" component={Link}>
+      <Grid item>
+        <Button size='large' className={classes.button} disableRipple to='/groups' component={Link}>
           <KeyboardArrowLeftIcon style={{ width: '2rem', height: '2rem' }} />
           Regresar
-          </Button>
+        </Button>
       </Grid>
     </Grid>
   )

@@ -61,7 +61,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function ComoFunciona() {
+export default function ComoFunciona () {
   const classes = useStyles()
 
   return (
@@ -144,7 +144,7 @@ export default function ComoFunciona() {
               >
                 <Button size='large' variant='contained' color='primary'>
                   Inscribi a tu grupo
-                  </Button>
+                </Button>
               </Link>
             </Grid>
           </Grid>
