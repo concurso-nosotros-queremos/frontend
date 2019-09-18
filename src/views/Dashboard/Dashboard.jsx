@@ -9,7 +9,8 @@ import CardHeader from '@material-ui/core/CardHeader'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import PeopleIconOutlined from '@material-ui/icons/PeopleOutlined'
-import PersonOutlinedIcon from '@material-ui/icons/PersonOutlined';
+import PersonOutlinedIcon from '@material-ui/icons/PersonOutlined'
+import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined'
 
 import withGroupCount from '../../hoc/withGroupCount'
 
@@ -24,6 +25,21 @@ const useStyles = makeStyles(theme => ({
   },
   green: {
     backgroundColor: theme.palette.primary.main
+  },
+  red: {
+    backgroundColor: theme.palette.error.main
+  },
+  button: {
+    fontWeight: '500',
+    letterSpacing: '0.01rem',
+  },
+  containedButton:{
+    backgroundColor: 'white',
+    color: theme.palette.error.main,
+    boxShadow: 'none',
+    '&:active': {
+      boxShadow: 'none',
+    },
   }
 }))
 
@@ -48,7 +64,7 @@ const Dashboard = props => {
                 </Typography>
               </CardContent>
               <CardActions style={{ justifyContent: 'flex-end' }}>
-                <Button size='small' color='primary' style={{ fontWeight: '600', letterSpacing: '0.01rem' }}>Ver todos</Button>
+                <Button size='small' className={classes.button} color='primary'>Ver todos</Button>
               </CardActions>
             </Card>
           </Grid>
@@ -63,11 +79,32 @@ const Dashboard = props => {
                   <PersonOutlinedIcon style={{ color: 'white' }} />
                 </Grid>
                 <Typography variant='h4' style={{ fontFamily: 'Roboto', color: 'white' }}>
-                  237
+                  297
                 </Typography>
               </CardContent>
               <CardActions style={{ justifyContent: 'flex-end' }}>
-                <Button size='small' style={{ fontWeight: '500', letterSpacing: '0.01rem', color: 'white' }}>Ver todos</Button>
+                <Button size='small' className={classes.button} style={{ color: 'white' }}>Ver todos</Button>
+              </CardActions>
+            </Card>
+          </Grid>
+
+          <Grid container item xs={12} sm={6} md={4} className={classes.root}>
+            <Card className={clsx(classes.card, classes.red)} elevation={0}>
+              <CardContent>
+                <Grid container justify='space-between' aling='center'>
+                  <Typography gutterBottom style={{ fontWeight: 'bold', color: '#f6a6a6', textTransform: 'uppercase' }}>
+                    Cierre inscripciones
+                  </Typography>
+                  <AssignmentOutlinedIcon style={{ color: 'white' }} />
+                </Grid>
+                <Typography variant='h4' style={{ fontFamily: 'Roboto', color: 'white' }}>
+                  30/05/2019
+                </Typography>
+              </CardContent>
+              <CardActions style={{ justifyContent: 'flex-end' }}>
+
+                <Button size='small' className={classes.button} style={{ color: 'white' }}>Cerrar</Button>
+                <Button size='small' variant="contained" className={clsx(classes.button, classes.containedButton)}>Extender</Button>
               </CardActions>
             </Card>
           </Grid>
