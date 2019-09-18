@@ -57,7 +57,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Main() {
+export default function Main () {
   const classes = useStyles()
 
   return (
