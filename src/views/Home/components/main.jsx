@@ -57,7 +57,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Main () {
+export default function Main() {
   const classes = useStyles()
 
   return (
@@ -71,7 +71,7 @@ export default function Main () {
           </Grid>
           <Grid item className={classes.textoComplementarioTitulo}>
             <Typography variant='subtitle1'>
-              Concurso anual de emprendimientos de alumn@s de los ultimos años de la secunadria.
+              Concurso anual de emprendimientos de alumn@s de los últimos años de la secundaria.
             </Typography>
           </Grid>
         </Grid>
@@ -83,7 +83,7 @@ export default function Main () {
           <Grid item sm={9} md={7} lg={5} style={{ width: '100%', maxHeight: 'min-content' }} container direction='column' justify='flex-start' alignItems='flex-start'>
             <GoogleLogin />
             <Typography variant='body2' align='center' style={{ marginTop: '0.5rem', color: 'white' }}>
-              {'¿Ya tenes cuenta? '}
+              {'Ya tenes cuenta? Inicia Sesión'}
               <Link style={{ color: 'white', textDecoration: 'underline' }} href='/login'>Inicia Sesion</Link>
             </Typography>
           </Grid>

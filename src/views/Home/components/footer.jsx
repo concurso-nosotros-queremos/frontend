@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Footer () {
+export default function Footer() {
   const classes = useStyles()
 
   return (
@@ -55,7 +55,7 @@ export default function Footer () {
             <Grid container direction='column' justify='flex-start' alignItems='flex-start' spacing={1} item>
               <Grid item>
                 <Typography variant='h5'>
-                  Fundacion Inclusión Social
+                  Fundación Inclusión Social
                 </Typography>
               </Grid>
               <Grid item>

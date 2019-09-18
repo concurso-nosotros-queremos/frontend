@@ -61,7 +61,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function ComoFunciona () {
+export default function ComoFunciona() {
   const classes = useStyles()
 
   return (
@@ -72,14 +72,14 @@ export default function ComoFunciona () {
             <Grid item container style={{ marginBottom: '2rem' }} direction='column' justify='center' alignItems='center'>
               <Grid item style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <Typography variant='h3' align='center'>
-                  ¿Como funciona?
+                  ¿Cómo funciona?
                 </Typography>
                 <div className={classes.barraDecorativa} />
               </Grid>
             </Grid>
             <Grid item>
               <Typography variant='subtitle2' align='center'>
-                Nosotros Queremos es un concurso anual de emprendimientos que apunta a despertar el espíritu emprendedor de los jovenes en los ultimos años de la secundaria.
+                Nosotros Queremos es un concurso anual de emprendimientos que apunta a despertar el espíritu emprendedor de los jóvenes en los últimos años de la secundaria.
               </Typography>
             </Grid>
           </Grid>
@@ -143,7 +143,7 @@ export default function ComoFunciona () {
                 spy smooth duration={600} ignoreCancelEvents offset={-20}
               >
                 <Button size='large' variant='contained' color='primary'>
-                  Inscribi a tu grupo
+                  Inscribí a tu grupo
                 </Button>
               </Link>
             </Grid>

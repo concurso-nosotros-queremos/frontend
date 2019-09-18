@@ -123,7 +123,7 @@ export default function Proyectos () {
                 <Grid container justify='flex-end' alignItems='center'>
                   <Grid item>
                     <Button size='small' color='secondary' href={el.url}>
-                      Conocer mas
+                      Conocer más
                     </Button>
                   </Grid>
                 </Grid>
