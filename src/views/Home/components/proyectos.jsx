@@ -3,10 +3,7 @@ import { makeStyles } from '@material-ui/core/styles/index'
 import Typography from '@material-ui/core/Typography/index'
 import Grid from '@material-ui/core/Grid'
 import { Button, Card, CardActions, CardContent, CardMedia } from '@material-ui/core'
-import LinesEllipsis from 'react-lines-ellipsis'
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
-
-const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
 const useStyles = makeStyles(theme => ({
   barraDecorativa: {
@@ -21,7 +18,6 @@ const useStyles = makeStyles(theme => ({
       justifyContent: 'space-between'
     }
   },
-
   card: {
     display: 'flex',
     flexDirection: 'column',
@@ -50,6 +46,18 @@ const useStyles = makeStyles(theme => ({
         height: 'auto'
       }
     }
+  },
+  solution: {
+    overflow: 'hidden',
+    display: '-webkit-box',
+    WebkitLineClamp: 3,
+    WebkitBoxOrient: 'vertical'
+  },
+  name: {
+    overflow: 'hidden',
+    display: '-webkit-box',
+    WebkitLineClamp: 1,
+    WebkitBoxOrient: 'vertical'
   }
 }))
 
@@ -99,23 +107,11 @@ export default function Proyectos () {
                 image={el.image_url}
               />
               <CardContent style={{ flex: '1' }}>
-                <Typography gutterBottom variant='h5'>
-                  <LinesEllipsis
-                    text={el.name}
-                    maxLine='2'
-                    ellipsis='...'
-                    trimRight
-                    basedOn='words'
-                  />
+                <Typography gutterBottom variant='h5' className={classes.name}>
+                  {el.name}
                 </Typography>
-                <Typography variant='body1' component='p'>
-                  <ResponsiveEllipsis
-                    text={el.solution}
-                    maxLine='4'
-                    ellipsis='...'
-                    trimRight
-                    basedOn='words'
-                  />
+                <Typography variant='body1' component='p' className={classes.solution}>
+                  {el.solution}
                 </Typography>
               </CardContent>
 
