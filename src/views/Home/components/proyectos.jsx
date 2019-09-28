@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles/index'
 import Typography from '@material-ui/core/Typography/index'
 import Grid from '@material-ui/core/Grid'
 import { Button, Card, CardActions, CardContent, CardMedia } from '@material-ui/core'
-import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 
 const useStyles = makeStyles(theme => ({
   barraDecorativa: {
