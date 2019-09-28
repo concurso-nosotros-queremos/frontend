@@ -18,12 +18,11 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: 240
   },
   content: {
-    height: 'calc(100vh - 64px)',
+    height: 'auto',
     border: '2px solid blue',
     padding: theme.spacing(4),
     [theme.breakpoints.down('sm')]: {
       padding: theme.spacing(2),
-      height: 'auto',
     },
   }
 }))
