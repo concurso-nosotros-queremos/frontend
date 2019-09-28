@@ -22,8 +22,8 @@ const useStyles = makeStyles(theme => ({
     border: '2px solid blue',
     padding: theme.spacing(4),
     [theme.breakpoints.down('sm')]: {
-      padding: theme.spacing(2),
-    },
+      padding: theme.spacing(2)
+    }
   }
 }))
 

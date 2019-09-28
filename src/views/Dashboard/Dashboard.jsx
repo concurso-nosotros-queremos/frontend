@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
   },
   inscriptosLabelType: {
     borderRadius: '16px',
-    padding: '2px 12px',
+    padding: '2px 12px'
   }
 }))
 
@@ -59,7 +59,7 @@ const data = [
     provincia: 'Entre Rios',
     city: 'Parana',
     type: 'genero',
-    color: 'red',
+    color: 'red'
   },
   {
     nombre: 'Bosques nativos',
@@ -67,7 +67,7 @@ const data = [
     provincia: 'Cordoba',
     city: 'Capital',
     type: 'ambiente',
-    color: 'brown',
+    color: 'brown'
   },
   {
     nombre: 'Miel cooperativa',
@@ -75,7 +75,7 @@ const data = [
     provincia: 'Santa Fe',
     city: 'Capital',
     type: 'economico',
-    color: 'red',
+    color: 'red'
   },
   {
     nombre: 'Animarese a más',
@@ -83,8 +83,8 @@ const data = [
     provincia: 'Mendoza',
     city: 'Capital',
     type: 'Social',
-    color: 'green',
-  },
+    color: 'green'
+  }
 ]
 
 const Dashboard = props => {
@@ -152,25 +152,25 @@ const Dashboard = props => {
           </Grid>
         </Grid>
 
-        <Grid container direction='row' justify='flex-end' alignItems='flex-start' >
+        <Grid container direction='row' justify='flex-end' alignItems='flex-start'>
 
           <Grid container direction='column' item xs={12} sm={6} md={6} lg={4} className={classes.root}>
-            <Grid container direction="row" justify="space-between" alignItems="center" className={classes.root}>
-              <Typography style={{ fontWeight: 'bold', textTransform: 'uppercase' }} color="inherit">
+            <Grid container direction='row' justify='space-between' alignItems='center' className={classes.root}>
+              <Typography style={{ fontWeight: 'bold', textTransform: 'uppercase' }} color='inherit'>
                 Grupos inscriptos
               </Typography>
               <PeopleIconOutlined color='primary' />
             </Grid>
 
             {data.map((el, idx) =>
-              <Grid key={idx} container direction="row" justify="space-between" alignItems="center" className={classes.inscriptoContainer}>
+              <Grid key={idx} container direction='row' justify='space-between' alignItems='center' className={classes.inscriptoContainer}>
                 <Grid item>
                   <Typography style={{ fontWeight: 'bold' }} color='inherit'>
                     {el.nombre}
                   </Typography>
                   <Typography style={{ fontSize: '12px' }}>
                     {el.num_participantes} participantes
-                </Typography>
+                  </Typography>
                 </Grid>
                 <Grid item>
                   <Typography style={{ fontWeight: 'bold' }} color='inherit'>
@@ -181,10 +181,10 @@ const Dashboard = props => {
                   </Typography>
                 </Grid>
                 <Grid item>
-                  <div className={classes.inscriptosLabelType} style={{border: '1.4px solid ' + el.color}}>
+                  <div className={classes.inscriptosLabelType} style={{ border: '1.4px solid ' + el.color }}>
                     <Typography style={{ color: el.color }}>
-                    {el.type}
-                  </Typography>
+                      {el.type}
+                    </Typography>
                   </div>
                 </Grid>
               </Grid>
