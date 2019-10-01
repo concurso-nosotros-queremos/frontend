@@ -13,6 +13,8 @@ import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined'
 
 import withGroupCount from '../../hoc/withGroupCount'
 
+import { Bar } from 'react-chartjs-2'
+
 const useStyles = makeStyles(theme => ({
   root: {
     padding: '16px'
@@ -46,7 +48,7 @@ const useStyles = makeStyles(theme => ({
     borderRadius: theme.shape.borderRadius,
     margin: '4px'
   },
-  inscriptosLabelType: {
+  inscriptosLabelcategory: {
     borderRadius: '16px',
     padding: '2px 12px'
   }
@@ -58,7 +60,7 @@ const data = [
     num_participantes: '13',
     provincia: 'Entre Rios',
     city: 'Parana',
-    type: 'genero',
+    category: 'genero',
     color: 'red'
   },
   {
@@ -66,7 +68,7 @@ const data = [
     num_participantes: '11',
     provincia: 'Cordoba',
     city: 'Capital',
-    type: 'ambiente',
+    category: 'ambiente',
     color: 'brown'
   },
   {
@@ -74,7 +76,7 @@ const data = [
     num_participantes: '37',
     provincia: 'Santa Fe',
     city: 'Capital',
-    type: 'economico',
+    category: 'economico',
     color: 'red'
   },
   {
@@ -82,10 +84,26 @@ const data = [
     num_participantes: '52',
     provincia: 'Mendoza',
     city: 'Capital',
-    type: 'Social',
+    category: 'Social',
     color: 'green'
   }
 ]
+
+const chartData = {
+  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  datasets: [
+    {
+      label: 'My First dataset',
+      backgroundColor: 'rgba(255,99,132,0.2)',
+      borderColor: 'rgba(255,99,132,1)',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+      hoverBorderColor: 'rgba(255,99,132,1)',
+      data: [65, 59, 80, 81, 56, 55, 40]
+    }
+  ]
+};
+
 
 const Dashboard = props => {
   const classes = useStyles()
@@ -152,9 +170,16 @@ const Dashboard = props => {
           </Grid>
         </Grid>
 
-        <Grid container direction='row' justify='flex-end' alignItems='flex-start'>
-
-          <Grid container direction='column' item xs={12} sm={6} md={6} lg={4} className={classes.root}>
+        <Grid container direction='row' justify='flex-start' alignItems='flex-start'>
+          <Grid container direction='column' item xs={12} sm={12} md={6} lg={8} className={classes.root}>
+            <Bar
+              data={chartData}
+              options={{
+                maintainAspectRatio: false,
+              }}
+            />
+          </Grid>
+          <Grid container direction='column' item xs={12} sm={6} md={6} lg={4} className={classes.root} >
             <Grid container direction='row' justify='space-between' alignItems='center' className={classes.root}>
               <Typography style={{ fontWeight: 'bold', textTransform: 'uppercase' }} color='inherit'>
                 Grupos inscriptos
@@ -181,15 +206,14 @@ const Dashboard = props => {
                   </Typography>
                 </Grid>
                 <Grid item>
-                  <div className={classes.inscriptosLabelType} style={{ border: '1.4px solid ' + el.color }}>
+                  <div className={classes.inscriptosLabelcategory} style={{ border: '1.4px solid ' + el.color }}>
                     <Typography style={{ color: el.color }}>
-                      {el.type}
+                      {el.category}
                     </Typography>
                   </div>
                 </Grid>
               </Grid>
             )}
-
           </Grid>
         </Grid>
       </Grid>
