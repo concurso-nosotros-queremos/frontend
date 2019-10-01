@@ -97,7 +97,7 @@ const Dashboard = props => {
                   <AssignmentOutlinedIcon style={{ color: 'white' }} />
                 </Grid>
                 <Typography variant='h4' style={{ fontFamily: 'Roboto', color: 'white' }}>
-                  30/05/2019
+                  {props.contestEnd}
                 </Typography>
               </CardContent>
               <CardActions style={{ justifyContent: 'flex-end' }}>
