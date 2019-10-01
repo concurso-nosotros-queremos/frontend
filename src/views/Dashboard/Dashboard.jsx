@@ -11,7 +11,7 @@ import PeopleIconOutlined from '@material-ui/icons/PeopleOutlined'
 import PersonOutlinedIcon from '@material-ui/icons/PersonOutlined'
 import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined'
 
-import withGroupCount from '../../hoc/withGroupCount'
+import withGroupCount from '../../hoc/withDashboard'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -59,7 +59,7 @@ const Dashboard = props => {
                   <PeopleIconOutlined color='primary' />
                 </Grid>
                 <Typography variant='h4' style={{ fontFamily: 'Roboto' }}>
-                  36
+                  {props.groupTotal}
                 </Typography>
               </CardContent>
               <CardActions style={{ justifyContent: 'flex-end' }}>
@@ -78,7 +78,7 @@ const Dashboard = props => {
                   <PersonOutlinedIcon style={{ color: 'white' }} />
                 </Grid>
                 <Typography variant='h4' style={{ fontFamily: 'Roboto', color: 'white' }}>
-                  297
+                  {props.participantTotal}
                 </Typography>
               </CardContent>
               <CardActions style={{ justifyContent: 'flex-end' }}>
