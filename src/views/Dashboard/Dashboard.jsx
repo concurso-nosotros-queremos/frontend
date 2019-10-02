@@ -63,7 +63,7 @@ const useStyles = makeStyles(theme => ({
     justifyItems: 'stretch',
     [theme.breakpoints.down('sm')]: {
       gridTemplateColumns: '1fr',
-      gridTemplateRows: '2fr',
+      gridTemplateRows: '2fr'
     }
   },
   chart: {
@@ -77,13 +77,13 @@ const useStyles = makeStyles(theme => ({
     boxSizing: 'border-box',
     border: theme.border.primary,
     borderRadius: theme.shape.borderRadius,
-    padding: '16px',
+    padding: '16px'
   },
   ocultarXs: {
     [theme.breakpoints.down('xs')]: {
       display: 'none'
     }
-  },
+  }
 }))
 
 const data = [
@@ -121,17 +121,29 @@ const data = [
   }
 ]
 
+
+
 const chartData = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  labels: ['Santa Fe', 'Chaco', 'Mendoza', 'Córdoba', 'Entre Rios', 'Formosa'],
   datasets: [
     {
-      label: 'My First dataset',
-      backgroundColor: 'rgba(255,99,132,0.2)',
-      borderColor: 'rgba(255,99,132,1)',
-      borderWidth: 1,
-      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-      hoverBorderColor: 'rgba(255,99,132,1)',
-      data: [65, 59, 80, 81, 56, 55, 40]
+      hoverBackgroundColor: [
+        'rgb(255, 99, 132)',
+        'rgb(255, 159, 64)',
+        'rgb(255, 205, 86)',
+        'rgb(75, 192, 192)',
+        'rgb(54, 162, 235)',
+        'rgb(153, 102, 255)',
+      ],
+      backgroundColor: [
+        'rgba(255, 99, 132,0.8)',
+        'rgba(255, 159, 64,0.8)',
+        'rgba(255, 205, 86,0.8)',
+        'rgba(75, 192, 192,0.8)',
+        'rgba(54, 162, 235,0.8)',
+        'rgba(153, 102, 255,0.8)',
+      ],
+      data: [9, 7, 16, 11, 13, 4],
     }
   ]
 }
@@ -209,6 +221,51 @@ const Dashboard = props => {
                 data={chartData}
                 options={{
                   maintainAspectRatio: false,
+                  scales: {
+                    xAxes: [{
+                      barPercentage: 0.7,
+                      gridLines: {
+                        display: false
+                      },
+                    }],
+                    yAxes: [{
+                      ticks: {
+                        suggestedMax: 20,
+                        beginAtZero: true,
+                      }
+                    }],
+                  },
+                  title: {
+                    text: 'DISTRIBUCIÓN PROVINCIAL DE LOS GRUPOS',
+                    fontColor: 'rgba(35, 47, 52, 0.56)',
+                    fontSize: 14,
+                    display: true
+                  },
+                  legend: {
+                    display: false,
+                  },
+                  tooltips:{
+                    enabled: false,
+                  },
+                  animation: {
+                    
+                    onProgress: function () {
+                      var chartInstance = this.chart,
+                        ctx = chartInstance.ctx;
+                      ctx.textAlign = 'center';
+                      ctx.fillStyle = "rrgba(35, 47, 52, 0.56)";
+                      ctx.textBaseline = 'bottom';
+
+                      this.data.datasets.forEach(function (dataset, i) {
+                        var meta = chartInstance.controller.getDatasetMeta(i);
+                        meta.data.forEach(function (bar, index) {
+                          var data = dataset.data[index];
+                          ctx.fillText(data, bar._model.x, bar._model.y);
+
+                        });
+                      });
+                    }
+                  }
                 }}
               />
             </div>
@@ -225,7 +282,7 @@ const Dashboard = props => {
               {data.map((el, idx) =>
                 <Grid key={idx} container direction='row' justify='space-between' alignItems='center' className={classes.inscriptoContainer}>
 
-                  <Grid item xs={'auto'} sm={5}>
+                  <Grid item xs='auto' sm={5}>
                     <Typography style={{ fontWeight: 'bold', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '110px' }} color='inherit'>
                       {el.nombre}
                     </Typography>
@@ -234,7 +291,7 @@ const Dashboard = props => {
                     </Typography>
                   </Grid>
 
-                  <Grid item xs={'auto'} sm={3}>
+                  <Grid item xs='auto' sm={3}>
                     <Typography style={{ fontWeight: 'bold' }} color='inherit'>
                       {el.provincia}
                     </Typography>
@@ -242,7 +299,7 @@ const Dashboard = props => {
                       └ {el.city}
                     </Typography>
                   </Grid>
-                  <Grid item className={classes.ocultarXs} sm={4} >
+                  <Grid item className={classes.ocultarXs} sm={4}>
                     <div className={classes.inscriptosLabelcategory} style={{ border: '1.4px solid ' + el.color, textAlign: 'center', width: 'min-content', float: 'right' }}>
                       <Typography style={{ color: el.color }}>
                         {el.category}
