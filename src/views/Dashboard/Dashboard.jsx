@@ -46,17 +46,18 @@ const useStyles = makeStyles(theme => ({
     padding: '16px',
     border: theme.border.primary,
     borderRadius: theme.shape.borderRadius,
-    marginTop: '4px',
-    marginBottom: '4px'
+    marginTop: '8px',
+    maxHeight: '73px'
   },
   inscriptosLabelcategory: {
     borderRadius: '16px',
     padding: '2px 12px'
   },
-
   grid: {
     display: 'grid',
-    gridTemplateColumns: '3fr 2fr',
+    gridColumnGap: '16px',
+    padding: '16px',
+    gridTemplateColumns: '2fr 1fr',
     gridTemplateRows: '1fr',
     width: '100%',
     justifyItems: 'stretch',
@@ -74,13 +75,15 @@ const useStyles = makeStyles(theme => ({
     minWidth: '100%',
     maxWidth: '100%',
     boxSizing: 'border-box',
-    padding: '16px 16px 0px 16px'
+    border: theme.border.primary,
+    borderRadius: theme.shape.borderRadius,
+    padding: '16px',
   },
   ocultarXs: {
     [theme.breakpoints.down('xs')]: {
       display: 'none'
     }
-  }
+  },
 }))
 
 const data = [
@@ -98,7 +101,7 @@ const data = [
     provincia: 'Cordoba',
     city: 'Capital',
     category: 'Ambiente',
-    color: 'brown'
+    color: 'orange'
   },
   {
     nombre: 'Miel cooperativa',
@@ -106,10 +109,10 @@ const data = [
     provincia: 'Santa Fe',
     city: 'Capital',
     category: 'Economico',
-    color: 'red'
+    color: 'blue'
   },
   {
-    nombre: 'Animarese a más',
+    nombre: 'Animarese a más, porque construir es soñar',
     num_participantes: '52',
     provincia: 'Mendoza',
     city: 'Capital',
@@ -210,25 +213,28 @@ const Dashboard = props => {
               />
             </div>
 
-            <div style={{ display: 'grid', alignSelf: 'stretch' }}>
-              <Grid container direction='row' justify='space-between' alignItems='center' className={classes.root}>
+            <div style={{ display: 'grid', alignSelf: 'self-start', overflow: 'hidden' }}>
+
+              <Grid container direction='row' justify='space-between' alignItems='center' style={{ padding: '16px' }}>
                 <Typography style={{ fontWeight: 'bold', textTransform: 'uppercase' }} color='inherit'>
-                  Grupos inscriptos
+                  Ultimos inscriptos
                 </Typography>
                 <PeopleIconOutlined color='primary' />
               </Grid>
 
               {data.map((el, idx) =>
                 <Grid key={idx} container direction='row' justify='space-between' alignItems='center' className={classes.inscriptoContainer}>
-                  <Grid item>
-                    <Typography style={{ fontWeight: 'bold' }} color='inherit'>
+
+                  <Grid item xs={'auto'} sm={5}>
+                    <Typography style={{ fontWeight: 'bold', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '110px' }} color='inherit'>
                       {el.nombre}
                     </Typography>
                     <Typography style={{ fontSize: '12px' }}>
                       {el.num_participantes} participantes
                     </Typography>
                   </Grid>
-                  <Grid item>
+
+                  <Grid item xs={'auto'} sm={3}>
                     <Typography style={{ fontWeight: 'bold' }} color='inherit'>
                       {el.provincia}
                     </Typography>
@@ -236,8 +242,8 @@ const Dashboard = props => {
                       └ {el.city}
                     </Typography>
                   </Grid>
-                  <Grid item className={classes.ocultarXs}>
-                    <div className={classes.inscriptosLabelcategory} style={{ border: '1.4px solid ' + el.color }}>
+                  <Grid item className={classes.ocultarXs} sm={4} >
+                    <div className={classes.inscriptosLabelcategory} style={{ border: '1.4px solid ' + el.color, textAlign: 'center', width: 'min-content', float: 'right' }}>
                       <Typography style={{ color: el.color }}>
                         {el.category}
                       </Typography>
