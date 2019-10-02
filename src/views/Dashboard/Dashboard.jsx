@@ -46,12 +46,14 @@ const useStyles = makeStyles(theme => ({
     padding: '16px',
     border: theme.border.primary,
     borderRadius: theme.shape.borderRadius,
-    margin: '4px'
+    marginTop: '4px',
+    marginBottom: '4px'
   },
   inscriptosLabelcategory: {
     borderRadius: '16px',
     padding: '2px 12px'
   },
+
   grid: {
     display: 'grid',
     gridTemplateColumns: '3fr 2fr',
@@ -64,7 +66,6 @@ const useStyles = makeStyles(theme => ({
     }
   },
   chart: {
-    border: '1px solid red',
     position: 'relative',
     display: 'grid',
     alignSelf: 'stretch',
@@ -72,7 +73,8 @@ const useStyles = makeStyles(theme => ({
     maxHeight: '450px',
     minWidth: '100%',
     maxWidth: '100%',
-
+    boxSizing: 'border-box',
+    padding: '16px 16px 0px 16px'
   },
   ocultarXs: {
     [theme.breakpoints.down('xs')]: {
@@ -208,7 +210,7 @@ const Dashboard = props => {
               />
             </div>
 
-            <div style={{ display: 'grid', alignSelf: 'stretch', border: '1px solid blue' }} className={classes.root}>
+            <div style={{ display: 'grid', alignSelf: 'stretch' }}>
               <Grid container direction='row' justify='space-between' alignItems='center' className={classes.root}>
                 <Typography style={{ fontWeight: 'bold', textTransform: 'uppercase' }} color='inherit'>
                   Grupos inscriptos
