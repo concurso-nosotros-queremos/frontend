@@ -230,7 +230,7 @@ const Dashboard = props => {
                     }],
                     yAxes: [{
                       ticks: {
-                        suggestedMax: 20,
+                        suggestedMax: 25,
                         beginAtZero: true,
                       }
                     }],
@@ -248,7 +248,6 @@ const Dashboard = props => {
                     enabled: false,
                   },
                   animation: {
-                    
                     onProgress: function () {
                       var chartInstance = this.chart,
                         ctx = chartInstance.ctx;
