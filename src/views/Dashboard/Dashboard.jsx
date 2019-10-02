@@ -174,7 +174,7 @@ const Dashboard = props => {
               </CardActions>
             </Card>
           </Grid>
-          <Grid container item xs={12} sm={6} md={4} className={classes.root}>
+          <Grid container item xs={12} sm={12} md={4} className={classes.root}>
             <Card className={clsx(classes.card, classes.red)} elevation={0}>
               <CardContent style={{ padding: '8px' }}>
                 <Grid container justify='space-between' aling='center'>
