@@ -51,6 +51,33 @@ const useStyles = makeStyles(theme => ({
   inscriptosLabelcategory: {
     borderRadius: '16px',
     padding: '2px 12px'
+  },
+  grid: {
+    display: 'grid',
+    gridTemplateColumns: '3fr 2fr',
+    gridTemplateRows: '1fr',
+    width: '100%',
+    justifyItems: 'stretch',
+    [theme.breakpoints.down('sm')]: {
+      gridTemplateColumns: '1fr',
+      gridTemplateRows: '2fr',
+    }
+  },
+  chart: {
+    border: '1px solid red',
+    position: 'relative',
+    display: 'grid',
+    alignSelf: 'stretch',
+    minHeight: '250px',
+    maxHeight: '450px',
+    minWidth: '100%',
+    maxWidth: '100%',
+
+  },
+  ocultarXs: {
+    [theme.breakpoints.down('xs')]: {
+      display: 'none'
+    }
   }
 }))
 
@@ -60,7 +87,7 @@ const data = [
     num_participantes: '13',
     provincia: 'Entre Rios',
     city: 'Parana',
-    category: 'genero',
+    category: 'Genero',
     color: 'red'
   },
   {
@@ -68,7 +95,7 @@ const data = [
     num_participantes: '11',
     provincia: 'Cordoba',
     city: 'Capital',
-    category: 'ambiente',
+    category: 'Ambiente',
     color: 'brown'
   },
   {
@@ -76,7 +103,7 @@ const data = [
     num_participantes: '37',
     provincia: 'Santa Fe',
     city: 'Capital',
-    category: 'economico',
+    category: 'Economico',
     color: 'red'
   },
   {
@@ -102,8 +129,7 @@ const chartData = {
       data: [65, 59, 80, 81, 56, 55, 40]
     }
   ]
-};
-
+}
 
 const Dashboard = props => {
   const classes = useStyles()
@@ -171,50 +197,54 @@ const Dashboard = props => {
         </Grid>
 
         <Grid container direction='row' justify='flex-start' alignItems='flex-start'>
-          <Grid container direction='column' item xs={12} sm={12} md={6} lg={8} className={classes.root}>
-            <Bar
-              data={chartData}
-              options={{
-                maintainAspectRatio: false,
-              }}
-            />
-          </Grid>
-          <Grid container direction='column' item xs={12} sm={6} md={6} lg={4} className={classes.root} >
-            <Grid container direction='row' justify='space-between' alignItems='center' className={classes.root}>
-              <Typography style={{ fontWeight: 'bold', textTransform: 'uppercase' }} color='inherit'>
-                Grupos inscriptos
-              </Typography>
-              <PeopleIconOutlined color='primary' />
-            </Grid>
 
-            {data.map((el, idx) =>
-              <Grid key={idx} container direction='row' justify='space-between' alignItems='center' className={classes.inscriptoContainer}>
-                <Grid item>
-                  <Typography style={{ fontWeight: 'bold' }} color='inherit'>
-                    {el.nombre}
-                  </Typography>
-                  <Typography style={{ fontSize: '12px' }}>
-                    {el.num_participantes} participantes
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography style={{ fontWeight: 'bold' }} color='inherit'>
-                    {el.provincia}
-                  </Typography>
-                  <Typography style={{ fontSize: '12px' }}>
-                    └ {el.city}
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <div className={classes.inscriptosLabelcategory} style={{ border: '1.4px solid ' + el.color }}>
-                    <Typography style={{ color: el.color }}>
-                      {el.category}
-                    </Typography>
-                  </div>
-                </Grid>
+          <div className={classes.grid}>
+            <div className={clsx(classes.chart, classes.ocultarXs)}>
+              <Bar
+                data={chartData}
+                options={{
+                  maintainAspectRatio: false,
+                }}
+              />
+            </div>
+
+            <div style={{ display: 'grid', alignSelf: 'stretch', border: '1px solid blue' }} className={classes.root}>
+              <Grid container direction='row' justify='space-between' alignItems='center' className={classes.root}>
+                <Typography style={{ fontWeight: 'bold', textTransform: 'uppercase' }} color='inherit'>
+                  Grupos inscriptos
+                </Typography>
+                <PeopleIconOutlined color='primary' />
               </Grid>
-            )}
-          </Grid>
+
+              {data.map((el, idx) =>
+                <Grid key={idx} container direction='row' justify='space-between' alignItems='center' className={classes.inscriptoContainer}>
+                  <Grid item>
+                    <Typography style={{ fontWeight: 'bold' }} color='inherit'>
+                      {el.nombre}
+                    </Typography>
+                    <Typography style={{ fontSize: '12px' }}>
+                      {el.num_participantes} participantes
+                    </Typography>
+                  </Grid>
+                  <Grid item>
+                    <Typography style={{ fontWeight: 'bold' }} color='inherit'>
+                      {el.provincia}
+                    </Typography>
+                    <Typography style={{ fontSize: '12px' }}>
+                      └ {el.city}
+                    </Typography>
+                  </Grid>
+                  <Grid item className={classes.ocultarXs}>
+                    <div className={classes.inscriptosLabelcategory} style={{ border: '1.4px solid ' + el.color }}>
+                      <Typography style={{ color: el.color }}>
+                        {el.category}
+                      </Typography>
+                    </div>
+                  </Grid>
+                </Grid>
+              )}
+            </div>
+          </div>
         </Grid>
       </Grid>
     </>
