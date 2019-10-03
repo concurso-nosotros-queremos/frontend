@@ -121,8 +121,6 @@ const data = [
   }
 ]
 
-
-
 const chartData = {
   labels: ['Santa Fe', 'Chaco', 'Mendoza', 'Córdoba', 'Entre Rios', 'Formosa'],
   datasets: [
@@ -133,7 +131,7 @@ const chartData = {
         'rgb(255, 205, 86)',
         'rgb(75, 192, 192)',
         'rgb(54, 162, 235)',
-        'rgb(153, 102, 255)',
+        'rgb(153, 102, 255)'
       ],
       backgroundColor: [
         'rgba(255, 99, 132,0.8)',
@@ -141,9 +139,9 @@ const chartData = {
         'rgba(255, 205, 86,0.8)',
         'rgba(75, 192, 192,0.8)',
         'rgba(54, 162, 235,0.8)',
-        'rgba(153, 102, 255,0.8)',
+        'rgba(153, 102, 255,0.8)'
       ],
-      data: [9, 7, 16, 11, 13, 4],
+      data: [9, 7, 16, 11, 13, 4]
     }
   ]
 }
@@ -226,14 +224,14 @@ const Dashboard = props => {
                       barPercentage: 0.7,
                       gridLines: {
                         display: false
-                      },
+                      }
                     }],
                     yAxes: [{
                       ticks: {
-                        suggestedMax: 25,
-                        beginAtZero: true,
+                        suggestedMax: 30,
+                        beginAtZero: true
                       }
-                    }],
+                    }]
                   },
                   title: {
                     text: 'DISTRIBUCIÓN PROVINCIAL DE LOS GRUPOS',
@@ -242,27 +240,26 @@ const Dashboard = props => {
                     display: true
                   },
                   legend: {
-                    display: false,
+                    display: false
                   },
-                  tooltips:{
-                    enabled: false,
+                  tooltips: {
+                    enabled: false
                   },
                   animation: {
                     onProgress: function () {
-                      var chartInstance = this.chart,
-                        ctx = chartInstance.ctx;
-                      ctx.textAlign = 'center';
-                      ctx.fillStyle = "rrgba(35, 47, 52, 0.56)";
-                      ctx.textBaseline = 'bottom';
+                      var chartInstance = this.chart
+                      var ctx = chartInstance.ctx
+                      ctx.textAlign = 'center'
+                      ctx.fillStyle = 'rrgba(35, 47, 52, 0.56)'
+                      ctx.textBaseline = 'bottom'
 
                       this.data.datasets.forEach(function (dataset, i) {
-                        var meta = chartInstance.controller.getDatasetMeta(i);
+                        var meta = chartInstance.controller.getDatasetMeta(i)
                         meta.data.forEach(function (bar, index) {
-                          var data = dataset.data[index];
-                          ctx.fillText(data, bar._model.x, bar._model.y);
-
-                        });
-                      });
+                          var data = dataset.data[index]
+                          ctx.fillText(data, bar._model.x, bar._model.y)
+                        })
+                      })
                     }
                   }
                 }}
