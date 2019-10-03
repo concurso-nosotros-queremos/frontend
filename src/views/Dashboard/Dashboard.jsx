@@ -13,6 +13,8 @@ import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined'
 
 import withGroupCount from '../../hoc/withDashboard'
 
+import { Bar } from 'react-chartjs-2'
+
 const useStyles = makeStyles(theme => ({
   root: {
     padding: '16px'
@@ -39,8 +41,110 @@ const useStyles = makeStyles(theme => ({
     '&:active': {
       boxShadow: 'none'
     }
+  },
+  inscriptoContainer: {
+    padding: '16px',
+    border: theme.border.primary,
+    borderRadius: theme.shape.borderRadius,
+    marginTop: '8px',
+    maxHeight: '73px'
+  },
+  inscriptosLabelcategory: {
+    borderRadius: '16px',
+    padding: '2px 12px'
+  },
+  grid: {
+    display: 'grid',
+    gridColumnGap: '16px',
+    padding: '16px',
+    gridTemplateColumns: '2fr 1fr',
+    gridTemplateRows: '1fr',
+    width: '100%',
+    justifyItems: 'stretch',
+    [theme.breakpoints.down('sm')]: {
+      gridTemplateColumns: '1fr',
+      gridTemplateRows: '2fr'
+    }
+  },
+  chart: {
+    position: 'relative',
+    display: 'grid',
+    alignSelf: 'stretch',
+    minHeight: '250px',
+    maxHeight: '450px',
+    minWidth: '100%',
+    maxWidth: '100%',
+    boxSizing: 'border-box',
+    border: theme.border.primary,
+    borderRadius: theme.shape.borderRadius,
+    padding: '16px'
+  },
+  ocultarXs: {
+    [theme.breakpoints.down('xs')]: {
+      display: 'none'
+    }
   }
 }))
+
+const data = [
+  {
+    nombre: 'IgualAr',
+    num_participantes: '13',
+    provincia: 'Entre Rios',
+    city: 'Parana',
+    category: 'Genero',
+    color: 'red'
+  },
+  {
+    nombre: 'Bosques nativos',
+    num_participantes: '11',
+    provincia: 'Cordoba',
+    city: 'Capital',
+    category: 'Ambiente',
+    color: 'orange'
+  },
+  {
+    nombre: 'Miel cooperativa',
+    num_participantes: '37',
+    provincia: 'Santa Fe',
+    city: 'Capital',
+    category: 'Economico',
+    color: 'blue'
+  },
+  {
+    nombre: 'Animarese a más, porque construir es soñar',
+    num_participantes: '52',
+    provincia: 'Mendoza',
+    city: 'Capital',
+    category: 'Social',
+    color: 'green'
+  }
+]
+
+const chartData = {
+  labels: ['Santa Fe', 'Chaco', 'Mendoza', 'Córdoba', 'Entre Rios', 'Formosa'],
+  datasets: [
+    {
+      hoverBackgroundColor: [
+        'rgb(255, 99, 132)',
+        'rgb(255, 159, 64)',
+        'rgb(255, 205, 86)',
+        'rgb(75, 192, 192)',
+        'rgb(54, 162, 235)',
+        'rgb(153, 102, 255)'
+      ],
+      backgroundColor: [
+        'rgba(255, 99, 132,0.8)',
+        'rgba(255, 159, 64,0.8)',
+        'rgba(255, 205, 86,0.8)',
+        'rgba(75, 192, 192,0.8)',
+        'rgba(54, 162, 235,0.8)',
+        'rgba(153, 102, 255,0.8)'
+      ],
+      data: [9, 7, 16, 11, 13, 4]
+    }
+  ]
+}
 
 const Dashboard = props => {
   const classes = useStyles()
@@ -51,7 +155,7 @@ const Dashboard = props => {
         <Grid container direction='row' justify='flex-start' alignItems='flex-start'>
           <Grid container item xs={12} sm={6} md={4} className={classes.root}>
             <Card className={classes.card} elevation={0}>
-              <CardContent>
+              <CardContent style={{ padding: '8px' }}>
                 <Grid container justify='space-between' aling='center'>
                   <Typography gutterBottom style={{ fontWeight: 'bold', color: 'rgba(35, 47, 52, 0.56)', textTransform: 'uppercase' }}>
                     Grupos inscriptos
@@ -67,10 +171,9 @@ const Dashboard = props => {
               </CardActions>
             </Card>
           </Grid>
-
           <Grid container item xs={12} sm={6} md={4} className={classes.root}>
             <Card className={clsx(classes.card, classes.green)} elevation={0}>
-              <CardContent>
+              <CardContent style={{ padding: '8px' }}>
                 <Grid container justify='space-between' aling='center'>
                   <Typography gutterBottom style={{ fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.56)', textTransform: 'uppercase' }}>
                     Alumnos inscriptos
@@ -86,10 +189,9 @@ const Dashboard = props => {
               </CardActions>
             </Card>
           </Grid>
-
-          <Grid container item xs={12} sm={6} md={4} className={classes.root}>
+          <Grid container item xs={12} sm={12} md={4} className={classes.root}>
             <Card className={clsx(classes.card, classes.red)} elevation={0}>
-              <CardContent>
+              <CardContent style={{ padding: '8px' }}>
                 <Grid container justify='space-between' aling='center'>
                   <Typography gutterBottom style={{ fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.56)', textTransform: 'uppercase' }}>
                     Cierre inscripciones
@@ -107,7 +209,103 @@ const Dashboard = props => {
               </CardActions>
             </Card>
           </Grid>
+        </Grid>
 
+        <Grid container direction='row' justify='flex-start' alignItems='flex-start'>
+
+          <div className={classes.grid}>
+            <div className={clsx(classes.chart, classes.ocultarXs)}>
+              <Bar
+                data={chartData}
+                options={{
+                  maintainAspectRatio: false,
+                  scales: {
+                    xAxes: [{
+                      barPercentage: 0.7,
+                      gridLines: {
+                        display: false
+                      }
+                    }],
+                    yAxes: [{
+                      ticks: {
+                        suggestedMax: 30,
+                        beginAtZero: true
+                      }
+                    }]
+                  },
+                  title: {
+                    text: 'DISTRIBUCIÓN PROVINCIAL DE LOS GRUPOS',
+                    fontColor: 'rgba(35, 47, 52, 0.56)',
+                    fontSize: 14,
+                    display: true
+                  },
+                  legend: {
+                    display: false
+                  },
+                  tooltips: {
+                    enabled: false
+                  },
+                  animation: {
+                    onProgress: function () {
+                      var chartInstance = this.chart
+                      var ctx = chartInstance.ctx
+                      ctx.textAlign = 'center'
+                      ctx.fillStyle = 'rrgba(35, 47, 52, 0.56)'
+                      ctx.textBaseline = 'bottom'
+
+                      this.data.datasets.forEach(function (dataset, i) {
+                        var meta = chartInstance.controller.getDatasetMeta(i)
+                        meta.data.forEach(function (bar, index) {
+                          var data = dataset.data[index]
+                          ctx.fillText(data, bar._model.x, bar._model.y)
+                        })
+                      })
+                    }
+                  }
+                }}
+              />
+            </div>
+
+            <div style={{ display: 'grid', alignSelf: 'self-start', overflow: 'hidden' }}>
+
+              <Grid container direction='row' justify='space-between' alignItems='center' style={{ padding: '16px' }}>
+                <Typography style={{ fontWeight: 'bold', textTransform: 'uppercase' }} color='inherit'>
+                  Ultimos inscriptos
+                </Typography>
+                <PeopleIconOutlined color='primary' />
+              </Grid>
+
+              {data.map((el, idx) =>
+                <Grid key={idx} container direction='row' justify='space-between' alignItems='center' className={classes.inscriptoContainer}>
+
+                  <Grid item xs='auto' sm={5}>
+                    <Typography style={{ fontWeight: 'bold', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '110px' }} color='inherit'>
+                      {el.nombre}
+                    </Typography>
+                    <Typography style={{ fontSize: '12px' }}>
+                      {el.num_participantes} participantes
+                    </Typography>
+                  </Grid>
+
+                  <Grid item xs='auto' sm={3}>
+                    <Typography style={{ fontWeight: 'bold' }} color='inherit'>
+                      {el.provincia}
+                    </Typography>
+                    <Typography style={{ fontSize: '12px' }}>
+                      └ {el.city}
+                    </Typography>
+                  </Grid>
+                  <Grid item className={classes.ocultarXs} sm={4}>
+                    <div className={classes.inscriptosLabelcategory} style={{ border: '1.4px solid ' + el.color, textAlign: 'center', width: 'min-content', float: 'right' }}>
+                      <Typography style={{ color: el.color }}>
+                        {el.category}
+                      </Typography>
+                    </div>
+                  </Grid>
+                </Grid>
+              )}
+            </div>
+          </div>
         </Grid>
       </Grid>
     </>
