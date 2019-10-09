@@ -1,7 +1,7 @@
 import fetchResource from './apiHandler'
 
-export async function getGroup (token) {
-  const response = await fetchResource('rest/group', {
+export async function getGroupCount (token) {
+  const response = await fetchResource('rest/group_info/total', {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`

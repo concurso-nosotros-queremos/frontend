@@ -275,31 +275,34 @@ const Dashboard = props => {
                 <PeopleIconOutlined color='primary' />
               </Grid>
 
-              {data.map((el, idx) =>
+              {props.group.map((el, idx) =>
                 <Grid key={idx} container direction='row' justify='space-between' alignItems='center' className={classes.inscriptoContainer}>
 
                   <Grid item xs='auto' sm={5}>
                     <Typography style={{ fontWeight: 'bold', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '110px' }} color='inherit'>
-                      {el.nombre}
+                      {el.raw_project.name}
                     </Typography>
                     <Typography style={{ fontSize: '12px' }}>
-                      {el.num_participantes} participantes
+                      {el.raw_participant.length} participantes
                     </Typography>
                   </Grid>
 
                   <Grid item xs='auto' sm={3}>
                     <Typography style={{ fontWeight: 'bold' }} color='inherit'>
-                      {el.provincia}
+                      {el.raw_school.state_name}
                     </Typography>
                     <Typography style={{ fontSize: '12px' }}>
-                      └ {el.city}
+                      └ {el.raw_school.city_name}
                     </Typography>
                   </Grid>
                   <Grid item className={classes.ocultarXs} sm={4}>
                     <div className={classes.inscriptosLabelcategory} style={{ border: '1.4px solid ' + el.color, textAlign: 'center', width: 'min-content', float: 'right' }}>
-                      <Typography style={{ color: el.color }}>
-                        {el.category}
-                      </Typography>
+                      {el.raw_project.category_name.map((el, idx) =>
+                        <Typography key={idx}>
+                          {el.name}
+                        </Typography>
+
+                      )}
                     </div>
                   </Grid>
                 </Grid>
