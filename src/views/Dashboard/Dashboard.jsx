@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/styles'
-import { Grid, CardContent } from '@material-ui/core'
+import { Grid, CardContent, ListItemSecondaryAction } from '@material-ui/core'
 import { connect } from 'react-redux'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
@@ -14,6 +14,7 @@ import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined'
 import withGroupCount from '../../hoc/withDashboard'
 
 import { Bar } from 'react-chartjs-2'
+import { element } from 'prop-types'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -86,68 +87,14 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const data = [
-  {
-    nombre: 'IgualAr',
-    num_participantes: '13',
-    provincia: 'Entre Rios',
-    city: 'Parana',
-    category: 'Genero',
-    color: 'red'
-  },
-  {
-    nombre: 'Bosques nativos',
-    num_participantes: '11',
-    provincia: 'Cordoba',
-    city: 'Capital',
-    category: 'Ambiente',
-    color: 'orange'
-  },
-  {
-    nombre: 'Miel cooperativa',
-    num_participantes: '37',
-    provincia: 'Santa Fe',
-    city: 'Capital',
-    category: 'Economico',
-    color: 'blue'
-  },
-  {
-    nombre: 'Animarese a más, porque construir es soñar',
-    num_participantes: '52',
-    provincia: 'Mendoza',
-    city: 'Capital',
-    category: 'Social',
-    color: 'green'
-  }
-]
-
-const chartData = {
-  labels: ['Santa Fe', 'Chaco', 'Mendoza', 'Córdoba', 'Entre Rios', 'Formosa'],
-  datasets: [
-    {
-      hoverBackgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(255, 159, 64)',
-        'rgb(255, 205, 86)',
-        'rgb(75, 192, 192)',
-        'rgb(54, 162, 235)',
-        'rgb(153, 102, 255)'
-      ],
-      backgroundColor: [
-        'rgba(255, 99, 132,0.8)',
-        'rgba(255, 159, 64,0.8)',
-        'rgba(255, 205, 86,0.8)',
-        'rgba(75, 192, 192,0.8)',
-        'rgba(54, 162, 235,0.8)',
-        'rgba(153, 102, 255,0.8)'
-      ],
-      data: [9, 7, 16, 11, 13, 4]
-    }
-  ]
-}
-
 const Dashboard = props => {
   const classes = useStyles()
+  const data = []
+    for (const [ndex, value] of props.group.entries()){
+      if (data.length <= 4 ){
+      data.push(value)
+  }
+}
 
   return (
     <>
@@ -216,7 +163,30 @@ const Dashboard = props => {
           <div className={classes.grid}>
             <div className={clsx(classes.chart, classes.ocultarXs)}>
               <Bar
-                data={chartData}
+                data={{
+                  labels: props.labels,
+                  datasets: [
+                    {
+                      hoverBackgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(255, 159, 64)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)',
+                        'rgb(153, 102, 255)'
+                      ],
+                      backgroundColor: [
+                        'rgba(255, 99, 132,0.8)',
+                        'rgba(255, 159, 64,0.8)',
+                        'rgba(255, 205, 86,0.8)',
+                        'rgba(75, 192, 192,0.8)',
+                        'rgba(54, 162, 235,0.8)',
+                        'rgba(153, 102, 255,0.8)'
+                      ],
+                      data: props.data
+                    }
+                  ]
+                }}
                 options={{
                   maintainAspectRatio: false,
                   scales: {
@@ -275,7 +245,7 @@ const Dashboard = props => {
                 <PeopleIconOutlined color='primary' />
               </Grid>
 
-              {props.group.map((el, idx) =>
+              {data.map((el, idx) =>
                 <Grid key={idx} container direction='row' justify='space-between' alignItems='center' className={classes.inscriptoContainer}>
 
                   <Grid item xs='auto' sm={5}>
