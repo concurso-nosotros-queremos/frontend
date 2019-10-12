@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Redirect, Route } from 'react-router-dom'
 import RouteWithLayout from './components/routeWithLayout'
 import Index from './views/Home/index'
@@ -9,6 +9,7 @@ import Main from './layouts/Main/Main'
 import Groups from './views/Groups/Groups'
 import Dashboard from './views/Dashboard/Dashboard'
 import FormSuccess from './views/Dashboard/FormSuccess'
+import { authGetPersistedTokenRequest } from './redux/auth/actions'
 
 const ProtectedRoute = ({ isAllowed, ...props }) => {
   return (
@@ -16,51 +17,57 @@ const ProtectedRoute = ({ isAllowed, ...props }) => {
   )
 }
 
-const Routes = (props) => {
-  return (
-    <Switch>
-      <Route
-        exact
-        path='/'
-        render={() => (
-          props.isLoggedIn
-            ? <Redirect to='/groups' />
-            : <Route component={Index} exact path='/' />
-        )}
-      />
-      <ProtectedRoute
-        isAllowed={props.isLoggedIn}
-        component={Dashboard}
-        layout={Main}
-        exact
-        path='/dashboard'
-      />
-      <ProtectedRoute
-        isAllowed={props.isLoggedIn}
-        component={Groups}
-        layout={Main}
-        exact
-        path='/groups'
-      />
-      <ProtectedRoute
-        isAllowed={props.isLoggedIn}
-        component={InscriptionWrapper}
-        layout={Main}
-        exact
-        path='/groups/add'
-      />
-      <ProtectedRoute
-        isAllowed={props.isLoggedIn}
-        component={FormSuccess}
-        layout={Main}
-        exact
-        path='/groups/add/success'
-      />
-      <Route
-        component={Error404}
-      />
-    </Switch>
-  )
+class Routes extends Component {
+  componentDidMount () {
+    this.props.authGetPersistedTokenRequest()
+  }
+
+  render () {
+    return (
+      <Switch>
+        <Route
+          exact
+          path='/'
+          render={() => (
+            this.props.isLoggedIn
+              ? <Redirect to='/groups' />
+              : <Route component={Index} exact path='/' />
+          )}
+        />
+        <ProtectedRoute
+          isAllowed={this.props.isLoggedIn}
+          component={Dashboard}
+          layout={Main}
+          exact
+          path='/dashboard'
+        />
+        <ProtectedRoute
+          isAllowed={this.props.isLoggedIn}
+          component={Groups}
+          layout={Main}
+          exact
+          path='/groups'
+        />
+        <ProtectedRoute
+          isAllowed={this.props.isLoggedIn}
+          component={InscriptionWrapper}
+          layout={Main}
+          exact
+          path='/groups/add'
+        />
+        <ProtectedRoute
+          isAllowed={this.props.isLoggedIn}
+          component={FormSuccess}
+          layout={Main}
+          exact
+          path='/groups/add/success'
+        />
+        <Route
+          component={Error404}
+        />
+      </Switch>
+    )
+  }
 }
 
 const MainRouter = (props) => {
@@ -75,4 +82,8 @@ const mapStateToProps = (state) => ({
   isLoggedIn: state.auth.isLoggedIn // state.auth.isLoggedIn
 })
 
-export default connect(mapStateToProps)(MainRouter)
+const mapDispatchToProps = dispatch => ({
+  authGetPersistedTokenRequest: () => dispatch(authGetPersistedTokenRequest())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainRouter)
