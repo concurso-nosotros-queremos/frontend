@@ -8,6 +8,7 @@ import InscriptionWrapper from './containers/projectInscription'
 import Main from './layouts/Main/Main'
 import Groups from './views/Groups/Groups'
 import Dashboard from './views/Dashboard/Dashboard'
+import Statistics from './views/Statistics/Statistics'
 import FormSuccess from './views/Dashboard/FormSuccess'
 
 const ProtectedRoute = ({ isAllowed, ...props }) => {
@@ -41,6 +42,13 @@ const Routes = (props) => {
         layout={Main}
         exact
         path='/groups'
+      />
+      <ProtectedRoute
+        isAllowed={props.isLoggedIn}
+        component={Statistics}
+        layout={Main}
+        exact
+        path='/statistics'
       />
       <ProtectedRoute
         isAllowed={props.isLoggedIn}

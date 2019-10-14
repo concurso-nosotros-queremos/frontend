@@ -5,7 +5,7 @@ import { Divider, Drawer } from '@material-ui/core'
 import DashboardIconOutlined from '@material-ui/icons/DashboardOutlined'
 import PeopleIconOutlined from '@material-ui/icons/PeopleOutlined'
 import AddIconOutlined from '@material-ui/icons/AddOutlined'
-import AssessmentOutlinedIcon from '@material-ui/icons/AssessmentOutlined';
+import AssessmentOutlinedIcon from '@material-ui/icons/AssessmentOutlined'
 
 import SidebarNav from './components/SidebarNav'
 
@@ -65,7 +65,7 @@ const Sidebar = props => {
       title: 'Estadisticas',
       href: '/statistics',
       icon: <AssessmentOutlinedIcon color='inherit' />
-    },
+    }
   ]
 
   return (
