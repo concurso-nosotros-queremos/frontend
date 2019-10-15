@@ -52,7 +52,7 @@ const Statistics = props => {
             <div className={classes.chart}>
               <Bar
                 data={{
-                  labels: props.labels,
+                  labels: ['a', 'b', 'c', 'd', 'e'],
                   datasets: [
                     {
                       hoverBackgroundColor: [
@@ -71,7 +71,7 @@ const Statistics = props => {
                         'rgba(54, 162, 235,0.8)',
                         'rgba(153, 102, 255,0.8)'
                       ],
-                      data: props.data
+                      data: ['2', '3', '5', '1', '2']
                     }
                   ]
                 }}
@@ -79,15 +79,15 @@ const Statistics = props => {
                   maintainAspectRatio: false,
                   scales: {
                     xAxes: [{
-                      barPercentage: 0.7,
+                      barPercentage: 0.5,
                       gridLines: {
                         display: false
                       }
                     }],
                     yAxes: [{
                       ticks: {
-                        suggestedMax: 30,
-                        beginAtZero: true
+                        beginAtZero: true,
+                        stepSize: 1
                       }
                     }]
                   },
@@ -101,24 +101,7 @@ const Statistics = props => {
                     display: false
                   },
                   tooltips: {
-                    enabled: false
-                  },
-                  animation: {
-                    onProgress: function () {
-                      var chartInstance = this.chart
-                      var ctx = chartInstance.ctx
-                      ctx.textAlign = 'center'
-                      ctx.fillStyle = 'rrgba(35, 47, 52, 0.56)'
-                      ctx.textBaseline = 'bottom'
-
-                      this.data.datasets.forEach(function (dataset, i) {
-                        var meta = chartInstance.controller.getDatasetMeta(i)
-                        meta.data.forEach(function (bar, index) {
-                          var data = dataset.data[index]
-                          ctx.fillText(data, bar._model.x, bar._model.y)
-                        })
-                      })
-                    }
+                    enabled: true
                   }
                 }}
               />
@@ -128,7 +111,7 @@ const Statistics = props => {
             <div className={classes.chart}>
               <Bar
                 data={{
-                  labels: props.labels,
+                  labels: ['a', 'b', 'c', 'd', 'e'],
                   datasets: [
                     {
                       hoverBackgroundColor: [
@@ -147,7 +130,7 @@ const Statistics = props => {
                         'rgba(54, 162, 235,0.8)',
                         'rgba(153, 102, 255,0.8)'
                       ],
-                      data: props.data
+                      data: ['2', '3', '5', '1', '2']
                     }
                   ]
                 }}
@@ -155,15 +138,15 @@ const Statistics = props => {
                   maintainAspectRatio: false,
                   scales: {
                     xAxes: [{
-                      barPercentage: 0.7,
+                      barPercentage: 0.5,
                       gridLines: {
                         display: false
                       }
                     }],
                     yAxes: [{
                       ticks: {
-                        suggestedMax: 30,
-                        beginAtZero: true
+                        beginAtZero: true,
+                        stepSize: 1
                       }
                     }]
                   },
@@ -177,24 +160,7 @@ const Statistics = props => {
                     display: false
                   },
                   tooltips: {
-                    enabled: false
-                  },
-                  animation: {
-                    onProgress: function () {
-                      var chartInstance = this.chart
-                      var ctx = chartInstance.ctx
-                      ctx.textAlign = 'center'
-                      ctx.fillStyle = 'rrgba(35, 47, 52, 0.56)'
-                      ctx.textBaseline = 'bottom'
-
-                      this.data.datasets.forEach(function (dataset, i) {
-                        var meta = chartInstance.controller.getDatasetMeta(i)
-                        meta.data.forEach(function (bar, index) {
-                          var data = dataset.data[index]
-                          ctx.fillText(data, bar._model.x, bar._model.y)
-                        })
-                      })
-                    }
+                    enabled: true
                   }
                 }}
               />
@@ -204,7 +170,7 @@ const Statistics = props => {
             <div className={classes.chart}>
               <Bar
                 data={{
-                  labels: props.labels,
+                  labels: ['a', 'b', 'c', 'd', 'e'],
                   datasets: [
                     {
                       hoverBackgroundColor: [
@@ -223,7 +189,7 @@ const Statistics = props => {
                         'rgba(54, 162, 235,0.8)',
                         'rgba(153, 102, 255,0.8)'
                       ],
-                      data: props.data
+                      data: ['2', '3', '5', '1', '2']
                     }
                   ]
                 }}
@@ -231,15 +197,15 @@ const Statistics = props => {
                   maintainAspectRatio: false,
                   scales: {
                     xAxes: [{
-                      barPercentage: 0.7,
+                      barPercentage: 0.5,
                       gridLines: {
                         display: false
                       }
                     }],
                     yAxes: [{
                       ticks: {
-                        suggestedMax: 30,
-                        beginAtZero: true
+                        beginAtZero: true,
+                        stepSize: 1
                       }
                     }]
                   },
@@ -253,24 +219,7 @@ const Statistics = props => {
                     display: false
                   },
                   tooltips: {
-                    enabled: false
-                  },
-                  animation: {
-                    onProgress: function () {
-                      var chartInstance = this.chart
-                      var ctx = chartInstance.ctx
-                      ctx.textAlign = 'center'
-                      ctx.fillStyle = 'rrgba(35, 47, 52, 0.56)'
-                      ctx.textBaseline = 'bottom'
-
-                      this.data.datasets.forEach(function (dataset, i) {
-                        var meta = chartInstance.controller.getDatasetMeta(i)
-                        meta.data.forEach(function (bar, index) {
-                          var data = dataset.data[index]
-                          ctx.fillText(data, bar._model.x, bar._model.y)
-                        })
-                      })
-                    }
+                    enabled: true
                   }
                 }}
               />
@@ -280,7 +229,7 @@ const Statistics = props => {
             <div className={classes.chart}>
               <Bar
                 data={{
-                  labels: props.labels,
+                  labels: ['a', 'b', 'c', 'd', 'e'],
                   datasets: [
                     {
                       hoverBackgroundColor: [
@@ -299,7 +248,7 @@ const Statistics = props => {
                         'rgba(54, 162, 235,0.8)',
                         'rgba(153, 102, 255,0.8)'
                       ],
-                      data: props.data
+                      data: ['2', '3', '5', '1', '2']
                     }
                   ]
                 }}
@@ -307,15 +256,15 @@ const Statistics = props => {
                   maintainAspectRatio: false,
                   scales: {
                     xAxes: [{
-                      barPercentage: 0.7,
+                      barPercentage: 0.5,
                       gridLines: {
                         display: false
                       }
                     }],
                     yAxes: [{
                       ticks: {
-                        suggestedMax: 30,
-                        beginAtZero: true
+                        beginAtZero: true,
+                        stepSize: 1
                       }
                     }]
                   },
@@ -329,24 +278,7 @@ const Statistics = props => {
                     display: false
                   },
                   tooltips: {
-                    enabled: false
-                  },
-                  animation: {
-                    onProgress: function () {
-                      var chartInstance = this.chart
-                      var ctx = chartInstance.ctx
-                      ctx.textAlign = 'center'
-                      ctx.fillStyle = 'rrgba(35, 47, 52, 0.56)'
-                      ctx.textBaseline = 'bottom'
-
-                      this.data.datasets.forEach(function (dataset, i) {
-                        var meta = chartInstance.controller.getDatasetMeta(i)
-                        meta.data.forEach(function (bar, index) {
-                          var data = dataset.data[index]
-                          ctx.fillText(data, bar._model.x, bar._model.y)
-                        })
-                      })
-                    }
+                    enabled: true
                   }
                 }}
               />
