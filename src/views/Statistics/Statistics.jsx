@@ -50,7 +50,7 @@ const Statistics = props => {
             <div className={classes.chart}>
               <Bar
                 data={{
-                  labels: ['Cordoba', 'Mendoza',],
+                  labels: ['Cordoba', 'Mendoza'],
                   datasets: [
                     {
                       hoverBackgroundColor: [
@@ -84,7 +84,7 @@ const Statistics = props => {
                     }],
                     yAxes: [{
                       ticks: {
-                        beginAtZero: true,
+                        beginAtZero: true
                       }
                     }]
                   },
@@ -170,7 +170,7 @@ const Statistics = props => {
                       '#FFCE56',
                       '#FF6384',
                       '#36A2EB',
-                      '#FFCE56',
+                      '#FFCE56'
                     ],
                     hoverBackgroundColor: [
                       '#FF6384',
@@ -178,7 +178,7 @@ const Statistics = props => {
                       '#FFCE56',
                       '#FF6384',
                       '#36A2EB',
-                      '#FFCE56',
+                      '#FFCE56'
                     ]
                   }]
                 }}
