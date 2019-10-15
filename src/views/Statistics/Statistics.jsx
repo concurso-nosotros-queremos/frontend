@@ -2,7 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/styles'
 import { Grid } from '@material-ui/core'
-import { Bar, Doughnut } from 'react-chartjs-2'
+import { Bar, Doughnut, Pie } from 'react-chartjs-2'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -50,7 +50,7 @@ const Statistics = props => {
             <div className={classes.chart}>
               <Bar
                 data={{
-                  labels: ['a', 'b', 'c', 'd', 'e'],
+                  labels: ['Cordoba', 'Mendoza',],
                   datasets: [
                     {
                       hoverBackgroundColor: [
@@ -69,7 +69,7 @@ const Statistics = props => {
                         'rgba(54, 162, 235,0.8)',
                         'rgba(153, 102, 255,0.8)'
                       ],
-                      data: ['2', '3', '5', '1', '2']
+                      data: ['75', '48']
                     }
                   ]
                 }}
@@ -85,12 +85,11 @@ const Statistics = props => {
                     yAxes: [{
                       ticks: {
                         beginAtZero: true,
-                        stepSize: 1
                       }
                     }]
                   },
                   title: {
-                    text: 'DISTRIBUCIÓN PROVINCIAL DE LOS GRUPOS',
+                    text: 'ALUMNOS POR PROVINCIA',
                     fontColor: 'rgba(35, 47, 52, 0.56)',
                     fontSize: 14,
                     display: true
@@ -150,6 +149,59 @@ const Statistics = props => {
               />
             </div>
           </Grid>
+          <Grid item xl={4} lg={6} sm={6} xs={12} className={classes.itemsChart}>
+            <div className={classes.chart}>
+              <Pie
+                data={{
+                  labels: [
+                    'Residencia',
+                    'Escuela Rural',
+                    'Tecnica Privada',
+                    'Tecnica Publica',
+                    'Privada',
+                    'Publica'
+                  ],
+                  datasets: [{
+                    data: [{}, 6, 2, 1, 6, 10],
+                    borderWidth: 1,
+                    backgroundColor: [
+                      '#FF6384',
+                      '#36A2EB',
+                      '#FFCE56',
+                      '#FF6384',
+                      '#36A2EB',
+                      '#FFCE56',
+                    ],
+                    hoverBackgroundColor: [
+                      '#FF6384',
+                      '#36A2EB',
+                      '#FFCE56',
+                      '#FF6384',
+                      '#36A2EB',
+                      '#FFCE56',
+                    ]
+                  }]
+                }}
+                options={{
+                  maintainAspectRatio: false,
+                  title: {
+                    text: 'TIPOS DE ESCUELA',
+                    fontColor: 'rgba(35, 47, 52, 0.56)',
+                    fontSize: 14,
+                    display: true
+                  },
+                  legend: {
+                    display: true,
+                    position: 'right'
+                  },
+                  tooltips: {
+                    enabled: true
+                  }
+                }}
+              />
+            </div>
+          </Grid>
+
         </Grid>
       </Grid>
     </>
