@@ -72,7 +72,7 @@ export const initialValues = {
     problem: '',
     solution: '',
     diffusion: '',
-    category: [1]
+    category: []
   },
   raw_contact: {
     phone_number: '',
@@ -106,7 +106,8 @@ export const helpers = {
     name: 'Nombre del proyecto/idea emprendedora',
     problem: '¿Cual es el problema que encontraron?',
     solution: '¿Como piensan solucionarlo?',
-    diffusion: 'Seleccione como se entero del concurso de la lista'
+    diffusion: 'Seleccione como se entero del concurso de la lista',
+    category: 'Seleccione la categoria de su proyecto'
   },
   raw_contact: {
     phone_number: '',

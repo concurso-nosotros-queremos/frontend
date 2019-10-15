@@ -72,6 +72,7 @@ const InscriptionWrapper = props => {
   }
 
   const handleSubmit = (form) => {
+    console.log(form)
     return fetchResource('rest/group/', {
       method: 'POST',
       headers: {

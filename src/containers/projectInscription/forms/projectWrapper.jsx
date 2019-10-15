@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
 import { errorMessageBuilder, hasError } from './_utils'
 import { Grid, Fade, Typography } from '@material-ui/core'
+import CategoryPicker from './categoryPicker'
 
 const ProjectWrapper = props => {
   return (
@@ -76,6 +77,9 @@ const ProjectWrapper = props => {
                 </TextField>
               )}
             />
+          </Grid>
+          <Grid item xs={12}>
+            <CategoryPicker />
           </Grid>
         </Grid>
       </div>
