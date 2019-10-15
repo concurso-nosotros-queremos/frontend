@@ -90,7 +90,7 @@ const useStyles = makeStyles(theme => ({
 const Dashboard = props => {
   const classes = useStyles()
   const data = []
-  for (const [ndex, value] of props.group.entries()) {
+  for (const [index, value] of props.group.reverse().entries()) {
     if (data.length <= 4) {
       data.push(value)
     }
