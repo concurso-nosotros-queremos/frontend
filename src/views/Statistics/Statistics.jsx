@@ -3,6 +3,9 @@ import clsx from 'clsx'
 import { makeStyles } from '@material-ui/styles'
 import { Grid } from '@material-ui/core'
 import { Bar, Doughnut, Pie } from 'react-chartjs-2'
+import { connect } from 'react-redux'
+
+import withGroupCount from '../../hoc/withDashboard'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -50,7 +53,7 @@ const Statistics = props => {
             <div className={classes.chart}>
               <Bar
                 data={{
-                  labels: ['Cordoba', 'Mendoza'],
+                  labels: props.labels,
                   datasets: [
                     {
                       hoverBackgroundColor: [
@@ -69,7 +72,7 @@ const Statistics = props => {
                         'rgba(54, 162, 235,0.8)',
                         'rgba(153, 102, 255,0.8)'
                       ],
-                      data: ['75', '48']
+                      data: props.data
                     }
                   ]
                 }}
@@ -108,15 +111,9 @@ const Statistics = props => {
             <div className={classes.chart}>
               <Doughnut
                 data={{
-                  labels: [
-                    'Participacion previa',
-                    'Medios tradicionales',
-                    'Redes sociales',
-                    'Afiches del concurso',
-                    'Mail'
-                  ],
+                  labels: props.label_diffusion,
                   datasets: [{
-                    data: [13, 37, 10, {}, 28],
+                    data: props.diffusion,
                     borderWidth: 1,
                     backgroundColor: [
                       '#FF6384',
@@ -153,16 +150,9 @@ const Statistics = props => {
             <div className={classes.chart}>
               <Pie
                 data={{
-                  labels: [
-                    'Residencia',
-                    'Escuela Rural',
-                    'Tecnica Privada',
-                    'Tecnica Publica',
-                    'Privada',
-                    'Publica'
-                  ],
+                  labels: props.label_school,
                   datasets: [{
-                    data: [{}, 6, 2, 1, 6, 10],
+                    data: props.school,
                     borderWidth: 1,
                     backgroundColor: [
                       '#FF6384',
@@ -208,4 +198,8 @@ const Statistics = props => {
   )
 }
 
-export default Statistics
+const mapStateToProps = (state) => ({
+  token: state.auth.convertedToken.accessToken
+})
+
+export default connect(mapStateToProps)(withGroupCount(Statistics))
