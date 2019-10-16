@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography'
 import PeopleIconOutlined from '@material-ui/icons/PeopleOutlined'
 import PersonOutlinedIcon from '@material-ui/icons/PersonOutlined'
 import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined'
+import Dialog from './components/Dialog'
 
 import withGroupCount from '../../hoc/withDashboard'
 
@@ -152,7 +153,7 @@ const Dashboard = props => {
               <CardActions style={{ justifyContent: 'flex-end' }}>
 
                 <Button size='small' className={classes.button} style={{ color: 'white' }}>Cerrar</Button>
-                <Button size='small' variant='contained' className={clsx(classes.button, classes.containedButton)}>Extender</Button>
+                <Dialog estilos={clsx(classes.button, classes.containedButton)} />
               </CardActions>
             </Card>
           </Grid>
