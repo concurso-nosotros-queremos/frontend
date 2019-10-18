@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   inscriptoContainer: {
-    padding: '16px',
+    padding: '12px',
     border: theme.border.primary,
     borderRadius: theme.shape.borderRadius,
     marginTop: '8px',
@@ -84,6 +84,15 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('xs')]: {
       display: 'none'
     }
+  },
+  cityName: {
+    fontSize: '12px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis',
+    [theme.breakpoints.down('xs')]: {
+      width: '100px'
+    }
+  },
+  projetName: {
+    fontWeight: 'bold', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '110px'
   }
 }))
 
@@ -245,38 +254,38 @@ const Dashboard = props => {
                 <PeopleIconOutlined color='primary' />
               </Grid>
 
-              {data.map((el, idx) =>
-                <Grid key={idx} container direction='row' justify='space-between' alignItems='center' className={classes.inscriptoContainer}>
-
-                  <Grid item xs='auto' sm={5}>
-                    <Typography style={{ fontWeight: 'bold', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '110px' }} color='inherit'>
-                      {el.raw_project.name}
+              <Grid container direction='column' justify='flex-start' alignItems='flex-start'>
+                {data.map((el, idx) =>
+                  <Grid key={idx} container direction='row' justify='space-between' alignItems='center' className={classes.inscriptoContainer}>
+                    <Grid item xs='auto' sm={5}>
+                      <Typography className={classes.projetName} color='inherit'>
+                        {el.raw_project.name}
+                      </Typography>
+                      <Typography style={{ fontSize: '12px' }}>
+                        {el.raw_participant.length} participantes
                     </Typography>
-                    <Typography style={{ fontSize: '12px' }}>
-                      {el.raw_participant.length} participantes
-                    </Typography>
+                    </Grid>
+                    <Grid item xs='auto' sm={3}>
+                      <Typography style={{ fontWeight: 'bold' }} color='inherit'>
+                        {el.raw_school.state_name}
+                      </Typography>
+                      <Typography className={classes.cityName}>
+                        └ {el.raw_school.city_name}
+                      </Typography>
+                    </Grid>
+                    <Grid item className={classes.ocultarXs} sm={4}>
+                      <div className={classes.inscriptosLabelcategory}
+                        style={{ border: '1.4px solid ' + el.color, textAlign: 'end', width: 'min-content', float: 'right' }}>
+                        {el.raw_project.category_name.map((el, idx) =>
+                          <Typography key={idx} style={{ fontSize: '12px' }}>
+                            {el.name}
+                          </Typography>
+                        )}
+                      </div>
+                    </Grid>
                   </Grid>
-
-                  <Grid item xs='auto' sm={3}>
-                    <Typography style={{ fontWeight: 'bold' }} color='inherit'>
-                      {el.raw_school.state_name}
-                    </Typography>
-                    <Typography style={{ fontSize: '12px' }}>
-                      └ {el.raw_school.city_name}
-                    </Typography>
-                  </Grid>
-                  <Grid item className={classes.ocultarXs} sm={4}>
-                    <div className={classes.inscriptosLabelcategory} style={{ border: '1.4px solid ' + el.color, textAlign: 'center', width: 'min-content', float: 'right' }}>
-                      {el.raw_project.category_name.map((el, idx) =>
-                        <Typography key={idx}>
-                          {el.name}
-                        </Typography>
-
-                      )}
-                    </div>
-                  </Grid>
-                </Grid>
-              )}
+                )}
+              </Grid>
             </div>
           </div>
         </Grid>
