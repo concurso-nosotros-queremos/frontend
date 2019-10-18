@@ -170,7 +170,7 @@ const Dashboard = props => {
         <Grid container direction='row' justify='flex-start' alignItems='flex-start'>
 
           <div className={classes.grid}>
-            <div className={clsx(classes.chart, classes.ocultarXs)}>
+            <div className={classes.chart}>
               <Bar
                 data={{
                   labels: props.labels,
@@ -213,7 +213,7 @@ const Dashboard = props => {
                     }]
                   },
                   title: {
-                    text: 'DISTRIBUCIÓN PROVINCIAL DE LOS GRUPOS',
+                    text: 'GRUPOS POR PROVINCIA',
                     fontColor: 'rgba(35, 47, 52, 0.56)',
                     fontSize: 14,
                     display: true
