@@ -91,7 +91,7 @@ const Dashboard = props => {
   const classes = useStyles()
   const data = []
   for (const [index, value] of props.group.reverse().entries()) {
-    if (data.length <= 4) {
+    if (data.length < 4) {
       data.push(value)
     }
   }
@@ -258,10 +258,10 @@ const Dashboard = props => {
                   </Grid>
 
                   <Grid item xs='auto' sm={3}>
-                    <Typography style={{ fontWeight: 'bold' }} color='inherit'>
+                    <Typography style={{ fontWeight: 'bold', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '110px' }} color='inherit'>
                       {el.raw_school.state_name}
                     </Typography>
-                    <Typography style={{ fontSize: '12px' }}>
+                    <Typography style={{ fontSize: '12px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '110px' }}>
                       └ {el.raw_school.city_name}
                     </Typography>
                   </Grid>
