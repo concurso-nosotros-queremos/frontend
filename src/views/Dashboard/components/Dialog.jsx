@@ -14,6 +14,11 @@ import "moment/locale/es"
 Moment.locale("es")
 
 const useStyles = makeStyles(theme => ({
+  dialogPaper: {
+    [theme.breakpoints.only('xs')]: {
+      margin: 'auto',
+    },
+  },
 }))
 
 export default function SimpleDialog(props) {
@@ -38,7 +43,7 @@ export default function SimpleDialog(props) {
       <Button size='small' variant='contained' className={props.estilos} onClick={handleClickOpen} maxWidth={'xl'}>
         Extender
       </Button>
-      <Dialog onClose={handleClose} aria-labelledby='simple-dialog-title' open={open} maxWidth="lg">
+      <Dialog onClose={handleClose} aria-labelledby='simple-dialog-title' open={open} maxWidth="lg" classes={{ paper: classes.dialogPaper }}>
         <DialogContent style={{ margin: 0, padding: 0 }}>
           <Grid container direction='row' justify='flex-start' alignItems='flex-start'>
             <MuiPickersUtilsProvider utils={MomentUtils}>
