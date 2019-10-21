@@ -14,7 +14,6 @@ import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined'
 import withGroupCount from '../../hoc/withDashboard'
 
 import { Bar } from 'react-chartjs-2'
-import { element } from 'prop-types'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -52,7 +51,14 @@ const useStyles = makeStyles(theme => ({
   },
   inscriptosLabelcategory: {
     borderRadius: '16px',
-    padding: '2px 12px'
+    padding: '2px 12px',
+    textAlign: 'end',
+    width: 'min-content',
+    float: 'right',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    maxWidth: '90px'
   },
   grid: {
     display: 'grid',
@@ -100,7 +106,7 @@ const Dashboard = props => {
   const classes = useStyles()
   const data = []
   for (const [index, value] of props.group.reverse().entries()) {
-    if (data.length <= 4) {
+    if (data.length < 4) {
       data.push(value)
     }
   }
@@ -266,22 +272,31 @@ const Dashboard = props => {
                     </Typography>
                     </Grid>
                     <Grid item xs='auto' sm={3}>
-                      <Typography style={{ fontWeight: 'bold' }} color='inherit'>
+                      <Typography style={{ fontWeight: 'bold', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '110px' }} color='inherit'>
                         {el.raw_school.state_name}
                       </Typography>
                       <Typography className={classes.cityName}>
                         └ {el.raw_school.city_name}
                       </Typography>
                     </Grid>
+
                     <Grid item className={classes.ocultarXs} sm={4}>
-                      <div className={classes.inscriptosLabelcategory}
-                        style={{ border: '1.4px solid ' + el.color, textAlign: 'end', width: 'min-content', float: 'right' }}>
-                        {el.raw_project.category_name.map((el, idx) =>
-                          <Typography key={idx} style={{ fontSize: '12px' }}>
-                            {el.name}
+                      {el.raw_project.category_name.length > 1 ?
+                        <div className={classes.inscriptosLabelcategory}>
+                          <Typography key={idx} style={{ fontSize: '12px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '90px' }}>
+                            {el.raw_project.category_name[0].name}
                           </Typography>
-                        )}
-                      </div>
+                          <Typography key={idx} style={{ fontSize: '12px' }}>
+                            {`+ ` + (el.raw_project.category_name.length - 1) + ` más`}
+                          </Typography>
+                        </div>
+                        :
+                        <div className={classes.inscriptosLabelcategory}>
+                          <Typography key={idx} style={{ fontSize: '12px' }}>
+                            {el.raw_project.category_name[0].name}
+                          </Typography>
+                        </div>
+                      }
                     </Grid>
                   </Grid>
                 )}
