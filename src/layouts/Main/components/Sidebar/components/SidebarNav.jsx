@@ -55,7 +55,7 @@ const CustomRouterLink = forwardRef((props, ref) => (
 
 const CollapsibleList = props => {
   const classes = useStyles()
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
   const { page, children } = props
 
   const handleClick = () => {
