@@ -53,7 +53,7 @@ const Statistics = props => {
             <div className={classes.chart}>
               <Bar
                 data={{
-                  labels: props.labels,
+                  labels: props.label_participant,
                   datasets: [
                     {
                       hoverBackgroundColor: [
@@ -72,7 +72,7 @@ const Statistics = props => {
                         'rgba(54, 162, 235,0.8)',
                         'rgba(153, 102, 255,0.8)'
                       ],
-                      data: props.data
+                      data: props.participant
                     }
                   ]
                 }}
