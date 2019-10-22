@@ -24,13 +24,45 @@ function withDashboard (WrappedComponent, { ...props }) {
     return [a, b]
   }
 
+  function inArray (element, array) {
+    for (const el of array) {
+      if (element === el) {
+        return true
+      }
+    }
+
+    return false
+  }
+
+  function countParticipants (groups) {
+    var labels = []
+    var count = []
+
+    groups.forEach(group => {
+      if (!inArray(group.raw_school.state_name, labels)) {
+        labels.push(group.raw_school.state_name)
+        count[labels.indexOf(group.raw_school.state_name)] = 0
+        count[labels.indexOf(group.raw_school.state_name)] += group.raw_participant.length
+      } else {
+        count[labels.indexOf(group.raw_school.state_name)] += group.raw_participant.length
+      }
+    })
+
+    return [labels, count]
+  }
   return class extends React.Component {
     constructor (props) {
       super(props)
       this.state = {
         group: [],
         labels: [],
-        data: []
+        data: [],
+        diffusion: [],
+        school: [],
+        label_diffusion: [],
+        label_school: [],
+        label_participant: [],
+        participant: []
       }
       console.log(props.token)
     }
@@ -46,7 +78,7 @@ function withDashboard (WrappedComponent, { ...props }) {
         this.setState({ contestEnd: Moment(response[0].inscription_date_to).format('YYYY/MM/DD') })
       })
       getGroup(this.props.token).then(response => {
-        this.setState({ group: response, labels: foo(response.map(el => el.raw_school.state_name))[0], data: foo(response.map(el => el.raw_school.state_name))[1] })
+        this.setState({ group: response, labels: foo(response.map(el => el.raw_school.state_name))[0], data: foo(response.map(el => el.raw_school.state_name))[1], label_diffusion: foo(response.map(el => el.raw_project.diffusion_name))[0], diffusion: foo(response.map(el => el.raw_project.diffusion))[1], label_school: foo(response.map(el => el.raw_school.school_types_name))[0], school: foo(response.map(el => el.raw_school.school_types))[1], label_participant: countParticipants(response)[0], participant: countParticipants(response)[1] })
       })
     }
 
