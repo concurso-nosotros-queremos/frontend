@@ -87,7 +87,7 @@ const MainRouter = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  isLoggedIn: true // state.auth.isLoggedIn
+  isLoggedIn: state.auth.isLoggedIn
 })
 
 const mapDispatchToProps = dispatch => ({
