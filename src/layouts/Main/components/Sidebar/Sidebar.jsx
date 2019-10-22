@@ -1,11 +1,12 @@
 import React from 'react'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/styles'
-import { Divider, Drawer } from '@material-ui/core'
+import { Divider, Drawer, Button, Typography, ListItem, ListItemAvatar, ListItemText } from '@material-ui/core'
 import DashboardIconOutlined from '@material-ui/icons/DashboardOutlined'
 import PeopleIconOutlined from '@material-ui/icons/PeopleOutlined'
 import AddIconOutlined from '@material-ui/icons/AddOutlined'
 import AssessmentOutlinedIcon from '@material-ui/icons/AssessmentOutlined'
+import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 
 import SidebarNav from './components/SidebarNav'
 
@@ -30,11 +31,36 @@ const useStyles = makeStyles(theme => ({
     paddingTop: theme.spacing(2)
   },
   divider: {
-    margin: theme.spacing(2, 0),
+    margin: theme.spacing(1, 0),
     backgroundColor: '#FFFFFF24'
   },
   nav: {
     marginBottom: theme.spacing(2)
+  },
+  button: {
+    padding: '10px 8px',
+    marginBottom: theme.spacing(1),
+    justifyContent: 'flex-start',
+    textTransform: 'none',
+    letterSpacing: 0,
+    width: 'calc(100% - 8px)',
+    fontWeight: theme.typography.fontWeightMedium,
+    color: '#FFFFFF',
+    '& $icon': {
+      color: '#FFFFFF'
+    },
+    borderTopLeftRadius: '0px',
+    borderTopRightRadius: '50px',
+    borderBottomLeftRadius: '0px',
+    borderBottomRightRadius: '50px'
+  },
+  item: {
+    display: 'flex',
+    paddingTop: 0,
+    paddingBottom: 0,
+    flexGrow: 1,
+    display: 'flex',
+    marginTop: 'auto'
   }
 }))
 
@@ -80,11 +106,31 @@ const Sidebar = props => {
         {...rest}
         className={clsx(classes.root, className)}
       >
-        <Divider className={classes.divider} />
         <SidebarNav
           className={classes.nav}
           pages={pages}
         />
+        <div style={{ display: 'flex', flex: 1 }}>
+          <div style={{ marginTop: 'auto', width: '100%' }}>
+            <Divider className={classes.divider} />
+            <ListItem
+              classes={{ root: classes.button }}
+              dense
+              button
+              onClick={() => {
+                localStorage.clear();
+                window.location.href = '/';
+              }}
+            >
+              <ListItemAvatar>
+                <ExitToAppIcon />
+              </ListItemAvatar>
+              <ListItemText>
+                Cerrar sesion
+            </ListItemText>
+            </ListItem>
+          </div>
+        </div>
       </div>
     </Drawer>
   )
