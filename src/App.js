@@ -7,7 +7,7 @@ import MainRouter from './Routes'
 
 const store = buildStore()
 
-function App (props) {
+function App(props) {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
