@@ -117,6 +117,10 @@ const Sidebar = props => {
               classes={{ root: classes.button }}
               dense
               button
+              onClick={() => {
+                localStorage.clear();
+                window.location.href = '/';
+              }}
             >
               <ListItemAvatar>
                 <ExitToAppIcon />
