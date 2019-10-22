@@ -14,7 +14,6 @@ import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined'
 import withGroupCount from '../../hoc/withDashboard'
 
 import { Bar } from 'react-chartjs-2'
-import { element } from 'prop-types'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -44,7 +43,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   inscriptoContainer: {
-    padding: '16px',
+    padding: '12px',
     border: theme.border.primary,
     borderRadius: theme.shape.borderRadius,
     marginTop: '8px',
@@ -52,7 +51,14 @@ const useStyles = makeStyles(theme => ({
   },
   inscriptosLabelcategory: {
     borderRadius: '16px',
-    padding: '2px 12px'
+    padding: '2px 12px',
+    textAlign: 'end',
+    width: 'min-content',
+    float: 'right',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    maxWidth: '90px'
   },
   grid: {
     display: 'grid',
@@ -84,6 +90,15 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('xs')]: {
       display: 'none'
     }
+  },
+  cityName: {
+    fontSize: '12px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis',
+    [theme.breakpoints.down('xs')]: {
+      width: '100px'
+    }
+  },
+  projetName: {
+    fontWeight: 'bold', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '110px'
   }
 }))
 
@@ -91,7 +106,7 @@ const Dashboard = props => {
   const classes = useStyles()
   const data = []
   for (const [index, value] of props.group.reverse().entries()) {
-    if (data.length <= 4) {
+    if (data.length < 4) {
       data.push(value)
     }
   }
@@ -161,7 +176,7 @@ const Dashboard = props => {
         <Grid container direction='row' justify='flex-start' alignItems='flex-start'>
 
           <div className={classes.grid}>
-            <div className={clsx(classes.chart, classes.ocultarXs)}>
+            <div className={classes.chart}>
               <Bar
                 data={{
                   labels: props.labels,
@@ -204,7 +219,7 @@ const Dashboard = props => {
                     }]
                   },
                   title: {
-                    text: 'DISTRIBUCIÓN PROVINCIAL DE LOS GRUPOS',
+                    text: 'GRUPOS POR PROVINCIA',
                     fontColor: 'rgba(35, 47, 52, 0.56)',
                     fontSize: 14,
                     display: true
@@ -245,38 +260,47 @@ const Dashboard = props => {
                 <PeopleIconOutlined color='primary' />
               </Grid>
 
-              {data.map((el, idx) =>
-                <Grid key={idx} container direction='row' justify='space-between' alignItems='center' className={classes.inscriptoContainer}>
+              <Grid container direction='column' justify='flex-start' alignItems='flex-start'>
+                {data.map((el, idx) =>
+                  <Grid key={idx} container direction='row' justify='space-between' alignItems='center' className={classes.inscriptoContainer}>
+                    <Grid item xs='auto' sm={5}>
+                      <Typography className={classes.projetName} color='inherit'>
+                        {el.raw_project.name}
+                      </Typography>
+                      <Typography style={{ fontSize: '12px' }}>
+                        {el.raw_participant.length} participantes
+                    </Typography>
+                    </Grid>
+                    <Grid item xs='auto' sm={3}>
+                      <Typography style={{ fontWeight: 'bold', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '110px' }} color='inherit'>
+                        {el.raw_school.state_name}
+                      </Typography>
+                      <Typography className={classes.cityName}>
+                        └ {el.raw_school.city_name}
+                      </Typography>
+                    </Grid>
 
-                  <Grid item xs='auto' sm={5}>
-                    <Typography style={{ fontWeight: 'bold', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '110px' }} color='inherit'>
-                      {el.raw_project.name}
-                    </Typography>
-                    <Typography style={{ fontSize: '12px' }}>
-                      {el.raw_participant.length} participantes
-                    </Typography>
+                    <Grid item className={classes.ocultarXs} sm={4}>
+                      {el.raw_project.category_name.length > 1 ?
+                        <div className={classes.inscriptosLabelcategory}>
+                          <Typography key={idx} style={{ fontSize: '12px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '90px' }}>
+                            {el.raw_project.category_name[0].name}
+                          </Typography>
+                          <Typography key={idx} style={{ fontSize: '12px' }}>
+                            {`+ ` + (el.raw_project.category_name.length - 1) + ` más`}
+                          </Typography>
+                        </div>
+                        :
+                        <div className={classes.inscriptosLabelcategory}>
+                          <Typography key={idx} style={{ fontSize: '12px' }}>
+                            {el.raw_project.category_name[0].name}
+                          </Typography>
+                        </div>
+                      }
+                    </Grid>
                   </Grid>
-
-                  <Grid item xs='auto' sm={3}>
-                    <Typography style={{ fontWeight: 'bold' }} color='inherit'>
-                      {el.raw_school.state_name}
-                    </Typography>
-                    <Typography style={{ fontSize: '12px' }}>
-                      └ {el.raw_school.city_name}
-                    </Typography>
-                  </Grid>
-                  <Grid item className={classes.ocultarXs} sm={4}>
-                    <div className={classes.inscriptosLabelcategory} style={{ border: '1.4px solid ' + el.color, textAlign: 'center', width: 'min-content', float: 'right' }}>
-                      {el.raw_project.category_name.map((el, idx) =>
-                        <Typography key={idx}>
-                          {el.name}
-                        </Typography>
-
-                      )}
-                    </div>
-                  </Grid>
-                </Grid>
-              )}
+                )}
+              </Grid>
             </div>
           </div>
         </Grid>
