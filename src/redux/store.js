@@ -11,11 +11,11 @@ const logger = createLogger({
   // TODO: implement custom logger
 })
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 export function buildStore () {
   return createStore(
     rootReducer,
-    composeEnhancer(applyMiddleware(logger, googleLoginMiddleware, facebookLoginMiddleware, authMiddleware)),
+    composeEnhancer(applyMiddleware(logger, googleLoginMiddleware, facebookLoginMiddleware, authMiddleware))
   )
 }

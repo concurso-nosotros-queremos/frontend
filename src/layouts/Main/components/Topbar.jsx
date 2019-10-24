@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/styles'
 import { AppBar, Toolbar, Hidden, IconButton, Avatar, Typography, Grid } from '@material-ui/core'
@@ -25,6 +26,7 @@ const Topbar = props => {
 
   const classes = useStyles()
 
+  console.log(props)
   return (
     <AppBar
       {...rest}
@@ -43,19 +45,23 @@ const Topbar = props => {
         <Grid container className={classes.userContainer}>
           <Grid item container xs={12} justify='flex-end'>
             <Typography variant='body1' color='textPrimary' style={{ fontWeight: 600 }}>
-              Inclusion social
+              {props.user.name}
             </Typography>
           </Grid>
           <Grid item container xs={12} justify='flex-end'>
             <Typography variant='body2' color='textPrimary'>
-              Usuario administrador
+              {props.user.email}
             </Typography>
           </Grid>
         </Grid>
-        <Avatar style={{ marginRight: 12 }} src='https://i.pinimg.com/originals/f1/01/42/f1014279f4408172017f0c84c26cf639.jpg' className={classes.avatar} />
+        <Avatar style={{ marginRight: 12 }} src={props.user.imageUrl} className={classes.avatar} />
       </Toolbar>
     </AppBar>
   )
 }
 
-export default Topbar
+const mapStateToProps = (state) => ({
+  user: state.googleLogin.user
+})
+
+export default connect(mapStateToProps)(Topbar)
