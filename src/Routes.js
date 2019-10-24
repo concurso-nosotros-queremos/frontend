@@ -10,7 +10,6 @@ import Groups from './views/Groups/Groups'
 import Dashboard from './views/Dashboard/Dashboard'
 import Statistics from './views/Statistics/Statistics'
 import FormSuccess from './views/Dashboard/FormSuccess'
-import { authGetPersistedTokenRequest } from './redux/auth/actions'
 
 const ProtectedRoute = ({ isAllowed, ...props }) => {
   return (
@@ -19,10 +18,6 @@ const ProtectedRoute = ({ isAllowed, ...props }) => {
 }
 
 class Routes extends Component {
-  componentDidMount () {
-    this.props.authGetPersistedTokenRequest()
-  }
-
   render () {
     return (
       <Switch>
@@ -90,8 +85,4 @@ const mapStateToProps = (state) => ({
   isLoggedIn: state.auth.isLoggedIn
 })
 
-const mapDispatchToProps = dispatch => ({
-  authGetPersistedTokenRequest: () => dispatch(authGetPersistedTokenRequest())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainRouter)
+export default connect(mapStateToProps)(MainRouter)

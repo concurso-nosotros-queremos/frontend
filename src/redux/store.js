@@ -4,6 +4,8 @@ import googleLogin from './googleLogin/reducers'
 import facebookLogin from './facebookLogin/reducers'
 import auth from './auth/reducers'
 import { googleLoginMiddleware, facebookLoginMiddleware, authMiddleware } from './middleware'
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 
 const rootReducer = combineReducers({ googleLogin, facebookLogin, auth })
 
@@ -13,9 +15,18 @@ const logger = createLogger({
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
+const persistConfig = {
+  key: 'root',
+  storage
+}
+
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
 export function buildStore () {
-  return createStore(
-    rootReducer,
+  const store = createStore(
+    persistedReducer,
     composeEnhancer(applyMiddleware(logger, googleLoginMiddleware, facebookLoginMiddleware, authMiddleware))
   )
+  const persistor = persistStore(store)
+  return { store, persistor }
 }
