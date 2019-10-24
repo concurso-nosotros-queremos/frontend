@@ -57,7 +57,7 @@ export default function SimpleDialog (props) {
             </MuiPickersUtilsProvider>
           </Grid>
         </DialogContent>
-        <DialogActions dividers>
+        <DialogActions>
           <Button onClick={handleClose} color='primary'>
             Cancelar
           </Button>
