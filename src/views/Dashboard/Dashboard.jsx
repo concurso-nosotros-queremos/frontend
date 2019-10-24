@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/styles'
-import { Grid, CardContent, ListItemSecondaryAction } from '@material-ui/core'
+import { Grid, CardContent } from '@material-ui/core'
 import { connect } from 'react-redux'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
@@ -93,7 +93,10 @@ const useStyles = makeStyles(theme => ({
     }
   },
   cityName: {
-    fontSize: '12px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis',
+    fontSize: '12px',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
     [theme.breakpoints.down('xs')]: {
       width: '100px'
     }
@@ -106,7 +109,7 @@ const useStyles = makeStyles(theme => ({
 const Dashboard = props => {
   const classes = useStyles()
   const data = []
-  for (const [index, value] of props.group.reverse().entries()) {
+  for (const [index, value] of props.group.reverse().entries()) { // eslint-disable-line no-unused-vars
     if (data.length < 4) {
       data.push(value)
     }
@@ -270,7 +273,7 @@ const Dashboard = props => {
                       </Typography>
                       <Typography style={{ fontSize: '12px' }}>
                         {el.raw_participant.length} participantes
-                    </Typography>
+                      </Typography>
                     </Grid>
                     <Grid item xs='auto' sm={3}>
                       <Typography style={{ fontWeight: 'bold', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '110px' }} color='inherit'>
@@ -282,22 +285,24 @@ const Dashboard = props => {
                     </Grid>
 
                     <Grid item className={classes.ocultarXs} sm={4}>
-                      {el.raw_project.category_name.length > 1 ?
-                        <div className={classes.inscriptosLabelcategory}>
-                          <Typography key={idx} style={{ fontSize: '12px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '90px' }}>
-                            {el.raw_project.category_name[0].name}
-                          </Typography>
-                          <Typography key={idx} style={{ fontSize: '12px' }}>
-                            {`+ ` + (el.raw_project.category_name.length - 1) + ` más`}
-                          </Typography>
-                        </div>
-                        :
-                        <div className={classes.inscriptosLabelcategory}>
-                          <Typography key={idx} style={{ fontSize: '12px' }}>
-                            {el.raw_project.category_name[0].name}
-                          </Typography>
-                        </div>
-                      }
+                      {el.raw_project.category_name.length > 1
+                        ? (
+                          <div className={classes.inscriptosLabelcategory}>
+                            <Typography style={{ fontSize: '12px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '90px' }}>
+                              {el.raw_project.category_name[0].name}
+                            </Typography>
+                            <Typography style={{ fontSize: '12px' }}>
+                              {'+ ' + (el.raw_project.category_name.length - 1) + ' más'}
+                            </Typography>
+                          </div>
+                        )
+                        : (
+                          <div className={classes.inscriptosLabelcategory}>
+                            <Typography style={{ fontSize: '12px' }}>
+                              {el.raw_project.category_name[0].name}
+                            </Typography>
+                          </div>
+                        )}
                     </Grid>
                   </Grid>
                 )}

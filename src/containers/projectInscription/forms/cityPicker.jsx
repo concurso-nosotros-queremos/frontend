@@ -27,31 +27,33 @@ const CityPicker = props => {
   return (
     <Grid container spacing={2}>
       {props.states
-        ? <>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              {...props}
-              label='Provincia'
-              error={false}
-              helperText={null}
-              value={state}
-              onChange={handleChange}
-              select
-            >
-              {buildStates()}
-            </TextField>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              {...props}
-              {...props.field}
-              disabled={!state && true}
-              select
-            >
-              {buildCities()}
-            </TextField>
-          </Grid>
-        </> : <CircularProgress />}
+        ? (
+          <>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                {...props}
+                label='Provincia'
+                error={false}
+                helperText={null}
+                value={state}
+                onChange={handleChange}
+                select
+              >
+                {buildStates()}
+              </TextField>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                {...props}
+                {...props.field}
+                disabled={!state && true}
+                select
+              >
+                {buildCities()}
+              </TextField>
+            </Grid>
+          </>
+        ) : <CircularProgress />}
     </Grid>
   )
 }

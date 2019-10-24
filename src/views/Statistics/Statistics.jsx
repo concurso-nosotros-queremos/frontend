@@ -1,5 +1,4 @@
 import React from 'react'
-import clsx from 'clsx'
 import { makeStyles } from '@material-ui/styles'
 import { Grid } from '@material-ui/core'
 import { Bar, Doughnut, Pie } from 'react-chartjs-2'

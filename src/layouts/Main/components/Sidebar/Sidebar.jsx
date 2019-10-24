@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/styles'
-import { Divider, Drawer, Button, Typography, ListItem, ListItemAvatar, ListItemText } from '@material-ui/core'
+import { Divider, Drawer, ListItem, ListItemAvatar, ListItemText } from '@material-ui/core'
 import DashboardIconOutlined from '@material-ui/icons/DashboardOutlined'
 import PeopleIconOutlined from '@material-ui/icons/PeopleOutlined'
 import AddIconOutlined from '@material-ui/icons/AddOutlined'
@@ -59,7 +59,6 @@ const useStyles = makeStyles(theme => ({
     paddingTop: 0,
     paddingBottom: 0,
     flexGrow: 1,
-    display: 'flex',
     marginTop: 'auto'
   }
 }))
@@ -118,8 +117,8 @@ const Sidebar = props => {
               dense
               button
               onClick={() => {
-                localStorage.clear();
-                window.location.href = '/';
+                window.localStorage.clear()
+                window.location.href = '/'
               }}
             >
               <ListItemAvatar>
@@ -127,7 +126,7 @@ const Sidebar = props => {
               </ListItemAvatar>
               <ListItemText>
                 Cerrar sesion
-            </ListItemText>
+              </ListItemText>
             </ListItem>
           </div>
         </div>

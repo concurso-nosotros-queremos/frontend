@@ -1,8 +1,5 @@
 import React from 'react'
-import { render } from 'react-dom'
-import { Formik, FieldArray } from 'formik'
-
-console.clear()
+import { FieldArray } from 'formik'
 
 const categories = [
   { id: 1, name: 'Medio Ambiente' },

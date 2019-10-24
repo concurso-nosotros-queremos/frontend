@@ -29,21 +29,20 @@ class GoogleLoginContainer extends Component {
   constructor (props) {
     super(props)
 
-    this.googleLoginRequestHandler = this.googleLoginRequestHandler.bind(this)
-    this.googleLoginSuccessHandler = this.googleLoginSuccessHandler.bind(this)
-    this.googleLoginErrorHandler = this.googleLoginErrorHandler.bind(this)
+    this.handleGoogleLoginRequest = this.handleGoogleLoginRequest.bind(this)
+    this.handleGoogleLoginSuccess = this.handleGoogleLoginSuccess.bind(this)
+    this.handleGoogleLoginError = this.handleGoogleLoginError.bind(this)
   }
 
-  googleLoginRequestHandler () {
+  handleGoogleLoginRequest () {
     this.props.googleLoginRequest()
   }
 
-  googleLoginSuccessHandler (response) {
-    console.log(response)
+  handleGoogleLoginSuccess (response) {
     this.props.googleLoginSuccess(response)
   }
 
-  googleLoginErrorHandler (response) {
+  handleGoogleLoginError (response) {
     this.props.googleLoginError(response)
   }
 
@@ -66,9 +65,9 @@ class GoogleLoginContainer extends Component {
         className={classes.google}
         clientId='246477987916-97olebrvqhp82rki0n5h17u679m4tmpi.apps.googleusercontent.com'
         buttonText='Login with Google'
-        onRequest={this.googleLoginRequestHandler}
-        onSuccess={this.googleLoginSuccessHandler}
-        onFailure={this.googleLoginErrorHandler}
+        onRequest={this.handleGoogleLoginRequest}
+        onSuccess={this.handleGoogleLoginSuccess}
+        onFailure={this.handleGoogleLoginError}
         prompt='select_account'
         redirectUri='http://localhost:3000/secret/'
       />
