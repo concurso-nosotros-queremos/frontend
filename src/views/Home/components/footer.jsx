@@ -84,7 +84,7 @@ export default function Footer () {
                     <Grid item>
                       <li>
                         <img src={require('../../../assets/facebook.png')} alt='facebook' className={classes.liIconStyle} />
-                        <Link href='https://www.facebook.com/inclusionsocial/' variant='body1' className={classes.liStyle} color='initial'>
+                        <Link href='https://www.facebook.com/inclusionsocial/' variant='body1' className={classes.liStyle} color='textPrimary'>
                           Facebook
                         </Link>
                       </li>
@@ -92,7 +92,7 @@ export default function Footer () {
                     <Grid item>
                       <li>
                         <img src={require('../../../assets/instagram.png')} alt='instagram' className={classes.liIconStyle} />
-                        <Link href='https://www.instagram.com/fundacionin/' variant='body1' className={classes.liStyle} color='initial'>
+                        <Link href='https://www.instagram.com/fundacionin/' variant='body1' className={classes.liStyle} color='textPrimary'>
                           Instagram
                         </Link>
                       </li>
@@ -100,7 +100,7 @@ export default function Footer () {
                     <Grid item>
                       <li>
                         <img src={require('../../../assets/twitter.png')} alt='twitter' className={classes.liIconStyle} />
-                        <Link href='https://twitter.com/FundacionIN_' variant='body1' className={classes.liStyle} color='initial'>
+                        <Link href='https://twitter.com/FundacionIN_' variant='body1' className={classes.liStyle} color='textPrimary'>
                           Twitter
                         </Link>
                       </li>
@@ -108,7 +108,7 @@ export default function Footer () {
                     <Grid item>
                       <li>
                         <img src={require('../../../assets/linkedin.png')} alt='linkedin' className={classes.liIconStyle} />
-                        <Link href='https://www.linkedin.com/company/fundación-inclusión-social' variant='body1' className={classes.liStyle} color='initial'>
+                        <Link href='https://www.linkedin.com/company/fundación-inclusión-social' variant='body1' className={classes.liStyle} color='textPrimary'>
                           LinkedIn
                         </Link>
                       </li>
