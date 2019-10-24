@@ -4,6 +4,7 @@ const initialState = {
   isLoading: false,
   isLoggedIn: false,
   googToken: {},
+  user: {},
   error: null
 }
 
@@ -14,9 +15,11 @@ export default (state = initialState, action) => {
         isLoading: true,
         isLoggedIn: false,
         googToken: {},
+        user: {},
         error: null
       })
     case GOOGLE_LOGIN_SUCCESS:
+      console.log(action)
       return Object.assign({}, state, {
         isLoading: false,
         isLoggedIn: true,
@@ -29,6 +32,9 @@ export default (state = initialState, action) => {
           loginHint: action.data.tokenObj.login_hint,
           scope: action.data.tokenObj.scope
         },
+        user: {
+          ...action.data.profileObj
+        },
         error: null
       })
     case GOOGLE_LOGIN_ERROR:
@@ -36,6 +42,7 @@ export default (state = initialState, action) => {
         isLoading: false,
         isLoggedIn: false,
         googToken: {},
+        user: {},
         error: action.error.error
       })
     default:

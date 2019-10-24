@@ -39,6 +39,7 @@ class GoogleLoginContainer extends Component {
   }
 
   googleLoginSuccessHandler (response) {
+    console.log(response)
     this.props.googleLoginSuccess(response)
   }
 
