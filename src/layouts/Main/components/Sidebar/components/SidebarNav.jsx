@@ -103,37 +103,35 @@ const CollapsibleList = props => {
 }
 
 const SidebarNav = props => {
-  const { className, ...rest } = props
+  const { className, staticContext, ...rest } = props
   const classes = useStyles()
 
   const buildPages = (pages) => {
     return pages.map((page, idx) => (
-      <>
-        {getIn(page, 'children.length')
-          ? (
-            <CollapsibleList page={page} {...props}>
-              {buildPages(page.children)}
-            </CollapsibleList>
-          )
-          : (
-            <ListItem
-              className={classes.item}
-              classes={{ root: clsx({ [classes.button]: true, [classes.buttonActive]: props.location.pathname === page.href }) }}
-              dense
-              button
-              component={CustomRouterLink}
-              to={page.href}
-              key={idx}
-            >
-              <ListItemAvatar>
-                {page.icon}
-              </ListItemAvatar>
-              <ListItemText>
-                {page.title}
-              </ListItemText>
-            </ListItem>
-          )}
-      </>
+      getIn(page, 'children.length')
+        ? (
+          <CollapsibleList key={idx} page={page} {...props}>
+            {buildPages(page.children)}
+          </CollapsibleList>
+        )
+        : (
+          <ListItem
+            className={classes.item}
+            classes={{ root: clsx({ [classes.button]: true, [classes.buttonActive]: props.location.pathname === page.href }) }}
+            dense
+            button
+            component={CustomRouterLink}
+            to={page.href}
+            key={idx}
+          >
+            <ListItemAvatar>
+              {page.icon}
+            </ListItemAvatar>
+            <ListItemText>
+              {page.title}
+            </ListItemText>
+          </ListItem>
+        )
     ))
   }
 

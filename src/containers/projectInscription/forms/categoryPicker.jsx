@@ -1,8 +1,6 @@
 import React from 'react'
 import { FieldArray } from 'formik'
 
-console.clear()
-
 const categories = [
   { id: 1, name: 'Medio Ambiente' },
   { id: 2, name: 'Adicciones' },

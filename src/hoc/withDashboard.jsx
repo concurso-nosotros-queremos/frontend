@@ -63,7 +63,6 @@ function withDashboard (WrappedComponent, { ...props }) {
         label_participant: [],
         participant: []
       }
-      console.log(props.token)
     }
 
     componentDidMount () {

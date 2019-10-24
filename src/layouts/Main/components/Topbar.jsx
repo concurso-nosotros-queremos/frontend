@@ -22,11 +22,10 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Topbar = props => {
-  const { className, onSidebarOpen, ...rest } = props
+  const { className, onSidebarOpen, dispatch, ...rest } = props
 
   const classes = useStyles()
 
-  console.log(props)
   return (
     <AppBar
       {...rest}
