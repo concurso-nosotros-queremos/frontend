@@ -19,7 +19,6 @@ export default (state = initialState, action) => {
         error: null
       })
     case GOOGLE_LOGIN_SUCCESS:
-      console.log(action)
       return Object.assign({}, state, {
         isLoading: false,
         isLoggedIn: true,
