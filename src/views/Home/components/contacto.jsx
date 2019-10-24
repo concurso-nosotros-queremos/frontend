@@ -1,28 +1,55 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { makeStyles } from '@material-ui/core/styles/index'
 import Typography from '@material-ui/core/Typography/index'
 import Grid from '@material-ui/core/Grid'
 import { Button, FormControlLabel, Checkbox } from '@material-ui/core'
 import TextField from '@material-ui/core/TextField'
+import fetchResource from '../../../services/apiHandler'
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexGrow: '1',
-    [theme.breakpoints.up('lg')]: {
-      paddingLeft: '8rem',
-      paddingRight: '8rem'
-    }
-  },
-  titleContainer: {
-    marginBottom: '1rem'
-  },
-  formContainer: {
+class Contacto extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      name: '',
+      email: '',
+      message: '',
+    };
   }
-}))
 
-export default function Contacto () {
-  const classes = useStyles()
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+
+    });
+  };
+  
+
+  handleClick = () => {
+    return fetchResource('rest/message_email/', {
+      method: 'POST',
+      body: {
+        ...this.state
+      }
+    })
+    };
+  
+  render(){
+
+    const classes = makeStyles(theme => ({
+      root: {
+        display: 'flex',
+        flexGrow: '1',
+        [theme.breakpoints.up('lg')]: {
+          paddingLeft: '8rem',
+          paddingRight: '8rem'
+        }
+      },
+      titleContainer: {
+        marginBottom: '1rem'
+      },
+      formContainer: {
+      }
+    }))
 
   return (
     <>
@@ -41,30 +68,37 @@ export default function Contacto () {
           <form style={{ width: '100%' }}>
             <Grid item>
               <TextField
-                id='name'
-                label='Nombre y Apellido'
+                name='name'
+                label='Nombre'
                 fullWidth
+                margin='normal'
                 variant='outlined'
+               onChange={this.handleChange}
+               value={this.state.name}
               />
             </Grid>
             <Grid item>
               <TextField
-                id='email'
+                name='email'
                 label='Email'
                 fullWidth
                 margin='normal'
                 variant='outlined'
+                onChange={this.handleChange}
+                value={this.state.email}
               />
             </Grid>
             <Grid item>
               <TextField
-                id='message'
+                name='message'
                 label='Mensaje'
                 fullWidth
                 multiline
                 rows='4'
                 margin='normal'
                 variant='outlined'
+                onChange={this.handleChange}
+                value={this.state.message}
               />
             </Grid>
             <Grid item container direction='row' justify='space-between' alignItems='center' style={{ marginTop: '1rem' }}>
@@ -84,7 +118,7 @@ export default function Contacto () {
                 />
               </Grid>
               <Grid item>
-                <Button variant='contained' color='primary' size='large'>
+                <Button variant='contained' color='primary' size='large' onClick={this.handleClick}>
                   Enviar
                 </Button>
               </Grid>
@@ -95,3 +129,5 @@ export default function Contacto () {
     </>
   )
 }
+}
+export default Contacto
