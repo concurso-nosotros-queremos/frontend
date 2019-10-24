@@ -107,7 +107,7 @@ const SidebarNav = props => {
   const classes = useStyles()
 
   const buildPages = (pages) => {
-    return pages.map(page => (
+    return pages.map((page, idx) => (
       <>
         {getIn(page, 'children.length')
           ? (
@@ -123,7 +123,7 @@ const SidebarNav = props => {
               button
               component={CustomRouterLink}
               to={page.href}
-              key={page.title}
+              key={idx}
             >
               <ListItemAvatar>
                 {page.icon}

@@ -1,6 +1,5 @@
 import React from 'react'
-import { render } from 'react-dom'
-import { Formik, FieldArray } from 'formik'
+import { FieldArray } from 'formik'
 
 console.clear()
 

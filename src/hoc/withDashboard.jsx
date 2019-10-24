@@ -3,7 +3,6 @@ import { getGroupCount } from '../services/groupCount.service'
 import { getParticipantCount } from '../services/participants.service'
 import { getContestEnd } from '../services/contestEnd.service'
 import { getGroup } from '../services/groups.service'
-import { getState } from '../services/groupState.service'
 import Moment from 'moment'
 
 function withDashboard (WrappedComponent, { ...props }) {

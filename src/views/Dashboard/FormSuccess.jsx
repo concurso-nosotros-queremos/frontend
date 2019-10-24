@@ -21,7 +21,6 @@ const useStyles = makeStyles(theme => ({
     marginTop: '1rem',
     width: '100%',
     height: '100%',
-    height: '15rem',
     marginBottom: '2rem'
   }
 }))
