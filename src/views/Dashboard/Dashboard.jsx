@@ -11,9 +11,8 @@ import PeopleIconOutlined from '@material-ui/icons/PeopleOutlined'
 import PersonOutlinedIcon from '@material-ui/icons/PersonOutlined'
 import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined'
 import Dialog from './components/Dialog'
-
 import withGroupCount from '../../hoc/withDashboard'
-
+import { Link } from 'react-router-dom'
 import { Bar } from 'react-chartjs-2'
 
 const useStyles = makeStyles(theme => ({
@@ -23,10 +22,10 @@ const useStyles = makeStyles(theme => ({
   card: {
     padding: '8px',
     width: '100%',
-    border: theme.border.primary
+    border: theme.border.primary,
+    height: '126.891px'
   },
   green: {
-    height: '126.891px',
     backgroundColor: theme.palette.primary.main
   },
   red: {
@@ -134,7 +133,7 @@ const Dashboard = props => {
                 </Typography>
               </CardContent>
               <CardActions style={{ justifyContent: 'flex-end' }}>
-                <Button size='small' className={classes.button} color='primary'>Ver todos</Button>
+                <Button size='small' className={classes.button} color='primary' to='/groups' component={Link}>Ver todos</Button>
               </CardActions>
             </Card>
           </Grid>
