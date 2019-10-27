@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: '8px',
     maxHeight: '73px',
     textTransform: 'none',
-    width: '100%',
+    width: '100%'
   },
   inscriptosLabelcategory: {
     borderRadius: '16px',
@@ -272,7 +272,7 @@ const Dashboard = props => {
                         </Typography>
                         <Typography style={{ fontSize: '12px' }}>
                           {el.raw_participant.length} participantes
-                      </Typography>
+                        </Typography>
                       </Grid>
                       <Grid item xs='auto' sm={3}>
                         <Typography style={{ fontWeight: 'bold', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '110px' }} color='inherit'>
