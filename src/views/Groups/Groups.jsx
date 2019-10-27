@@ -9,8 +9,11 @@ import Typography from '@material-ui/core/Typography'
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined'
 import NavigateNextIcon from '@material-ui/icons/NavigateNext'
 import AddIcon from '@material-ui/icons/Add'
-
 import { Link } from 'react-router-dom'
+import Paper from '@material-ui/core/Paper'
+
+import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core'
+
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -37,20 +40,112 @@ const useStyles = makeStyles(theme => ({
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     fontSize: '22px'
-  }
+  },
+  tableCellText: {
+    fontSize: '14px',
+    fontWeight: 'bold'
+  },
+  card: {
+    border: theme.border.primary,
+    width: '100%',
+    borderBottom: 0,
+    borderRadius: theme.shape.borderRadius,
+  },
 }))
 
 const data = [
   {
     nombre: 'Damajuana solidaria',
     total: '41',
-    url: ''
+    city: 'Cordoba',
+    state: 'Aldea Santa Maria'
   },
   {
     nombre: 'El termoDinamico',
     total: '13',
-    url: ''
-  }
+    city: 'Mendoza',
+    state: 'Fray Luis Beltran'
+  },
+  {
+    nombre: 'Damajuana solidaria',
+    total: '41',
+    city: 'Cordoba',
+    state: 'Aldea Santa Maria'
+  },
+  {
+    nombre: 'El termoDinamico',
+    total: '13',
+    city: 'Mendoza',
+    state: 'Fray Luis Beltran'
+  }, {
+    nombre: 'Damajuana solidaria',
+    total: '41',
+    city: 'Cordoba',
+    state: 'Aldea Santa Maria'
+  },
+  {
+    nombre: 'El termoDinamico',
+    total: '13',
+    city: 'Mendoza',
+    state: 'Fray Luis Beltran'
+  }, {
+    nombre: 'Damajuana solidaria',
+    total: '41',
+    city: 'Cordoba',
+    state: 'Aldea Santa Maria'
+  },
+  {
+    nombre: 'El termoDinamico',
+    total: '13',
+    city: 'Mendoza',
+    state: 'Fray Luis Beltran'
+  },
+  {
+    nombre: 'Damajuana solidaria',
+    total: '41',
+    city: 'Cordoba',
+    state: 'Aldea Santa Maria'
+  },
+  {
+    nombre: 'El termoDinamico',
+    total: '13',
+    city: 'Mendoza',
+    state: 'Fray Luis Beltran'
+  }, {
+    nombre: 'Damajuana solidaria',
+    total: '41',
+    city: 'Cordoba',
+    state: 'Aldea Santa Maria'
+  },
+  {
+    nombre: 'El termoDinamico',
+    total: '13',
+    city: 'Mendoza',
+    state: 'Fray Luis Beltran'
+  },
+  {
+    nombre: 'Damajuana solidaria',
+    total: '41',
+    city: 'Cordoba',
+    state: 'Aldea Santa Maria'
+  },
+  {
+    nombre: 'El termoDinamico',
+    total: '13',
+    city: 'Mendoza',
+    state: 'Fray Luis Beltran'
+  }, {
+    nombre: 'Damajuana solidaria',
+    total: '41',
+    city: 'Cordoba',
+    state: 'Aldea Santa Maria'
+  },
+  {
+    nombre: 'El termoDinamico',
+    total: '13',
+    city: 'Mendoza',
+    state: 'Fray Luis Beltran'
+  },
 ]
 
 const Groups = props => {
@@ -58,51 +153,37 @@ const Groups = props => {
 
   return (
     <>
-      <Grid container direction='row' justify='flex-start' alignItems='flex-start'>
-
-        {data.map((el, idx) =>
-          <Grid container item xs={12} sm={6} md={4} lg={6} xl={3} key={idx} className={classes.root}>
-            <Card className={classes.card} elevation={0}>
-              <CardHeader
-                title={
-                  <Typography className={classes.title}>
-                    {el.nombre}
-                  </Typography>
-                }
-              />
-              <CardActions style={{ padding: '16px' }}>
-                <Grid container direction='row' justify='space-between' alignItems='center'>
-                  <Grid container item xs direction='row' justify='flex-start' alignItems='center'>
-                    <Typography style={{ marginRight: '0.5rem', fontSize: '20px', fontWeight: '500' }}>
-                      {el.total}
-                    </Typography>
-                    <PermIdentityOutlinedIcon htmlColor='rgba(35, 47, 52, 0.8)' />
-                  </Grid>
-                  <Grid item>
-                    <Button variant='text' color='primary' href={el.url}>
-                      <Typography color='primary'>
-                        Ver mas
-                      </Typography>
-                      <NavigateNextIcon />
-                    </Button>
-                  </Grid>
-                </Grid>
-              </CardActions>
-            </Card>
-          </Grid>
-        )}
-
-        <Grid container item xs={12} sm={6} md={4} lg={6} xl={3} className={classes.root}>
-          <Button variant='outlined' className={classes.button} color='default' to='/groups/add' component={Link}>
-            <Grid
-              container direction='column' justify='center' alignItems='center'
-              style={{ height: '100%' }}
-            >
-              <AddIcon fontSize='large' />
-              Agregar un nuevo grupo
-            </Grid>
-          </Button>
-        </Grid>
+      <Grid container direction='row' justify='flex-start' alignItems='flex-start' className={classes.root}>
+        <Card className={classes.card} elevation={0}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell className={classes.tableCellText}>Nombre</TableCell>
+                <TableCell className={classes.tableCellText} align="center">Alumnos</TableCell>
+                <TableCell className={classes.tableCellText}>Provincia</TableCell>
+                <TableCell className={classes.tableCellText}>Localidad</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {data.map(row => (
+                <TableRow>
+                  <TableCell component="th" scope="row">
+                    <Typography style={{ fontWeight: 'bold' }}>{row.nombre}</Typography>
+                  </TableCell>
+                  <TableCell align="center" component="th" scope="row">
+                    {row.total}
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    {row.city}
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    {row.state}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </Card>
       </Grid>
     </>
 
