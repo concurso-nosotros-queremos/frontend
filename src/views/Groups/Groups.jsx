@@ -51,6 +51,12 @@ const useStyles = makeStyles(theme => ({
     borderBottom: 0,
     borderRadius: theme.shape.borderRadius,
   },
+  tableRow: {
+    textDecoration: 'none',
+    '&:hover': {
+      backgroundColor: 'rgba(35, 47, 52, 0.08)'
+    }
+  }
 }))
 
 const data = [
@@ -58,93 +64,141 @@ const data = [
     nombre: 'Damajuana solidaria',
     total: '41',
     city: 'Cordoba',
-    state: 'Aldea Santa Maria'
+    state: 'Aldea Santa Maria',
+    raw_project: {
+      id: '2',
+    }
   },
   {
     nombre: 'El termoDinamico',
     total: '13',
     city: 'Mendoza',
-    state: 'Fray Luis Beltran'
+    state: 'Fray Luis Beltran',
+    raw_project: {
+      id: '2',
+    }
   },
   {
     nombre: 'Damajuana solidaria',
     total: '41',
     city: 'Cordoba',
-    state: 'Aldea Santa Maria'
+    state: 'Aldea Santa Maria',
+    raw_project: {
+      id: '2',
+    }
   },
   {
     nombre: 'El termoDinamico',
     total: '13',
     city: 'Mendoza',
-    state: 'Fray Luis Beltran'
+    state: 'Fray Luis Beltran',
+    raw_project: {
+      id: '2',
+    }
   }, {
     nombre: 'Damajuana solidaria',
     total: '41',
     city: 'Cordoba',
-    state: 'Aldea Santa Maria'
+    state: 'Aldea Santa Maria',
+    raw_project: {
+      id: '2',
+    }
   },
   {
     nombre: 'El termoDinamico',
     total: '13',
     city: 'Mendoza',
-    state: 'Fray Luis Beltran'
+    state: 'Fray Luis Beltran',
+    raw_project: {
+      id: '2',
+    }
   }, {
     nombre: 'Damajuana solidaria',
     total: '41',
     city: 'Cordoba',
-    state: 'Aldea Santa Maria'
+    state: 'Aldea Santa Maria',
+    raw_project: {
+      id: '2',
+    }
   },
   {
     nombre: 'El termoDinamico',
     total: '13',
     city: 'Mendoza',
-    state: 'Fray Luis Beltran'
+    state: 'Fray Luis Beltran',
+    raw_project: {
+      id: '2',
+    }
   },
   {
     nombre: 'Damajuana solidaria',
     total: '41',
     city: 'Cordoba',
-    state: 'Aldea Santa Maria'
+    state: 'Aldea Santa Maria',
+    raw_project: {
+      id: '2',
+    }
   },
   {
     nombre: 'El termoDinamico',
     total: '13',
     city: 'Mendoza',
-    state: 'Fray Luis Beltran'
+    state: 'Fray Luis Beltran',
+    raw_project: {
+      id: '2',
+    }
   }, {
     nombre: 'Damajuana solidaria',
     total: '41',
     city: 'Cordoba',
-    state: 'Aldea Santa Maria'
+    state: 'Aldea Santa Maria',
+    raw_project: {
+      id: '2',
+    }
   },
   {
     nombre: 'El termoDinamico',
     total: '13',
     city: 'Mendoza',
-    state: 'Fray Luis Beltran'
+    state: 'Fray Luis Beltran',
+    raw_project: {
+      id: '2',
+    }
   },
   {
     nombre: 'Damajuana solidaria',
     total: '41',
     city: 'Cordoba',
-    state: 'Aldea Santa Maria'
+    state: 'Aldea Santa Maria',
+    raw_project: {
+      id: '2',
+    }
   },
   {
     nombre: 'El termoDinamico',
     total: '13',
     city: 'Mendoza',
-    state: 'Fray Luis Beltran'
+    state: 'Fray Luis Beltran',
+    raw_project: {
+      id: '2',
+    }
   }, {
     nombre: 'Damajuana solidaria',
     total: '41',
     city: 'Cordoba',
-    state: 'Aldea Santa Maria'
+    state: 'Aldea Santa Maria',
+    raw_project: {
+      id: '2',
+    }
   },
   {
     nombre: 'El termoDinamico',
     total: '13',
     city: 'Mendoza',
-    state: 'Fray Luis Beltran'
+    state: 'Fray Luis Beltran',
+    raw_project: {
+      id: '2',
+    }
   },
 ]
 
@@ -166,7 +220,7 @@ const Groups = props => {
             </TableHead>
             <TableBody>
               {data.map(row => (
-                <TableRow>
+                <TableRow to={'/groups/' + (row.raw_project.id)} component={Link} className={classes.tableRow}>
                   <TableCell component="th" scope="row">
                     <Typography style={{ fontWeight: 'bold' }}>{row.nombre}</Typography>
                   </TableCell>
