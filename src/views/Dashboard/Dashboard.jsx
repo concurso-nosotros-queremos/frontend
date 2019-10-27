@@ -11,9 +11,8 @@ import PeopleIconOutlined from '@material-ui/icons/PeopleOutlined'
 import PersonOutlinedIcon from '@material-ui/icons/PersonOutlined'
 import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined'
 import Dialog from './components/Dialog'
-
 import withGroupCount from '../../hoc/withDashboard'
-
+import { Link, Redirect } from 'react-router-dom'
 import { Bar } from 'react-chartjs-2'
 
 const useStyles = makeStyles(theme => ({
@@ -23,7 +22,8 @@ const useStyles = makeStyles(theme => ({
   card: {
     padding: '8px',
     width: '100%',
-    border: theme.border.primary
+    border: theme.border.primary,
+    height: '126.891px'
   },
   green: {
     backgroundColor: theme.palette.primary.main
@@ -43,12 +43,14 @@ const useStyles = makeStyles(theme => ({
       boxShadow: 'none'
     }
   },
-  inscriptoContainer: {
+  ultInscriptosBtnContainer: {
     padding: '12px',
     border: theme.border.primary,
     borderRadius: theme.shape.borderRadius,
     marginTop: '8px',
-    maxHeight: '73px'
+    maxHeight: '73px',
+    textTransform: 'none',
+    width: '100%'
   },
   inscriptosLabelcategory: {
     borderRadius: '16px',
@@ -133,7 +135,7 @@ const Dashboard = props => {
                 </Typography>
               </CardContent>
               <CardActions style={{ justifyContent: 'flex-end' }}>
-                <Button size='small' className={classes.button} color='primary'>Ver todos</Button>
+                <Button size='small' className={classes.button} color='primary' to='/groups' component={Link}>Ver todos</Button>
               </CardActions>
             </Card>
           </Grid>
@@ -150,9 +152,6 @@ const Dashboard = props => {
                   {props.participantTotal}
                 </Typography>
               </CardContent>
-              <CardActions style={{ justifyContent: 'flex-end' }}>
-                <Button size='small' className={classes.button} style={{ color: 'white' }}>Ver todos</Button>
-              </CardActions>
             </Card>
           </Grid>
           <Grid container item xs={12} sm={12} md={4} className={classes.root}>
@@ -254,7 +253,6 @@ const Dashboard = props => {
                 }}
               />
             </div>
-
             <div style={{ display: 'grid', alignSelf: 'self-start', overflow: 'hidden' }}>
 
               <Grid container direction='row' justify='space-between' alignItems='center' style={{ padding: '16px' }}>
@@ -266,45 +264,46 @@ const Dashboard = props => {
 
               <Grid container direction='column' justify='flex-start' alignItems='flex-start'>
                 {data.map((el, idx) =>
-                  <Grid key={idx} container direction='row' justify='space-between' alignItems='center' className={classes.inscriptoContainer}>
-                    <Grid item xs='auto' sm={5}>
-                      <Typography className={classes.projetName} color='inherit'>
-                        {el.raw_project.name}
-                      </Typography>
-                      <Typography style={{ fontSize: '12px' }}>
-                        {el.raw_participant.length} participantes
-                      </Typography>
+                  <Button disableRipple key={idx} className={classes.ultInscriptosBtnContainer} to={'/groups/' + (el.raw_project.id)} component={Link}>
+                    <Grid container direction='row' justify='space-between' alignItems='center'>
+                      <Grid item xs='auto' sm={5}>
+                        <Typography className={classes.projetName} color='inherit'>
+                          {el.raw_project.name}
+                        </Typography>
+                        <Typography style={{ fontSize: '12px' }}>
+                          {el.raw_participant.length} participantes
+                        </Typography>
+                      </Grid>
+                      <Grid item xs='auto' sm={3}>
+                        <Typography style={{ fontWeight: 'bold', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '110px' }} color='inherit'>
+                          {el.raw_school.state_name}
+                        </Typography>
+                        <Typography className={classes.cityName}>
+                          └ {el.raw_school.city_name}
+                        </Typography>
+                      </Grid>
+                      <Grid item className={classes.ocultarXs} sm={4}>
+                        {el.raw_project.category_name.length > 1
+                          ? (
+                            <div className={classes.inscriptosLabelcategory}>
+                              <Typography style={{ fontSize: '12px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '90px' }}>
+                                {el.raw_project.category_name[0].name}
+                              </Typography>
+                              <Typography style={{ fontSize: '12px' }}>
+                                {'+ ' + (el.raw_project.category_name.length - 1) + ' más'}
+                              </Typography>
+                            </div>
+                          )
+                          : (
+                            <div className={classes.inscriptosLabelcategory}>
+                              <Typography style={{ fontSize: '12px' }}>
+                                {el.raw_project.category_name[0].name}
+                              </Typography>
+                            </div>
+                          )}
+                      </Grid>
                     </Grid>
-                    <Grid item xs='auto' sm={3}>
-                      <Typography style={{ fontWeight: 'bold', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '110px' }} color='inherit'>
-                        {el.raw_school.state_name}
-                      </Typography>
-                      <Typography className={classes.cityName}>
-                        └ {el.raw_school.city_name}
-                      </Typography>
-                    </Grid>
-
-                    <Grid item className={classes.ocultarXs} sm={4}>
-                      {el.raw_project.category_name.length > 1
-                        ? (
-                          <div className={classes.inscriptosLabelcategory}>
-                            <Typography style={{ fontSize: '12px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '90px' }}>
-                              {el.raw_project.category_name[0].name}
-                            </Typography>
-                            <Typography style={{ fontSize: '12px' }}>
-                              {'+ ' + (el.raw_project.category_name.length - 1) + ' más'}
-                            </Typography>
-                          </div>
-                        )
-                        : (
-                          <div className={classes.inscriptosLabelcategory}>
-                            <Typography style={{ fontSize: '12px' }}>
-                              {el.raw_project.category_name[0].name}
-                            </Typography>
-                          </div>
-                        )}
-                    </Grid>
-                  </Grid>
+                  </Button>
                 )}
               </Grid>
             </div>
