@@ -26,6 +26,7 @@ const useStyles = makeStyles(theme => ({
     border: theme.border.primary
   },
   green: {
+    height: '126.891px',
     backgroundColor: theme.palette.primary.main
   },
   red: {
@@ -150,9 +151,6 @@ const Dashboard = props => {
                   {props.participantTotal}
                 </Typography>
               </CardContent>
-              <CardActions style={{ justifyContent: 'flex-end' }}>
-                <Button size='small' className={classes.button} style={{ color: 'white' }}>Ver todos</Button>
-              </CardActions>
             </Card>
           </Grid>
           <Grid container item xs={12} sm={12} md={4} className={classes.root}>
