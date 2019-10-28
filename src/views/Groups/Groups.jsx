@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react'
 import { makeStyles } from '@material-ui/styles'
-import { Grid, Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import Card from '@material-ui/core/Card'
 import Typography from '@material-ui/core/Typography'
-import { Link } from 'react-router-dom'
 import MaterialTable from 'material-table'
+import { Link, Redirect } from 'react-router-dom'
 
 import {
   ArrowUpward,
@@ -49,13 +49,10 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     whiteSpace: 'nowrap',
+    
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     fontSize: '24px'
-  },
-  tableCellText: {
-    fontSize: '14px',
-    fontWeight: 'bold'
   },
   card: {
     border: theme.border.primary,
@@ -63,159 +60,17 @@ const useStyles = makeStyles(theme => ({
     borderBottom: 0,
     borderRadius: theme.shape.borderRadius
   },
-  tableRow: {
-    textDecoration: 'none',
-    '&:hover': {
-      backgroundColor: 'rgba(35, 47, 52, 0.08)'
-    }
-  }
 }))
 
-const data = [
-  {
-    nombre: 'Damajuana solidaria',
-    total: '41',
-    city: 'Cordoba',
-    state: 'Aldea Santa Maria',
-    raw_project: {
-      id: '2'
-    }
-  },
-  {
-    nombre: 'El termoDinamico',
-    total: '13',
-    city: 'Mendoza',
-    state: 'Fray Luis Beltran',
-    raw_project: {
-      id: '2'
-    }
-  },
-  {
-    nombre: 'Damajuana solidaria',
-    total: '41',
-    city: 'Cordoba',
-    state: 'Aldea Santa Maria',
-    raw_project: {
-      id: '2'
-    }
-  },
-  {
-    nombre: 'El termoDinamico',
-    total: '13',
-    city: 'Mendoza',
-    state: 'Fray Luis Beltran',
-    raw_project: {
-      id: '2'
-    }
-  }, {
-    nombre: 'Damajuana solidaria',
-    total: '41',
-    city: 'Cordoba',
-    state: 'Aldea Santa Maria',
-    raw_project: {
-      id: '2'
-    }
-  },
-  {
-    nombre: 'El termoDinamico',
-    total: '13',
-    city: 'Mendoza',
-    state: 'Fray Luis Beltran',
-    raw_project: {
-      id: '2'
-    }
-  }, {
-    nombre: 'Damajuana solidaria',
-    total: '41',
-    city: 'Cordoba',
-    state: 'Aldea Santa Maria',
-    raw_project: {
-      id: '2'
-    }
-  },
-  {
-    nombre: 'El termoDinamico',
-    total: '13',
-    city: 'Mendoza',
-    state: 'Fray Luis Beltran',
-    raw_project: {
-      id: '2'
-    }
-  },
-  {
-    nombre: 'Damajuana solidaria',
-    total: '41',
-    city: 'Cordoba',
-    state: 'Aldea Santa Maria',
-    raw_project: {
-      id: '2'
-    }
-  },
-  {
-    nombre: 'El termoDinamico',
-    total: '13',
-    city: 'Mendoza',
-    state: 'Fray Luis Beltran',
-    raw_project: {
-      id: '2'
-    }
-  }, {
-    nombre: 'Damajuana solidaria',
-    total: '41',
-    city: 'Cordoba',
-    state: 'Aldea Santa Maria',
-    raw_project: {
-      id: '2'
-    }
-  },
-  {
-    nombre: 'El termoDinamico',
-    total: '13',
-    city: 'Mendoza',
-    state: 'Fray Luis Beltran',
-    raw_project: {
-      id: '2'
-    }
-  },
-  {
-    nombre: 'Damajuana solidaria',
-    total: '41',
-    city: 'Cordoba',
-    state: 'Aldea Santa Maria',
-    raw_project: {
-      id: '2'
-    }
-  },
-  {
-    nombre: 'El termoDinamico',
-    total: '13',
-    city: 'Mendoza',
-    state: 'Fray Luis Beltran',
-    raw_project: {
-      id: '2'
-    }
-  }, {
-    nombre: 'Damajuana solidaria',
-    total: '41',
-    city: 'Cordoba',
-    state: 'Aldea Santa Maria',
-    raw_project: {
-      id: '2'
-    }
-  },
-  {
-    nombre: 'El termoDinamico',
-    total: '13',
-    city: 'Mendoza',
-    state: 'Fray Luis Beltran',
-    raw_project: {
-      id: '2'
-    }
-  }
-]
 
-const Groups = props => {
+
+
+const Groups = () => {
   const classes = useStyles()
+
+  function handleOnClick(i) {
+    console.log(i)
+  }
 
   return (
     <>
@@ -230,21 +85,23 @@ const Groups = props => {
               { title: 'Localidad', field: 'state' },
             ]}
             data={[
-              { name: 'abEl termoDinamico', alumnos: '1', city: 'jMendoza', state: 'iFray Luis Beltran', },
-              { name: 'bEl termoDinamico', alumnos: '25', city: 'eMendoza', state: 'uFray Luis Beltran', },
-              { name: 'cdEl termoDinamico', alumnos: '3000', city: 'rMendoza', state: 'ytFray Luis Beltran', },
-              { name: 'dEl termoDinamico', alumnos: '67', city: 'opMendoza', state: 'rFray Luis Beltran', },
-              { name: 'zEl termoDinamico', alumnos: '28', city: '23eMendoza', state: 'bFray Luis Beltran', },
+              { name: 'abEl termoDinamico', alumnos: '1', city: 'jMendoza', state: 'iFray Luis Beltran', id: '12' },
+              { name: 'bEl termoDinamico', alumnos: '25', city: 'eMendoza', state: 'uFray Luis Beltran', id: '21' },
+              { name: 'cdEl termoDinamico', alumnos: '3000', city: 'rMendoza', state: 'ytFray Luis Beltran', id: '20' },
+              { name: 'dEl termoDinamico', alumnos: '67', city: 'opMendoza', state: 'rFray Luis Beltran', id: '200' },
+              { name: 'zEl termoDinamico', alumnos: '28', city: '23eMendoza', state: 'bFray Luis Beltran', id: '24' },
             ]}
             title={<Typography className={classes.title}>Grupos</Typography>}
             options={{
               actionsColumnIndex: -1,
+              draggable: false,
+              paging: false
             }}
             actions={[
               {
                 icon: EditOutlined,
                 tooltip: 'Editar grupo',
-                onClick: (event, rowData) => alert("You saved " + rowData.name)
+                onClick: (event, rowData) => handleOnClick(rowData.id)
               }
             ]}
           />
