@@ -5,6 +5,8 @@ import Card from '@material-ui/core/Card'
 import Typography from '@material-ui/core/Typography'
 import MaterialTable from 'material-table'
 import { Link, Redirect } from 'react-router-dom'
+import withGroupCount from '../../hoc/withDashboard'
+import { connect } from 'react-redux'
 
 import {
   ArrowUpward,
@@ -65,9 +67,13 @@ const useStyles = makeStyles(theme => ({
 
 
 
-const Groups = () => {
-  const classes = useStyles()
+const Groups = props => {
+  const data= []
+  {props.group.map((el, idx) =>
+    data.push({name: el.raw_project.name, alumnos: el.raw_participant.length, city:el.raw_school.city_name ,state: el.raw_school.state_name})
+  )}
 
+  const classes = useStyles() 
   function handleOnClick(i) {
     console.log(i)
   }
@@ -84,13 +90,7 @@ const Groups = () => {
               { title: 'Provincia', field: 'city' },
               { title: 'Localidad', field: 'state' },
             ]}
-            data={[
-              { name: 'abEl termoDinamico', alumnos: '1', city: 'jMendoza', state: 'iFray Luis Beltran', id: '12' },
-              { name: 'bEl termoDinamico', alumnos: '25', city: 'eMendoza', state: 'uFray Luis Beltran', id: '21' },
-              { name: 'cdEl termoDinamico', alumnos: '3000', city: 'rMendoza', state: 'ytFray Luis Beltran', id: '20' },
-              { name: 'dEl termoDinamico', alumnos: '67', city: 'opMendoza', state: 'rFray Luis Beltran', id: '200' },
-              { name: 'zEl termoDinamico', alumnos: '28', city: '23eMendoza', state: 'bFray Luis Beltran', id: '24' },
-            ]}
+            data={data}
             title={<Typography className={classes.title}>Grupos</Typography>}
             options={{
               actionsColumnIndex: -1,
@@ -111,5 +111,8 @@ const Groups = () => {
 
   )
 }
+const mapStateToProps = (state) => ({
+  token: state.auth.convertedToken.accessToken
+})
 
-export default Groups
+export default connect(mapStateToProps)(withGroupCount(Groups))
