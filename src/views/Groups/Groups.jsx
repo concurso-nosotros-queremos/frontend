@@ -69,7 +69,7 @@ const useStyles = makeStyles(theme => ({
 
 const Groups = props => {
   const data= []
-  {props.group.map((el, idx) =>
+  {props.group.reverse().map((el, idx) =>
     data.push({name: el.raw_project.name, alumnos: el.raw_participant.length, city:el.raw_school.city_name ,state: el.raw_school.state_name})
   )}
 
