@@ -83,7 +83,8 @@ export default function Main () {
           <Grid item sm={9} md={7} lg={5} style={{ width: '100%', maxHeight: 'min-content' }} container direction='column' justify='flex-start' alignItems='flex-start'>
             <GoogleLogin />
             <Typography variant='body2' align='center' style={{ marginTop: '0.5rem', color: 'white', fontSize: '12px' }}>
-              {'Al ingresar aceptas los términos y condiciones.'}
+              {'Al ingresar aceptas los '}
+              <Link style={{ color: 'white', textDecoration: 'underline' }} href='http://shorturl.at/quILS'>términos y condiciones.</Link>
             </Typography>
           </Grid>
         </Grid>
