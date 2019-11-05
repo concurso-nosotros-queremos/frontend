@@ -1,16 +1,34 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { makeStyles } from '@material-ui/styles'
 import { Grid } from '@material-ui/core'
 import Card from '@material-ui/core/Card'
-import CardActions from '@material-ui/core/CardActions'
-import CardHeader from '@material-ui/core/CardHeader'
-import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined'
-import NavigateNextIcon from '@material-ui/icons/NavigateNext'
-import AddIcon from '@material-ui/icons/Add'
+import MaterialTable from 'material-table'
+import { Link, Redirect } from 'react-router-dom'
+import withGroupCount from '../../hoc/withDashboard'
+import { connect } from 'react-redux'
 
-import { Link } from 'react-router-dom'
+import {
+  ArrowUpward,
+  ChevronLeft,
+  ChevronRight,
+  Clear,
+  FirstPage,
+  LastPage,
+  Search,
+  EditOutlined
+} from '@material-ui/icons'
+
+const tableIcons = {
+  Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
+  ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
+  SortArrow: forwardRef((props, ref) => <ArrowUpward {...props} ref={ref} />),
+  FirstPage: forwardRef((props, ref) => <FirstPage {...props} ref={ref} />),
+  LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref} />),
+  NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
+  PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref} />),
+  Edit: forwardRef((props, ref) => <EditOutlined {...props} ref={ref} />),
+}
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -32,81 +50,69 @@ const useStyles = makeStyles(theme => ({
     padding: '16px'
   },
   title: {
-    fontWeight: 'bold',
     whiteSpace: 'nowrap',
+    
     overflow: 'hidden',
     textOverflow: 'ellipsis',
-    fontSize: '22px'
-  }
+    fontSize: '24px'
+  },
+  card: {
+    border: theme.border.primary,
+    width: '100%',
+    borderBottom: 0,
+    borderRadius: theme.shape.borderRadius
+  },
 }))
 
-const data = [
-  {
-    nombre: 'Damajuana solidaria',
-    total: '41',
-    url: ''
-  },
-  {
-    nombre: 'El termoDinamico',
-    total: '13',
-    url: ''
-  }
-]
+
+
 
 const Groups = props => {
-  const classes = useStyles()
+  const data= []
+  {props.group.reverse().map((el, idx) =>
+    data.push({name: el.raw_project.name, alumnos: el.raw_participant.length, city:el.raw_school.city_name ,state: el.raw_school.state_name})
+  )}
+
+  const classes = useStyles() 
+  function handleOnClick(i) {
+    console.log(i)
+  }
 
   return (
     <>
-      <Grid container direction='row' justify='flex-start' alignItems='flex-start'>
-
-        {data.map((el, idx) =>
-          <Grid container item xs={12} sm={6} md={4} lg={6} xl={3} key={idx} className={classes.root}>
-            <Card className={classes.card} elevation={0}>
-              <CardHeader
-                title={
-                  <Typography className={classes.title}>
-                    {el.nombre}
-                  </Typography>
-                }
-              />
-              <CardActions style={{ padding: '16px' }}>
-                <Grid container direction='row' justify='space-between' alignItems='center'>
-                  <Grid container item xs direction='row' justify='flex-start' alignItems='center'>
-                    <Typography style={{ marginRight: '0.5rem', fontSize: '20px', fontWeight: '500' }}>
-                      {el.total}
-                    </Typography>
-                    <PermIdentityOutlinedIcon htmlColor='rgba(35, 47, 52, 0.8)' />
-                  </Grid>
-                  <Grid item>
-                    <Button variant='text' color='primary' href={el.url}>
-                      <Typography color='primary'>
-                        Ver mas
-                      </Typography>
-                      <NavigateNextIcon />
-                    </Button>
-                  </Grid>
-                </Grid>
-              </CardActions>
-            </Card>
-          </Grid>
-        )}
-
-        <Grid container item xs={12} sm={6} md={4} lg={6} xl={3} className={classes.root}>
-          <Button variant='outlined' className={classes.button} color='default' to='/groups/add' component={Link}>
-            <Grid
-              container direction='column' justify='center' alignItems='center'
-              style={{ height: '100%' }}
-            >
-              <AddIcon fontSize='large' />
-              Agregar un nuevo grupo
-            </Grid>
-          </Button>
-        </Grid>
+      <Grid container direction='row' justify='flex-start' alignItems='flex-start' className={classes.root}>
+        <Card className={classes.card} elevation={0}>
+          <MaterialTable
+            icons={tableIcons}
+            columns={[
+              { title: 'Nombre', field: 'name' },
+              { title: 'Alumnos', field: 'alumnos', type: 'numeric' },
+              { title: 'Provincia', field: 'city' },
+              { title: 'Localidad', field: 'state' },
+            ]}
+            data={data}
+            title={<Typography className={classes.title}>Grupos</Typography>}
+            options={{
+              actionsColumnIndex: -1,
+              draggable: false,
+              paging: false
+            }}
+            actions={[
+              {
+                icon: EditOutlined,
+                tooltip: 'Editar grupo',
+                onClick: (event, rowData) => handleOnClick(rowData.id)
+              }
+            ]}
+          />
+        </Card>
       </Grid>
     </>
 
   )
 }
+const mapStateToProps = (state) => ({
+  token: state.auth.convertedToken.accessToken
+})
 
-export default Groups
+export default connect(mapStateToProps)(withGroupCount(Groups))
