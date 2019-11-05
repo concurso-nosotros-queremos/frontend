@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
     color: 'black',
     backgroundColor: 'transparent',
     border: '3.5px solid',
-    borderColor: theme.palette.secondary.light,
+    borderColor: theme.palette.secondary.main,
     fontWeight: 'bold'
   },
   barraDecorativa: {
@@ -97,7 +97,7 @@ export default function ComoFunciona () {
                 <Typography variant='h5' align='center'>Inscribite</Typography>
               </Grid>
               <Grid item className={classes.PasosTextContainer}>
-                <Typography variant='body1' align='center'>Tu profe inscribe al grupo de alumn@s</Typography>
+                <Typography variant='body1' align='center'>Tu profe inscribe al grupo de alumn@s.</Typography>
               </Grid>
             </Grid>
 
@@ -114,7 +114,7 @@ export default function ComoFunciona () {
                 <Typography variant='h5' align='center'>Te validamos</Typography>
               </Grid>
               <Grid item className={classes.PasosTextContainer}>
-                <Typography variant='body1' align='center'>La fundación se pone en contacto</Typography>
+                <Typography variant='body1' align='center'>La fundación se pone en contacto.</Typography>
               </Grid>
             </Grid>
 
@@ -142,7 +142,7 @@ export default function ComoFunciona () {
                 activeClass='active' to='googleLogin'
                 spy smooth duration={600} ignoreCancelEvents offset={-20}
               >
-                <Button size='large' variant='contained' color='primary'>
+                <Button size='large' variant='contained' color='primary' href='/login'>
                   Inscribí a tu grupo
                 </Button>
               </Link>

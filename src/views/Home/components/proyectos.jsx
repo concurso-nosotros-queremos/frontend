@@ -126,13 +126,6 @@ export default function Proyectos () {
             </Card>
           )}
         </Grid>
-        <Grid container direction='row' justify='center' alignItems='center'>
-          <Grid item style={{ marginTop: '3rem' }}>
-            <Button size='large' variant='contained' color='primary' href='/ver-proyectos'>
-              Ver todos
-            </Button>
-          </Grid>
-        </Grid>
       </Grid>
     </>
   )
