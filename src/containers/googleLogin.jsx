@@ -57,7 +57,7 @@ class GoogleLoginContainer extends Component {
                 <img src={require('../assets/google.png')} alt='facebook' height='22px' />
               </Box>
               <Box width='90%' style={{ width: 'max-content', display: 'flex', justifyContent: 'center' }}>
-                <Typography color='textSecondary' className={classes.text}>Inscribite con Google</Typography>
+                <Typography color='textSecondary' className={classes.text}>Ingresar con Google</Typography>
               </Box>
             </Button>
           </Box>

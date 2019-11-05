@@ -1,10 +1,25 @@
 import React, { Component } from 'react'
 import { makeStyles } from '@material-ui/core/styles/index'
+import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography/index'
 import Grid from '@material-ui/core/Grid'
 import { Button, FormControlLabel, Checkbox } from '@material-ui/core'
 import TextField from '@material-ui/core/TextField'
 import fetchResource from '../../../services/apiHandler'
+
+const useStyles = theme => ({
+  root: {
+    display: 'flex',
+    flexGrow: '1',
+    [theme.breakpoints.up('lg')]: {
+      paddingLeft: '8rem',
+      paddingRight: '8rem'
+    }
+  },
+  titleContainer: {
+    marginBottom: '1rem'
+  },
+})
 
 class Contacto extends Component {
   constructor (props) {
@@ -32,22 +47,7 @@ class Contacto extends Component {
   };
 
   render () {
-    const classes = makeStyles(theme => ({
-      root: {
-        display: 'flex',
-        flexGrow: '1',
-        [theme.breakpoints.up('lg')]: {
-          paddingLeft: '8rem',
-          paddingRight: '8rem'
-        }
-      },
-      titleContainer: {
-        marginBottom: '1rem'
-      },
-      formContainer: {
-      }
-    }))
-
+    const { classes } = this.props
     return (
       <>
         <Grid container className={classes.root} alignItems='flex-start' id='contacto'>
@@ -128,4 +128,5 @@ class Contacto extends Component {
   }
 }
 
-export default Contacto
+export default withStyles(useStyles)(Contacto);
+
