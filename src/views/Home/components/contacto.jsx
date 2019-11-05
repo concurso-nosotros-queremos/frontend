@@ -5,33 +5,64 @@ import Grid from '@material-ui/core/Grid'
 import { Button, FormControlLabel, Checkbox } from '@material-ui/core'
 import TextField from '@material-ui/core/TextField'
 import fetchResource from '../../../services/apiHandler'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 class Contacto extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       name: '',
       email: '',
-      message: ''
+      message: '',
+      captcha: false,
+      response: ""
     }
   }
 
-  handleChange (event) {
+  handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     })
   };
 
-  handleClick () {
-    return fetchResource('rest/message_email/', {
-      method: 'POST',
-      body: {
-        ...this.state
+  handleClick = (key) => {
+    if (this.state.captcha && this.state.name != '' && this.state.email != '' && this.state.message != '') {
+      this.setState({
+        name: '',
+        email: '',
+        message: '',
+        captcha: false,
+        response: "Su duda se ha enviado correctamente"
+      })
+      this.captcha.reset()
+
+      return fetchResource('rest/message_email/', {
+        method: 'POST',
+        body: {
+          ...this.state
+        }
       }
-    })
+
+      )
+
+    } else {
+      this.setState({
+        response: "Asegurate de haber completado todos los campos y haber verificado el captcha"
+      })
+    }
+
   };
 
-  render () {
+  handleCaptcha = (key) => {
+    this.setState({
+      captcha: true,
+    })
+  }
+
+
+  render() {
+    const isLoggedIn = this.state.response;
+
     const classes = makeStyles(theme => ({
       root: {
         display: 'flex',
@@ -100,24 +131,21 @@ class Contacto extends Component {
               </Grid>
               <Grid item container direction='row' justify='space-between' alignItems='center' style={{ marginTop: '1rem' }}>
                 <Grid item>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        value='checkedB'
-                        color='primary'
-                      />
-                    }
-                    label={
-                      <Typography variant='body1'>
-                        No soy un robot
-                      </Typography>
-                    }
+                  <ReCAPTCHA
+                    onChange={this.handleCaptcha}
+                    ref={e => (this.captcha = e)}
+                    //This ref can be used to call captcha related functions in case you need.
+                    sitekey="6Lexrb8UAAAAAKqGVOjJaLuTyM5rs9Kf1iLMDmW_"
+                    theme="with"
                   />
                 </Grid>
                 <Grid item>
                   <Button variant='contained' color='primary' size='large' onClick={this.handleClick}>
                     Enviar
                   </Button>
+                </Grid>
+                <Grid item container direction='row' justify='space-between' alignItems='center' style={{ marginTop: '1rem' }}>
+                  {this.state.response === "Su duda se ha enviado correctamente" ? <Typography style={{ color: "green" }}> {this.state.response} </Typography> : <Typography style={{ color: "red" }}> {this.state.response} </Typography>}
                 </Grid>
               </Grid>
             </form>
