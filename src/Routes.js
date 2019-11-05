@@ -10,6 +10,8 @@ import Groups from './views/Groups/Groups'
 import Dashboard from './views/Dashboard/Dashboard'
 import Statistics from './views/Statistics/Statistics'
 import FormSuccess from './views/Dashboard/FormSuccess'
+import Inscription from './views/Inscription/Inscription'
+import Minimal from './layouts/Minimal/Minimal'
 
 const ProtectedRoute = ({ isAllowed, ...props }) => {
   return (
@@ -46,13 +48,6 @@ class Routes extends Component {
         />
         <ProtectedRoute
           isAllowed={this.props.isLoggedIn}
-          component={Statistics}
-          layout={Main}
-          exact
-          path='/statistics'
-        />
-        <ProtectedRoute
-          isAllowed={this.props.isLoggedIn}
           component={InscriptionWrapper}
           layout={Main}
           exact
@@ -64,6 +59,20 @@ class Routes extends Component {
           layout={Main}
           exact
           path='/groups/add/success'
+        />
+        <ProtectedRoute
+          isAllowed={this.props.isLoggedIn}
+          component={Statistics}
+          layout={Main}
+          exact
+          path='/statistics'
+        />
+        <ProtectedRoute
+          isAllowed={this.props.isLoggedIn}
+          component={Inscription}
+          layout={Minimal}
+          exact
+          path='/inscription'
         />
         <Route
           component={Error404}

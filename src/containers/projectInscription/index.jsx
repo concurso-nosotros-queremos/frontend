@@ -51,9 +51,7 @@ const useStyles = makeStyles(theme => ({
     paddingRight: theme.spacing(4),
     backgroundColor: '#FFFFFF',
     borderTop: '1px solid #232F3424',
-    [theme.breakpoints.up('lg')]: {
-      width: 'calc(100% - 232px)'
-    },
+    width: '100%',
     zIndex: 1
   }
 }))
