@@ -104,9 +104,11 @@ const InscriptionWrapper = props => {
         {({ errors, touched, status, submitForm }) => (
           <>
             {redirect && <Redirect to='/groups/add/success' />}
-            <HorizontalLinearStepper steps={forms} active={active} errors={errors} status={status} touched={touched} />
+              <HorizontalLinearStepper steps={forms} active={active} errors={errors} status={status} touched={touched} />
             <Form>
-              <Fragment.component errors={errors} status={status} touched={touched} />
+              <div style={{marginBottom: '65px'}}>
+                <Fragment.component errors={errors} status={status} touched={touched} />
+              </div>
               <Grid className={classes.fixedActions} container direction='row' justify='flex-end' spacing={2}>
                 {active !== 0 && (
                   <Grid item>
