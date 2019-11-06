@@ -87,7 +87,7 @@ const InscriptionWrapper = props => {
   return (
     <Grid item xs={12} style={{ width: '100%' }}>
       <div style={{marginTop: '1rem'}}>
-        <Typography variant='h4'>Inscripción</Typography>
+        <Typography variant='h4' style={{fontWeight: 'bold'}}>Inscripción</Typography>
       </div>
       <Formik
         initialValues={initialValues}
