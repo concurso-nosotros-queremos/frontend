@@ -7,6 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 import AddOutlined from '@material-ui/icons/AddOutlined'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import WarningOutlined from '@material-ui/icons/WarningOutlined'
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 
 import { hasError, errorMessageBuilder } from './_utils'
 import { makeStyles } from '@material-ui/styles'
@@ -141,7 +142,12 @@ const ParticipantsWrapper = props => {
                         />
                       </Grid>
                       <Grid item xs={12}>
-                        <Button fullWidth onClick={() => { removeParticipant(arrayHelpers, index) }}>Borrar</Button>
+                        <Button fullWidth onClick={() => { removeParticipant(arrayHelpers, index) }}>
+                          <Grid container direction="row" justify="center" alignItems="center">
+                            <div style={{ lineHeight: 'initial' }}>Eliminar</div>
+                            <DeleteOutlineIcon style={{ color: '#232F34' }} />
+                          </Grid>
+                        </Button>
                       </Grid>
                     </Grid>
                   </ExpansionPanelDetails>
@@ -151,9 +157,9 @@ const ParticipantsWrapper = props => {
                 disabled={hasError(props.errors, props.status, props.touched, `raw_participant.${arrayHelpers.form.values.raw_participant.length - 1}`)}
                 variant='contained'
                 color='secondary'
-                style={{marginTop: '8px' }}
+                style={{ marginTop: '8px' }}
                 onClick={() => addParticipant(arrayHelpers)}>
-                  <AddOutlined />
+                <AddOutlined />
               </Button>
             </>
           )}
