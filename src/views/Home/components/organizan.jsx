@@ -55,7 +55,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   cardOrganizan: {
-    minHeight: '25rem',
+    minHeight: 'auto',
     backgroundColor: '#fff',
     borderRadius: theme.shape.borderRadius
   },
@@ -69,7 +69,10 @@ const useStyles = makeStyles(theme => ({
   boxStyle: {
     borderRadius: theme.shape.borderRadius,
     width: '100%',
-    padding: '2rem'
+    padding: '16px'
+  },
+  item:{
+    padding: '32px'
   }
 }))
 
@@ -80,15 +83,15 @@ const data = [
     image_url: persona1
   },
   {
-    nombre: 'Belen Ramoska',
-    cargo: 'Coordinadora Nosotros Queremos',
+    nombre: 'Virginia Barbera',
+    cargo: 'Directora Ejecutiva',
     image_url: persona1
   },
   {
-    nombre: 'Mateo Perez',
-    cargo: 'Coordinadora Nosotros Queremos',
-    image_url: persona3
-  }
+    nombre: 'Virginia Barbera',
+    cargo: 'Directora Ejecutiva',
+    image_url: persona1
+  },
 ]
 
 export default function Organizan () {
@@ -111,7 +114,7 @@ export default function Organizan () {
             <Grid container direction='column' justify='space-between' style={{ minHeight: '100%' }}>
 
               {data.map((el, idx) =>
-                <Grid key={idx} container direction='row' justify='flex-start' alignItems='center' wrap='nowrap'>
+                <Grid key={idx} container direction='row' justify='flex-start' alignItems='center' wrap='nowrap' className={classes.item}>
                   <Grid item>
                     <Avatar alt='Remy Sharp' src={el.image_url} className={classes.avatarImg} />
                   </Grid>
