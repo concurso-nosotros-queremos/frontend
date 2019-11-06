@@ -86,7 +86,9 @@ const InscriptionWrapper = props => {
 
   return (
     <Grid item xs={12} style={{ width: '100%' }}>
-      <Typography variant='h4'>Inscripción</Typography>
+      <div style={{marginTop: '1rem'}}>
+        <Typography variant='h4'>Inscripción</Typography>
+      </div>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -104,9 +106,9 @@ const InscriptionWrapper = props => {
         {({ errors, touched, status, submitForm }) => (
           <>
             {redirect && <Redirect to='/groups/add/success' />}
-              <HorizontalLinearStepper steps={forms} active={active} errors={errors} status={status} touched={touched} />
+            <HorizontalLinearStepper steps={forms} active={active} errors={errors} status={status} touched={touched} />
             <Form>
-              <div style={{marginBottom: '65px'}}>
+              <div style={{ marginBottom: '65px' }}>
                 <Fragment.component errors={errors} status={status} touched={touched} />
               </div>
               <Grid className={classes.fixedActions} container direction='row' justify='flex-end' spacing={2}>
