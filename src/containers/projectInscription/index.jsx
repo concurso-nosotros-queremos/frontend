@@ -129,7 +129,7 @@ const InscriptionWrapper = props => {
                   )
                   : (
                     <Grid item>
-                      <Button type='button' variant='contained' onClick={handleNext}>
+                      <Button type='button' variant='contained' color='secondary' onClick={handleNext}>
                         Siguiente
                       </Button>
                     </Grid>
