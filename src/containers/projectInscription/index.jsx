@@ -53,6 +53,12 @@ const useStyles = makeStyles(theme => ({
     borderTop: '1px solid #232F3424',
     width: '100%',
     zIndex: 1
+  },
+  root:{
+    width: '100%',
+    [theme.breakpoints.up('xl')]: {
+      maxWidth: '1440px'
+    }
   }
 }))
 
@@ -85,7 +91,7 @@ const InscriptionWrapper = props => {
   const Fragment = forms[active]
 
   return (
-    <Grid item xs={12} style={{ width: '100%' }}>
+    <Grid item xs={12} className={classes.root}>
       <div style={{marginTop: '1rem'}}>
         <Typography variant='h4' style={{fontWeight: 'bold'}}>Inscripción - CNQ</Typography>
       </div>
