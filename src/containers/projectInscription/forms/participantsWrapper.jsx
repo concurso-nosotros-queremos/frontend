@@ -60,7 +60,7 @@ const ParticipantsWrapper = props => {
   return (
     <Fade in mountOnEnter unmountOnExit>
       <div>
-        <Typography variant='h6' align='center' style={{ fontFamily: 'Roboto', fontWeight: 400 }}>Registro de participantes</Typography>
+        <Typography variant='h6'>Registro de participantes</Typography>
         <FieldArray
           name='raw_participant'
           render={(arrayHelpers) => (

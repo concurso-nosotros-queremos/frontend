@@ -10,7 +10,7 @@ const ProjectWrapper = props => {
   return (
     <Fade in mountOnEnter unmountOnExit>
       <div>
-        <Typography variant='h6'>Idea emprendedora</Typography>
+        <Typography variant='h6'>Detalles de la idea</Typography>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <FastField
