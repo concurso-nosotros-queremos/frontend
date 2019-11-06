@@ -156,7 +156,7 @@ const ParticipantsWrapper = props => {
               <Button fullWidth
                 disabled={hasError(props.errors, props.status, props.touched, `raw_participant.${arrayHelpers.form.values.raw_participant.length - 1}`)}
                 variant='contained'
-                color='secondary'
+                color='inherit'
                 style={{ marginTop: '8px' }}
                 onClick={() => addParticipant(arrayHelpers)}>
                 <AddOutlined />

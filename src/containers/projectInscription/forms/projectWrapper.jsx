@@ -10,7 +10,7 @@ const ProjectWrapper = props => {
   return (
     <Fade in mountOnEnter unmountOnExit>
       <div>
-        <Typography variant='h6'>Detalles de la idea</Typography>
+        <Typography variant='h6'>Detalles del proyecto</Typography>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <FastField
@@ -79,6 +79,7 @@ const ProjectWrapper = props => {
             />
           </Grid>
           <Grid item xs={12}>
+            <Typography variant='h6'>Categoria/s del proyecto</Typography>
             <CategoryPicker />
           </Grid>
         </Grid>
