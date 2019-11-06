@@ -68,6 +68,12 @@ class Contacto extends Component {
 
   };
 
+  handleCaptcha = (key) => {
+    this.setState({
+      captcha: true,
+    })
+  }
+  
   render () {
     const { classes } = this.props
     return (
