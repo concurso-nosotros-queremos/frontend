@@ -85,13 +85,13 @@ const ParticipantsWrapper = props => {
                       <Grid item style={{ alignSelf: 'center' }}>
                         <Grid container direction="row" justify="flex-start" alignItems="center">
                           {hasError(props.errors, props.status, props.touched, `raw_participant.${index}`) &&
-                            <WarningOutlined color='error' />
+                            <WarningOutlined color='error' style={{ marginRight: '8px' }} />
                           }
                           <Typography>{expanded !== index ? `${participant.first_name} ${participant.last_name}` : 'Nuevo participante'}</Typography>
                         </Grid>
                       </Grid>
                       <Grid item>
-                        <ButtonBase fullWidth onClick={() => { removeParticipant(arrayHelpers, index) }} className={classes.deleteButton}>
+                        <ButtonBase centerRipple fullWidth onClick={() => { removeParticipant(arrayHelpers, index) }} className={classes.deleteButton}>
                           <DeleteOutlineIcon style={{ color: 'rgba(0, 0, 0, 0.38)' }} />
                         </ButtonBase>
                       </Grid>
