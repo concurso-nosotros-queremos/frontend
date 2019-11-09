@@ -10,7 +10,7 @@ const ProjectWrapper = props => {
   return (
     <Fade in mountOnEnter unmountOnExit>
       <div>
-        <Typography variant='h6'>Idea emprendedora</Typography>
+        <Typography variant='h6'>Detalles del proyecto</Typography>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <FastField
@@ -50,7 +50,7 @@ const ProjectWrapper = props => {
                   fullWidth
                   multiline
                   variant='outlined'
-                  label='Solucion'
+                  label='Solución'
                   error={hasError(props.errors, props.status, props.touched, field.name)}
                   helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
                 />)}
@@ -65,7 +65,7 @@ const ProjectWrapper = props => {
                   select
                   fullWidth
                   variant='outlined'
-                  label='Difusion'
+                  label='Difusión'
                   error={hasError(props.errors, props.status, props.touched, field.name)}
                   helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
                 >
@@ -79,6 +79,7 @@ const ProjectWrapper = props => {
             />
           </Grid>
           <Grid item xs={12}>
+            <Typography variant='h6'>Categoria/s del proyecto</Typography>
             <CategoryPicker />
           </Grid>
         </Grid>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { buildStore } from './redux/store'
 import { ThemeProvider } from '@material-ui/styles'
-import theme from './theme/theme'
+import theme from './theme/main_theme'
 import MainRouter from './Routes'
 import { PersistGate } from 'redux-persist/integration/react'
 

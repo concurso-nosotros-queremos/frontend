@@ -53,6 +53,12 @@ const useStyles = makeStyles(theme => ({
     borderTop: '1px solid #232F3424',
     width: '100%',
     zIndex: 1
+  },
+  root:{
+    width: '100%',
+    [theme.breakpoints.up('xl')]: {
+      maxWidth: '1440px'
+    }
   }
 }))
 
@@ -85,8 +91,10 @@ const InscriptionWrapper = props => {
   const Fragment = forms[active]
 
   return (
-    <Grid item xs={12} style={{ width: '100%' }}>
-      <Typography variant='h4'>Inscripción</Typography>
+    <Grid item xs={12} className={classes.root}>
+      <div style={{marginTop: '1rem'}}>
+        <Typography variant='h4' style={{fontWeight: 'bold'}}>Inscripción - CNQ</Typography>
+      </div>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -106,7 +114,9 @@ const InscriptionWrapper = props => {
             {redirect && <Redirect to='/groups/add/success' />}
             <HorizontalLinearStepper steps={forms} active={active} errors={errors} status={status} touched={touched} />
             <Form>
-              <Fragment.component errors={errors} status={status} touched={touched} />
+              <div style={{ marginBottom: '65px' }}>
+                <Fragment.component errors={errors} status={status} touched={touched} />
+              </div>
               <Grid className={classes.fixedActions} container direction='row' justify='flex-end' spacing={2}>
                 {active !== 0 && (
                   <Grid item>
@@ -125,7 +135,7 @@ const InscriptionWrapper = props => {
                   )
                   : (
                     <Grid item>
-                      <Button type='button' variant='contained' onClick={handleNext}>
+                      <Button type='button' variant='contained' color='primary' onClick={handleNext}>
                         Siguiente
                       </Button>
                     </Grid>
