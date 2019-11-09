@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { makeStyles } from '@material-ui/styles'
 import { Grid, Card, AppBar, Tabs, Tab, Box, Typography, Button } from '@material-ui/core'
@@ -8,6 +8,7 @@ import ProjectWrapper from '../../containers/projectInscription/forms/projectWra
 import SchoolWrapper from '../../containers/projectInscription/forms/schoolWrapper'
 import ContactWrapper from '../../containers/projectInscription/forms/contactWrapper'
 import fetchResource from '../../services/apiHandler'
+import { getOneGroup } from '../../services/groups.service'
 
 const pages = [
   {
@@ -92,6 +93,9 @@ const group = {
 }
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    padding: '1rem'
+  },
   card: {
     width: '100%',
     border: theme.border.primary,
@@ -109,6 +113,9 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: '1rem',
     paddingTop: '1rem',
     paddingBottom: '1rem'
+  },
+  saveButton: {
+    margin: '1rem'
   }
 }))
 
@@ -140,7 +147,7 @@ const GroupEdit = props => {
 
   const handleSubmit = (form, path) => {
     console.log(form)
-    return fetchResource('rest/group/163/', {
+    return fetchResource('rest/group/168/', {
       method: 'PATCH',
       headers: {
         Authorization: `Bearer ${props.token}`
@@ -188,7 +195,7 @@ const GroupEdit = props => {
                 <TabPanel value={value} index={3}>
                   <ContactWrapper />
                 </TabPanel>
-                <Button onClick={() => submitForm()}>
+                <Button className={classes.saveButton} onClick={() => submitForm()}>
                   Guardar
                 </Button>
               </>
