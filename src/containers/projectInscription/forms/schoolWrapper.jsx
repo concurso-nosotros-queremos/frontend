@@ -20,7 +20,7 @@ const SchoolWrapper = props => {
                   {...field}
                   fullWidth
                   variant='outlined'
-                  label='Nombre'
+                  label='Nombre de la escuela'
                   error={hasError(props.errors, props.status, props.touched, field.name)}
                   helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
                 />)}

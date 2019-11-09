@@ -92,7 +92,7 @@ const ParticipantsWrapper = props => {
                       </Grid>
                       <Grid item>
                         <ButtonBase centerRipple fullWidth onClick={() => { removeParticipant(arrayHelpers, index) }} className={classes.deleteButton}>
-                          <DeleteOutlineIcon style={{ color: 'rgba(0, 0, 0, 0.38)' }} />
+                          <DeleteOutlineIcon color='primary'/>
                         </ButtonBase>
                       </Grid>
                     </Grid>
@@ -156,14 +156,18 @@ const ParticipantsWrapper = props => {
                   </ExpansionPanelDetails>
                 </ExpansionPanel>
               ))}
-              <Button fullWidth
-                disabled={hasError(props.errors, props.status, props.touched, `raw_participant.${arrayHelpers.form.values.raw_participant.length - 1}`)}
-                variant='contained'
-                color='primary'
-                style={{ marginTop: '8px' }}
-                onClick={() => addParticipant(arrayHelpers)}>
-                <AddOutlined />
-              </Button>
+              <Grid container direction="row" justify="center" alignItems="center">
+                <Grid item item xs={12} md={8}>
+                  <Button fullWidth
+                    disabled={hasError(props.errors, props.status, props.touched, `raw_participant.${arrayHelpers.form.values.raw_participant.length - 1}`)}
+                    variant='contained'
+                    color='primary'
+                    style={{ marginTop: '8px' }}
+                    onClick={() => addParticipant(arrayHelpers)}>
+                    <AddOutlined />
+                  </Button>
+                </Grid>
+              </Grid>
             </>
           )}
         />

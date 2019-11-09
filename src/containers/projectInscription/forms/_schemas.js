@@ -28,8 +28,8 @@ export const schoolSchemaRaw = Yup.object().shape({
 const projectSchema = Yup.object().shape({
   name: Yup.string().required('Nombre es un campo obligatorio'),
   problem: Yup.string().required('Problema es un campo obligatorio'),
-  solution: Yup.string().required('Solucion es un campo obligatorio'),
-  diffusion: Yup.number().integer().typeError('Introduzca una difusion valida').required('Difusion es un campo obligatorio')
+  solution: Yup.string().required('Solución es un campo obligatorio'),
+  diffusion: Yup.number().integer().typeError('Introduzca una difusión valida').required('Difusión es un campo obligatorio')
 })
 
 export const projectSchemaRaw = Yup.object().shape({
@@ -103,7 +103,7 @@ export const helpers = {
     diffusion: 'Seleccione como se entero del concurso',
   },
   raw_contact: {
-    phone_number: 'Tu numero de telefono',
+    phone_number: 'Tu numero de teléfono',
     alternative_email: 'Email de otro profe/directivo/colegio',
     alternative_phone_number: '¿Si no te encontramos?'
   }

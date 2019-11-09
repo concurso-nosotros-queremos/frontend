@@ -50,7 +50,7 @@ const ProjectWrapper = props => {
                   fullWidth
                   multiline
                   variant='outlined'
-                  label='Solucion'
+                  label='Solución'
                   error={hasError(props.errors, props.status, props.touched, field.name)}
                   helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
                 />)}
@@ -65,7 +65,7 @@ const ProjectWrapper = props => {
                   select
                   fullWidth
                   variant='outlined'
-                  label='Difusion'
+                  label='Difusión'
                   error={hasError(props.errors, props.status, props.touched, field.name)}
                   helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
                 >

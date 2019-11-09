@@ -18,7 +18,7 @@ const ContactWrapper = props => {
                   {...field}
                   fullWidth
                   variant='outlined'
-                  label='Telefono particular'
+                  label='Teléfono particular'
                   error={hasError(props.errors, props.status, props.touched, field.name)}
                   helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
                 />)}
@@ -32,7 +32,7 @@ const ContactWrapper = props => {
                   {...field}
                   fullWidth
                   variant='outlined'
-                  label='Telefono alternativo'
+                  label='Teléfono alternativo'
                   error={hasError(props.errors, props.status, props.touched, field.name)}
                   helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
                 />)}

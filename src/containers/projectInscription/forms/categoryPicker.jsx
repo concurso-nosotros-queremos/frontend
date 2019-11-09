@@ -11,9 +11,9 @@ const categories = [
   { id: 2, name: 'Adicciones' },
   { id: 3, name: 'Menores' },
   { id: 4, name: 'Tercera edad' },
-  { id: 5, name: 'Espacios de uso comun' },
+  { id: 5, name: 'Espacios de uso común' },
   { id: 6, name: 'Seguridad vial' },
-  { id: 7, name: 'Genero' },
+  { id: 7, name: 'Género' },
   { id: 8, name: 'Otro' }
 ]
 
@@ -31,6 +31,7 @@ const CategoryPicker = () => (
                     <Checkbox
                       checked={arrayHelpers.form.values.raw_project.category.includes(category.id)}
                       value={category.id}
+                      color='primary'
                       onChange={e => {
                         console.log(arrayHelpers.name)
                         if (e.target.checked) arrayHelpers.push(category.id)
@@ -51,6 +52,7 @@ const CategoryPicker = () => (
                     <Checkbox
                       checked={arrayHelpers.form.values.raw_project.category.includes(category.id)}
                       value={category.id}
+                      color='primary'
                       onChange={e => {
                         console.log(arrayHelpers.name)
                         if (e.target.checked) arrayHelpers.push(category.id)
