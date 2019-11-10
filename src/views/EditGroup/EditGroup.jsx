@@ -10,6 +10,9 @@ import SchoolWrapper from '../../containers/projectInscription/forms/schoolWrapp
 import ContactWrapper from '../../containers/projectInscription/forms/contactWrapper'
 import fetchResource from '../../services/apiHandler'
 import { getOneGroup } from '../../services/groups.service'
+import { ThemeProvider } from '@material-ui/styles'
+import theme from '../../theme/inscriptions_theme'
+
 
 const pages = [
   {
@@ -71,7 +74,7 @@ const TabPanel = props => {
 }
 
 class EditGroup extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -82,13 +85,13 @@ class EditGroup extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     getOneGroup(this.props.token, this.props.match.params.id)
       .then(response => this.setState({ group: response }))
       .catch(error => this.setState({ error: error }))
   }
 
-  handleSubmit (form) {
+  handleSubmit(form) {
     console.log(form)
     return fetchResource(`rest/group/${this.props.match.params.id}/`, {
       method: 'PATCH',
@@ -101,7 +104,7 @@ class EditGroup extends Component {
     })
   }
 
-  render () {
+  render() {
     console.log(this.props)
     return (
       <GroupEditor group={this.state.group} onSubmit={this.handleSubmit} />
@@ -119,55 +122,57 @@ const GroupEditor = props => {
   }
 
   return (
-    <Grid container direction='row' justify='flex-start' alignItems='flex-start' className={classes.root}>
-      <Card className={classes.card} elevation={0}>
-        {props.group
-          ? (
-            <>
-              <Typography className={classes.title} autoCapitalize>
-                {props.group.raw_project.name}
-              </Typography>
-              <AppBar className={classes.appBar} position='static' color='inherit'>
-                <Tabs value={value} onChange={handleChange} indicatorColor='primary' aria-label='simple tabs example'>
-                  {pages.map((el, idx) => <Tab key={idx} label={el.title} />)}
-                </Tabs>
-              </AppBar>
-              <Formik
-                onSubmit={(values, { setStatus, setSubmitting }) => {
-                  props.onSubmit(values).then((response) => {
-                    console.log(response)
-                  }).catch((error) => {
-                    setStatus({ ...error.response })
-                    setSubmitting(false)
-                  })
-                }}
-                initialValues={props.group}
-              >
-                {({ errors, touched, status, submitForm }) => (
-                  <>
-                    <TabPanel value={value} index={0}>
-                      <ParticipantsWrapper />
-                    </TabPanel>
-                    <TabPanel value={value} index={1}>
-                      <SchoolWrapper />
-                    </TabPanel>
-                    <TabPanel value={value} index={2}>
-                      <ProjectWrapper />
-                    </TabPanel>
-                    <TabPanel value={value} index={3}>
-                      <ContactWrapper />
-                    </TabPanel>
-                    <Button className={classes.saveButton} onClick={() => submitForm()}>
-                      Guardar
+    <ThemeProvider theme={theme}>
+      <Grid container direction='row' justify='flex-start' alignItems='flex-start' className={classes.root}>
+        <Card className={classes.card} elevation={0}>
+          {props.group
+            ? (
+              <>
+                <Typography className={classes.title} autoCapitalize>
+                  {props.group.raw_project.name}
+                </Typography>
+                <AppBar className={classes.appBar} position='static' color='inherit'>
+                  <Tabs value={value} onChange={handleChange} indicatorColor='primary' aria-label='simple tabs example'>
+                    {pages.map((el, idx) => <Tab key={idx} label={el.title} />)}
+                  </Tabs>
+                </AppBar>
+                <Formik
+                  onSubmit={(values, { setStatus, setSubmitting }) => {
+                    props.onSubmit(values).then((response) => {
+                      console.log(response)
+                    }).catch((error) => {
+                      setStatus({ ...error.response })
+                      setSubmitting(false)
+                    })
+                  }}
+                  initialValues={props.group}
+                >
+                  {({ errors, touched, status, submitForm }) => (
+                    <>
+                      <TabPanel value={value} index={0}>
+                        <ParticipantsWrapper />
+                      </TabPanel>
+                      <TabPanel value={value} index={1}>
+                        <SchoolWrapper />
+                      </TabPanel>
+                      <TabPanel value={value} index={2}>
+                        <ProjectWrapper />
+                      </TabPanel>
+                      <TabPanel value={value} index={3}>
+                        <ContactWrapper />
+                      </TabPanel>
+                      <Button className={classes.saveButton} onClick={() => submitForm()}>
+                        Guardar
                     </Button>
-                  </>
-                )}
-              </Formik>
-            </>
-          )
-          : 'Loading...'}
-      </Card>
-    </Grid>
+                    </>
+                  )}
+                </Formik>
+              </>
+            )
+            : 'Loading...'}
+        </Card>
+      </Grid>
+    </ThemeProvider>
   )
 }
 
