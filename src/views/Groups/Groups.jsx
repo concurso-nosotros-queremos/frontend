@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react'
+import { withRouter } from 'react-router'
 import { makeStyles } from '@material-ui/styles'
 import { Grid } from '@material-ui/core'
 import Card from '@material-ui/core/Card'
 import Typography from '@material-ui/core/Typography'
 import MaterialTable from 'material-table'
-import { Link, Redirect } from 'react-router-dom'
 import withGroupCount from '../../hoc/withDashboard'
 import { connect } from 'react-redux'
 
@@ -27,13 +27,15 @@ const tableIcons = {
   LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref} />),
   NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
   PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref} />),
-  Edit: forwardRef((props, ref) => <EditOutlined {...props} ref={ref} />),
+  Edit: forwardRef((props, ref) => <EditOutlined {...props} ref={ref} />)
 }
 
 const useStyles = makeStyles(theme => ({
   card: {
+    border: theme.border.primary,
     width: '100%',
-    border: theme.border.primary
+    borderBottom: 0,
+    borderRadius: theme.shape.borderRadius
   },
   button: {
     border: theme.border.primary,
@@ -51,31 +53,23 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     whiteSpace: 'nowrap',
-    
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     fontSize: '24px'
-  },
-  card: {
-    border: theme.border.primary,
-    width: '100%',
-    borderBottom: 0,
-    borderRadius: theme.shape.borderRadius
-  },
+  }
 }))
 
-
-
-
 const Groups = props => {
-  const data= []
-  {props.group.reverse().map((el, idx) =>
-    data.push({name: el.raw_project.name, alumnos: el.raw_participant.length, city:el.raw_school.city_name ,state: el.raw_school.state_name})
-  )}
+  const data = []
 
-  const classes = useStyles() 
-  function handleOnClick(i) {
-    console.log(i)
+  props.group.reverse().forEach((el, idx) =>
+    data.push({ name: el.raw_project.name, alumnos: el.raw_participant.length, city: el.raw_school.city_name, state: el.raw_school.state_name, id: el.id })
+  )
+
+  const classes = useStyles()
+
+  const handleClick = id => {
+    props.history.push(`/groups/${id}`)
   }
 
   return (
@@ -89,6 +83,7 @@ const Groups = props => {
               { title: 'Alumnos', field: 'alumnos', type: 'numeric' },
               { title: 'Provincia', field: 'city' },
               { title: 'Localidad', field: 'state' },
+              { title: 'ID', field: 'id', hidden: true }
             ]}
             data={data}
             title={<Typography className={classes.title}>Grupos</Typography>}
@@ -101,7 +96,7 @@ const Groups = props => {
               {
                 icon: EditOutlined,
                 tooltip: 'Editar grupo',
-                onClick: (event, rowData) => handleOnClick(rowData.id)
+                onClick: (event, rowData) => handleClick(rowData.id)
               }
             ]}
           />
@@ -115,4 +110,4 @@ const mapStateToProps = (state) => ({
   token: state.auth.convertedToken.accessToken
 })
 
-export default connect(mapStateToProps)(withGroupCount(Groups))
+export default connect(mapStateToProps)(withGroupCount(withRouter(Groups)))

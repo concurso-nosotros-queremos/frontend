@@ -10,3 +10,14 @@ export async function getGroup (token) {
 
   return response
 }
+
+export async function getOneGroup (token, id) {
+  const response = await fetchResource(`rest/group/${id}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
+
+  return response
+}

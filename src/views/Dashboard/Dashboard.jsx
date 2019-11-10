@@ -12,7 +12,7 @@ import PersonOutlinedIcon from '@material-ui/icons/PersonOutlined'
 import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined'
 import Dialog from './components/Dialog'
 import withGroupCount from '../../hoc/withDashboard'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Bar } from 'react-chartjs-2'
 
 const useStyles = makeStyles(theme => ({
@@ -264,7 +264,7 @@ const Dashboard = props => {
 
               <Grid container direction='column' justify='flex-start' alignItems='flex-start'>
                 {data.map((el, idx) =>
-                  <Button disableRipple key={idx} className={classes.ultInscriptosBtnContainer} to={'/groups/' + (el.raw_project.id)} component={Link}>
+                  <Button disableRipple key={idx} className={classes.ultInscriptosBtnContainer} to={'/groups/' + (el.id)} component={Link}>
                     <Grid container direction='row' justify='space-between' alignItems='center'>
                       <Grid item xs='auto' sm={5}>
                         <Typography className={classes.projetName} color='inherit'>
