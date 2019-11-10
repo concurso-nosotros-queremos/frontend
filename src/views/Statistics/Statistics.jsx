@@ -55,21 +55,17 @@ const Statistics = props => {
                   labels: props.label_participant,
                   datasets: [
                     {
-                      hoverBackgroundColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(255, 159, 64)',
-                        'rgb(255, 205, 86)',
-                        'rgb(75, 192, 192)',
-                        'rgb(54, 162, 235)',
-                        'rgb(153, 102, 255)'
-                      ],
                       backgroundColor: [
-                        'rgba(255, 99, 132,0.8)',
-                        'rgba(255, 159, 64,0.8)',
-                        'rgba(255, 205, 86,0.8)',
-                        'rgba(75, 192, 192,0.8)',
-                        'rgba(54, 162, 235,0.8)',
-                        'rgba(153, 102, 255,0.8)'
+                        '#e6194B', '#3cb44b', 
+                        '#ffe119', '#4363d8', 
+                        '#f58231', '#911eb4', 
+                        '#42d4f4', '#f032e6', 
+                        '#bfef45', '#fabebe', 
+                        '#469990', '#e6beff', 
+                        '#9A6324', '#fffac8', 
+                        '#800000', '#aaffc3', 
+                        '#808000', '#ffd8b1', 
+                        '#000075', '#a9a9a9',
                       ],
                       data: props.participant
                     }
@@ -99,9 +95,6 @@ const Statistics = props => {
                   legend: {
                     display: false
                   },
-                  tooltips: {
-                    enabled: true
-                  }
                 }}
               />
             </div>
@@ -115,15 +108,10 @@ const Statistics = props => {
                     data: props.diffusion,
                     borderWidth: 1,
                     backgroundColor: [
-                      '#FF6384',
-                      '#36A2EB',
-                      '#FFCE56'
+                      '#e6194B', '#3cb44b', 
+                      '#ffe119', '#4363d8', 
+                      '#f58231', '#911eb4', 
                     ],
-                    hoverBackgroundColor: [
-                      '#FF6384',
-                      '#36A2EB',
-                      '#FFCE56'
-                    ]
                   }]
                 }}
                 options={{
@@ -138,9 +126,6 @@ const Statistics = props => {
                     display: true,
                     position: 'right'
                   },
-                  tooltips: {
-                    enabled: true
-                  }
                 }}
               />
             </div>
@@ -154,21 +139,10 @@ const Statistics = props => {
                     data: props.school,
                     borderWidth: 1,
                     backgroundColor: [
-                      '#FF6384',
-                      '#36A2EB',
-                      '#FFCE56',
-                      '#FF6384',
-                      '#36A2EB',
-                      '#FFCE56'
+                      '#e6194B', '#3cb44b', 
+                      '#ffe119', '#4363d8', 
+                      '#f58231', '#911eb4', 
                     ],
-                    hoverBackgroundColor: [
-                      '#FF6384',
-                      '#36A2EB',
-                      '#FFCE56',
-                      '#FF6384',
-                      '#36A2EB',
-                      '#FFCE56'
-                    ]
                   }]
                 }}
                 options={{
@@ -183,9 +157,6 @@ const Statistics = props => {
                     display: true,
                     position: 'right'
                   },
-                  tooltips: {
-                    enabled: true
-                  }
                 }}
               />
             </div>

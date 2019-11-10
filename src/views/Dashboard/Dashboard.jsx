@@ -185,21 +185,17 @@ const Dashboard = props => {
                   labels: props.labels,
                   datasets: [
                     {
-                      hoverBackgroundColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(255, 159, 64)',
-                        'rgb(255, 205, 86)',
-                        'rgb(75, 192, 192)',
-                        'rgb(54, 162, 235)',
-                        'rgb(153, 102, 255)'
-                      ],
                       backgroundColor: [
-                        'rgba(255, 99, 132,0.8)',
-                        'rgba(255, 159, 64,0.8)',
-                        'rgba(255, 205, 86,0.8)',
-                        'rgba(75, 192, 192,0.8)',
-                        'rgba(54, 162, 235,0.8)',
-                        'rgba(153, 102, 255,0.8)'
+                        '#e6194B', '#3cb44b', 
+                        '#ffe119', '#4363d8', 
+                        '#f58231', '#911eb4', 
+                        '#42d4f4', '#f032e6', 
+                        '#bfef45', '#fabebe', 
+                        '#469990', '#e6beff', 
+                        '#9A6324', '#fffac8', 
+                        '#800000', '#aaffc3', 
+                        '#808000', '#ffd8b1', 
+                        '#000075', '#a9a9a9',
                       ],
                       data: props.data
                     }
@@ -230,26 +226,6 @@ const Dashboard = props => {
                   legend: {
                     display: false
                   },
-                  tooltips: {
-                    enabled: false
-                  },
-                  animation: {
-                    onProgress: function () {
-                      var chartInstance = this.chart
-                      var ctx = chartInstance.ctx
-                      ctx.textAlign = 'center'
-                      ctx.fillStyle = 'rrgba(35, 47, 52, 0.56)'
-                      ctx.textBaseline = 'bottom'
-
-                      this.data.datasets.forEach(function (dataset, i) {
-                        var meta = chartInstance.controller.getDatasetMeta(i)
-                        meta.data.forEach(function (bar, index) {
-                          var data = dataset.data[index]
-                          ctx.fillText(data, bar._model.x, bar._model.y)
-                        })
-                      })
-                    }
-                  }
                 }}
               />
             </div>
