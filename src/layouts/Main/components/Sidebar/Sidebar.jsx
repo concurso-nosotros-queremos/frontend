@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/styles'
-import { Divider, Drawer, ListItem, ListItemAvatar, ListItemText } from '@material-ui/core'
+import { Divider, Drawer, ListItem, ListItemAvatar, ListItemText, Grid } from '@material-ui/core'
 import DashboardIconOutlined from '@material-ui/icons/DashboardOutlined'
 import PeopleIconOutlined from '@material-ui/icons/PeopleOutlined'
 import AssessmentOutlinedIcon from '@material-ui/icons/AssessmentOutlined'
@@ -14,12 +14,12 @@ const useStyles = makeStyles(theme => ({
   drawer: {
     width: 240,
     [theme.breakpoints.down('xs')]: {
-      paddingTop: 24,
-      height: 'calc(100% - 24px)'
+      paddingTop: 56,
+      height: 'calc(100% - 56px)'
     },
     [theme.breakpoints.up('sm')]: {
-      paddingTop: 32,
-      height: 'calc(100% - 32px)'
+      paddingTop: 64,
+      height: 'calc(100% - 64px)'
     },
     backgroundColor: '#232F34'
   },
@@ -28,7 +28,6 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     height: '100%',
-    paddingTop: theme.spacing(2)
   },
   divider: {
     margin: theme.spacing(1, 0),
@@ -60,7 +59,15 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: 0,
     flexGrow: 1,
     marginTop: 'auto'
-  }
+  },
+  cnq: {
+    width: 'auto',
+    height: '6.5rem',
+    [theme.breakpoints.down('xs')]: {
+      height: '5.5rem',
+    },
+    marginBottom: '1rem'
+  },
 }))
 
 const Sidebar = props => {
@@ -105,6 +112,14 @@ const Sidebar = props => {
         {...rest}
         className={clsx(classes.root, className)}
       >
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+        >
+          <img alt='Concurso Nosotros Queremos' src={require('../../../../assets/cnq.png')} className={classes.cnq} />
+        </Grid>
         <SidebarNav
           className={classes.nav}
           pages={pages}
