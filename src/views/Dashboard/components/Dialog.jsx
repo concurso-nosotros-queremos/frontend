@@ -12,6 +12,7 @@ import Moment from 'moment'
 import fetchResource from '../../../services/apiHandler'
 import withGroupCount from '../../../hoc/withDashboard'
 import { connect } from 'react-redux'
+import moment from 'moment'
 
 Moment.locale('es')
 
@@ -26,7 +27,8 @@ const useStyles = makeStyles(theme => ({
 const SimpleDialog = props => {
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
-  const [selectedDate, setSelectedDate] = React.useState(new Date())
+  const [selectedDate, setSelectedDate] = React.useState(null)
+
   const theme = useTheme()
 
   const handleClickOpen = () => {
@@ -42,6 +44,8 @@ const SimpleDialog = props => {
       body: {
         inscription_date_to: Moment.utc(selectedDate).toISOString()
       }
+    }).then(response => {
+      window.location.reload()
     })
   }
   const handleDateChange = date => {
@@ -63,6 +67,7 @@ const SimpleDialog = props => {
                 orientation={useMediaQuery(theme.breakpoints.only('xs')) ? 'portrait' : 'landscape'}
                 variant='static'
                 openTo='date'
+                initialFocusedDate={moment(props.contestEnd).format(("YYYY-MM-DDTHH:mm:ss"))}
                 value={selectedDate}
                 onChange={handleDateChange}
               />

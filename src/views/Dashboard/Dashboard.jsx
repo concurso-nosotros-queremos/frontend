@@ -14,6 +14,7 @@ import Dialog from './components/Dialog'
 import withGroupCount from '../../hoc/withDashboard'
 import { Link } from 'react-router-dom'
 import { Bar } from 'react-chartjs-2'
+import moment from 'moment'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -164,13 +165,12 @@ const Dashboard = props => {
                   <AssignmentOutlinedIcon style={{ color: 'white' }} />
                 </Grid>
                 <Typography variant='h4' style={{ fontFamily: 'Roboto', color: 'white' }}>
-                  {props.contestEnd}
+                  {props.contestEnd ? moment(props.contestEnd).format('DD/MM/YYYY') : 'Cargando'}
                 </Typography>
               </CardContent>
               <CardActions style={{ justifyContent: 'flex-end' }}>
-
                 <Button size='small' className={classes.button} style={{ color: 'white' }}>Cerrar</Button>
-                <Dialog estilos={clsx(classes.button, classes.containedButton)} />
+                <Dialog estilos={clsx(classes.button, classes.containedButton)} contestEnd={moment(props.contestEnd)} />
               </CardActions>
             </Card>
           </Grid>
@@ -186,15 +186,15 @@ const Dashboard = props => {
                   datasets: [
                     {
                       backgroundColor: [
-                        '#e6194B', '#3cb44b', 
-                        '#ffe119', '#4363d8', 
-                        '#f58231', '#911eb4', 
-                        '#42d4f4', '#f032e6', 
-                        '#bfef45', '#fabebe', 
-                        '#469990', '#e6beff', 
-                        '#9A6324', '#fffac8', 
-                        '#800000', '#aaffc3', 
-                        '#808000', '#ffd8b1', 
+                        '#e6194B', '#3cb44b',
+                        '#ffe119', '#4363d8',
+                        '#f58231', '#911eb4',
+                        '#42d4f4', '#f032e6',
+                        '#bfef45', '#fabebe',
+                        '#469990', '#e6beff',
+                        '#9A6324', '#fffac8',
+                        '#800000', '#aaffc3',
+                        '#808000', '#ffd8b1',
                         '#000075', '#a9a9a9',
                       ],
                       data: props.data
