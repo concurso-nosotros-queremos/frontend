@@ -16,6 +16,7 @@ import { Link } from 'react-router-dom'
 import { Bar } from 'react-chartjs-2'
 import moment from 'moment'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import Skeleton from '@material-ui/lab/Skeleton'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -124,68 +125,100 @@ const Dashboard = props => {
       <Grid container direction='column' justify='flex-start' alignItems='flex-start'>
         <Grid container direction='row' justify='flex-start' alignItems='flex-start'>
           <Grid container item xs={12} sm={6} md={4} className={classes.root}>
-            <Card className={classes.card} elevation={0}>
-              <CardContent style={{ padding: '8px' }}>
-                <Grid container justify='space-between' aling='center'>
-                  <Typography gutterBottom style={{ fontWeight: 'bold', color: 'rgba(35, 47, 52, 0.56)', textTransform: 'uppercase' }}>
-                    Grupos inscriptos
+            {props.groupTotal ?
+              (<Card className={classes.card} elevation={0}>
+                <CardContent style={{ padding: '8px' }}>
+                  <Grid container justify='space-between' aling='center'>
+                    <Typography gutterBottom style={{ fontWeight: 'bold', color: 'rgba(35, 47, 52, 0.56)', textTransform: 'uppercase' }}>
+                      Grupos inscriptos
                   </Typography>
-                  <PeopleIconOutlined color='primary' />
-                </Grid>
-
-                {props.groupTotal ?
-                  (<Typography variant='h4' style={{ fontFamily: 'Roboto' }}>
+                    <PeopleIconOutlined color='primary' />
+                  </Grid>
+                  <Typography variant='h4' style={{ fontFamily: 'Roboto' }}>
                     {props.groupTotal}
-                  </Typography>) :
-                  <CircularProgress style={{ width: '35px', height: '35px' }} />
-                }
-              </CardContent>
-              <CardActions style={{ justifyContent: 'flex-end' }}>
-                <Button size='small' className={classes.button} color='primary' to='/groups' component={Link}>Ver todos</Button>
-              </CardActions>
-            </Card>
+                  </Typography>
+                </CardContent>
+                <CardActions style={{ justifyContent: 'flex-end' }}>
+                  <Button size='small' className={classes.button} color='primary' to='/groups' component={Link}>Ver todos</Button>
+                </CardActions>
+              </Card>) :
+              (
+                <Card className={classes.card} elevation={0}>
+                  <CardContent style={{ padding: '8px' }}>
+                    <Grid container justify='space-between' aling='center'>
+                      <Skeleton variant="rect" width={165} height={14} style={{ marginBottom: '0.35em' }} />
+                      <PeopleIconOutlined style={{ color: 'rgba(0, 0, 0, 0.1)' }} />
+                    </Grid>
+                    <Skeleton variant="rect" width={60} height={27} style={{ margin: '5px 0px' }} />
+                  </CardContent>
+                  <CardActions style={{ justifyContent: 'flex-end' }}>
+                    <Skeleton variant="rect" width={85} height={21} style={{ marginTop: '10px' }} />
+                  </CardActions>
+                </Card>
+              )
+            }
           </Grid>
+
           <Grid container item xs={12} sm={6} md={4} className={classes.root}>
-            <Card className={clsx(classes.card, classes.green)} elevation={0}>
-              <CardContent style={{ padding: '8px' }}>
-                <Grid container justify='space-between' aling='center'>
-                  <Typography gutterBottom style={{ fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.56)', textTransform: 'uppercase' }}>
-                    Alumnos inscriptos
+            {props.participantTotal ?
+              (<Card className={clsx(classes.card, classes.green)} elevation={0}>
+                <CardContent style={{ padding: '8px' }}>
+                  <Grid container justify='space-between' aling='center'>
+                    <Typography gutterBottom style={{ fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.56)', textTransform: 'uppercase' }}>
+                      Alumnos inscriptos
                   </Typography>
-                  <PersonOutlinedIcon style={{ color: 'white' }} />
-                </Grid>
-
-                {props.participantTotal ?
-                  (<Typography variant='h4' style={{ fontFamily: 'Roboto', color: 'white' }}>
+                    <PersonOutlinedIcon style={{ color: 'white' }} />
+                  </Grid>
+                  <Typography variant='h4' style={{ fontFamily: 'Roboto', color: 'white' }}>
                     {props.participantTotal}
-                  </Typography>) :
-                  <CircularProgress style={{ width: '35px', height: '35px', color: 'white' }} />
-                }
-
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid container item xs={12} sm={12} md={4} className={classes.root}>
-            <Card className={clsx(classes.card, classes.red)} elevation={0}>
-              <CardContent style={{ padding: '8px' }}>
-                <Grid container justify='space-between' aling='center'>
-                  <Typography gutterBottom style={{ fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.56)', textTransform: 'uppercase' }}>
-                    Cierre inscripciones
                   </Typography>
-                  <AssignmentOutlinedIcon style={{ color: 'white' }} />
-                </Grid>
-                {props.contestEnd ?
-                  (<Typography variant='h4' style={{ fontFamily: 'Roboto', color: 'white' }}>
+                </CardContent>
+              </Card>) :
+              (<Card className={clsx(classes.card, classes.green)} elevation={0}>
+                <CardContent style={{ padding: '8px' }}>
+                  <Grid container justify='space-between' aling='center'>
+                    <Skeleton variant="rect" width={165} height={14} style={{ marginBottom: '0.35em', backgroundColor: 'rgba(255,255,255, 0.2)' }} />
+                    <PersonOutlinedIcon style={{ color: 'rgba(255,255,255, 0.4)' }} />
+                  </Grid>
+                  <Skeleton variant="rect" width={60} height={27} style={{ margin: '5px 0px', backgroundColor: 'rgba(255,255,255, 0.2)' }} />
+                </CardContent>
+              </Card>)
+            }
+          </Grid>
+
+          <Grid container item xs={12} sm={12} md={4} className={classes.root}>
+            {props.contestEnd ?
+              (<Card className={clsx(classes.card, classes.red)} elevation={0}>
+                <CardContent style={{ padding: '8px' }}>
+                  <Grid container justify='space-between' aling='center'>
+                    <Typography gutterBottom style={{ fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.56)', textTransform: 'uppercase' }}>
+                      Cierre inscripciones
+                  </Typography>
+                    <AssignmentOutlinedIcon style={{ color: 'white' }} />
+                  </Grid>
+                  <Typography variant='h4' style={{ fontFamily: 'Roboto', color: 'white' }}>
                     {moment(props.contestEnd).format('DD/MM/YYYY')}
-                  </Typography>) :
-                  <CircularProgress style={{ width: '35px', height: '35px', color: 'white' }} />
-                }
-              </CardContent>
-              <CardActions style={{ justifyContent: 'flex-end' }}>
-                <Button size='small' className={classes.button} style={{ color: 'white' }}>Cerrar</Button>
-                <Dialog estilos={clsx(classes.button, classes.containedButton)} contestEnd={moment(props.contestEnd)} />
-              </CardActions>
-            </Card>
+                  </Typography>
+                </CardContent>
+                <CardActions style={{ justifyContent: 'flex-end' }}>
+                  <Button size='small' className={classes.button} style={{ color: 'white' }}>Cerrar</Button>
+                  <Dialog estilos={clsx(classes.button, classes.containedButton)} contestEnd={moment(props.contestEnd)} />
+                </CardActions>
+              </Card>) :
+              (<Card className={clsx(classes.card, classes.red)} elevation={0}>
+                <CardContent style={{ padding: '8px' }}>
+                  <Grid container justify='space-between' aling='center'>
+                    <Skeleton variant="rect" width={165} height={14} style={{ marginBottom: '0.35em', backgroundColor: 'rgba(255,255,255, 0.2)' }} />
+                    <PeopleIconOutlined style={{ color: 'rgba(255,255,255, 0.4)' }} />
+                  </Grid>
+                  <Skeleton variant="rect" width={60} height={27} style={{ margin: '5px 0px', backgroundColor: 'rgba(255,255,255, 0.2)' }} />
+                </CardContent>
+                <CardActions style={{ justifyContent: 'flex-end' }}>
+                  <Skeleton variant="rect" width={85} height={21} style={{ marginTop: '10px', backgroundColor: 'rgba(255,255,255, 0.2)' }} />
+                </CardActions>
+              </Card>
+              )
+            }
           </Grid>
         </Grid>
 
