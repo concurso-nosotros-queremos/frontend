@@ -99,6 +99,17 @@ const Groups = props => {
                 onClick: (event, rowData) => handleClick(rowData.id)
               }
             ]}
+            localization={{
+              header: {
+                actions: 'Editar',
+              },
+              body: {
+                emptyDataSourceMessage: 'No hay grupos registrados',
+              },
+              toolbar:{
+                searchPlaceholder: 'Buscar'
+            }
+            }}
           />
         </Card>
       </Grid>
