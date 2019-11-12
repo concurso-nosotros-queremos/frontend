@@ -15,6 +15,7 @@ import withGroupCount from '../../hoc/withDashboard'
 import { Link } from 'react-router-dom'
 import { Bar } from 'react-chartjs-2'
 import moment from 'moment'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -106,7 +107,7 @@ const useStyles = makeStyles(theme => ({
   },
   projetName: {
     fontWeight: 'bold', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '110px'
-  }
+  },
 }))
 
 const Dashboard = props => {
@@ -131,9 +132,13 @@ const Dashboard = props => {
                   </Typography>
                   <PeopleIconOutlined color='primary' />
                 </Grid>
-                <Typography variant='h4' style={{ fontFamily: 'Roboto' }}>
-                  {props.groupTotal}
-                </Typography>
+
+                {props.groupTotal ?
+                  (<Typography variant='h4' style={{ fontFamily: 'Roboto' }}>
+                    {props.groupTotal}
+                  </Typography>) :
+                  <CircularProgress style={{ width: '35px', height: '35px' }} />
+                }
               </CardContent>
               <CardActions style={{ justifyContent: 'flex-end' }}>
                 <Button size='small' className={classes.button} color='primary' to='/groups' component={Link}>Ver todos</Button>
@@ -149,9 +154,14 @@ const Dashboard = props => {
                   </Typography>
                   <PersonOutlinedIcon style={{ color: 'white' }} />
                 </Grid>
-                <Typography variant='h4' style={{ fontFamily: 'Roboto', color: 'white' }}>
-                  {props.participantTotal}
-                </Typography>
+
+                {props.participantTotal ?
+                  (<Typography variant='h4' style={{ fontFamily: 'Roboto', color: 'white' }}>
+                    {props.participantTotal}
+                  </Typography>) :
+                  <CircularProgress style={{ width: '35px', height: '35px', color: 'white' }} />
+                }
+
               </CardContent>
             </Card>
           </Grid>
@@ -164,9 +174,12 @@ const Dashboard = props => {
                   </Typography>
                   <AssignmentOutlinedIcon style={{ color: 'white' }} />
                 </Grid>
-                <Typography variant='h4' style={{ fontFamily: 'Roboto', color: 'white' }}>
-                  {props.contestEnd ? moment(props.contestEnd).format('DD/MM/YYYY') : 'Cargando'}
-                </Typography>
+                {props.contestEnd ?
+                  (<Typography variant='h4' style={{ fontFamily: 'Roboto', color: 'white' }}>
+                    {moment(props.contestEnd).format('DD/MM/YYYY')}
+                  </Typography>) :
+                  <CircularProgress style={{ width: '35px', height: '35px', color: 'white' }} />
+                }
               </CardContent>
               <CardActions style={{ justifyContent: 'flex-end' }}>
                 <Button size='small' className={classes.button} style={{ color: 'white' }}>Cerrar</Button>
