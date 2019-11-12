@@ -9,6 +9,9 @@ import DialogActions from '@material-ui/core/DialogActions'
 import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers'
 import MomentUtils from '@date-io/moment'
 import Moment from 'moment'
+import fetchResource from '../../../services/apiHandler'
+import withGroupCount from '../../../hoc/withDashboard'
+import { connect } from 'react-redux'
 
 Moment.locale('es')
 
@@ -20,7 +23,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function SimpleDialog (props) {
+const SimpleDialog = props => {
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
   const [selectedDate, setSelectedDate] = React.useState(new Date())
@@ -31,6 +34,15 @@ export default function SimpleDialog (props) {
   }
   const handleClose = value => {
     setOpen(false)
+  }
+  const handleSubmit = date => {
+    setOpen(false)
+    return fetchResource(`rest/contest/${props.contestId}/`, {
+      method: 'PATCH',
+      body: {
+        inscription_date_to: Moment.utc(selectedDate).toISOString()
+      }
+    })
   }
   const handleDateChange = date => {
     setSelectedDate(date)
@@ -61,7 +73,7 @@ export default function SimpleDialog (props) {
           <Button onClick={handleClose} color='primary'>
             Cancelar
           </Button>
-          <Button onClick={handleClose} color='primary'>
+          <Button onClick={handleSubmit} color='primary'>
             Aceptar
           </Button>
         </DialogActions>
@@ -69,3 +81,9 @@ export default function SimpleDialog (props) {
     </>
   )
 }
+
+const mapStateToProps = (state) => ({
+  token: state.auth.convertedToken.accessToken
+})
+
+export default connect(mapStateToProps)(withGroupCount(SimpleDialog))
