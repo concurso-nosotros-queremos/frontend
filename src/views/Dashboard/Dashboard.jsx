@@ -278,7 +278,7 @@ const Dashboard = props => {
             <div style={{ display: 'grid', alignSelf: 'self-start', overflow: 'hidden' }}>
 
               <Grid container direction='row' justify='space-between' alignItems='center' style={{ padding: '16px' }}>
-                <Typography style={{ fontWeight: 'bold', textTransform: 'uppercase' }} color='inherit'>
+                <Typography style={{ fontWeight: 'bold', textTransform: 'uppercase' }}>
                   Ultimos inscriptos
                 </Typography>
                 <PeopleIconOutlined color='primary' />
