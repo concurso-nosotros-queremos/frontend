@@ -13,8 +13,6 @@ import HorizontalLinearStepper from '../../components/horizontalLinearStepper'
 import { makeStyles } from '@material-ui/styles'
 import { BrowserRouter as Redirect } from 'react-router-dom'
 
-// const validators = [participantsSchemaRaw, schoolSchemaRaw, projectSchemaRaw, contactSchemaRaw]
-
 const forms = [
   {
     title: 'Participantes',
@@ -54,7 +52,7 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     zIndex: 1
   },
-  root:{
+  root: {
     width: '100%',
     [theme.breakpoints.up('xl')]: {
       maxWidth: '1440px'
@@ -92,8 +90,8 @@ const InscriptionWrapper = props => {
 
   return (
     <Grid item xs={12} className={classes.root}>
-      <div style={{marginTop: '1rem'}}>
-        <Typography variant='h4' style={{fontWeight: 'bold'}}>Inscripción - CNQ</Typography>
+      <div style={{ marginTop: '1rem' }}>
+        <Typography variant='h4' style={{ fontWeight: 'bold' }}>Inscripción - CNQ</Typography>
       </div>
       <Formik
         initialValues={initialValues}
