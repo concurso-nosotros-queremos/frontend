@@ -125,7 +125,7 @@ const Dashboard = props => {
       <Grid container direction='column' justify='flex-start' alignItems='flex-start'>
         <Grid container direction='row' justify='flex-start' alignItems='flex-start'>
           <Grid container item xs={12} sm={6} md={4} className={classes.root}>
-            {props.groupTotal ?
+            {props.groupTotal2 ?
               (<Card className={classes.card} elevation={0}>
                 <CardContent style={{ padding: '8px' }}>
                   <Grid container justify='space-between' aling='center'>
@@ -160,7 +160,7 @@ const Dashboard = props => {
           </Grid>
 
           <Grid container item xs={12} sm={6} md={4} className={classes.root}>
-            {props.participantTotal ?
+            {props.participantTotal2 ?
               (<Card className={clsx(classes.card, classes.green)} elevation={0}>
                 <CardContent style={{ padding: '8px' }}>
                   <Grid container justify='space-between' aling='center'>
@@ -187,7 +187,7 @@ const Dashboard = props => {
           </Grid>
 
           <Grid container item xs={12} sm={12} md={4} className={classes.root}>
-            {props.contestEnd ?
+            {props.contestEnd2 ?
               (<Card className={clsx(classes.card, classes.red)} elevation={0}>
                 <CardContent style={{ padding: '8px' }}>
                   <Grid container justify='space-between' aling='center'>
@@ -285,48 +285,81 @@ const Dashboard = props => {
               </Grid>
 
               <Grid container direction='column' justify='flex-start' alignItems='flex-start'>
-                {data.map((el, idx) =>
-                  <Button disableRipple key={idx} className={classes.ultInscriptosBtnContainer} to={'/groups/' + (el.id)} component={Link}>
-                    <Grid container direction='row' justify='space-between' alignItems='center'>
-                      <Grid item xs='auto' sm={5}>
-                        <Typography className={classes.projetName} color='inherit'>
-                          {el.raw_project.name}
-                        </Typography>
-                        <Typography style={{ fontSize: '12px' }}>
-                          {el.raw_participant.length} participantes
-                        </Typography>
+
+                {props.group2 ?
+                  (data.map((el, idx) =>
+                    <Button disableRipple key={idx} className={classes.ultInscriptosBtnContainer} to={'/groups/' + (el.id)} component={Link}>
+                      <Grid container direction='row' justify='space-between' alignItems='center'>
+                        <Grid item xs='auto' sm={5}>
+                          <Typography className={classes.projetName} color='inherit'>
+                            {el.raw_project.name}
+                          </Typography>
+                          <Typography style={{ fontSize: '12px' }}>
+                            {el.raw_participant.length} participantes
+                      </Typography>
+                        </Grid>
+                        <Grid item xs='auto' sm={3}>
+                          <Typography style={{ fontWeight: 'bold', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '110px' }} color='inherit'>
+                            {el.raw_school.state_name}
+                          </Typography>
+                          <Typography className={classes.cityName}>
+                            └ {el.raw_school.city_name}
+                          </Typography>
+                        </Grid>
+                        <Grid item className={classes.ocultarXs} sm={4}>
+                          {el.raw_project.category_name.length > 1
+                            ? (
+                              <div className={classes.inscriptosLabelcategory}>
+                                <Typography style={{ fontSize: '12px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '90px' }}>
+                                  {el.raw_project.category_name[0].name}
+                                </Typography>
+                                <Typography style={{ fontSize: '12px' }}>
+                                  {'+ ' + (el.raw_project.category_name.length - 1) + ' más'}
+                                </Typography>
+                              </div>
+                            )
+                            : (
+                              <div className={classes.inscriptosLabelcategory}>
+                                <Typography style={{ fontSize: '12px' }}>
+                                  {el.raw_project.category_name[0].name}
+                                </Typography>
+                              </div>
+                            )}
+                        </Grid>
                       </Grid>
-                      <Grid item xs='auto' sm={3}>
-                        <Typography style={{ fontWeight: 'bold', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '110px' }} color='inherit'>
-                          {el.raw_school.state_name}
-                        </Typography>
-                        <Typography className={classes.cityName}>
-                          └ {el.raw_school.city_name}
-                        </Typography>
-                      </Grid>
-                      <Grid item className={classes.ocultarXs} sm={4}>
-                        {el.raw_project.category_name.length > 1
-                          ? (
-                            <div className={classes.inscriptosLabelcategory}>
-                              <Typography style={{ fontSize: '12px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '90px' }}>
-                                {el.raw_project.category_name[0].name}
-                              </Typography>
-                              <Typography style={{ fontSize: '12px' }}>
-                                {'+ ' + (el.raw_project.category_name.length - 1) + ' más'}
-                              </Typography>
-                            </div>
-                          )
-                          : (
-                            <div className={classes.inscriptosLabelcategory}>
-                              <Typography style={{ fontSize: '12px' }}>
-                                {el.raw_project.category_name[0].name}
-                              </Typography>
-                            </div>
-                          )}
-                      </Grid>
-                    </Grid>
-                  </Button>
-                )}
+                    </Button>
+                  )) :
+                  (
+                    <>
+                      {Array.apply(0, Array(3)).map(() => {
+                         return <Button disableRipple className={classes.ultInscriptosBtnContainer}>
+                          <Grid container direction='row' justify='space-between' alignItems='center'>
+                            <Grid item xs={8}>
+                              <Grid container direction="column" justify="flex-start" alignItems="flex-start">
+                                <Skeleton variant="rect" width={200} height={10} style={{ margin: '5px 0' }} />
+                                <Grid container direction="row" justify="flex-start" alignItems="center"                          >
+                                  <Grid item xs={7}>
+                                    <Skeleton variant="rect" width={75} height={10} style={{ margin: '5px 0' }} />
+                                  </Grid>
+                                  <Grid item xs={3}>
+                                    <Skeleton variant="rect" width={55} height={10} style={{ margin: '5px 0' }} />
+                                  </Grid>
+                                </Grid>
+                              </Grid>
+                            </Grid>
+                            <Grid item xs={4}>
+                              <Grid container direction="row" justify="flex-end" alignItems="center">
+                                <Skeleton variant="rect" width={66} height={10} style={{ margin: '5px 0' }} />
+                              </Grid>
+                            </Grid>
+                          </Grid>
+                        </Button>
+                      })}
+                    </>
+                  )
+                }
+
+
               </Grid>
             </div>
           </div>
