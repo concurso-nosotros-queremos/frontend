@@ -83,7 +83,7 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     display: 'grid',
     alignSelf: 'stretch',
-    minHeight: '250px',
+    minHeight: '300px',
     maxHeight: '450px',
     minWidth: '100%',
     maxWidth: '100%',
@@ -125,7 +125,7 @@ const Dashboard = props => {
       <Grid container direction='column' justify='flex-start' alignItems='flex-start'>
         <Grid container direction='row' justify='flex-start' alignItems='flex-start'>
           <Grid container item xs={12} sm={6} md={4} className={classes.root}>
-            {props.groupTotal2 ?
+            {props.groupTotal ?
               (<Card className={classes.card} elevation={0}>
                 <CardContent style={{ padding: '8px' }}>
                   <Grid container justify='space-between' aling='center'>
@@ -160,7 +160,7 @@ const Dashboard = props => {
           </Grid>
 
           <Grid container item xs={12} sm={6} md={4} className={classes.root}>
-            {props.participantTotal2 ?
+            {props.participantTotal ?
               (<Card className={clsx(classes.card, classes.green)} elevation={0}>
                 <CardContent style={{ padding: '8px' }}>
                   <Grid container justify='space-between' aling='center'>
@@ -187,7 +187,7 @@ const Dashboard = props => {
           </Grid>
 
           <Grid container item xs={12} sm={12} md={4} className={classes.root}>
-            {props.contestEnd2 ?
+            {props.contestEnd ?
               (<Card className={clsx(classes.card, classes.red)} elevation={0}>
                 <CardContent style={{ padding: '8px' }}>
                   <Grid container justify='space-between' aling='center'>
@@ -286,7 +286,7 @@ const Dashboard = props => {
 
               <Grid container direction='column' justify='flex-start' alignItems='flex-start'>
 
-                {props.group2 ?
+                {data.length > 0?
                   (data.map((el, idx) =>
                     <Button disableRipple key={idx} className={classes.ultInscriptosBtnContainer} to={'/groups/' + (el.id)} component={Link}>
                       <Grid container direction='row' justify='space-between' alignItems='center'>
@@ -331,7 +331,7 @@ const Dashboard = props => {
                   )) :
                   (
                     <>
-                      {Array.apply(0, Array(3)).map(() => {
+                      {Array.apply(0, Array(1)).map(() => {
                          return <Button disableRipple className={classes.ultInscriptosBtnContainer}>
                           <Grid container direction='row' justify='space-between' alignItems='center'>
                             <Grid item xs={8}>
