@@ -57,7 +57,6 @@ const useStyles = makeStyles(theme => ({
   },
   inscriptosLabelcategory: {
     borderRadius: '16px',
-    padding: '2px 12px',
     textAlign: 'end',
     width: 'min-content',
     float: 'right',
@@ -320,7 +319,7 @@ const Dashboard = props => {
                             )
                             : (
                               <div className={classes.inscriptosLabelcategory}>
-                                <Typography style={{ fontSize: '12px' }}>
+                                <Typography style={{ fontSize: '12px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '90px'}}>
                                   {el.raw_project.category_name[0].name}
                                 </Typography>
                               </div>
