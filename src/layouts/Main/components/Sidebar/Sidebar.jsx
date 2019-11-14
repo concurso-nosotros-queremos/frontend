@@ -82,7 +82,7 @@ const Sidebar = props => {
       icon: <DashboardIconOutlined color='inherit' />
     },
     {
-      title: 'Mis grupos',
+      title: 'Grupos',
       href: '/groups',
       icon: <PeopleIconOutlined color='inherit' />,
       children: [
