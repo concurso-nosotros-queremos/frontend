@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 
-import Topbar from './components/Topbar'
+import Topbar from '../Main/components/Topbar'
 
 const useStyles = makeStyles(theme => ({
   root: {

@@ -61,7 +61,7 @@ const Topbar = props => {
           </Grid>
         </Grid>
 
-        {props.user.imageUrl2 ?
+        {props.user.imageUrl ?
           (<Avatar style={{ marginRight: 12 }} src={props.user.imageUrl} className={classes.avatar} />) :
           (<Skeleton variant="circle" width={42.25} height={40} />)
         }
