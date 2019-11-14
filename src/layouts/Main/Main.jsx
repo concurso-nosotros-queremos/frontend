@@ -60,8 +60,10 @@ const Main = props => {
         open={shouldOpenSidebar}
         variant={isDesktop ? 'persistent' : 'temporary'}
       />
-      <Grid container direction='column' justify='flex-start' alignItems='flex-start' className={classes.content}>
-        {children}
+      <Grid container direction='column' justify='flex-start' alignItems='center' className={classes.content}>
+        <Grid container direction="row" justify="center" alignItems="flex-start" style={{ maxWidth: '1280px', }}>
+          {children}
+        </Grid>
       </Grid>
     </div>
   )
