@@ -9,9 +9,6 @@ import Skeleton from '@material-ui/lab/Skeleton'
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
-    [theme.breakpoints.up('lg')]: {
-      width: 'calc(100% - 240px)'
-    },
     boxShadow: 'none',
     backgroundColor: '#FFFFFF',
     borderBottom: '1px solid #232F3424',
