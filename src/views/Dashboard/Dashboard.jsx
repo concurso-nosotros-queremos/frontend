@@ -68,9 +68,9 @@ const useStyles = makeStyles(theme => ({
   },
   grid: {
     display: 'grid',
-    gridColumnGap: '16px',
+    gridColumnGap: '32px',
     padding: '16px',
-    gridTemplateColumns: '2fr 1fr',
+    gridTemplateColumns: '2.069fr 1fr',
     gridTemplateRows: '1fr',
     width: '100%',
     justifyItems: 'stretch',
@@ -286,7 +286,7 @@ const Dashboard = props => {
 
               <Grid container direction='column' justify='flex-start' alignItems='flex-start'>
 
-                {data.length > 0?
+                {data.length > 0 ?
                   (data.map((el, idx) =>
                     <Button disableRipple key={idx} className={classes.ultInscriptosBtnContainer} to={'/groups/' + (el.id)} component={Link}>
                       <Grid container direction='row' justify='space-between' alignItems='center'>
@@ -332,7 +332,7 @@ const Dashboard = props => {
                   (
                     <>
                       {Array.apply(0, Array(1)).map(() => {
-                         return <Button disableRipple className={classes.ultInscriptosBtnContainer}>
+                        return <Button disableRipple className={classes.ultInscriptosBtnContainer}>
                           <Grid container direction='row' justify='space-between' alignItems='center'>
                             <Grid item xs={8}>
                               <Grid container direction="column" justify="flex-start" alignItems="flex-start">
