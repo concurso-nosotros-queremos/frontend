@@ -16,7 +16,8 @@ import {
   FirstPage,
   LastPage,
   Search,
-  EditOutlined
+  EditOutlined,
+  SaveAltOutlined
 } from '@material-ui/icons'
 
 const tableIcons = {
@@ -68,8 +69,12 @@ const Groups = props => {
 
   const classes = useStyles()
 
-  const handleClick = id => {
+  const handleClickEdit = id => {
     props.history.push(`/groups/${id}`)
+  }
+
+  const handleClickExport = id => {
+    console.log('Me quiero exportar, soy el n° '+id+'! Ayudaa')
   }
 
   return (
@@ -95,20 +100,28 @@ const Groups = props => {
             actions={[
               {
                 icon: EditOutlined,
+                iconProps: { style: { color: 'rgba(35, 47, 52, 0.8)' } },
                 tooltip: 'Editar grupo',
-                onClick: (event, rowData) => handleClick(rowData.id)
-              }
+                onClick: (event, rowData) => handleClickEdit(rowData.id)
+              },
+              {
+                icon: SaveAltOutlined,
+                iconProps: { style: { color: 'rgba(35, 47, 52, 0.8)' } },
+                tooltip: 'Exportar grupo',
+                onClick: (event, rowData) => handleClickExport(rowData.id)
+              },
+
             ]}
             localization={{
               header: {
-                actions: 'Editar',
+                actions: 'Acciones',
               },
               body: {
                 emptyDataSourceMessage: 'No hay grupos registrados',
               },
-              toolbar:{
+              toolbar: {
                 searchPlaceholder: 'Buscar'
-            }
+              }
             }}
           />
         </Card>
