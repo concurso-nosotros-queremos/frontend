@@ -61,14 +61,14 @@ const TabPanel = props => {
 
   return (
     <Typography
-      component='div'
-      role='tabpanel'
+      component="div"
+      role="tabpanel"
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      <Box p={3}>{children}</Box>
+      {value === index ? <Box p={3}>{children}</Box> : null}
     </Typography>
   )
 }
