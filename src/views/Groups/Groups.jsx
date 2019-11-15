@@ -80,7 +80,7 @@ const Groups = props => {
             icons={tableIcons}
             columns={[
               { title: 'Nombre', field: 'name' },
-              { title: 'Alumnos', field: 'alumnos', type: 'numeric' },
+              { title: 'Alumnos', field: 'alumnos', },
               { title: 'Provincia', field: 'city' },
               { title: 'Localidad', field: 'state' },
               { title: 'ID', field: 'id', hidden: true }
