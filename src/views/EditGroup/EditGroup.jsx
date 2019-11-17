@@ -165,7 +165,7 @@ const GroupEditor = props => {
                       <TabPanel value={value} index={3}>
                         <ContactWrapper />
                       </TabPanel>
-                      <Button className={classes.saveButton} onClick={() => submitForm()}>
+                      <Button variant='contained' color='primary' className={classes.saveButton} onClick={() => submitForm()}>
                         Guardar
                     </Button>
                     </>
