@@ -57,6 +57,9 @@ const useStyles = makeStyles(theme => ({
   },
   loading: {
     width: '100%',
+  },
+  cancelarBtn:{
+    margin: '1rem',
   }
 }))
 
@@ -165,9 +168,15 @@ const GroupEditor = props => {
                       <TabPanel value={value} index={3}>
                         <ContactWrapper />
                       </TabPanel>
-                      <Button variant='contained' color='primary' className={classes.saveButton} onClick={() => submitForm()}>
-                        Guardar
-                    </Button>
+
+                      <Grid container direction="row" justify="space-between" alignItems="center">
+                        <Button type='button' className={classes.cancelarBtn} onClick={() => window.history.back()}>
+                          Cancelar
+                          </Button>
+                        <Button variant='contained' color='primary' className={classes.saveButton} onClick={() => submitForm()}>
+                          Guardar
+                          </Button>
+                      </Grid>
                     </>
                   )}
                 </Formik>
