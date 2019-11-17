@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
 import { makeStyles, withStyles } from '@material-ui/styles'
-import { Grid, Card, AppBar, Tabs, Tab, Box, Typography, Button } from '@material-ui/core'
+import { Grid, Card, AppBar, Tabs, Tab, Box, Typography, Button, CircularProgress } from '@material-ui/core'
 import { Formik } from 'formik'
 import ParticipantsWrapper from '../../containers/projectInscription/forms/participantsWrapper'
 import ProjectWrapper from '../../containers/projectInscription/forms/projectWrapper'
@@ -31,7 +31,8 @@ const pages = [
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: '1rem'
+    padding: '1rem',
+    height: '100%',
   },
   card: {
     width: '100%',
@@ -53,6 +54,9 @@ const useStyles = makeStyles(theme => ({
   },
   saveButton: {
     margin: '1rem'
+  },
+  loading: {
+    width: '100%',
   }
 }))
 
@@ -123,10 +127,10 @@ const GroupEditor = props => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid container direction='row' justify='flex-start' alignItems='flex-start' className={classes.root}>
-        <Card className={classes.card} elevation={0}>
-          {props.group
-            ? (
+      {props.group
+        ? (
+          <Grid container direction='row' justify='flex-start' alignItems='flex-start' className={classes.root}>
+            <Card className={classes.card} elevation={0}>
               <>
                 <Typography className={classes.title} autoCapitalize>
                   {props.group.raw_project.name}
@@ -168,10 +172,17 @@ const GroupEditor = props => {
                   )}
                 </Formik>
               </>
-            )
-            : 'Loading...'}
-        </Card>
-      </Grid>
+            </Card>
+          </Grid>
+        )
+        : (
+          <Grid container direction='row' justify='flex-start' alignItems='flex-start' className={classes.root} style={{ alignContent: 'center' }}>
+            <Grid container direction="row" justify="center" alignItems="center" className={classes.loading}>
+              <CircularProgress />
+            </Grid>
+          </Grid>
+        )}
+
     </ThemeProvider>
   )
 }
