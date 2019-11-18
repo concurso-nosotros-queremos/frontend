@@ -4,7 +4,7 @@ const participantsSchema = Yup.array().of(
   Yup.object().shape({
     first_name: Yup.string().required('Nombre es un campo obligatorio'),
     last_name: Yup.string().required('Apeliido es un campo obligatorio'),
-    dni: Yup.string(),
+    dni: Yup.string().required('DNI es un campo obligatorio'),
     grade_choices: Yup.number('Seleccione un año correcto').typeError('Seleccione un curso correcto').required('Año es un campo obligatorio')
   }).noUnknown()
 ).min(1, 'Debe agregar al menos 1 participante')
@@ -94,13 +94,13 @@ export const helpers = {
     address: 'Direccion de la escuela',
     street_name: 'Nombre de la calle sin abreviaciones',
     street_number: 'Altura de la calle',
-    school_types: 'Seleccione un tipo de escuela de la lista',
+    school_types: 'Seleccione un tipo de escuela de la lista'
   },
   raw_project: {
     name: 'Nombre del proyecto/idea emprendedora',
     problem: '¿Cual es el problema que encontraron?',
     solution: '¿Como piensan solucionarlo?',
-    diffusion: 'Seleccione como se entero del concurso',
+    diffusion: 'Seleccione como se entero del concurso'
   },
   raw_contact: {
     phone_number: 'Tu numero de teléfono',
