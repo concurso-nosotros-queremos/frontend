@@ -1,12 +1,14 @@
 import React, { forwardRef } from 'react'
 import { withRouter } from 'react-router'
 import { makeStyles } from '@material-ui/styles'
-import { Grid } from '@material-ui/core'
+import { Grid, useMediaQuery } from '@material-ui/core'
 import Card from '@material-ui/core/Card'
 import Typography from '@material-ui/core/Typography'
 import MaterialTable from 'material-table'
 import withGroupCount from '../../hoc/withDashboard'
 import { connect } from 'react-redux'
+
+import { useTheme } from '@material-ui/core/styles'
 
 import {
   ArrowUpward,
@@ -16,7 +18,8 @@ import {
   FirstPage,
   LastPage,
   Search,
-  EditOutlined
+  EditOutlined,
+  SaveAltOutlined
 } from '@material-ui/icons'
 
 const tableIcons = {
@@ -68,23 +71,36 @@ const Groups = props => {
 
   const classes = useStyles()
 
-  const handleClick = id => {
+  const handleClickEdit = id => {
     props.history.push(`/groups/${id}`)
   }
 
+  const handleClickExport = id => {
+    console.log('Me quiero exportar, soy el n° ' + id + '! Ayudaa')
+  }
+
+  const theme = useTheme()
   return (
     <>
       <Grid container direction='row' justify='flex-start' alignItems='flex-start' className={classes.root}>
         <Card className={classes.card} elevation={0}>
           <MaterialTable
             icons={tableIcons}
-            columns={[
-              { title: 'Nombre', field: 'name' },
-              { title: 'Alumnos', field: 'alumnos', type: 'numeric' },
-              { title: 'Provincia', field: 'city' },
-              { title: 'Localidad', field: 'state' },
-              { title: 'ID', field: 'id', hidden: true }
-            ]}
+
+            columns={
+              useMediaQuery(theme.breakpoints.down('sm'))
+                ? [
+                  { title: 'Nombre', field: 'name' },
+                  { title: 'Alumnos', field: 'alumnos' },
+                  { title: 'ID', field: 'id', hidden: true }
+                ] : [
+                  { title: 'Nombre', field: 'name' },
+                  { title: 'Alumnos', field: 'alumnos' },
+                  { title: 'Provincia', field: 'city' },
+                  { title: 'Localidad', field: 'state' },
+                  { title: 'ID', field: 'id', hidden: true }
+                ]
+            }
             data={data}
             title={<Typography className={classes.title}>Grupos</Typography>}
             options={{
@@ -95,20 +111,28 @@ const Groups = props => {
             actions={[
               {
                 icon: EditOutlined,
+                iconProps: { style: { color: 'rgba(35, 47, 52, 0.8)' } },
                 tooltip: 'Editar grupo',
-                onClick: (event, rowData) => handleClick(rowData.id)
+                onClick: (event, rowData) => handleClickEdit(rowData.id)
+              },
+              {
+                icon: SaveAltOutlined,
+                iconProps: { style: { color: 'rgba(35, 47, 52, 0.8)' } },
+                tooltip: 'Exportar grupo',
+                onClick: (event, rowData) => handleClickExport(rowData.id)
               }
+
             ]}
             localization={{
               header: {
-                actions: 'Editar',
+                actions: 'Acciones'
               },
               body: {
-                emptyDataSourceMessage: 'No hay grupos registrados',
+                emptyDataSourceMessage: 'No hay grupos registrados'
               },
-              toolbar:{
+              toolbar: {
                 searchPlaceholder: 'Buscar'
-            }
+              }
             }}
           />
         </Card>

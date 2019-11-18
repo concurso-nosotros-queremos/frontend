@@ -4,13 +4,11 @@ import clsx from 'clsx'
 import { makeStyles } from '@material-ui/styles'
 import { AppBar, Toolbar, Hidden, IconButton, Avatar, Typography, Grid } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
+import Skeleton from '@material-ui/lab/Skeleton'
 
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
-    [theme.breakpoints.up('lg')]: {
-      width: 'calc(100% - 240px)'
-    },
     boxShadow: 'none',
     backgroundColor: '#FFFFFF',
     borderBottom: '1px solid #232F3424',
@@ -43,17 +41,24 @@ const Topbar = props => {
         <div style={{ flexGrow: 1 }} />
         <Grid container className={classes.userContainer}>
           <Grid item container xs={12} justify='flex-end'>
-            <Typography variant='body1' color='textPrimary' style={{ fontWeight: 600 }}>
-              {props.user.name}
-            </Typography>
+            {props.user.name
+              ? (<Typography variant='body1' color='textPrimary' style={{ fontWeight: 600 }}>
+                {props.user.name}
+              </Typography>)
+              : (<Skeleton variant='rect' width={100} height={12} style={{ marginBottom: '0.65em' }} />)}
           </Grid>
           <Grid item container xs={12} justify='flex-end'>
-            <Typography variant='body2' color='textPrimary'>
-              {props.user.email}
-            </Typography>
+            {props.user.email
+              ? (<Typography variant='body2' color='textPrimary'>
+                {props.user.email}
+              </Typography>)
+              : (<Skeleton variant='rect' width={165} height={12} />)}
           </Grid>
         </Grid>
-        <Avatar style={{ marginRight: 12 }} src={props.user.imageUrl} className={classes.avatar} />
+
+        {props.user.imageUrl
+          ? (<Avatar style={{ marginRight: 12 }} src={props.user.imageUrl} className={classes.avatar} />)
+          : (<Skeleton variant='circle' width={42.25} height={40} />)}
       </Toolbar>
     </AppBar>
   )

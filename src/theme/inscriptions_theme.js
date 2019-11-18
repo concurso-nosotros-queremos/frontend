@@ -134,9 +134,9 @@ let theme = createMuiTheme({
     MuiExpansionPanelSummary: {
       content: {
         margin: '2px',
-        '&$expanded': { margin: '2px' },
-      },
-    },
+        '&$expanded': { margin: '2px' }
+      }
+    }
   },
   shape: {
     borderRadius: 4

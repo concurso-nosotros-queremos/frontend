@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/styles'
 import { Grid } from '@material-ui/core'
 import { Bar, Doughnut, Pie } from 'react-chartjs-2'
 import { connect } from 'react-redux'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import { useTheme } from '@material-ui/core/styles'
 
 import withGroupCount from '../../hoc/withDashboard'
 
@@ -43,6 +45,7 @@ const useStyles = makeStyles(theme => ({
 
 const Statistics = props => {
   const classes = useStyles()
+  const theme = useTheme()
 
   return (
     <>
@@ -56,16 +59,16 @@ const Statistics = props => {
                   datasets: [
                     {
                       backgroundColor: [
-                        '#e6194B', '#3cb44b', 
-                        '#ffe119', '#4363d8', 
-                        '#f58231', '#911eb4', 
-                        '#42d4f4', '#f032e6', 
-                        '#bfef45', '#fabebe', 
-                        '#469990', '#e6beff', 
-                        '#9A6324', '#fffac8', 
-                        '#800000', '#aaffc3', 
-                        '#808000', '#ffd8b1', 
-                        '#000075', '#a9a9a9',
+                        '#e6194B', '#3cb44b',
+                        '#ffe119', '#4363d8',
+                        '#f58231', '#911eb4',
+                        '#42d4f4', '#f032e6',
+                        '#bfef45', '#fabebe',
+                        '#469990', '#e6beff',
+                        '#9A6324', '#fffac8',
+                        '#800000', '#aaffc3',
+                        '#808000', '#ffd8b1',
+                        '#000075', '#a9a9a9'
                       ],
                       data: props.participant
                     }
@@ -94,7 +97,7 @@ const Statistics = props => {
                   },
                   legend: {
                     display: false
-                  },
+                  }
                 }}
               />
             </div>
@@ -108,10 +111,10 @@ const Statistics = props => {
                     data: props.diffusion,
                     borderWidth: 1,
                     backgroundColor: [
-                      '#e6194B', '#3cb44b', 
-                      '#ffe119', '#4363d8', 
-                      '#f58231', '#911eb4', 
-                    ],
+                      '#e6194B', '#3cb44b',
+                      '#ffe119', '#4363d8',
+                      '#f58231', '#911eb4'
+                    ]
                   }]
                 }}
                 options={{
@@ -123,9 +126,9 @@ const Statistics = props => {
                     display: true
                   },
                   legend: {
-                    display: true,
+                    display: !useMediaQuery(theme.breakpoints.down('sm')),
                     position: 'right'
-                  },
+                  }
                 }}
               />
             </div>
@@ -139,10 +142,10 @@ const Statistics = props => {
                     data: props.school,
                     borderWidth: 1,
                     backgroundColor: [
-                      '#e6194B', '#3cb44b', 
-                      '#ffe119', '#4363d8', 
-                      '#f58231', '#911eb4', 
-                    ],
+                      '#e6194B', '#3cb44b',
+                      '#ffe119', '#4363d8',
+                      '#f58231', '#911eb4'
+                    ]
                   }]
                 }}
                 options={{
@@ -154,9 +157,9 @@ const Statistics = props => {
                     display: true
                   },
                   legend: {
-                    display: true,
+                    display: !useMediaQuery(theme.breakpoints.down('sm')),
                     position: 'right'
-                  },
+                  }
                 }}
               />
             </div>

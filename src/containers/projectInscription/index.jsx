@@ -11,7 +11,7 @@ import ProjectWrapper from './forms/projectWrapper'
 import ContactWrapper from './forms/contactWrapper'
 import HorizontalLinearStepper from '../../components/horizontalLinearStepper'
 import { makeStyles } from '@material-ui/styles'
-import { BrowserRouter as Redirect } from 'react-router-dom'
+import { BrowserRouter as Redirect, Link } from 'react-router-dom'
 
 // const validators = [participantsSchemaRaw, schoolSchemaRaw, projectSchemaRaw, contactSchemaRaw]
 
@@ -47,17 +47,21 @@ const useStyles = makeStyles(theme => ({
     position: 'fixed',
     bottom: 0,
     right: 0,
-    paddingBottom: theme.spacing(1),
-    paddingRight: theme.spacing(4),
+    padding: '8px 34px',
     backgroundColor: '#FFFFFF',
     borderTop: '1px solid #232F3424',
     width: '100%',
     zIndex: 1
   },
-  root:{
+  root: {
     width: '100%',
     [theme.breakpoints.up('xl')]: {
       maxWidth: '1440px'
+    }
+  },
+  cancelarBtn: {
+    [theme.breakpoints.only('xs')]: {
+      display: 'none'
     }
   }
 }))
@@ -92,8 +96,8 @@ const InscriptionWrapper = props => {
 
   return (
     <Grid item xs={12} className={classes.root}>
-      <div style={{marginTop: '1rem'}}>
-        <Typography variant='h4' style={{fontWeight: 'bold'}}>Inscripción - CNQ</Typography>
+      <div style={{ marginTop: '1rem' }}>
+        <Typography variant='h4' style={{ fontWeight: 'bold' }}>Inscripción - CNQ</Typography>
       </div>
       <Formik
         initialValues={initialValues}
@@ -117,29 +121,39 @@ const InscriptionWrapper = props => {
               <div style={{ marginBottom: '65px' }}>
                 <Fragment.component errors={errors} status={status} touched={touched} />
               </div>
-              <Grid className={classes.fixedActions} container direction='row' justify='flex-end' spacing={2}>
-                {active !== 0 && (
-                  <Grid item>
-                    <Button type='button' onClick={handlePrevious}>
-                      Atras
-                    </Button>
+              <Grid container direction='row' justify='space-between' alignItems='center' className={classes.fixedActions}>
+                <Grid item>
+                  <Button type='button' className={classes.cancelarBtn} onClick={() => window.history.back()}>
+                    Cancelar
+                  </Button>
+                </Grid>
+
+                <Grid item>
+                  <Grid container direction='row' justify='flex-end'>
+                    {active !== 0 && (
+                      <Grid item style={{ margin: '0px 12px' }}>
+                        <Button type='button' onClick={handlePrevious}>
+                          Atras
+                        </Button>
+                      </Grid>
+                    )}
+                    {active === forms.length - 1
+                      ? (
+                        <Grid item>
+                          <Button type='button' variant='contained' color='primary' onClick={submitForm}>
+                            Enviar
+                          </Button>
+                        </Grid>
+                      )
+                      : (
+                        <Grid item>
+                          <Button type='button' variant='contained' color='primary' onClick={handleNext}>
+                            Siguiente
+                          </Button>
+                        </Grid>
+                      )}
                   </Grid>
-                )}
-                {active === forms.length - 1
-                  ? (
-                    <Grid item>
-                      <Button type='button' variant='contained' color='primary' onClick={submitForm}>
-                        Enviar
-                      </Button>
-                    </Grid>
-                  )
-                  : (
-                    <Grid item>
-                      <Button type='button' variant='contained' color='primary' onClick={handleNext}>
-                        Siguiente
-                      </Button>
-                    </Grid>
-                  )}
+                </Grid>
               </Grid>
             </Form>
           </>

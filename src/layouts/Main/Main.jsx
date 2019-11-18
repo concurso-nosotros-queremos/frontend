@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: 240
   },
   content: {
-    height: 'auto',
+    height: '100%',
     padding: theme.spacing(4),
     [theme.breakpoints.down('sm')]: {
       padding: theme.spacing(2)
@@ -60,8 +60,10 @@ const Main = props => {
         open={shouldOpenSidebar}
         variant={isDesktop ? 'persistent' : 'temporary'}
       />
-      <Grid container direction='column' justify='flex-start' alignItems='flex-start' className={classes.content}>
-        {children}
+      <Grid container direction='column' justify='flex-start' alignItems='center' className={classes.content}>
+        <Grid container direction='row' justify='center' alignItems='flex-start' style={{ maxWidth: '1280px', height: '100%' }}>
+          {children}
+        </Grid>
       </Grid>
     </div>
   )
