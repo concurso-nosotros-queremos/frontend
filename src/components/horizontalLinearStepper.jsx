@@ -5,7 +5,7 @@ import Stepper from '@material-ui/core/Stepper'
 import Step from '@material-ui/core/Step'
 import StepLabel from '@material-ui/core/StepLabel'
 import { useTheme } from '@material-ui/styles'
-import { hasError } from '../containers/projectInscription/forms/_utils'
+import { enhancedErrors } from '../containers/projectInscription/forms/_utils'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -35,7 +35,7 @@ export default function HorizontalLinearStepper (props) {
       <Stepper className={classes.stepper} activeStep={props.active}>
         {props.steps.map((el, idx) => {
           const labelProps = {}
-          if (hasError(props.errors, props.status, props.touched, el.raw)) {
+          if (enhancedErrors(props.errors, props.status, props.touched, el.raw)) {
             labelProps.error = true
           }
           return (

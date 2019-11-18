@@ -10,7 +10,7 @@ import WarningOutlined from '@material-ui/icons/WarningOutlined'
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline'
 import ButtonBase from '@material-ui/core/ButtonBase'
 
-import { hasError } from './_utils'
+import { hasError, enhancedErrors } from './_utils'
 import { makeStyles } from '@material-ui/styles'
 import CustomField from './customField'
 
@@ -81,7 +81,7 @@ const ParticipantsWrapper = props => {
                   expanded={expanded === index}
                 >
                   <ExpansionPanelSummary
-                    className={hasError(props.errors, props.status, props.touched, `raw_participant.${index}`) && classes.panelError}
+                    className={enhancedErrors(props.errors, props.status, props.touched, `raw_participant.${index}`) && classes.panelError}
                     expandIcon={<ExpandMoreIcon color='primary' />}
                     onClick={() => { handleExpansion(index) }}
                     style={{ margin: 'auto' }}
@@ -89,7 +89,7 @@ const ParticipantsWrapper = props => {
                     <Grid container spacing={1} justify='space-between'>
                       <Grid item style={{ alignSelf: 'center' }}>
                         <Grid container direction='row' justify='flex-start' alignItems='center'>
-                          {hasError(props.errors, props.status, props.touched, `raw_participant.${index}`) &&
+                          {enhancedErrors(props.errors, props.status, props.touched, `raw_participant.${index}`) &&
                             <WarningOutlined color='error' style={{ marginRight: '8px' }} />}
                           <Typography>{expanded !== index ? `${participant.first_name} ${participant.last_name}` : 'Nuevo participante'}</Typography>
                         </Grid>
