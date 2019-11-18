@@ -56,7 +56,6 @@ const useStyles = makeStyles(theme => ({
     width: '100%'
   },
   inscriptosLabelcategory: {
-    borderRadius: '16px',
     textAlign: 'end',
     width: 'min-content',
     float: 'right',
