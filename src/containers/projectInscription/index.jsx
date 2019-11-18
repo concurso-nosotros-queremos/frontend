@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { Formik, Form } from 'formik'
+import { Formik, Form, getIn } from 'formik'
 import { Grid, Typography } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import { validationSchema, initialValues } from './forms/_schemas'
@@ -98,6 +98,7 @@ const InscriptionWrapper = props => {
         validationSchema={validationSchema}
         validateOnChange={false}
         validateOnBlur
+        validateOnMount
         onSubmit={(values, { setStatus, setSubmitting }) => {
           handleSubmit(validationSchema.cast(values)).then((response) => {
             setRedirect(true)
@@ -109,6 +110,8 @@ const InscriptionWrapper = props => {
       >
         {({ errors, touched, status, submitForm }) => (
           <>
+            {console.log('Form status:')}
+            {console.log(errors)}{console.log(touched)}{console.log(status)}
             {redirect && <Redirect to='/groups/add/success' />}
             <HorizontalLinearStepper steps={forms} active={active} errors={errors} status={status} touched={touched} />
             <Form>
@@ -126,14 +129,14 @@ const InscriptionWrapper = props => {
                 {active === forms.length - 1
                   ? (
                     <Grid item>
-                      <Button type='button' variant='contained' color='primary' onClick={submitForm}>
+                      <Button disabled={errors === {}} type='button' variant='contained' color='primary' onClick={submitForm}>
                         Enviar
                       </Button>
                     </Grid>
                   )
                   : (
                     <Grid item>
-                      <Button type='button' variant='contained' color='primary' onClick={handleNext}>
+                      <Button disabled={getIn(errors, Fragment.raw) !== undefined} type='button' variant='contained' color='primary' onClick={handleNext}>
                         Siguiente
                       </Button>
                     </Grid>
