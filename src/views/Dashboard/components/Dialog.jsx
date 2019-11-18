@@ -35,6 +35,7 @@ const SimpleDialog = props => {
     setOpen(true)
   }
   const handleClose = value => {
+    setSelectedDate(null)
     setOpen(false)
   }
   const handleSubmit = date => {
