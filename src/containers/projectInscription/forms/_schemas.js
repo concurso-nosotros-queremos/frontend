@@ -94,13 +94,13 @@ export const helpers = {
     address: 'Direccion de la escuela',
     street_name: 'Nombre de la calle sin abreviaciones',
     street_number: 'Altura de la calle',
-    school_types: 'Seleccione un tipo de escuela de la lista',
+    school_types: 'Seleccione un tipo de escuela de la lista'
   },
   raw_project: {
     name: 'Nombre del proyecto/idea emprendedora',
     problem: '¿Cual es el problema que encontraron?',
     solution: '¿Como piensan solucionarlo?',
-    diffusion: 'Seleccione como se entero del concurso',
+    diffusion: 'Seleccione como se entero del concurso'
   },
   raw_contact: {
     phone_number: 'Tu numero de teléfono',

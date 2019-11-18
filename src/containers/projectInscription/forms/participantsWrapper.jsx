@@ -81,18 +81,17 @@ const ParticipantsWrapper = props => {
                     onClick={() => { handleExpansion(index) }}
                     style={{ margin: 'auto' }}
                   >
-                    <Grid container spacing={1} justify="space-between">
+                    <Grid container spacing={1} justify='space-between'>
                       <Grid item style={{ alignSelf: 'center' }}>
-                        <Grid container direction="row" justify="flex-start" alignItems="center">
+                        <Grid container direction='row' justify='flex-start' alignItems='center'>
                           {hasError(props.errors, props.status, props.touched, `raw_participant.${index}`) &&
-                            <WarningOutlined color='error' style={{ marginRight: '8px' }} />
-                          }
+                            <WarningOutlined color='error' style={{ marginRight: '8px' }} />}
                           <Typography>{expanded !== index ? `${participant.first_name} ${participant.last_name}` : 'Nuevo participante'}</Typography>
                         </Grid>
                       </Grid>
                       <Grid item>
                         <ButtonBase centerRipple fullWidth onClick={() => { removeParticipant(arrayHelpers, index) }} className={classes.deleteButton}>
-                          <DeleteOutlineIcon color='primary'/>
+                          <DeleteOutlineIcon color='primary' />
                         </ButtonBase>
                       </Grid>
                     </Grid>
@@ -156,14 +155,16 @@ const ParticipantsWrapper = props => {
                   </ExpansionPanelDetails>
                 </ExpansionPanel>
               ))}
-              <Grid container direction="row" justify="center" alignItems="center">
+              <Grid container direction='row' justify='center' alignItems='center'>
                 <Grid item item xs={12} md={8}>
-                  <Button fullWidth
+                  <Button
+                    fullWidth
                     disabled={hasError(props.errors, props.status, props.touched, `raw_participant.${arrayHelpers.form.values.raw_participant.length - 1}`)}
                     variant='contained'
                     color='primary'
                     style={{ marginTop: '8px' }}
-                    onClick={() => addParticipant(arrayHelpers)}>
+                    onClick={() => addParticipant(arrayHelpers)}
+                  >
                     <AddOutlined />
                   </Button>
                 </Grid>

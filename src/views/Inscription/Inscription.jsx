@@ -1,7 +1,7 @@
 import React from 'react'
 import InscriptionWrapper from '../../containers/projectInscription'
-import { makeStyles } from '@material-ui/styles'
-import { ThemeProvider } from '@material-ui/styles'
+import { makeStyles, ThemeProvider } from '@material-ui/styles'
+
 import theme from '../../theme/inscriptions_theme'
 
 const useStyles = makeStyles(theme => ({
@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     placeContent: 'center',
     [theme.breakpoints.down('sm')]: {
       paddingLeft: '4rem',
-      paddingRight: '4rem',
+      paddingRight: '4rem'
     },
     [theme.breakpoints.only('xs')]: {
       paddingLeft: '2rem',
@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.up('xl')]: {
       paddingLeft: '25rem',
-      paddingRight: '25rem',
+      paddingRight: '25rem'
     }
   }
 }))

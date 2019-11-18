@@ -107,7 +107,7 @@ const useStyles = makeStyles(theme => ({
   },
   projetName: {
     fontWeight: 'bold', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '110px'
-  },
+  }
 }))
 
 const Dashboard = props => {
@@ -124,13 +124,13 @@ const Dashboard = props => {
       <Grid container direction='column' justify='flex-start' alignItems='flex-start'>
         <Grid container direction='row' justify='flex-start' alignItems='flex-start'>
           <Grid container item xs={12} sm={6} md={4} className={classes.root}>
-            {props.groupTotal ?
-              (<Card className={classes.card} elevation={0}>
+            {props.groupTotal
+              ? (<Card className={classes.card} elevation={0}>
                 <CardContent style={{ padding: '8px' }}>
                   <Grid container justify='space-between' aling='center'>
                     <Typography gutterBottom style={{ fontWeight: 'bold', color: 'rgba(35, 47, 52, 0.56)', textTransform: 'uppercase' }}>
                       Grupos inscriptos
-                  </Typography>
+                    </Typography>
                     <PeopleIconOutlined color='primary' />
                   </Grid>
                   <Typography variant='h4' style={{ fontFamily: 'Roboto' }}>
@@ -140,59 +140,57 @@ const Dashboard = props => {
                 <CardActions style={{ justifyContent: 'flex-end' }}>
                   <Button size='small' className={classes.button} color='primary' to='/groups' component={Link}>Ver todos</Button>
                 </CardActions>
-              </Card>) :
-              (
+              </Card>)
+              : (
                 <Card className={classes.card} elevation={0}>
                   <CardContent style={{ padding: '8px' }}>
                     <Grid container justify='space-between' aling='center'>
-                      <Skeleton variant="rect" width={165} height={14} style={{ marginBottom: '0.35em' }} />
+                      <Skeleton variant='rect' width={165} height={14} style={{ marginBottom: '0.35em' }} />
                       <PeopleIconOutlined style={{ color: 'rgba(0, 0, 0, 0.1)' }} />
                     </Grid>
-                    <Skeleton variant="rect" width={60} height={27} style={{ margin: '5px 0px' }} />
+                    <Skeleton variant='rect' width={60} height={27} style={{ margin: '5px 0px' }} />
                   </CardContent>
                   <CardActions style={{ justifyContent: 'flex-end' }}>
-                    <Skeleton variant="rect" width={85} height={21} style={{ marginTop: '10px' }} />
+                    <Skeleton variant='rect' width={85} height={21} style={{ marginTop: '10px' }} />
                   </CardActions>
                 </Card>
-              )
-            }
+              )}
           </Grid>
 
           <Grid container item xs={12} sm={6} md={4} className={classes.root}>
-            {props.participantTotal ?
-              (<Card className={clsx(classes.card, classes.green)} elevation={0}>
+            {props.participantTotal
+              ? (<Card className={clsx(classes.card, classes.green)} elevation={0}>
                 <CardContent style={{ padding: '8px' }}>
                   <Grid container justify='space-between' aling='center'>
                     <Typography gutterBottom style={{ fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.56)', textTransform: 'uppercase' }}>
                       Alumnos inscriptos
-                  </Typography>
+                    </Typography>
                     <PersonOutlinedIcon style={{ color: 'white' }} />
                   </Grid>
                   <Typography variant='h4' style={{ fontFamily: 'Roboto', color: 'white' }}>
                     {props.participantTotal}
                   </Typography>
                 </CardContent>
-              </Card>) :
-              (<Card className={clsx(classes.card, classes.green)} elevation={0}>
+              </Card>)
+              : (<Card className={clsx(classes.card, classes.green)} elevation={0}>
                 <CardContent style={{ padding: '8px' }}>
                   <Grid container justify='space-between' aling='center'>
-                    <Skeleton variant="rect" width={165} height={14} style={{ marginBottom: '0.35em', backgroundColor: 'rgba(255,255,255, 0.2)' }} />
+                    <Skeleton variant='rect' width={165} height={14} style={{ marginBottom: '0.35em', backgroundColor: 'rgba(255,255,255, 0.2)' }} />
                     <PersonOutlinedIcon style={{ color: 'rgba(255,255,255, 0.4)' }} />
                   </Grid>
-                  <Skeleton variant="rect" width={60} height={27} style={{ margin: '5px 0px', backgroundColor: 'rgba(255,255,255, 0.2)' }} />
+                  <Skeleton variant='rect' width={60} height={27} style={{ margin: '5px 0px', backgroundColor: 'rgba(255,255,255, 0.2)' }} />
                 </CardContent>
-              </Card>)
-            }
+              </Card>)}
           </Grid>
 
           <Grid container item xs={12} sm={12} md={4} className={classes.root}>
-            {props.contestEnd ?
-              (<Card className={clsx(classes.card, classes.red)} elevation={0}>
+            {props.contestEnd
+              ? (<Card className={clsx(classes.card, classes.red)} elevation={0}>
                 <CardContent style={{ padding: '8px' }}>
                   <Grid container justify='space-between' aling='center'>
                     <Typography gutterBottom style={{ fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.56)', textTransform: 'uppercase' }}>
                       Cierre inscripciones
-                  </Typography>
+                    </Typography>
                     <AssignmentOutlinedIcon style={{ color: 'white' }} />
                   </Grid>
                   <Typography variant='h4' style={{ fontFamily: 'Roboto', color: 'white' }}>
@@ -203,21 +201,20 @@ const Dashboard = props => {
                   <Button size='small' className={classes.button} style={{ color: 'white' }}>Cerrar</Button>
                   <Dialog estilos={clsx(classes.button, classes.containedButton)} contestEnd={moment(props.contestEnd)} />
                 </CardActions>
-              </Card>) :
-              (<Card className={clsx(classes.card, classes.red)} elevation={0}>
+              </Card>)
+              : (<Card className={clsx(classes.card, classes.red)} elevation={0}>
                 <CardContent style={{ padding: '8px' }}>
                   <Grid container justify='space-between' aling='center'>
-                    <Skeleton variant="rect" width={165} height={14} style={{ marginBottom: '0.35em', backgroundColor: 'rgba(255,255,255, 0.2)' }} />
+                    <Skeleton variant='rect' width={165} height={14} style={{ marginBottom: '0.35em', backgroundColor: 'rgba(255,255,255, 0.2)' }} />
                     <PeopleIconOutlined style={{ color: 'rgba(255,255,255, 0.4)' }} />
                   </Grid>
-                  <Skeleton variant="rect" width={60} height={27} style={{ margin: '5px 0px', backgroundColor: 'rgba(255,255,255, 0.2)' }} />
+                  <Skeleton variant='rect' width={60} height={27} style={{ margin: '5px 0px', backgroundColor: 'rgba(255,255,255, 0.2)' }} />
                 </CardContent>
                 <CardActions style={{ justifyContent: 'flex-end' }}>
-                  <Skeleton variant="rect" width={85} height={21} style={{ marginTop: '10px', backgroundColor: 'rgba(255,255,255, 0.2)' }} />
+                  <Skeleton variant='rect' width={85} height={21} style={{ marginTop: '10px', backgroundColor: 'rgba(255,255,255, 0.2)' }} />
                 </CardActions>
               </Card>
-              )
-            }
+              )}
           </Grid>
         </Grid>
 
@@ -240,7 +237,7 @@ const Dashboard = props => {
                         '#9A6324', '#fffac8',
                         '#800000', '#aaffc3',
                         '#808000', '#ffd8b1',
-                        '#000075', '#a9a9a9',
+                        '#000075', '#a9a9a9'
                       ],
                       data: props.data
                     }
@@ -270,7 +267,7 @@ const Dashboard = props => {
                   },
                   legend: {
                     display: false
-                  },
+                  }
                 }}
               />
             </div>
@@ -285,8 +282,8 @@ const Dashboard = props => {
 
               <Grid container direction='column' justify='flex-start' alignItems='flex-start'>
 
-                {data.length > 0 ?
-                  (data.map((el, idx) =>
+                {data.length > 0
+                  ? (data.map((el, idx) =>
                     <Button disableRipple key={idx} className={classes.ultInscriptosBtnContainer} to={'/groups/' + (el.id)} component={Link}>
                       <Grid container direction='row' justify='space-between' alignItems='center'>
                         <Grid item xs='auto' sm={5}>
@@ -295,7 +292,7 @@ const Dashboard = props => {
                           </Typography>
                           <Typography style={{ fontSize: '12px' }}>
                             {el.raw_participant.length} participantes
-                      </Typography>
+                          </Typography>
                         </Grid>
                         <Grid item xs='auto' sm={3}>
                           <Typography style={{ fontWeight: 'bold', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '110px' }} color='inherit'>
@@ -319,7 +316,7 @@ const Dashboard = props => {
                             )
                             : (
                               <div className={classes.inscriptosLabelcategory}>
-                                <Typography style={{ fontSize: '12px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '90px'}}>
+                                <Typography style={{ fontSize: '12px', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '90px' }}>
                                   {el.raw_project.category_name[0].name}
                                 </Typography>
                               </div>
@@ -327,37 +324,35 @@ const Dashboard = props => {
                         </Grid>
                       </Grid>
                     </Button>
-                  )) :
-                  (
+                  ))
+                  : (
                     <>
                       {Array.apply(0, Array(1)).map(() => {
                         return <Button disableRipple className={classes.ultInscriptosBtnContainer}>
                           <Grid container direction='row' justify='space-between' alignItems='center'>
                             <Grid item xs={8}>
-                              <Grid container direction="column" justify="flex-start" alignItems="flex-start">
-                                <Skeleton variant="rect" width={200} height={10} style={{ margin: '5px 0' }} />
-                                <Grid container direction="row" justify="flex-start" alignItems="center"                          >
+                              <Grid container direction='column' justify='flex-start' alignItems='flex-start'>
+                                <Skeleton variant='rect' width={200} height={10} style={{ margin: '5px 0' }} />
+                                <Grid container direction='row' justify='flex-start' alignItems='center'>
                                   <Grid item xs={7}>
-                                    <Skeleton variant="rect" width={75} height={10} style={{ margin: '5px 0' }} />
+                                    <Skeleton variant='rect' width={75} height={10} style={{ margin: '5px 0' }} />
                                   </Grid>
                                   <Grid item xs={3}>
-                                    <Skeleton variant="rect" width={55} height={10} style={{ margin: '5px 0' }} />
+                                    <Skeleton variant='rect' width={55} height={10} style={{ margin: '5px 0' }} />
                                   </Grid>
                                 </Grid>
                               </Grid>
                             </Grid>
                             <Grid item xs={4}>
-                              <Grid container direction="row" justify="flex-end" alignItems="center">
-                                <Skeleton variant="rect" width={66} height={10} style={{ margin: '5px 0' }} />
+                              <Grid container direction='row' justify='flex-end' alignItems='center'>
+                                <Skeleton variant='rect' width={66} height={10} style={{ margin: '5px 0' }} />
                               </Grid>
                             </Grid>
                           </Grid>
                         </Button>
                       })}
                     </>
-                  )
-                }
-
+                  )}
 
               </Grid>
             </div>

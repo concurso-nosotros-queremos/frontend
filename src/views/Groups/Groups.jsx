@@ -1,13 +1,13 @@
 import React, { forwardRef } from 'react'
 import { withRouter } from 'react-router'
 import { makeStyles } from '@material-ui/styles'
-import { Grid } from '@material-ui/core'
+import { Grid, useMediaQuery } from '@material-ui/core'
 import Card from '@material-ui/core/Card'
 import Typography from '@material-ui/core/Typography'
 import MaterialTable from 'material-table'
 import withGroupCount from '../../hoc/withDashboard'
 import { connect } from 'react-redux'
-import { useMediaQuery } from '@material-ui/core'
+
 import { useTheme } from '@material-ui/core/styles'
 
 import {
@@ -88,14 +88,14 @@ const Groups = props => {
             icons={tableIcons}
 
             columns={
-              useMediaQuery(theme.breakpoints.down('sm')) ?
-                [
+              useMediaQuery(theme.breakpoints.down('sm'))
+                ? [
                   { title: 'Nombre', field: 'name' },
                   { title: 'Alumnos', field: 'alumnos' },
                   { title: 'ID', field: 'id', hidden: true }
                 ] : [
                   { title: 'Nombre', field: 'name' },
-                  { title: 'Alumnos', field: 'alumnos', },
+                  { title: 'Alumnos', field: 'alumnos' },
                   { title: 'Provincia', field: 'city' },
                   { title: 'Localidad', field: 'state' },
                   { title: 'ID', field: 'id', hidden: true }
@@ -120,15 +120,15 @@ const Groups = props => {
                 iconProps: { style: { color: 'rgba(35, 47, 52, 0.8)' } },
                 tooltip: 'Exportar grupo',
                 onClick: (event, rowData) => handleClickExport(rowData.id)
-              },
+              }
 
             ]}
             localization={{
               header: {
-                actions: 'Acciones',
+                actions: 'Acciones'
               },
               body: {
-                emptyDataSourceMessage: 'No hay grupos registrados',
+                emptyDataSourceMessage: 'No hay grupos registrados'
               },
               toolbar: {
                 searchPlaceholder: 'Buscar'

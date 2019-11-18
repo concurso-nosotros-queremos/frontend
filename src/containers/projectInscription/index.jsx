@@ -11,8 +11,7 @@ import ProjectWrapper from './forms/projectWrapper'
 import ContactWrapper from './forms/contactWrapper'
 import HorizontalLinearStepper from '../../components/horizontalLinearStepper'
 import { makeStyles } from '@material-ui/styles'
-import { BrowserRouter as Redirect } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { BrowserRouter as Redirect, Link } from 'react-router-dom'
 
 // const validators = [participantsSchemaRaw, schoolSchemaRaw, projectSchemaRaw, contactSchemaRaw]
 
@@ -122,11 +121,11 @@ const InscriptionWrapper = props => {
               <div style={{ marginBottom: '65px' }}>
                 <Fragment.component errors={errors} status={status} touched={touched} />
               </div>
-              <Grid container direction="row" justify="space-between" alignItems="center" className={classes.fixedActions}>
+              <Grid container direction='row' justify='space-between' alignItems='center' className={classes.fixedActions}>
                 <Grid item>
                   <Button type='button' className={classes.cancelarBtn} onClick={() => window.history.back()}>
                     Cancelar
-                    </Button>
+                  </Button>
                 </Grid>
 
                 <Grid item>
@@ -143,14 +142,14 @@ const InscriptionWrapper = props => {
                         <Grid item>
                           <Button type='button' variant='contained' color='primary' onClick={submitForm}>
                             Enviar
-                      </Button>
+                          </Button>
                         </Grid>
                       )
                       : (
                         <Grid item>
                           <Button type='button' variant='contained' color='primary' onClick={handleNext}>
                             Siguiente
-                      </Button>
+                          </Button>
                         </Grid>
                       )}
                   </Grid>

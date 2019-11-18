@@ -71,7 +71,7 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     padding: '16px'
   },
-  item:{
+  item: {
     padding: '32px'
   }
 }))
@@ -91,7 +91,7 @@ const data = [
     nombre: 'Virginia Barbera',
     cargo: 'Directora Ejecutiva',
     image_url: persona1
-  },
+  }
 ]
 
 export default function Organizan () {

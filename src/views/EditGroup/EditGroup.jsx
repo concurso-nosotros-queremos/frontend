@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
-import { makeStyles, withStyles } from '@material-ui/styles'
+import { makeStyles, withStyles, ThemeProvider } from '@material-ui/styles'
 import { Grid, Card, AppBar, Tabs, Tab, Box, Typography, Button, CircularProgress } from '@material-ui/core'
 import { Formik } from 'formik'
 import ParticipantsWrapper from '../../containers/projectInscription/forms/participantsWrapper'
@@ -10,9 +10,8 @@ import SchoolWrapper from '../../containers/projectInscription/forms/schoolWrapp
 import ContactWrapper from '../../containers/projectInscription/forms/contactWrapper'
 import fetchResource from '../../services/apiHandler'
 import { getOneGroup } from '../../services/groups.service'
-import { ThemeProvider } from '@material-ui/styles'
-import theme from '../../theme/inscriptions_theme'
 
+import theme from '../../theme/inscriptions_theme'
 
 const pages = [
   {
@@ -32,7 +31,7 @@ const pages = [
 const useStyles = makeStyles(theme => ({
   root: {
     padding: '1rem',
-    height: '100%',
+    height: '100%'
   },
   card: {
     width: '100%',
@@ -56,10 +55,10 @@ const useStyles = makeStyles(theme => ({
     margin: '1rem'
   },
   loading: {
-    width: '100%',
+    width: '100%'
   },
-  cancelarBtn:{
-    margin: '1rem',
+  cancelarBtn: {
+    margin: '1rem'
   }
 }))
 
@@ -68,8 +67,8 @@ const TabPanel = props => {
 
   return (
     <Typography
-      component="div"
-      role="tabpanel"
+      component='div'
+      role='tabpanel'
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
@@ -81,7 +80,7 @@ const TabPanel = props => {
 }
 
 class EditGroup extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     this.state = {
@@ -92,13 +91,13 @@ class EditGroup extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     getOneGroup(this.props.token, this.props.match.params.id)
       .then(response => this.setState({ group: response }))
       .catch(error => this.setState({ error: error }))
   }
 
-  handleSubmit(form) {
+  handleSubmit (form) {
     console.log(form)
     return fetchResource(`rest/group/${this.props.match.params.id}/`, {
       method: 'PATCH',
@@ -111,7 +110,7 @@ class EditGroup extends Component {
     })
   }
 
-  render() {
+  render () {
     console.log(this.props)
     return (
       <GroupEditor group={this.state.group} onSubmit={this.handleSubmit} />
@@ -169,13 +168,13 @@ const GroupEditor = props => {
                         <ContactWrapper />
                       </TabPanel>
 
-                      <Grid container direction="row" justify="space-between" alignItems="center">
+                      <Grid container direction='row' justify='space-between' alignItems='center'>
                         <Button type='button' className={classes.cancelarBtn} onClick={() => window.history.back()}>
                           Cancelar
-                          </Button>
+                        </Button>
                         <Button variant='contained' color='primary' className={classes.saveButton} onClick={() => submitForm()}>
                           Guardar
-                          </Button>
+                        </Button>
                       </Grid>
                     </>
                   )}
@@ -186,7 +185,7 @@ const GroupEditor = props => {
         )
         : (
           <Grid container direction='row' justify='flex-start' alignItems='flex-start' className={classes.root} style={{ alignContent: 'center' }}>
-            <Grid container direction="row" justify="center" alignItems="center" className={classes.loading}>
+            <Grid container direction='row' justify='center' alignItems='center' className={classes.loading}>
               <CircularProgress />
             </Grid>
           </Grid>

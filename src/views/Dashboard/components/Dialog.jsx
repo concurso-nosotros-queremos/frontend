@@ -67,7 +67,7 @@ const SimpleDialog = props => {
                 orientation={useMediaQuery(theme.breakpoints.only('xs')) ? 'portrait' : 'landscape'}
                 variant='static'
                 openTo='date'
-                initialFocusedDate={moment(props.contestEnd).format(("YYYY-MM-DDTHH:mm:ss"))}
+                initialFocusedDate={moment(props.contestEnd).format(('YYYY-MM-DDTHH:mm:ss'))}
                 value={selectedDate}
                 onChange={handleDateChange}
               />

@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.white,
     display: 'flex',
     flexDirection: 'column',
-    height: '100%',
+    height: '100%'
   },
   divider: {
     margin: theme.spacing(1, 0),
@@ -64,10 +64,10 @@ const useStyles = makeStyles(theme => ({
     width: 'auto',
     height: '6.5rem',
     [theme.breakpoints.down('xs')]: {
-      height: '5.5rem',
+      height: '5.5rem'
     },
     marginBottom: '1rem'
-  },
+  }
 }))
 
 const Sidebar = props => {
@@ -114,9 +114,9 @@ const Sidebar = props => {
       >
         <Grid
           container
-          direction="row"
-          justify="center"
-          alignItems="center"
+          direction='row'
+          justify='center'
+          alignItems='center'
         >
           <img alt='Concurso Nosotros Queremos' src={require('../../../../assets/cnq.png')} className={classes.cnq} />
         </Grid>

@@ -68,7 +68,7 @@ const Statistics = props => {
                         '#9A6324', '#fffac8',
                         '#800000', '#aaffc3',
                         '#808000', '#ffd8b1',
-                        '#000075', '#a9a9a9',
+                        '#000075', '#a9a9a9'
                       ],
                       data: props.participant
                     }
@@ -97,7 +97,7 @@ const Statistics = props => {
                   },
                   legend: {
                     display: false
-                  },
+                  }
                 }}
               />
             </div>
@@ -113,8 +113,8 @@ const Statistics = props => {
                     backgroundColor: [
                       '#e6194B', '#3cb44b',
                       '#ffe119', '#4363d8',
-                      '#f58231', '#911eb4',
-                    ],
+                      '#f58231', '#911eb4'
+                    ]
                   }]
                 }}
                 options={{
@@ -126,9 +126,9 @@ const Statistics = props => {
                     display: true
                   },
                   legend: {
-                    display: useMediaQuery(theme.breakpoints.down('sm')) ? false : true,
+                    display: !useMediaQuery(theme.breakpoints.down('sm')),
                     position: 'right'
-                  },
+                  }
                 }}
               />
             </div>
@@ -144,8 +144,8 @@ const Statistics = props => {
                     backgroundColor: [
                       '#e6194B', '#3cb44b',
                       '#ffe119', '#4363d8',
-                      '#f58231', '#911eb4',
-                    ],
+                      '#f58231', '#911eb4'
+                    ]
                   }]
                 }}
                 options={{
@@ -157,9 +157,9 @@ const Statistics = props => {
                     display: true
                   },
                   legend: {
-                    display: useMediaQuery(theme.breakpoints.down('sm')) ? false : true,
+                    display: !useMediaQuery(theme.breakpoints.down('sm')),
                     position: 'right'
-                  },
+                  }
                 }}
               />
             </div>

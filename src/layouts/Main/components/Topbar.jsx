@@ -41,27 +41,24 @@ const Topbar = props => {
         <div style={{ flexGrow: 1 }} />
         <Grid container className={classes.userContainer}>
           <Grid item container xs={12} justify='flex-end'>
-            {props.user.name ?
-              (<Typography variant='body1' color='textPrimary' style={{ fontWeight: 600 }}>
+            {props.user.name
+              ? (<Typography variant='body1' color='textPrimary' style={{ fontWeight: 600 }}>
                 {props.user.name}
-              </Typography>) :
-              (<Skeleton variant="rect" width={100} height={12} style={{ marginBottom: '0.65em' }} />)
-            }
+              </Typography>)
+              : (<Skeleton variant='rect' width={100} height={12} style={{ marginBottom: '0.65em' }} />)}
           </Grid>
           <Grid item container xs={12} justify='flex-end'>
-            {props.user.email ?
-              (<Typography variant='body2' color='textPrimary'>
+            {props.user.email
+              ? (<Typography variant='body2' color='textPrimary'>
                 {props.user.email}
-              </Typography>) :
-              (<Skeleton variant="rect" width={165} height={12} />)
-            }
+              </Typography>)
+              : (<Skeleton variant='rect' width={165} height={12} />)}
           </Grid>
         </Grid>
 
-        {props.user.imageUrl ?
-          (<Avatar style={{ marginRight: 12 }} src={props.user.imageUrl} className={classes.avatar} />) :
-          (<Skeleton variant="circle" width={42.25} height={40} />)
-        }
+        {props.user.imageUrl
+          ? (<Avatar style={{ marginRight: 12 }} src={props.user.imageUrl} className={classes.avatar} />)
+          : (<Skeleton variant='circle' width={42.25} height={40} />)}
       </Toolbar>
     </AppBar>
   )

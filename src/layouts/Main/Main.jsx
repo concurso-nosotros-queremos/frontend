@@ -61,7 +61,7 @@ const Main = props => {
         variant={isDesktop ? 'persistent' : 'temporary'}
       />
       <Grid container direction='column' justify='flex-start' alignItems='center' className={classes.content}>
-        <Grid container direction="row" justify="center" alignItems="flex-start" style={{ maxWidth: '1280px', height: '100%' }}>
+        <Grid container direction='row' justify='center' alignItems='flex-start' style={{ maxWidth: '1280px', height: '100%' }}>
           {children}
         </Grid>
       </Grid>
