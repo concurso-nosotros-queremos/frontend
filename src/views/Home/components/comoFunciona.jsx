@@ -79,7 +79,7 @@ export default function ComoFunciona () {
             </Grid>
             <Grid item>
               <Typography variant='subtitle2' align='center'>
-                Nosotros Queremos es un concurso anual de emprendimientos que apunta a despertar el espíritu emprendedor de los jóvenes en los últimos años de la secundaria.
+                Nosotros Queremos es un proyecto anual donde participan estudiantes de los últimos 3 años de la escuela secundaria, los cuales idean y llevan adelante proyectos de intervención socio-comunitaria para responder a necesidades de su comunidad.
               </Typography>
             </Grid>
           </Grid>
