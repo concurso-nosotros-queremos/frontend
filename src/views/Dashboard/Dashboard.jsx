@@ -15,7 +15,6 @@ import withGroupCount from '../../hoc/withDashboard'
 import { Link } from 'react-router-dom'
 import { Bar } from 'react-chartjs-2'
 import moment from 'moment'
-import CircularProgress from '@material-ui/core/CircularProgress'
 import Skeleton from '@material-ui/lab/Skeleton'
 
 const useStyles = makeStyles(theme => ({

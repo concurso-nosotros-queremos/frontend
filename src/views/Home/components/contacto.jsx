@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import { makeStyles } from '@material-ui/core/styles/index'
 import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography/index'
 import Grid from '@material-ui/core/Grid'
-import { Button, FormControlLabel, Checkbox } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 import TextField from '@material-ui/core/TextField'
 import fetchResource from '../../../services/apiHandler'
 import ReCAPTCHA from 'react-google-recaptcha'
@@ -41,7 +40,7 @@ class Contacto extends Component {
   };
 
   handleClick = (key) => {
-    if (this.state.captcha && this.state.name != '' && this.state.email != '' && this.state.message != '') {
+    if (this.state.captcha && this.state.name !== '' && this.state.email !== '' && this.state.message !== '') {
       this.setState({
         name: '',
         email: '',

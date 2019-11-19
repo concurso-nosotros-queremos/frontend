@@ -1,11 +1,8 @@
 import React from 'react'
-import { makeStyles, useTheme } from '@material-ui/core/styles/index'
+import { makeStyles } from '@material-ui/core/styles/index'
 import Typography from '@material-ui/core/Typography/index'
 import Grid from '@material-ui/core/Grid'
 import { Button, Card, CardActions, CardContent, CardMedia, DialogContent } from '@material-ui/core'
-
-import useMediaQuery from '@material-ui/core/useMediaQuery'
-
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogTitle from '@material-ui/core/DialogTitle'
@@ -94,7 +91,6 @@ const data = [
 
 export default function Proyectos () {
   const classes = useStyles()
-  const theme = useTheme()
   const [open, setOpen] = React.useState([false, false, false])
 
   const handleClickOpen = (idx) => {

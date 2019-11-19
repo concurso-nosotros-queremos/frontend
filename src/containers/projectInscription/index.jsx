@@ -11,7 +11,7 @@ import ProjectWrapper from './forms/projectWrapper'
 import ContactWrapper from './forms/contactWrapper'
 import HorizontalLinearStepper from '../../components/horizontalLinearStepper'
 import { makeStyles } from '@material-ui/styles'
-import { BrowserRouter as Redirect, Link } from 'react-router-dom'
+import { BrowserRouter as Redirect } from 'react-router-dom'
 
 // const validators = [participantsSchemaRaw, schoolSchemaRaw, projectSchemaRaw, contactSchemaRaw]
 

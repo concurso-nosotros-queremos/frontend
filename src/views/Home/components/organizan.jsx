@@ -6,7 +6,6 @@ import { Box, Avatar } from '@material-ui/core'
 import Background from '../../../assets/organizanImage.svg'
 
 import persona1 from '../../../assets/persona1.jpg'
-import persona3 from '../../../assets/persona3.jpg'
 
 const useStyles = makeStyles(theme => ({
   root: {

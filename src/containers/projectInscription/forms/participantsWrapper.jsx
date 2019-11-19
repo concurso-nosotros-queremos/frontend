@@ -156,7 +156,7 @@ const ParticipantsWrapper = props => {
                 </ExpansionPanel>
               ))}
               <Grid container direction='row' justify='center' alignItems='center'>
-                <Grid item item xs={12} md={8}>
+                <Grid item xs={12} md={8}>
                   <Button
                     fullWidth
                     disabled={hasError(props.errors, props.status, props.touched, `raw_participant.${arrayHelpers.form.values.raw_participant.length - 1}`)}

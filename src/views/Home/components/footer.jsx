@@ -71,7 +71,7 @@ export default function Footer() {
                   Tel: (0351) 4232674
                 </Typography>
                 <Typography variant='body1'>
-                  <Link color='inherit' href='https://www.itsv.edu.ar/' style={{ textDecoration: 'underline' }} target="_blank" target="_blank">
+                  <Link color='inherit' href='https://www.itsv.edu.ar/' style={{ textDecoration: 'underline' }} target="_blank">
                     www.inclusionsocial.org
                 </Link>
                 </Typography>
@@ -134,7 +134,7 @@ export default function Footer() {
             <Grid item>
               <Typography variant='body1' align='center'>
                 {'Creado con '} {'\u2764'} {' - Alumnos del '}
-                <Link color='inherit' href='https://www.itsv.edu.ar/' style={{ textDecoration: 'underline' }} target="_blank" target="_blank">
+                <Link color='inherit' href='https://www.itsv.edu.ar/' style={{ textDecoration: 'underline' }} target="_blank">
                   ITS Villada
                 </Link>
               </Typography>

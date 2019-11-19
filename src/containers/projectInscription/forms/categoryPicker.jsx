@@ -2,7 +2,7 @@ import React from 'react'
 import { FieldArray } from 'formik'
 import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
-import { Typography, Grid } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 
 const categories = [
   { id: 1, name: 'Medio ambiente' },
