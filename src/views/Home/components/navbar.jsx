@@ -69,7 +69,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-function NavBar (props) {
+function NavBar(props) {
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
 
@@ -126,7 +126,9 @@ function NavBar (props) {
               </Link>
             </Grid>
             <Grid item style={{ textAlign: 'right' }}>
-              <img style={{ width: '12rem' }} alt='in' src={require('../../../assets/inclusion_logo_text.svg')} />
+              <a href="https://www.inclusionsocial.org/">
+                <img style={{ width: '12rem' }} alt='in' src={require('../../../assets/inclusion_logo_text.svg')} />
+              </a>
             </Grid>
           </Hidden>
           <Hidden mdUp>
