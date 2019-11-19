@@ -126,7 +126,7 @@ function NavBar(props) {
               </Link>
             </Grid>
             <Grid item style={{ textAlign: 'right' }}>
-              <a href="https://www.inclusionsocial.org/">
+              <a href="https://www.inclusionsocial.org/" target="_blank">
                 <img style={{ width: '12rem' }} alt='in' src={require('../../../assets/inclusion_logo_text.svg')} />
               </a>
             </Grid>

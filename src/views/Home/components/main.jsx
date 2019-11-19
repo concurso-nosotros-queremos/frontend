@@ -84,7 +84,7 @@ export default function Main () {
             <GoogleLogin />
             <Typography variant='body2' align='center' style={{ marginTop: '0.5rem', color: 'white', fontSize: '12px' }}>
               {'Al ingresar aceptas los '}
-              <Link style={{ color: 'white', textDecoration: 'underline' }} href='http://shorturl.at/quILS'>términos y condiciones.</Link>
+              <Link style={{ color: 'white', textDecoration: 'underline' }} href='http://shorturl.at/quILS' target="_blank">términos y condiciones.</Link>
             </Typography>
           </Grid>
         </Grid>
