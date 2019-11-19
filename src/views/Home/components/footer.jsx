@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Footer () {
+export default function Footer() {
   const classes = useStyles()
 
   return (
@@ -60,12 +60,18 @@ export default function Footer () {
               </Grid>
               <Grid item>
                 <Typography variant='body1'>
-                  Miguel C. del Corro 517, Córdoba
+                  Miguel del Corro 517, B° Güemes.
+                </Typography>
+                <Typography variant='body1'>
+                  Córdoba, Argentina
                 </Typography>
               </Grid>
               <Grid item>
                 <Typography variant='body1'>
-                  + 54 (351) 423-2674
+                  Tel: (0351) 4232674
+                </Typography>
+                <Typography variant='body1'>
+                  www.inclusionsocial.org
                 </Typography>
               </Grid>
             </Grid>
