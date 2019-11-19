@@ -152,13 +152,13 @@ export default function Proyectos () {
               <CardContent style={{ flex: '1' }}>
                 <Typography gutterBottom variant='h5' className={classes.name}>
                   {el.name}
-                </Typography>
+                </Typography> 
                 <Typography variant='body1' component='p' className={classes.solution}>
                   {el.solution}
                 </Typography>
               </CardContent>
 
-              <CardActions>
+              <CardActions style={{padding: '8px 16px'}}>
                 <Grid container justify='flex-end' alignItems='center'>
                   <Grid item>
                     <Button size='small' color='secondary' onClick={() => { handleClickOpen(idx) }}>
