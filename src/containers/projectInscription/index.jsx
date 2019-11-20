@@ -108,10 +108,10 @@ const InscriptionWrapper = props => {
           })
         }}
       >
-        {({ errors, touched, status, submitForm }) => (
+        {({ errors, touched, status, submitForm, values }) => (
           <>
             {console.log('Form status:')}
-            {console.log(errors)}{console.log(touched)}{console.log(status)}
+            {console.log(errors)}{console.log(touched)}{console.log(status)}{console.log(values)}
             {redirect && <Redirect to='/groups/add/success' />}
             <HorizontalLinearStepper steps={forms} active={active} errors={errors} status={status} touched={touched} />
             <Form>

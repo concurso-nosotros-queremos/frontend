@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { FieldArray, getIn } from 'formik'
+import { FieldArray, getIn, FastField } from 'formik'
 import { Typography, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Grid, Fade } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
@@ -51,8 +51,7 @@ const ParticipantsWrapper = props => {
       first_name: '',
       last_name: '',
       dni: '',
-      grade_choices: getIn(arrayHelpers.form.values.raw_participant, `${arrayHelpers.form.values.raw_participant.length - 1}.grade_choices`),
-      divition_choices: getIn(arrayHelpers.form.values.raw_participant, `${arrayHelpers.form.values.raw_participant.length - 1}.divition_choices`)
+      grade_choices: getIn(arrayHelpers.form.values.raw_participant, `${arrayHelpers.form.values.raw_participant.length - 1}.grade_choices`)
     })
 
     setFocus(true)

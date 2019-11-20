@@ -1,26 +1,43 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { useField, useFormikContext, getIn, setIn } from 'formik'
 import { hasFieldError } from './_utils'
 
 export function useCustomField (name) {
   const { status, setStatus } = useFormikContext()
-  const [{ onBlur: onBlurFormik, ...field }, meta] = useField(name)
+  const [{ onBlur, onChange, ...field }, meta] = useField(name)
+  const [value, setValue] = React.useState(field.value)
+  const [blur, setBlur] = React.useState(null)
   const apiError = getIn(status, name)
 
-  const onBlurMemo = useCallback(
-    e => {
-      if (getIn(status, name)) {
-        const newStatus = setIn(status, name, null)
-        setStatus({
-          ...newStatus
-        })
-      }
-      onBlurFormik(e)
-    },
-    [status, name, setStatus, onBlurFormik]
-  )
+  console.log(value)
 
-  return [{ onBlur: onBlurMemo, ...field }, { ...meta, apiError }]
+  useEffect(() => {
+    if (blur) {
+      onBlur(blur)
+      setBlur(null)
+    }
+  })
+
+  field.value = value
+  field.onChange = (e) => {
+    console.log(e)
+    if (e && e.currentTarget) {
+      setValue(e.currentTarget.value)
+    }
+  }
+
+  field.onBlur = (e) => {
+    onChange(e)
+    if (getIn(status, name)) {
+      const newStatus = setIn(status, name, null)
+      setStatus({
+        ...newStatus
+      })
+    }
+    setBlur(e)
+  }
+
+  return [field, { ...meta, apiError }]
 }
 
 function CustomField (props) {

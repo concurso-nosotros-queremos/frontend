@@ -87,7 +87,6 @@ export const helpers = {
     last_name: '',
     dni: 'DNI sin puntos ni espacios',
     grade_choices: 'Año al que pertenece el alumno',
-    divition_choices: 'Divicion a la que pertenece el alumno'
   },
   raw_school: {
     name: 'Nombre de la escuela',
