@@ -4,7 +4,7 @@ const participantsSchema = Yup.array().of(
   Yup.object().shape({
     first_name: Yup.string().required('Nombre es un campo obligatorio'),
     last_name: Yup.string().required('Apeliido es un campo obligatorio'),
-    dni: Yup.string(),
+    dni: Yup.string().required('DNI es un campo obligatorio'),
     grade_choices: Yup.number('Seleccione un año correcto').typeError('Seleccione un curso correcto').required('Año es un campo obligatorio')
   }).noUnknown()
 ).min(1, 'Debe agregar al menos 1 participante')
@@ -86,8 +86,7 @@ export const helpers = {
     first_name: '',
     last_name: '',
     dni: 'DNI sin puntos ni espacios',
-    grade_choices: 'Año al que pertenece el alumno',
-    divition_choices: 'Divicion a la que pertenece el alumno'
+    grade_choices: 'Año al que pertenece el alumno'
   },
   raw_school: {
     name: 'Nombre de la escuela',

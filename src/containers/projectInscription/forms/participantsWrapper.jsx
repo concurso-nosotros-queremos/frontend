@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { FieldArray, FastField, getIn } from 'formik'
-import { Typography, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Grid, Box, Fade } from '@material-ui/core'
+import { FieldArray, getIn, FastField } from 'formik'
+import { Typography, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Grid, Fade } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -10,8 +10,9 @@ import WarningOutlined from '@material-ui/icons/WarningOutlined'
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline'
 import ButtonBase from '@material-ui/core/ButtonBase'
 
-import { hasError, errorMessageBuilder } from './_utils'
+import { hasError, enhancedErrors } from './_utils'
 import { makeStyles } from '@material-ui/styles'
+import CustomField from './customField'
 
 const useStyles = makeStyles((theme) => ({
   panelError: {
@@ -50,8 +51,7 @@ const ParticipantsWrapper = props => {
       first_name: '',
       last_name: '',
       dni: '',
-      grade_choices: getIn(arrayHelpers.form.values.raw_participant, `${arrayHelpers.form.values.raw_participant.length - 1}.grade_choices`),
-      divition_choices: getIn(arrayHelpers.form.values.raw_participant, `${arrayHelpers.form.values.raw_participant.length - 1}.divition_choices`)
+      grade_choices: getIn(arrayHelpers.form.values.raw_participant, `${arrayHelpers.form.values.raw_participant.length - 1}.grade_choices`)
     })
 
     setFocus(true)
@@ -60,6 +60,10 @@ const ParticipantsWrapper = props => {
 
   const removeParticipant = (arrayHelpers, index) => {
     arrayHelpers.remove(index)
+  }
+
+  const nextFocusRef = (arrayHelpers, index) => {
+    return index === arrayHelpers.form.values.raw_participant.length - 1 ? inputRef : null
   }
 
   return (
@@ -76,7 +80,7 @@ const ParticipantsWrapper = props => {
                   expanded={expanded === index}
                 >
                   <ExpansionPanelSummary
-                    className={hasError(props.errors, props.status, props.touched, `raw_participant.${index}`) && classes.panelError}
+                    className={enhancedErrors(props.errors, props.status, props.touched, `raw_participant.${index}`) && classes.panelError}
                     expandIcon={<ExpandMoreIcon color='primary' />}
                     onClick={() => { handleExpansion(index) }}
                     style={{ margin: 'auto' }}
@@ -84,7 +88,7 @@ const ParticipantsWrapper = props => {
                     <Grid container spacing={1} justify='space-between'>
                       <Grid item style={{ alignSelf: 'center' }}>
                         <Grid container direction='row' justify='flex-start' alignItems='center'>
-                          {hasError(props.errors, props.status, props.touched, `raw_participant.${index}`) &&
+                          {enhancedErrors(props.errors, props.status, props.touched, `raw_participant.${index}`) &&
                             <WarningOutlined color='error' style={{ marginRight: '8px' }} />}
                           <Typography>{expanded !== index ? `${participant.first_name} ${participant.last_name}` : 'Nuevo participante'}</Typography>
                         </Grid>
@@ -99,57 +103,47 @@ const ParticipantsWrapper = props => {
                   <ExpansionPanelDetails>
                     <Grid container spacing={2}>
                       <Grid item xs={12} sm={6}>
-                        <Box width={1}>
-                          <FastField
-                            name={`raw_participant.${index}.first_name`}
-                            render={({ field }) => (
-                              <TextField
-                                fullWidth variant='outlined' {...field} label='Nombre'
-                                inputRef={index === arrayHelpers.form.values.raw_participant.length - 1 ? inputRef : null}
-                                error={hasError(props.errors, props.status, props.touched, field.name)}
-                                helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
-                              />)}
-                          />
-                        </Box>
+                        <CustomField
+                          name={`raw_participant.${index}.first_name`}
+                          fullWidth
+                          variant='outlined'
+                          label='Nombre'
+                          component={TextField}
+                        />
                       </Grid>
                       <Grid item xs={12} sm={6}>
-                        <FastField
+                        <CustomField
                           name={`raw_participant.${index}.last_name`}
-                          render={({ field }) => (
-                            <TextField
-                              fullWidth variant='outlined' {...field} label='Apellido'
-                              error={hasError(props.errors, props.status, props.touched, field.name)}
-                              helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
-                            />)}
+                          fullWidth
+                          variant='outlined'
+                          label='Apellido'
+                          component={TextField}
+                          inputRef={nextFocusRef(arrayHelpers, index)}
                         />
                       </Grid>
                       <Grid item xs={12} sm={6}>
-                        <FastField
+                        <CustomField
                           name={`raw_participant.${index}.dni`}
-                          render={({ field }) => (
-                            <TextField
-                              fullWidth variant='outlined' {...field} label='D.N.I.'
-                              error={hasError(props.errors, props.status, props.touched, field.name)}
-                              helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
-                            />)}
+                          fullWidth
+                          variant='outlined'
+                          label='D.N.I.'
+                          component={TextField}
                         />
                       </Grid>
                       <Grid item xs={12} sm={6}>
-                        <FastField
+                        <CustomField
                           name={`raw_participant.${index}.grade_choices`}
-                          render={({ field }) => (
-                            <TextField
-                              fullWidth variant='outlined' {...field} select label='Año de cursado'
-                              error={hasError(props.errors, props.status, props.touched, field.name)}
-                              helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
-                            >
-                              <MenuItem value='3'>7mo</MenuItem>
-                              <MenuItem value='2'>6to</MenuItem>
-                              <MenuItem value='1'>5to</MenuItem>
-                              <MenuItem value='0'>4to</MenuItem>
-                            </TextField>
-                          )}
-                        />
+                          fullWidth
+                          select
+                          variant='outlined'
+                          label='Año de cursado'
+                          component={TextField}
+                        >
+                          <MenuItem value='3'>7mo</MenuItem>
+                          <MenuItem value='2'>6to</MenuItem>
+                          <MenuItem value='1'>5to</MenuItem>
+                          <MenuItem value='0'>4to</MenuItem>
+                        </CustomField>
                       </Grid>
                     </Grid>
                   </ExpansionPanelDetails>

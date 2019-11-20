@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { Formik, Form } from 'formik'
+import { Formik, Form, getIn } from 'formik'
 import { Grid, Typography } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import { validationSchema, initialValues } from './forms/_schemas'
@@ -12,8 +12,6 @@ import ContactWrapper from './forms/contactWrapper'
 import HorizontalLinearStepper from '../../components/horizontalLinearStepper'
 import { makeStyles } from '@material-ui/styles'
 import { BrowserRouter as Redirect } from 'react-router-dom'
-
-// const validators = [participantsSchemaRaw, schoolSchemaRaw, projectSchemaRaw, contactSchemaRaw]
 
 const forms = [
   {
@@ -80,7 +78,6 @@ const InscriptionWrapper = props => {
   }
 
   const handleSubmit = (form) => {
-    console.log(form)
     return fetchResource('rest/group/', {
       method: 'POST',
       headers: {
@@ -104,6 +101,7 @@ const InscriptionWrapper = props => {
         validationSchema={validationSchema}
         validateOnChange={false}
         validateOnBlur
+        validateOnMount
         onSubmit={(values, { setStatus, setSubmitting }) => {
           handleSubmit(validationSchema.cast(values)).then((response) => {
             setRedirect(true)
@@ -113,7 +111,7 @@ const InscriptionWrapper = props => {
           })
         }}
       >
-        {({ errors, touched, status, submitForm }) => (
+        {({ errors, touched, status, submitForm, values }) => (
           <>
             {redirect && <Redirect to='/groups/add/success' />}
             <HorizontalLinearStepper steps={forms} active={active} errors={errors} status={status} touched={touched} />
@@ -140,7 +138,7 @@ const InscriptionWrapper = props => {
                     {active === forms.length - 1
                       ? (
                         <Grid item>
-                          <Button type='button' variant='contained' color='primary' onClick={submitForm}>
+                          <Button disabled={errors !== {}} type='button' variant='contained' color='primary' onClick={submitForm}>
                             Enviar
                           </Button>
                         </Grid>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles/index'
+import { makeStyles , useTheme } from '@material-ui/core/styles/index'
 import Typography from '@material-ui/core/Typography/index'
 import Grid from '@material-ui/core/Grid'
 import { Button, Card, CardActions, CardContent, CardMedia, DialogContent } from '@material-ui/core'
@@ -148,20 +148,19 @@ export default function Proyectos () {
               <CardContent style={{ flex: '1' }}>
                 <Typography gutterBottom variant='h5' className={classes.name}>
                   {el.name}
-                </Typography> 
+                </Typography>
                 <Typography variant='body1' component='p' className={classes.solution}>
                   {el.solution}
                 </Typography>
               </CardContent>
 
-              <CardActions style={{padding: '8px 16px'}}>
+              <CardActions style={{ padding: '8px 16px' }}>
                 <Grid container justify='flex-end' alignItems='center'>
                   <Grid item>
                     <Button size='small' color='secondary' onClick={() => { handleClickOpen(idx) }}>
                       Conocer más
                     </Button>
                     <Modal titulo={el.name} detalle={el.solution} idx={idx} />
-                    {console.log(el)}
                   </Grid>
                 </Grid>
               </CardActions>
