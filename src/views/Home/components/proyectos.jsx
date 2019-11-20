@@ -1,15 +1,15 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles/index'
+import { makeStyles , useTheme } from '@material-ui/core/styles/index'
 import Typography from '@material-ui/core/Typography/index'
 import Grid from '@material-ui/core/Grid'
 import { Button, Card, CardActions, CardContent, CardMedia } from '@material-ui/core'
 
 import useMediaQuery from '@material-ui/core/useMediaQuery'
-import { useTheme } from '@material-ui/core/styles'
+
 import { DialogContent } from '@material-ui/core'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
-import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogTitle from '@material-ui/core/DialogTitle'
 
 const useStyles = makeStyles(theme => ({
   barraDecorativa: {
@@ -94,35 +94,34 @@ const data = [
 ]
 
 export default function Proyectos () {
-
   const classes = useStyles()
   const theme = useTheme()
   const [open, setOpen] = React.useState([false, false, false])
-  
+
 
   const handleClickOpen = (idx) => {
-    let newArray = [...open];
-    newArray[idx] = true;
+    const newArray = [...open]
+    newArray[idx] = true
     setOpen(newArray)
   }
   const handleClose = idx => {
-    let newArray = [...open];
-    newArray[idx] = false;
+    const newArray = [...open]
+    newArray[idx] = false
     setOpen(newArray)
   }
 
   function Modal (props) {
     return (
       <>
-        <Dialog onClose={() => {handleClose(props.idx)}} aria-labelledby='simple-dialog-title' open={open[props.idx]} maxWidth='lg' classes={{ paper: classes.dialogPaper }}>
-        <DialogTitle id={props.idx}>{props.titulo}</DialogTitle>
+        <Dialog onClose={() => { handleClose(props.idx) }} aria-labelledby='simple-dialog-title' open={open[props.idx]} maxWidth='lg' classes={{ paper: classes.dialogPaper }}>
+          <DialogTitle id={props.idx}>{props.titulo}</DialogTitle>
           <DialogContent>
             <Typography>
               {props.detalle}
             </Typography>
           </DialogContent>
           <DialogActions>
-            <Button onClick={() => {handleClose(props.idx)}} size='small' color='secondary'>
+            <Button onClick={() => { handleClose(props.idx) }} size='small' color='secondary'>
               Cerrar
             </Button>
           </DialogActions>
@@ -130,7 +129,7 @@ export default function Proyectos () {
       </>
     )
   }
-  
+
   return (
     <>
       <Grid container className={classes.root} justify='center' id='proyectos'>
@@ -164,11 +163,10 @@ export default function Proyectos () {
               <CardActions>
                 <Grid container justify='flex-end' alignItems='center'>
                   <Grid item>
-                    <Button size='small' color='secondary' onClick={() => {handleClickOpen(idx)}}>
+                    <Button size='small' color='secondary' onClick={() => { handleClickOpen(idx) }}>
                       Conocer más
                     </Button>
-                    <Modal titulo={el.name} detalle={el.solution} idx={idx}/>
-                    {
+                    <Modal titulo={el.name} detalle={el.solution} idx={idx} />
                   </Grid>
                 </Grid>
               </CardActions>
@@ -179,4 +177,3 @@ export default function Proyectos () {
     </>
   )
 }
-

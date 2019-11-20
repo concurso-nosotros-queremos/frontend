@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useField, useFormikContext, getIn, setIn } from 'formik'
 import { hasFieldError } from './_utils'
 
@@ -9,8 +9,6 @@ export function useCustomField (name) {
   const [blur, setBlur] = React.useState(null)
   const apiError = getIn(status, name)
 
-  
-
   useEffect(() => {
     if (blur) {
       onBlur(blur)
@@ -20,7 +18,6 @@ export function useCustomField (name) {
 
   field.value = value
   field.onChange = (e) => {
-    
     if (e && e.currentTarget) {
       setValue(e.currentTarget.value)
     }

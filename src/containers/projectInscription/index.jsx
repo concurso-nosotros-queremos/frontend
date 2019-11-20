@@ -74,7 +74,6 @@ const InscriptionWrapper = props => {
   }
 
   const handleSubmit = (form) => {
-    
     return fetchResource('rest/group/', {
       method: 'POST',
       headers: {
@@ -110,8 +109,6 @@ const InscriptionWrapper = props => {
       >
         {({ errors, touched, status, submitForm, values }) => (
           <>
-            {
-            {
             {redirect && <Redirect to='/groups/add/success' />}
             <HorizontalLinearStepper steps={forms} active={active} errors={errors} status={status} touched={touched} />
             <Form>
