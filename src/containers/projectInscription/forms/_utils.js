@@ -38,8 +38,8 @@ export function hasBlockError (errors, status, touched, name) {
 
   try {
     for (const key of Object.keys(getIn(errors, name))) {
-      console.log('UNDEFINED: ')
-      console.log(undefined === getIn(touched, (name + '.' + key)))
+      
+      
       if (!getIn(touched, (name + '.' + key))) {
         blockTouched = false
         break
@@ -63,7 +63,7 @@ function isString (obj) {
 }
 
 export function enhancedErrors (errors, statuses, toucheds, path) {
-  console.log(`~~~~~~~~~~~~ Discovering local and backend errors on ${path} ~~~~~~~~~~~~`)
+  
   const error = getIn(errors, path)
   const status = getIn(statuses, path)
 
@@ -102,14 +102,14 @@ function errorIterator (errors, toucheds, obj, path) {
   } else if (isString(obj)) {
     if (toucheds) {
       if (getIn(toucheds, path)) {
-        console.log(`Found true error at ${path}`)
+        
         return true
       } else {
-        console.log(`Missing touched at ${path}`)
+        
         return false
       }
     } else {
-      console.log(`Found lazy error at ${path}`)
+      
       return true
     }
   } else if (obj === null || obj === undefined) {

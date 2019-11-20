@@ -9,7 +9,7 @@ export function useCustomField (name) {
   const [blur, setBlur] = React.useState(null)
   const apiError = getIn(status, name)
 
-  console.log(value)
+  
 
   useEffect(() => {
     if (blur) {
@@ -20,7 +20,7 @@ export function useCustomField (name) {
 
   field.value = value
   field.onChange = (e) => {
-    console.log(e)
+    
     if (e && e.currentTarget) {
       setValue(e.currentTarget.value)
     }

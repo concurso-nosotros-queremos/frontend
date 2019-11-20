@@ -92,7 +92,7 @@ class EditGroup extends Component {
   }
 
   handleSubmit(form) {
-    console.log(form)
+    
     return fetchResource(`rest/group/${this.props.match.params.id}/`, {
       method: 'PATCH',
       headers: {
@@ -105,7 +105,7 @@ class EditGroup extends Component {
   }
 
   render() {
-    console.log(this.props)
+    
     return (
       <GroupEditor group={this.state.group} onSubmit={this.handleSubmit} />
     )
@@ -139,7 +139,7 @@ const GroupEditor = props => {
                 <Formik
                   onSubmit={(values, { setStatus, setSubmitting }) => {
                     props.onSubmit(values).then((response) => {
-                      console.log(response)
+                      
                     }).catch((error) => {
                       setStatus({ ...error.response })
                       setSubmitting(false)

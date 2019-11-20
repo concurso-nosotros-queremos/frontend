@@ -168,7 +168,7 @@ export default function Proyectos () {
                       Conocer más
                     </Button>
                     <Modal titulo={el.name} detalle={el.solution} idx={idx}/>
-                    {console.log(el)}
+                    {
                   </Grid>
                 </Grid>
               </CardActions>
