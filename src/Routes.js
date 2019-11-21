@@ -22,71 +22,139 @@ const ProtectedRoute = ({ isAllowed, ...props }) => {
 
 class Routes extends Component {
   render () {
-    return (
-      <Switch>
-        <Route
-          exact
-          path='/'
-          render={() => (
-            this.props.isLoggedIn
-              ? <Redirect to='/dashboard' />
-              : <Route component={Index} exact path='/' />
-          )}
-        />
-        <ProtectedRoute
-          isAllowed={this.props.isLoggedIn}
-          component={Dashboard}
-          layout={Main}
-          exact
-          path='/dashboard'
-        />
-        <ProtectedRoute
-          isAllowed={this.props.isLoggedIn}
-          component={Groups}
-          layout={Main}
-          exact
-          path='/groups'
-        />
-        <ProtectedRoute
-          isAllowed={this.props.isLoggedIn}
-          component={GroupEdit}
-          layout={Main}
-          exact
-          path='/groups/:id'
-        />
-        <ProtectedRoute
-          isAllowed={this.props.isLoggedIn}
-          component={InscriptionWrapper}
-          layout={Main}
-          exact
-          path='/groups/add'
-        />
-        <ProtectedRoute
-          isAllowed={this.props.isLoggedIn}
-          component={FormSuccess}
-          layout={Main}
-          exact
-          path='/groups/add/success'
-        />
-        <ProtectedRoute
-          isAllowed={this.props.isLoggedIn}
-          component={Statistics}
-          layout={Main}
-          exact
-          path='/statistics'
-        />
-        <ProtectedRoute
-          isAllowed={this.props.isLoggedIn}
-          component={Inscription}
-          layout={Minimal}
-          exact
-          path='/inscription'
-        />
-        <Route
-          component={Error404}
-        />
-      </Switch>
-    )
+    console.log(this.props)
+    if (this.props.isLoggedIn) {
+      if (!this.props.user.is_staff && !this.props.user.is_superuser) {
+        return (
+          <Switch>
+            <Route
+              exact
+              path='/'
+              render={() => (
+                this.props.isLoggedIn
+                  ? <Redirect to='/inscription' />
+                  : <Route component={Index} exact path='/' />
+              )}
+            />
+            <ProtectedRoute
+              isAllowed={this.props.isLoggedIn}
+              component={Groups}
+              layout={Main}
+              exact
+              path='/groups'
+            />
+            <ProtectedRoute
+              isAllowed={this.props.isLoggedIn}
+              component={GroupEdit}
+              layout={Main}
+              exact
+              path='/groups/:id'
+            />
+            <ProtectedRoute
+              isAllowed={this.props.isLoggedIn}
+              component={InscriptionWrapper}
+              layout={Main}
+              exact
+              path='/groups/add'
+            />
+            <ProtectedRoute
+              isAllowed={this.props.isLoggedIn}
+              component={FormSuccess}
+              layout={Main}
+              exact
+              path='/groups/add/success'
+            />
+            <ProtectedRoute
+              isAllowed={this.props.isLoggedIn}
+              component={Inscription}
+              layout={Minimal}
+              exact
+              path='/inscription'
+            />
+            <Route
+              component={Error404}
+            />
+          </Switch>
+        )
+      } else if (this.props.user.is_superuser && this.props.user.is_staff) {
+        return (
+          <Switch>
+            <Route
+              exact
+              path='/'
+              render={() => (
+                this.props.isLoggedIn
+                  ? <Redirect to='/dashboard' />
+                  : <Route component={Index} exact path='/' />
+              )}
+            />
+            <ProtectedRoute
+              isAllowed={this.props.isLoggedIn}
+              component={Dashboard}
+              layout={Main}
+              exact
+              path='/dashboard'
+            />
+            <ProtectedRoute
+              isAllowed={this.props.isLoggedIn}
+              component={Groups}
+              layout={Main}
+              exact
+              path='/groups'
+            />
+            <ProtectedRoute
+              isAllowed={this.props.isLoggedIn}
+              component={GroupEdit}
+              layout={Main}
+              exact
+              path='/groups/:id'
+            />
+            <ProtectedRoute
+              isAllowed={this.props.isLoggedIn}
+              component={InscriptionWrapper}
+              layout={Main}
+              exact
+              path='/groups/add'
+            />
+            <ProtectedRoute
+              isAllowed={this.props.isLoggedIn}
+              component={FormSuccess}
+              layout={Main}
+              exact
+              path='/groups/add/success'
+            />
+            <ProtectedRoute
+              isAllowed={this.props.isLoggedIn}
+              component={Statistics}
+              layout={Main}
+              exact
+              path='/statistics'
+            />
+            <ProtectedRoute
+              isAllowed={this.props.isLoggedIn}
+              component={Inscription}
+              layout={Minimal}
+              exact
+              path='/inscription'
+            />
+            <Route
+              component={Error404}
+            />
+          </Switch>
+        )
+      }
+    } else {
+      return (
+        <Switch>
+          <Route
+            component={Index}
+            exact
+            path='/'
+          />
+          <Redirect to='/' />
+        </Switch>
+      )
+    }
   }
 }
 
@@ -99,7 +167,11 @@ const MainRouter = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  isLoggedIn: state.auth.isLoggedIn
+  isLoggedIn: state.auth.isLoggedIn,
+  isLoading: state.auth.isLoading,
+  user: {
+    ...state.auth.user
+  }
 })
 
 export default connect(mapStateToProps)(MainRouter)

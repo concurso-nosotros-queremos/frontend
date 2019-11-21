@@ -11,7 +11,7 @@ import ProjectWrapper from './forms/projectWrapper'
 import ContactWrapper from './forms/contactWrapper'
 import HorizontalLinearStepper from '../../components/horizontalLinearStepper'
 import { makeStyles } from '@material-ui/styles'
-import { BrowserRouter as Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const forms = [
   {
@@ -113,7 +113,6 @@ const InscriptionWrapper = props => {
       >
         {({ errors, touched, status, submitForm, values }) => (
           <>
-            {redirect && <Redirect to='/groups/add/success' />}
             <HorizontalLinearStepper steps={forms} active={active} errors={errors} status={status} touched={touched} />
             <Form>
               <div style={{ marginBottom: '65px' }}>
@@ -121,7 +120,7 @@ const InscriptionWrapper = props => {
               </div>
               <Grid container direction='row' justify='space-between' alignItems='center' className={classes.fixedActions}>
                 <Grid item>
-                  <Button type='button' className={classes.cancelarBtn} onClick={() => window.history.back()}>
+                  <Button className={classes.cancelarBtn} to='/' component={Link}>
                     Cancelar
                   </Button>
                 </Grid>

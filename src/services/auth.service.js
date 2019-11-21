@@ -17,3 +17,14 @@ export async function convertToken (provider, token) {
 
   return response
 }
+
+export async function checkToken (token) {
+  const response = await window.fetch(process.env.REACT_APP_API_URL + `/rest/user_info/${token}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then(response => response.json())
+
+  return response
+}
