@@ -1,5 +1,6 @@
 import React from 'react'
 import clsx from 'clsx'
+import { connect } from 'react-redux'
 import { makeStyles } from '@material-ui/styles'
 import { Divider, Drawer, ListItem, ListItemAvatar, ListItemText, Grid } from '@material-ui/core'
 import DashboardIconOutlined from '@material-ui/icons/DashboardOutlined'
@@ -100,6 +101,21 @@ const Sidebar = props => {
     }
   ]
 
+  const userPages = [
+    {
+      title: 'Grupos',
+      href: '/groups',
+      icon: <PeopleIconOutlined color='inherit' />,
+      children: [
+        {
+          title: 'Inscribir grupo',
+          href: '/inscription',
+          icon: <AssignmentOutlinedIcon color='inherit' />
+        }
+      ]
+    }
+  ]
+
   return (
     <Drawer
       anchor='left'
@@ -122,7 +138,7 @@ const Sidebar = props => {
         </Grid>
         <SidebarNav
           className={classes.nav}
-          pages={pages}
+          pages={props.user.is_staff && props.user.is_superuser ? pages : userPages}
         />
         <div style={{ display: 'flex', flex: 1 }}>
           <div style={{ marginTop: 'auto', width: '100%' }}>
@@ -150,4 +166,12 @@ const Sidebar = props => {
   )
 }
 
-export default Sidebar
+const mapStateToProps = (state) => ({
+  isLoggedIn: state.auth.isLoggedIn,
+  isLoading: state.auth.isLoading,
+  user: {
+    ...state.auth.user
+  }
+})
+
+export default connect(mapStateToProps)(Sidebar)
