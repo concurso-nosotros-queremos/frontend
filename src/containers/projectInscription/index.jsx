@@ -138,14 +138,14 @@ const InscriptionWrapper = props => {
                     {active === forms.length - 1
                       ? (
                         <Grid item>
-                          <Button disabled={errors !== {}} type='button' variant='contained' color='primary' onClick={submitForm}>
+                          <Button disabled={getIn(errors, Fragment.raw) !== undefined}  type='button' variant='contained' color='primary' onClick={submitForm}>
                             Enviar
                           </Button>
                         </Grid>
                       )
                       : (
                         <Grid item>
-                          <Button type='button' variant='contained' color='primary' onClick={handleNext}>
+                          <Button disabled={getIn(errors, Fragment.raw) !== undefined} type='button' variant='contained' color='primary' onClick={handleNext}>
                             Siguiente
                           </Button>
                         </Grid>
