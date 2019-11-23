@@ -13,8 +13,9 @@ import fetchResource from '../../../services/apiHandler'
 import withGroupCount from '../../../hoc/withDashboard'
 import { connect } from 'react-redux'
 import moment from 'moment'
+import "moment/locale/es";
 
-Moment.locale('es')
+moment.locale('es')
 
 const useStyles = makeStyles(theme => ({
   dialogPaper: {
@@ -61,7 +62,7 @@ const SimpleDialog = props => {
       <Dialog onClose={handleClose} aria-labelledby='simple-dialog-title' open={open} maxWidth='lg' classes={{ paper: classes.dialogPaper }}>
         <DialogContent style={{ margin: 0, padding: 0 }}>
           <Grid container direction='row' justify='flex-start' alignItems='flex-start'>
-            <MuiPickersUtilsProvider utils={MomentUtils}>
+            <MuiPickersUtilsProvider utils={MomentUtils} locale={'es'}>
               <DatePicker
                 inputStyle={{ textAlign: 'center' }}
                 format='DD MMMM YYYY'
