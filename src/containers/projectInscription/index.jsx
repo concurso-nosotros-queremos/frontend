@@ -86,7 +86,7 @@ const InscriptionWrapper = props => {
       body: {
         ...form
       }
-    })
+    }).then(window.location.href = '/success')
   }
 
   const Fragment = forms[active]
