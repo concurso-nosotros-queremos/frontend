@@ -77,7 +77,7 @@ function withDashboard (WrappedComponent, { ...props }) {
         this.setState({ contestId: response[0].id, contestEnd: Moment(response[0].inscription_date_to).toString() })
       })
       getGroup(this.props.token).then(response => {
-        this.setState({ group: response, labels: foo(response.map(el => el.raw_school.state_name))[0], data: foo(response.map(el => el.raw_school.state_name))[1], label_diffusion: foo(response.map(el => el.raw_project.diffusion_name))[0], diffusion: foo(response.map(el => el.raw_project.diffusion_name))[1], label_school: foo(response.map(el => el.raw_school.school_types_name))[0], school: foo(response.map(el => el.raw_school.school_types_name))[1], label_participant: countParticipants(response)[0], participant: countParticipants(response)[1] })
+        this.setState({ group: response.reverse(), labels: foo(response.map(el => el.raw_school.state_name))[0], data: foo(response.map(el => el.raw_school.state_name))[1], label_diffusion: foo(response.map(el => el.raw_project.diffusion_name))[0], diffusion: foo(response.map(el => el.raw_project.diffusion_name))[1], label_school: foo(response.map(el => el.raw_school.school_types_name))[0], school: foo(response.map(el => el.raw_school.school_types_name))[1], label_participant: countParticipants(response)[0], participant: countParticipants(response)[1] })
       })
     }
 
