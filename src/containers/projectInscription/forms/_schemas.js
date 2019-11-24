@@ -4,7 +4,7 @@ const participantsSchema = Yup.array().of(
   Yup.object().shape({
     first_name: Yup.string().required('Nombre es un campo obligatorio'),
     last_name: Yup.string().required('Apeliido es un campo obligatorio'),
-    dni: Yup.string().required('DNI es un campo obligatorio'),
+    dni: Yup.number().test('len', 'Introduzca un dni valido', val => val && val.toString().length >= 7 && val.toString().length <= 8).required('Dni es un campo obligatorio'),
     grade_choices: Yup.number('Seleccione un año correcto').typeError('Seleccione un curso correcto').required('Año es un campo obligatorio')
   }).noUnknown()
 ).min(1, 'Debe agregar al menos 1 participante')
@@ -99,7 +99,8 @@ export const helpers = {
     name: 'Nombre del proyecto/idea emprendedora',
     problem: '¿Cual es el problema que encontraron?',
     solution: '¿Como piensan solucionarlo?',
-    diffusion: 'Seleccione como se entero del concurso'
+    diffusion: 'Seleccione como se entero del concurso',
+    category: 'Seleccione la categoria del proyecto'
   },
   raw_contact: {
     phone_number: 'Tu numero de teléfono',

@@ -86,7 +86,7 @@ const InscriptionWrapper = props => {
       body: {
         ...form
       }
-    }).then(window.location.href = '/success')
+    }).then(response => { window.location.href = '/success' })
   }
 
   const Fragment = forms[active]
@@ -138,7 +138,7 @@ const InscriptionWrapper = props => {
                     {active === forms.length - 1
                       ? (
                         <Grid item>
-                          <Button disabled={getIn(errors, Fragment.raw) !== undefined}  type='button' variant='contained' color='primary' onClick={submitForm}>
+                          <Button disabled={getIn(errors, Fragment.raw) !== undefined} type='button' variant='contained' color='primary' onClick={submitForm}>
                             Enviar
                           </Button>
                         </Grid>
