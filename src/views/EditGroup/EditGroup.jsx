@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
-import { makeStyles, withStyles, ThemeProvider } from '@material-ui/styles'
+import { makeStyles, ThemeProvider } from '@material-ui/styles'
 import { Grid, Card, AppBar, Tabs, Tab, Box, Typography, Button, CircularProgress } from '@material-ui/core'
 import { Formik } from 'formik'
 import ParticipantsWrapper from '../../containers/projectInscription/forms/participantsWrapper'
@@ -197,4 +197,4 @@ const mapStateToProps = (state) => ({
   token: state.auth.convertedToken.accessToken
 })
 
-export default connect(mapStateToProps)(withRouter(withStyles(useStyles)(EditGroup)))
+export default connect(mapStateToProps)(withRouter(EditGroup))
