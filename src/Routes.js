@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Redirect, Route } from 'react-router-dom'
-import RouteWithLayout from './components/routeWithLayout'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Index from './views/Home/index'
 import Error404 from './views/404/index'
-import { connect } from 'react-redux'
 import InscriptionWrapper from './containers/projectInscription'
 import Main from './layouts/Main/Main'
 import Groups from './views/Groups/Groups'
@@ -13,70 +11,64 @@ import FormSuccess from './views/Dashboard/FormSuccess'
 import Inscription from './views/Inscription/Inscription'
 import Minimal from './layouts/Minimal/Minimal'
 import GroupEdit from './views/EditGroup/EditGroup'
-
-const ProtectedRoute = ({ isAllowed, ...props }) => {
-  return (
-    isAllowed ? <RouteWithLayout {...props} /> : <Redirect to='/' />
-  )
-}
+import ProtectedRoute from './components/protectedRoute'
 
 class Routes extends Component {
   render () {
     return (
       <Switch>
-        <Route
+        <ProtectedRoute
+          isDefault
+          component={Index}
           exact
           path='/'
-          render={() => (
-            this.props.isLoggedIn
-              ? <Redirect to='/dashboard' />
-              : <Route component={Index} exact path='/' />
-          )}
         />
         <ProtectedRoute
-          isAllowed={this.props.isLoggedIn}
+          requireLogin
+          requireAdmin
           component={Dashboard}
           layout={Main}
           exact
           path='/dashboard'
         />
         <ProtectedRoute
-          isAllowed={this.props.isLoggedIn}
-          component={Groups}
-          layout={Main}
-          exact
-          path='/groups'
-        />
-        <ProtectedRoute
-          isAllowed={this.props.isLoggedIn}
-          component={GroupEdit}
-          layout={Main}
-          exact
-          path='/groups/:id'
-        />
-        <ProtectedRoute
-          isAllowed={this.props.isLoggedIn}
-          component={InscriptionWrapper}
-          layout={Main}
-          exact
-          path='/groups/add'
-        />
-        <ProtectedRoute
-          isAllowed={this.props.isLoggedIn}
-          component={FormSuccess}
-          layout={Main}
-          exact
-          path='/groups/add/success'
-        />
-        <ProtectedRoute
-          isAllowed={this.props.isLoggedIn}
+          requireLogin
+          requireAdmin
           component={Statistics}
           layout={Main}
           exact
           path='/statistics'
         />
         <ProtectedRoute
-          isAllowed={this.props.isLoggedIn}
+          requireLogin
+          component={Groups}
+          layout={Main}
+          exact
+          path='/groups'
+        />
+        <ProtectedRoute
+          requireLogin
+          component={GroupEdit}
+          layout={Main}
+          exact
+          path='/groups/:id'
+        />
+        <ProtectedRoute
+          requireLogin
+          component={InscriptionWrapper}
+          layout={Main}
+          exact
+          path='/groups/add'
+        />
+        <ProtectedRoute
+          requireLogin
+          component={FormSuccess}
+          layout={Main}
+          exact
+          path='/groups/add/success'
+        />
+        <ProtectedRoute
+          requireLogin
           component={Inscription}
           layout={Minimal}
           exact
@@ -98,8 +90,4 @@ const MainRouter = (props) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  isLoggedIn: state.auth.isLoggedIn
-})
-
-export default connect(mapStateToProps)(MainRouter)
+export default MainRouter
