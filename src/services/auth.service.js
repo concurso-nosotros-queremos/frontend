@@ -1,3 +1,5 @@
+import fetchResource from './apiHandler'
+
 export async function convertToken (provider, token) {
   const body = {
     grant_type: 'convert_token',
@@ -19,12 +21,12 @@ export async function convertToken (provider, token) {
 }
 
 export async function checkToken (token) {
-  const response = await window.fetch(process.env.REACT_APP_API_URL + `/rest/user_info/${token}`, {
+  const response = await fetchResource(`rest/user_info/${token}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
     }
-  }).then(response => response.json())
+  })
 
   return response
 }

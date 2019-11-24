@@ -1,5 +1,5 @@
 import { GOOGLE_LOGIN_SUCCESS } from '../googleLogin/types'
-import { AUTH_CONVERT_TOKEN_REQUEST, AUTH_GOOGLE_PROVIDER, AUTH_CHECK_TOKEN_REQUEST, AUTH_CHECK_TOKEN_SUCCESS, AUTH_CONVERT_TOKEN_SUCCESS } from '../auth/types'
+import { AUTH_CONVERT_TOKEN_REQUEST, AUTH_GOOGLE_PROVIDER, AUTH_CHECK_TOKEN_REQUEST, AUTH_CONVERT_TOKEN_SUCCESS } from '../auth/types'
 import { authConvertTokenRequest, authConvertTokenSuccess, authConvertTokenError, authCheckTokenRequest, authCheckTokenSuccess, authCheckTokenError } from '../auth/actions'
 import { convertToken, checkToken } from '../../services/auth.service'
 
@@ -33,20 +33,15 @@ export const authMiddleware = store => next => action => {
       break
     case AUTH_CONVERT_TOKEN_SUCCESS:
       try {
-        console.log(action)
         store.dispatch(authCheckTokenRequest(action.convertedToken.access_token))
       } catch (e) {
         console.log(e)
       }
       break
     case AUTH_CHECK_TOKEN_REQUEST:
-      try {
-        checkToken(action.token)
-          .then((json) => { store.dispatch(authCheckTokenSuccess(json)) })
-          .catch((err) => { store.dispatch(authCheckTokenError(err)) })
-      } catch (e) {
-        console.log(e)
-      }
+      checkToken(action.token)
+        .then((json) => { store.dispatch(authCheckTokenSuccess(json)) })
+        .catch((err) => { store.dispatch(authCheckTokenError(err)) })
       break
     default:
       break
