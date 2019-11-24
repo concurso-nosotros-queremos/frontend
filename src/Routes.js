@@ -60,7 +60,7 @@ class Routes extends Component {
           path='/inscription'
         />
         <ProtectedRoute
-          isAllowed={this.props.isLoggedIn}
+          requireLogin
           component={Success}
           layout={Minimal}
           exact
