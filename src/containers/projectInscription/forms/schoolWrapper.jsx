@@ -4,6 +4,8 @@ import MenuItem from '@material-ui/core/MenuItem'
 import { Grid, Fade, Typography } from '@material-ui/core'
 import CityPicker from './cityPicker'
 import CustomField from './customField'
+import { FastField } from 'formik'
+import { hasError, errorMessageBuilder } from './_utils'
 
 const SchoolWrapper = props => {
   return (
@@ -39,13 +41,12 @@ const SchoolWrapper = props => {
             />
           </Grid>
           <Grid item xs={12}>
-            <CustomField
-              name='raw_school.city'
+            <CityPicker
               fullWidth
               variant='outlined'
               label='Ciudad'
-              component={CityPicker}
             />
+
           </Grid>
           <Grid item xs={12}>
             <CustomField

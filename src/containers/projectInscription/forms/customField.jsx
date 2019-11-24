@@ -18,8 +18,8 @@ export function useCustomField (name) {
 
   field.value = value
   field.onChange = (e) => {
-    if (e && e.currentTarget) {
-      setValue(e.currentTarget.value)
+    if (e && e.target) {
+      setValue(e.target.value)
     }
   }
 

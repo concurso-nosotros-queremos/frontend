@@ -2,16 +2,15 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Index from './views/Home/index'
 import Error404 from './views/404/index'
-import InscriptionWrapper from './containers/projectInscription'
 import Main from './layouts/Main/Main'
 import Groups from './views/Groups/Groups'
 import Dashboard from './views/Dashboard/Dashboard'
 import Statistics from './views/Statistics/Statistics'
-import FormSuccess from './views/Dashboard/FormSuccess'
 import Inscription from './views/Inscription/Inscription'
 import Minimal from './layouts/Minimal/Minimal'
 import GroupEdit from './views/EditGroup/EditGroup'
 import ProtectedRoute from './components/protectedRoute'
+import Success from './views/Success/success'
 
 class Routes extends Component {
   render () {
@@ -55,24 +54,17 @@ class Routes extends Component {
         />
         <ProtectedRoute
           requireLogin
-          component={InscriptionWrapper}
-          layout={Main}
-          exact
-          path='/groups/add'
-        />
-        <ProtectedRoute
-          requireLogin
-          component={FormSuccess}
-          layout={Main}
-          exact
-          path='/groups/add/success'
-        />
-        <ProtectedRoute
-          requireLogin
           component={Inscription}
           layout={Minimal}
           exact
           path='/inscription'
+        />
+        <ProtectedRoute
+          isAllowed={this.props.isLoggedIn}
+          component={Success}
+          layout={Minimal}
+          exact
+          path='/success'
         />
         <Route
           component={Error404}

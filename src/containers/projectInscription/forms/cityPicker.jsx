@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { MenuItem, TextField, Grid, CircularProgress } from '@material-ui/core'
 import withState from '../../../hoc/withState'
+import { FastField, useFormikContext } from 'formik'
 
 const CityPicker = props => {
-  const [state, setState] = useState(null)
-
-  const handleChange = event => {
-    setState(event.target.value)
-  }
+  const context = useFormikContext()
+  console.log(context)
 
   const buildCities = () => {
+    const state = context.values.raw_school.state
+
     if (state) {
       const city = props.states.find(el => el.id === state).city
       if (city) {
@@ -30,27 +30,32 @@ const CityPicker = props => {
         ? (
           <>
             <Grid item xs={12} sm={6}>
-              <TextField
-                {...props}
-                label='Provincia'
-                error={false}
-                helperText={null}
-                value={state}
-                onChange={handleChange}
-                select
-              >
-                {buildStates()}
-              </TextField>
+              <FastField name='raw_school.state'>
+                {field =>
+                  <TextField
+                    {...props}
+                    {...field.field}
+                    label='Provincia'
+                    error={false}
+                    helperText={null}
+                    select
+
+                  >
+                    {buildStates()}
+                  </TextField>}
+              </FastField>
             </Grid>
             <Grid item xs={12} sm={6}>
-              <TextField
-                {...props}
-                {...props.field}
-                disabled={!state && true}
-                select
-              >
-                {buildCities()}
-              </TextField>
+              <FastField name='raw_school.city'>
+                {field =>
+                  <TextField
+                    {...props}
+                    {...field.field}
+                    select
+                  >
+                    {buildCities()}
+                  </TextField>}
+              </FastField>
             </Grid>
           </>
         ) : <CircularProgress />}

@@ -65,7 +65,7 @@ const useStyles = makeStyles(theme => ({
 const Groups = props => {
   const data = []
 
-  props.group.reverse().forEach((el, idx) =>
+  props.group.forEach((el, idx) =>
     data.push({ name: el.raw_project.name, alumnos: el.raw_participant.length, city: el.raw_school.city_name, state: el.raw_school.state_name, id: el.id })
   )
 

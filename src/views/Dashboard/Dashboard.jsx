@@ -111,7 +111,7 @@ const useStyles = makeStyles(theme => ({
 const Dashboard = props => {
   const classes = useStyles()
   const data = []
-  for (const [index, value] of props.group.reverse().entries()) { // eslint-disable-line no-unused-vars
+  for (const [index, value] of props.group.entries()) { // eslint-disable-line no-unused-vars
     if (data.length < 4) {
       data.push(value)
     }
