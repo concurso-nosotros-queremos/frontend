@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 import { connect } from 'react-redux'
 import RouteWithLayout from './routeWithLayout'
@@ -8,17 +8,18 @@ const userDefault = '/groups'
 const userEmpty = '/inscription'
 const adminDefault = '/dashboard'
 
-const ProtectedRoute = ({ requireLogin = true, requireAdmin = false, isDefault = false, redirect = '/', ...props }) => {
+const ProtectedRoute = ({ requireLogin = false, requireAdmin = false, isDefault = false, redirect = '/', ...props }) => {
   console.log(props)
   if (isDefault) {
-    console.log(`Empty user: ${props.user.group_count}`)
-    if (props.user.is_staff || props.user.is_superuser) {
-      return <Redirect to={adminDefault} />
-    } else if (props.isLoggedIn && (!props.user.is_staff && !props.user.is_superuser)) {
-      if (props.user.group_count === 0) {
-        return <Redirect to={userEmpty} />
-      } else {
-        return <Redirect to={userDefault} />
+    if (props.isLoggedIn) {
+      if (props.user.is_staff || props.user.is_superuser) {
+        return <Redirect to={adminDefault} />
+      } else if (!props.user.is_staff && !props.user.is_superuser) {
+        if (props.user.group_count === 0) {
+          return <Redirect to={userEmpty} />
+        } else {
+          return <Redirect to={userDefault} />
+        }
       }
     } else {
       return <RouteWithLayout {...props} />
