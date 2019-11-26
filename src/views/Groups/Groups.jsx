@@ -76,7 +76,7 @@ const Groups = props => {
   }
 
   const handleClickExport = id => {
-    console.log('Me quiero exportar, soy el n° ' + id + '! Ayudaa')
+    window.location.href = `https://queremosbackend.tk/rest/export/group/${id}/${props.token}`; 
   }
 
   const theme = useTheme()
@@ -96,8 +96,8 @@ const Groups = props => {
                 ] : [
                   { title: 'Nombre', field: 'name' },
                   { title: 'Alumnos', field: 'alumnos' },
-                  { title: 'Provincia', field: 'city' },
-                  { title: 'Localidad', field: 'state' },
+                  { title: 'Localidad', field: 'city' },
+                  { title: 'Provincia', field: 'state' },
                   { title: 'ID', field: 'id', hidden: true }
                 ]
             }
