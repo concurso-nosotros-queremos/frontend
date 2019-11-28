@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import { withRouter } from 'react-router'
 import { makeStyles } from '@material-ui/styles'
-import { Grid, useMediaQuery } from '@material-ui/core'
+import { Grid, useMediaQuery, Button, TextField } from '@material-ui/core'
 import Card from '@material-ui/core/Card'
 import Typography from '@material-ui/core/Typography'
 import MaterialTable from 'material-table'
@@ -64,6 +64,8 @@ const useStyles = makeStyles(theme => ({
 
 const Groups = props => {
   const data = []
+  const [token, setToken] = React.useState(null)
+  const [rta, setRta] = React.useState(null)
 
   props.group.forEach((el, idx) =>
     data.push({ name: el.raw_project.name, alumnos: el.raw_participant.length, city: el.raw_school.city_name, state: el.raw_school.state_name, id: el.id })
@@ -76,7 +78,34 @@ const Groups = props => {
   }
 
   const handleClickExport = id => {
-    window.location.href = `https://queremosbackend.tk/rest/export/group/${id}/${props.token}`; 
+    window.location.href = `https://queremosbackend.tk/rest/export/group/${id}/${props.token}`;
+  }
+
+  const checkToken = () => {
+    fetch('http://localhost:8000/rest/check/', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${props.token}`
+      },
+      body: JSON.stringify({
+        token: token,
+      })
+    }).then(response => {
+      if (response.status === 400) {
+        setRta('Introduzca un token')
+      }
+      else if (response.status === 401) {
+        setRta('Token incorrecto')
+      } else if (response.status === 200) {
+        setRta('Acceso garantizado')
+      } else if (response.status === 403) {
+        setRta('No estas autorizado')
+      } else {
+        setRta('Error')
+      }
+    })
   }
 
   const theme = useTheme()
@@ -84,6 +113,21 @@ const Groups = props => {
     <>
       <Grid container direction='row' justify='flex-start' alignItems='flex-start' className={classes.root}>
         <Card className={classes.card} elevation={0}>
+          <TextField
+            name='token'
+            label='Token'
+            fullWidth
+            margin='normal'
+            variant='outlined'
+            onChange={(event) => setToken(event.target.value)}
+            value={token}
+          />
+          <Button onClick={checkToken} >
+            Checkear
+                  </Button>
+          <Typography className={classes.title} autoCapitalize>
+            {rta}
+          </Typography>
           <MaterialTable
             icons={tableIcons}
 

@@ -85,10 +85,13 @@ class EditGroup extends Component {
 
     this.state = {
       group: null,
-      error: null
+      error: null,
+      token: null
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.submitToken = this.submitToken.bind(this)
+
   }
 
   componentDidMount () {
@@ -109,9 +112,24 @@ class EditGroup extends Component {
     })
   }
 
+  submitToken () {
+    return fetchResource('rest/group_token/', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${this.props.token}`
+      },
+      body: {
+        "is_active": false,
+        "max_uses": 1,
+        "group": parseInt(`${this.props.match.params.id}`)
+      }
+    }).then(response=> {this.setState({token:response['token']})
+  })
+  }
+
   render () {
     return (
-      <GroupEditor group={this.state.group} onSubmit={this.handleSubmit} />
+      <GroupEditor group={this.state.group} token={this.state.token} onSubmit={this.handleSubmit} submitToken={this.submitToken} />
     )
   }
 }
@@ -135,6 +153,12 @@ const GroupEditor = props => {
                 <Typography className={classes.title} autoCapitalize>
                   {props.group.raw_project.name}
                 </Typography>
+                <Button onClick={props.submitToken} >
+                  Compartir
+                  </Button>
+                  <Typography className={classes.title} autoCapitalize>
+                  {props.token}
+                </Typography>                
                 <AppBar className={classes.appBar} position='static' color='inherit'>
                   <Tabs value={value} onChange={handleChange} indicatorColor='primary' aria-label='simple tabs example'>
                     {pages.map((el, idx) => <Tab key={idx} label={el.title} />)}
