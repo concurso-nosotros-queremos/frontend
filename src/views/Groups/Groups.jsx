@@ -82,7 +82,7 @@ const Groups = props => {
   }
 
   const checkToken = () => {
-    fetch('http://localhost:8000/rest/check/', {
+    fetch('https://queremosbackend.tk/rest/check/', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
