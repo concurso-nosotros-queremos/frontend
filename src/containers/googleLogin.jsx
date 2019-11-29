@@ -54,7 +54,7 @@ class GoogleLoginContainer extends Component {
           <Box boxShadow={2} style={{ borderRadius: '4px', width: '100%' }}>
             <Button disableRipple onClick={renderProps.onClick} disabled={renderProps.disabled} className={classes.googleBtn}>
               <Box width='10%' style={{ display: 'flex', justifyContent: 'center', marginRight: '1.5rem' }}>
-                <img src={require('../assets/google.png')} alt='facebook' height='22px' />
+                <img src={require('../assets/google.png')} alt='google' height='22px' />
               </Box>
               <Box width='90%' style={{ width: 'max-content', display: 'flex', justifyContent: 'center' }}>
                 <Typography color='textSecondary' className={classes.text}>Ingresar con Google</Typography>

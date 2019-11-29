@@ -5,7 +5,8 @@ import Grid from '@material-ui/core/Grid'
 import { Box, Avatar } from '@material-ui/core'
 import Background from '../../../assets/organizanImage.svg'
 
-import persona1 from '../../../assets/persona1.jpg'
+import persona1 from '../../../assets/VirginiaBarbera.webp'
+import persona2 from '../../../assets/BelenRamoska.webp'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -82,15 +83,10 @@ const data = [
     image_url: persona1
   },
   {
-    nombre: 'Virginia Barbera',
-    cargo: 'Directora Ejecutiva',
-    image_url: persona1
+    nombre: 'Belen Ramoska',
+    cargo: 'Coordinadora del concurso',
+    image_url: persona2
   },
-  {
-    nombre: 'Virginia Barbera',
-    cargo: 'Directora Ejecutiva',
-    image_url: persona1
-  }
 ]
 
 export default function Organizan () {
