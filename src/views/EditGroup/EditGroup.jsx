@@ -11,7 +11,6 @@ import ContactWrapper from '../../containers/projectInscription/forms/contactWra
 import fetchResource from '../../services/apiHandler'
 import { getOneGroup } from '../../services/groups.service'
 import Share from './Share'
-
 import theme from '../../theme/inscriptions_theme'
 
 const pages = [
@@ -48,9 +47,6 @@ const useStyles = makeStyles(theme => ({
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     fontSize: '24px',
-    paddingLeft: '1rem',
-    paddingTop: '1rem',
-    paddingBottom: '1rem'
   },
   saveButton: {
     margin: '1rem'
@@ -132,18 +128,17 @@ const GroupEditor = props => {
     <ThemeProvider theme={theme}>
       {props.group
         ? (
+
           <Grid container direction='row' justify='flex-start' alignItems='flex-start' className={classes.root}>
             <Card className={classes.card} elevation={0}>
               <>
-                <Typography className={classes.title} autoCapitalize>
-                  {props.group.raw_project.name}
-                </Typography>
-                <Grid container direction='row' justify='center' alignItems='center' style={{ padding: '16px 0px' }}>
+                <Grid container direction='row' justify='space-between' alignItems='flex-start' className={classes.root}>
+                  <Typography className={classes.title} autoCapitalize>
+                    {props.group.raw_project.name}
+                  </Typography>
                   <Share />
                 </Grid>
-                <Typography className={classes.title} autoCapitalize>
-                  {props.token}
-                </Typography>
+
                 <AppBar className={classes.appBar} position='static' color='inherit'>
                   <Tabs value={value} onChange={handleChange} indicatorColor='primary' aria-label='simple tabs example'>
                     {pages.map((el, idx) => <Tab key={idx} label={el.title} />)}

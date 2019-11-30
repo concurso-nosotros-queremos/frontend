@@ -1,16 +1,15 @@
 import Dialog from '@material-ui/core/Dialog'
-import DialogActions from '@material-ui/core/DialogActions'
-import DialogContent from '@material-ui/core/DialogContent'
-import DialogTitle from '@material-ui/core/DialogTitle'
 import { connect } from 'react-redux'
-import withGroupCount from '../../hoc/withDashboard'
 import Typography from '@material-ui/core/Typography'
 import React, { Component } from 'react'
 import { withRouter } from 'react-router'
 import { makeStyles } from '@material-ui/styles'
-import { Grid, useMediaQuery, Button, TextField } from '@material-ui/core'
-import Card from '@material-ui/core/Card'
+import { Grid } from '@material-ui/core'
 import fetchResource from '../../services/apiHandler'
+import ShareIcon from '@material-ui/icons/Share'
+import IconButton from '@material-ui/core/IconButton'
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 
 class Modal extends Component {
@@ -26,10 +25,12 @@ class Modal extends Component {
   }
 
   handleClickOpen = () => {
+    this.submitToken()
     this.setState({ open: true })
   }
   handleClose = () => {
     this.setState({ open: false })
+    this.setState({ token: null })
   }
 
   submitToken = () => {
@@ -47,35 +48,37 @@ class Modal extends Component {
       this.setState({ token: response['token'] })
     })
   }
-  
+
   render() {
     const classes = makeStyles(theme => ({
+      token: {
 
-      title: {
-        whiteSpace: 'nowrap',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        fontSize: '24px'
       }
     }))
     return (
       <>
+        <IconButton onClick={this.handleClickOpen} aria-label="compartir" >
+          <ShareIcon />
+        </IconButton>
 
-        <Button onClick={this.handleClickOpen} >
-          Compartir
-      </Button>
         <Dialog onClose={this.handleClose} open={this.state.open} maxWidth='sm'>
-          <DialogContent>
-            <Typography className={classes.title} autoCapitalize>
-              {this.state.token}
+          <Grid container direction="column" justify="center" alignItems="flex-start" style={{ padding: '2rem' }}>
+            <Typography variant='h6'>
+              Codigo de la clase
             </Typography>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={this.submitToken} type='button'>
-              Generar Token
-            </Button>
-          </DialogActions>
+            <Grid container direction="row" justify="center" alignItems="center" style={{ padding: '1rem' }}>
+              {this.state.token ?
+                <Typography style={{ fontSize: '5rem' }} >
+                  {this.state.token}
+                </Typography>
+                :
+                <CircularProgress />
+              }
+            </Grid>
+
+          </Grid>
         </Dialog>
+
       </>
 
     )
