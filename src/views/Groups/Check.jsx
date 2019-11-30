@@ -30,7 +30,11 @@ const Modal = props => {
     setOpen(false)
     setRta(null)
     setErr(null)
-    setToken(null)
+    setToken("")
+
+    if(rta === true ){
+      window.location.reload();
+    }
   }
 
   const checkToken = () => {
