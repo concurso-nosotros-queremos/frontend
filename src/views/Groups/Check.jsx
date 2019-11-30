@@ -70,7 +70,7 @@ const Modal = props => {
         <Dialog onClose={handleClose} open={open} maxWidth='sm'>
           <DialogContent>
           <TextField
-            name='token2'
+            name='token'
             label='Token'
             fullWidth
             margin='normal'
