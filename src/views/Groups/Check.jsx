@@ -1,100 +1,110 @@
+import React from 'react'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import { connect } from 'react-redux'
-import withGroupCount from '../../hoc/withDashboard'
 import Typography from '@material-ui/core/Typography'
-import React, { forwardRef } from 'react'
 import { withRouter } from 'react-router'
 import { makeStyles } from '@material-ui/styles'
-import { Grid, useMediaQuery, Button, TextField } from '@material-ui/core'
-import Card from '@material-ui/core/Card'
+import { Button, TextField, Grid } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
-
-    title: {
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      fontSize: '24px'
-    }
-  }))
+  title: {
+    fontSize: '24px'
+  }
+}))
 
 
 const Modal = props => {
-    const classes = useStyles()
-    const [token, setToken] = React.useState("")
-    const [rta, setRta] = React.useState("")
-    const [open, setOpen] = React.useState(false)
+  const classes = useStyles()
+  const [token, setToken] = React.useState("")
+  const [err, setErr] = React.useState(null)
+  const [rta, setRta] = React.useState(null)
+  const [open, setOpen] = React.useState(false)
 
-    const handleClickOpen = () => {
-        setOpen(true)
-      }
-      const handleClose = () => {
-        setOpen(false)
-      }
-    
-    const checkToken = () => {
-      fetch('https://queremosbackend.tk/rest/check/', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${props.token}`
-        },
-        body: JSON.stringify({
-          token: token,
-        })
-      }).then(response => {
-        if (response.status === 400) {
-          setRta('Introduzca un token')
-        }
-        else if (response.status === 401) {
-          setRta('Token incorrecto')
-        } else if (response.status === 200) {
-          setRta('Acceso garantizado')
-        } else if (response.status === 403) {
-          setRta('No estas autorizado')
-        } else {
-          setRta('Error')
-        }
-      })
-    }
-    return (
-        <>
-
-            <Button variant='outlined' color='primary' style={{ marginTop: '8px' }} onClick={handleClickOpen} type='button'>
-            Agregar por codigo
-          </Button>
-        <Dialog onClose={handleClose} open={open} maxWidth='sm'>
-          <DialogContent>
-          <TextField
-            name='token'
-            label='Token'
-            fullWidth
-            margin='normal'
-            variant='outlined'
-            onChange={(event) => setToken(event.target.value)}
-            value={token}
-          />
-          <Typography className={classes.title} autoCapitalize>
-            {rta}
-          </Typography>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={checkToken} type='button'>
-              Agregar
-            </Button>
-          </DialogActions>
-        </Dialog>
-          </>
-
-    )
+  const handleClickOpen = () => {
+    setOpen(true)
   }
- 
-  const mapStateToProps = (state) => ({
-    token: state.auth.convertedToken.accessToken
-  })
-  
-  export default connect(mapStateToProps)(withRouter(Modal))
+  const handleClose = () => {
+    setOpen(false)
+    setRta(null)
+    setErr(null)
+    setToken(null)
+  }
+
+  const checkToken = () => {
+    fetch('https://queremosbackend.tk/rest/check/', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${props.token}`
+      },
+      body: JSON.stringify({
+        token: token,
+      })
+    }).then(response => {
+      if (response.status === 400) {
+        setErr('Introduzca un token')
+      }
+      else if (response.status === 401) {
+        setErr('Ese código no es válido.')
+      } else if (response.status === 200) {
+        setRta(true)
+      } else if (response.status === 403) {
+        setErr('No estas autorizado.')
+      } else {
+        setErr('Error. Comunicate con nosotros.')
+      }
+    })
+  }
+
+  return (
+    <>
+      <Button variant='outlined' color='primary' style={{ marginTop: '8px', fontSize: "12px" }} onClick={handleClickOpen} type='button'>
+        Agregar por codigo
+      </Button>
+      <Dialog onClose={handleClose} open={open} maxWidth='sm'>
+        <DialogTitle>
+          <Typography className={classes.title}>
+            Agregar usando codigo
+          </Typography>
+        </DialogTitle>
+        <DialogContent>
+          {rta ?
+            <Grid container direction='column' justify='center' alignItems='center'>
+              <img src={require('../../assets/green_check.svg')} style={{ width: '5rem' }} alt='check' />
+            </Grid> :
+            <TextField
+              name='token'
+              label='Codigo'
+              fullWidth
+              margin='normal'
+              variant='outlined'
+              onChange={(event) => setToken(event.target.value)}
+              onBlur={() => setErr(null)}
+              value={token}
+              helperText={err}
+              error={err ? true : false}
+            />
+          }
+        </DialogContent>
+        <DialogActions>
+          {rta ? null :
+            <Button onClick={checkToken} type='button' style={{ color: "rgba(35, 47, 52, 0.8)" }}>
+              Aceptar
+            </Button>
+          }
+        </DialogActions>
+      </Dialog>
+    </>
+
+  )
+}
+
+const mapStateToProps = (state) => ({
+  token: state.auth.convertedToken.accessToken
+})
+
+export default connect(mapStateToProps)(withRouter(Modal))
