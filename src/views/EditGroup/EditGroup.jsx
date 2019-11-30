@@ -10,6 +10,7 @@ import SchoolWrapper from '../../containers/projectInscription/forms/schoolWrapp
 import ContactWrapper from '../../containers/projectInscription/forms/contactWrapper'
 import fetchResource from '../../services/apiHandler'
 import { getOneGroup } from '../../services/groups.service'
+import Share from './Share'
 
 import theme from '../../theme/inscriptions_theme'
 
@@ -80,27 +81,24 @@ const TabPanel = props => {
 }
 
 class EditGroup extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
       group: null,
-      error: null,
-      token: null
+      error: null
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.submitToken = this.submitToken.bind(this)
-
   }
 
-  componentDidMount () {
+  componentDidMount() {
     getOneGroup(this.props.token, this.props.match.params.id)
       .then(response => this.setState({ group: response }))
       .catch(error => this.setState({ error: error }))
   }
 
-  handleSubmit (form) {
+  handleSubmit(form) {
     return fetchResource(`rest/group/${this.props.match.params.id}/`, {
       method: 'PATCH',
       headers: {
@@ -112,24 +110,11 @@ class EditGroup extends Component {
     })
   }
 
-  submitToken () {
-    return fetchResource('rest/group_token/', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${this.props.token}`
-      },
-      body: {
-        "is_active": false,
-        "max_uses": 1,
-        "group": parseInt(`${this.props.match.params.id}`)
-      }
-    }).then(response=> {this.setState({token:response['token']})
-  })
-  }
 
-  render () {
+
+  render() {
     return (
-      <GroupEditor group={this.state.group} token={this.state.token} onSubmit={this.handleSubmit} submitToken={this.submitToken} />
+      <GroupEditor group={this.state.group} token={this.state.token} onSubmit={this.handleSubmit} />
     )
   }
 }
@@ -153,12 +138,12 @@ const GroupEditor = props => {
                 <Typography className={classes.title} autoCapitalize>
                   {props.group.raw_project.name}
                 </Typography>
-                <Button onClick={props.submitToken} >
-                  Compartir
-                  </Button>
-                  <Typography className={classes.title} autoCapitalize>
+                <Grid container direction='row' justify='center' alignItems='center' style={{ padding: '16px 0px' }}>
+                  <Share />
+                </Grid>
+                <Typography className={classes.title} autoCapitalize>
                   {props.token}
-                </Typography>                
+                </Typography>
                 <AppBar className={classes.appBar} position='static' color='inherit'>
                   <Tabs value={value} onChange={handleChange} indicatorColor='primary' aria-label='simple tabs example'>
                     {pages.map((el, idx) => <Tab key={idx} label={el.title} />)}

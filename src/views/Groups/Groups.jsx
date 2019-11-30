@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import MaterialTable from 'material-table'
 import withGroupCount from '../../hoc/withDashboard'
 import { connect } from 'react-redux'
+import Check from './Check'
 
 import { useTheme } from '@material-ui/core/styles'
 
@@ -64,14 +65,11 @@ const useStyles = makeStyles(theme => ({
 
 const Groups = props => {
   const data = []
-  const [token, setToken] = React.useState(null)
-  const [rta, setRta] = React.useState(null)
-
+  const classes = useStyles()
+ 
   props.group.forEach((el, idx) =>
     data.push({ name: el.raw_project.name, alumnos: el.raw_participant.length, city: el.raw_school.city_name, state: el.raw_school.state_name, id: el.id })
   )
-
-  const classes = useStyles()
 
   const handleClickEdit = id => {
     props.history.push(`/groups/${id}`)
@@ -81,53 +79,11 @@ const Groups = props => {
     window.location.href = `https://queremosbackend.tk/rest/export/group/${id}/${props.token}`;
   }
 
-  const checkToken = () => {
-    fetch('https://queremosbackend.tk/rest/check/', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${props.token}`
-      },
-      body: JSON.stringify({
-        token: token,
-      })
-    }).then(response => {
-      if (response.status === 400) {
-        setRta('Introduzca un token')
-      }
-      else if (response.status === 401) {
-        setRta('Token incorrecto')
-      } else if (response.status === 200) {
-        setRta('Acceso garantizado')
-      } else if (response.status === 403) {
-        setRta('No estas autorizado')
-      } else {
-        setRta('Error')
-      }
-    })
-  }
-
   const theme = useTheme()
   return (
     <>
-      <Grid container direction='row' justify='flex-start' alignItems='flex-start' className={classes.root}>
+      <Grid container direction='column' justify='flex-start' alignItems='flex-start' className={classes.root}>
         <Card className={classes.card} elevation={0}>
-          <TextField
-            name='token'
-            label='Token'
-            fullWidth
-            margin='normal'
-            variant='outlined'
-            onChange={(event) => setToken(event.target.value)}
-            value={token}
-          />
-          <Button onClick={checkToken} >
-            Checkear
-                  </Button>
-          <Typography className={classes.title} autoCapitalize>
-            {rta}
-          </Typography>
           <MaterialTable
             icons={tableIcons}
 
@@ -180,6 +136,9 @@ const Groups = props => {
             }}
           />
         </Card>
+        <Grid container direction='row' justify='center' alignItems='center' style={{ padding: '16px 0px' }}>
+        <Check />
+        </Grid>
       </Grid>
     </>
 
