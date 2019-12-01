@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import RouteWithLayout from './routeWithLayout'
 
 const userDefault = '/groups'
-const userEmpty = '/inscription'
+const userEmpty = '/selector'
 const adminDefault = '/dashboard'
 
 const ProtectedRoute = ({ requireLogin = false, requireAdmin = false, isDefault = false, redirect = '/', ...props }) => {
