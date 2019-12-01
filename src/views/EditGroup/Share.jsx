@@ -64,7 +64,7 @@ class Modal extends Component {
         <Dialog onClose={this.handleClose} open={this.state.open} maxWidth='sm'>
           <Grid container direction="column" justify="center" alignItems="flex-start" style={{ padding: '2rem' }}>
             <Typography variant='h6'>
-              Codigo de la clase
+              Codigo del grupo
             </Typography>
             <Grid container direction="row" justify="center" alignItems="center" style={{ padding: '1rem' }}>
               {this.state.token ?

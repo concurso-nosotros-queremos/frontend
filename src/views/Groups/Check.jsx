@@ -11,7 +11,8 @@ import { Button, TextField, Grid } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   title: {
-    fontSize: '24px'
+    fontSize: '24px',
+    marginBottom: '8px'
   }
 }))
 
@@ -32,7 +33,7 @@ const Modal = props => {
     setErr(null)
     setToken("")
 
-    if(rta === true ){
+    if (rta === true) {
       window.location.reload();
     }
   }
@@ -69,11 +70,21 @@ const Modal = props => {
       <Button variant='outlined' color='primary' style={{ marginTop: '8px', fontSize: "12px" }} onClick={handleClickOpen} type='button'>
         Agregar por codigo
       </Button>
-      <Dialog onClose={handleClose} open={open} maxWidth='sm'>
-        <DialogTitle>
-          <Typography className={classes.title}>
-            Agregar usando codigo
-          </Typography>
+      <Dialog onClose={handleClose} open={open} maxWidth='xs'>
+        <DialogTitle style={{ padding: "16px 24px 0px" }}>
+          <Grid container direction="row" justify="flex-start" alignItems="flex-start">
+            <Grid item>
+              <Typography className={classes.title}>
+                Agregar usando codigo
+            </Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="body1">
+                Pedile el codigo de grupo al encargado del grupo
+                al que te queres sumar para poder empezar administrarlo.
+            </Typography>
+            </Grid>
+          </Grid>
         </DialogTitle>
         <DialogContent>
           {rta ?
