@@ -1,12 +1,13 @@
 import React, { forwardRef } from 'react'
 import { withRouter } from 'react-router'
 import { makeStyles } from '@material-ui/styles'
-import { Grid, useMediaQuery } from '@material-ui/core'
+import { Grid, useMediaQuery, Button, TextField } from '@material-ui/core'
 import Card from '@material-ui/core/Card'
 import Typography from '@material-ui/core/Typography'
 import MaterialTable from 'material-table'
 import withGroupCount from '../../hoc/withDashboard'
 import { connect } from 'react-redux'
+import Check from './Check'
 
 import { useTheme } from '@material-ui/core/styles'
 
@@ -64,25 +65,24 @@ const useStyles = makeStyles(theme => ({
 
 const Groups = props => {
   const data = []
-
+  const classes = useStyles()
+ 
   props.group.forEach((el, idx) =>
     data.push({ name: el.raw_project.name, alumnos: el.raw_participant.length, city: el.raw_school.city_name, state: el.raw_school.state_name, id: el.id })
   )
-
-  const classes = useStyles()
 
   const handleClickEdit = id => {
     props.history.push(`/groups/${id}`)
   }
 
   const handleClickExport = id => {
-    window.location.href = `https://queremosbackend.tk/rest/export/group/${id}/${props.token}`; 
+    window.location.href = `https://queremosbackend.tk/rest/export/group/${id}/${props.token}`;
   }
 
   const theme = useTheme()
   return (
     <>
-      <Grid container direction='row' justify='flex-start' alignItems='flex-start' className={classes.root}>
+      <Grid container direction='column' justify='flex-start' alignItems='flex-start' className={classes.root}>
         <Card className={classes.card} elevation={0}>
           <MaterialTable
             icons={tableIcons}
@@ -136,6 +136,9 @@ const Groups = props => {
             }}
           />
         </Card>
+        <Grid container direction='row' justify='center' alignItems='center' style={{ padding: '16px 0px' }}>
+        <Check />
+        </Grid>
       </Grid>
     </>
 

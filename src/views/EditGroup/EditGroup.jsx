@@ -10,7 +10,7 @@ import SchoolWrapper from '../../containers/projectInscription/forms/schoolWrapp
 import ContactWrapper from '../../containers/projectInscription/forms/contactWrapper'
 import fetchResource from '../../services/apiHandler'
 import { getOneGroup } from '../../services/groups.service'
-
+import Share from './Share'
 import theme from '../../theme/inscriptions_theme'
 
 const pages = [
@@ -47,9 +47,6 @@ const useStyles = makeStyles(theme => ({
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     fontSize: '24px',
-    paddingLeft: '1rem',
-    paddingTop: '1rem',
-    paddingBottom: '1rem'
   },
   saveButton: {
     margin: '1rem'
@@ -80,7 +77,7 @@ const TabPanel = props => {
 }
 
 class EditGroup extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -91,13 +88,13 @@ class EditGroup extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     getOneGroup(this.props.token, this.props.match.params.id)
       .then(response => this.setState({ group: response }))
       .catch(error => this.setState({ error: error }))
   }
 
-  handleSubmit (form) {
+  handleSubmit(form) {
     return fetchResource(`rest/group/${this.props.match.params.id}/`, {
       method: 'PATCH',
       headers: {
@@ -109,9 +106,11 @@ class EditGroup extends Component {
     })
   }
 
-  render () {
+
+
+  render() {
     return (
-      <GroupEditor group={this.state.group} onSubmit={this.handleSubmit} />
+      <GroupEditor group={this.state.group} token={this.state.token} onSubmit={this.handleSubmit} />
     )
   }
 }
@@ -129,12 +128,17 @@ const GroupEditor = props => {
     <ThemeProvider theme={theme}>
       {props.group
         ? (
+
           <Grid container direction='row' justify='flex-start' alignItems='flex-start' className={classes.root}>
             <Card className={classes.card} elevation={0}>
               <>
-                <Typography className={classes.title} autoCapitalize>
-                  {props.group.raw_project.name}
-                </Typography>
+                <Grid container direction='row' justify='space-between' alignItems='flex-start' className={classes.root}>
+                  <Typography className={classes.title} autoCapitalize>
+                    {props.group.raw_project.name}
+                  </Typography>
+                  <Share />
+                </Grid>
+
                 <AppBar className={classes.appBar} position='static' color='inherit'>
                   <Tabs value={value} onChange={handleChange} indicatorColor='primary' aria-label='simple tabs example'>
                     {pages.map((el, idx) => <Tab key={idx} label={el.title} />)}
