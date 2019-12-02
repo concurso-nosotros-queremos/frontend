@@ -4,6 +4,8 @@ import CheckGroup from '../Groups/Check'
 import { makeStyles, ThemeProvider } from '@material-ui/styles'
 import { Link } from 'react-router-dom'
 import theme from '../../theme/inscriptions_theme'
+import Divider from '@material-ui/core/Divider';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,7 +23,15 @@ const useStyles = makeStyles(theme => ({
     }
   },
   title: {
-    marginBottom: '2rem'
+    marginBottom: '1.5rem'
+  },
+  divider: {
+    [theme.breakpoints.down('sm')]: {
+      display: 'none'
+    }
+  },
+  body:{
+    marginBottom: '12px'
   }
 }))
 
@@ -30,15 +40,15 @@ const Selector = props => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid className={classes.root} container justify='center' spacing={4}>
-        <Grid item container className={classes.opt_cont} xs={12} md={6} justify='center' alignItems='center'>
+      <Grid container direction="row" justify="space-around" alignItems="center" className={classes.root} spacing={4}>
+        <Grid item container className={classes.opt_cont} xs={12} md={5} justify='center' alignItems='center'>
           <Card className={classes.card} elevation={0}>
             <CardContent style={{ padding: '8px' }}>
               <Grid item container justify='center' alignItems='center' direction='column'>
                 <Typography className={classes.title} variant='h4'>
                   Inscribir a un grupo
                 </Typography>
-                <Typography variant='body1'>
+                <Typography variant='body1' align='center' className={classes.body}>
                   Registra un nuevo grupo para empezar a participar en el concurso
                 </Typography>
                 <Button variant='outlined' color='primary' style={{ marginTop: '8px', fontSize: '12px' }} to='/inscription' component={Link}>
@@ -48,14 +58,15 @@ const Selector = props => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item container className={classes.opt_cont} xs={12} md={6} justify='center' alignItems='center'>
+        <Divider orientation="vertical" className={classes.divider} />
+        <Grid item container className={classes.opt_cont} xs={12} md={5} justify='center' alignItems='center'>
           <Card className={classes.card} elevation={0}>
             <CardContent style={{ padding: '8px' }}>
               <Grid item container justify='center' alignItems='center' direction='column'>
                 <Typography className={classes.title} variant='h4'>
                   Sumarse a un grupo
                 </Typography>
-                <Typography variant='body1'>
+                <Typography variant='body1' align='center' className={classes.body}>
                   Sumate a un grupo ya existente para empezar a administrarlo
                 </Typography>
                 <CheckGroup />
