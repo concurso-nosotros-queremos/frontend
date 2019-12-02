@@ -11,6 +11,7 @@ import Minimal from './layouts/Minimal/Minimal'
 import GroupEdit from './views/EditGroup/EditGroup'
 import ProtectedRoute from './components/protectedRoute'
 import Success from './views/Success/success'
+import Selector from './views/Selector/Selector'
 
 class Routes extends Component {
   render () {
@@ -21,6 +22,14 @@ class Routes extends Component {
           component={Index}
           exact
           path='/'
+        />
+        <ProtectedRoute
+          isDefault
+          requireLogin
+          component={Selector}
+          layout={Minimal}
+          exact
+          path='/selector'
         />
         <ProtectedRoute
           requireLogin

@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles , useTheme } from '@material-ui/core/styles/index'
+import { makeStyles, useTheme } from '@material-ui/core/styles/index'
 import Typography from '@material-ui/core/Typography/index'
 import Grid from '@material-ui/core/Grid'
 import { Button, Card, CardActions, CardContent, CardMedia, DialogContent } from '@material-ui/core'
@@ -7,9 +7,9 @@ import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogTitle from '@material-ui/core/DialogTitle'
 
-import cl_2018 from '../../../assets/cl_2018.jpg';
-import ipem_94 from '../../../assets/ipem_94.jpg';
-import concretando from '../../../assets/concretando.jpg';
+import cl_2018 from '../../../assets/cl_2018.jpg'
+import ipem_94 from '../../../assets/ipem_94.jpg'
+import concretando from '../../../assets/concretando.jpg'
 
 const useStyles = makeStyles(theme => ({
   barraDecorativa: {
@@ -90,7 +90,7 @@ const data = [
     solution: 'Es un proyecto desarrollado por las/os alumnas/os del IPEA 179 "SAUL TABORDA", en la ciudad de Villa Valeria (Córdoba). Ellas y ellos plantean: En nuestra comunidad tenemos problemas de contaminación por los productos fitosanitarios: hay depósitos de agroquimicos en el centro, maquinas pulverizadoras que entran a la localidad y estacionan sin problema, hay casos de enfermedades causadas que pueden ser ocasionadas por estos descuidos. Nuestra propuesta es hacer un relevamiento de todo lo que, teniendo en cuenta la ley provincial 9164 , esta mal, realizar charlas en los distintos establecimientos educativos, informar y dejar folleteria del uso y abuso de los fitosanitarios. Documentar todo con fotos , elaborar un informe, presentarlo en el municipio y pedirles hagan lo que este a su alcance , por ejemplo, dictar una ordenanza que rija el uso de los fitosanitarios respaldando a la 9164.',
     url: '/projects/3',
     image_url: concretando
-  },
+  }
 ]
 
 export default function Proyectos () {
@@ -111,8 +111,10 @@ export default function Proyectos () {
   function Modal (props) {
     return (
       <>
-        <Dialog onClose={() => { handleClose(props.idx) }} aria-labelledby='simple-dialog-title' open={open[props.idx]} maxWidth='sm' 
-        classes={{ paper: classes.dialogPaper }}>
+        <Dialog
+          onClose={() => { handleClose(props.idx) }} aria-labelledby='simple-dialog-title' open={open[props.idx]} maxWidth='sm'
+          classes={{ paper: classes.dialogPaper }}
+        >
           <DialogTitle id={props.idx}>{props.titulo}</DialogTitle>
           <DialogContent>
             <Typography>

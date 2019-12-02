@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Topbar = props => {
-  const { className, onSidebarOpen, dispatch, ...rest } = props
+  const { className, onSidebarOpen, dispatch, sideBar = true, ...rest } = props
 
   const classes = useStyles()
 
@@ -30,14 +30,16 @@ const Topbar = props => {
       className={clsx(classes.root, className)}
     >
       <Toolbar>
-        <Hidden lgUp>
-          <IconButton
-            color='primary'
-            onClick={onSidebarOpen}
-          >
-            <MenuIcon />
-          </IconButton>
-        </Hidden>
+        {sideBar ? (
+          <Hidden lgUp>
+            <IconButton
+              color='primary'
+              onClick={onSidebarOpen}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Hidden>
+        ) : null}
         <div style={{ flexGrow: 1 }} />
         <Grid container className={classes.userContainer}>
           <Grid item container xs={12} justify='flex-end'>

@@ -38,8 +38,6 @@ export function hasBlockError (errors, status, touched, name) {
 
   try {
     for (const key of Object.keys(getIn(errors, name))) {
-      
-      
       if (!getIn(touched, (name + '.' + key))) {
         blockTouched = false
         break
@@ -63,7 +61,6 @@ function isString (obj) {
 }
 
 export function enhancedErrors (errors, statuses, toucheds, path) {
-  
   const error = getIn(errors, path)
   const status = getIn(statuses, path)
 
@@ -102,14 +99,11 @@ function errorIterator (errors, toucheds, obj, path) {
   } else if (isString(obj)) {
     if (toucheds) {
       if (getIn(toucheds, path)) {
-        
         return true
       } else {
-        
         return false
       }
     } else {
-      
       return true
     }
   } else if (obj === null || obj === undefined) {

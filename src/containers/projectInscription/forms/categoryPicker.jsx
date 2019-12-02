@@ -31,7 +31,6 @@ const CategoryPicker = () => (
                       value={category.id}
                       color='primary'
                       onChange={e => {
-                        
                         if (e.target.checked) arrayHelpers.push(category.id)
                         else {
                           const idx = arrayHelpers.form.values.raw_project.category.indexOf(category.id)
@@ -54,7 +53,6 @@ const CategoryPicker = () => (
                       value={category.id}
                       color='primary'
                       onChange={e => {
-                        
                         if (e.target.checked) arrayHelpers.push(category.id)
                         else {
                           const idx = arrayHelpers.form.values.raw_project.category.indexOf(category.id)
