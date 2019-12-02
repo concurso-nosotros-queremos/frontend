@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Footer() {
+export default function Footer () {
   const classes = useStyles()
 
   return (
@@ -71,9 +71,9 @@ export default function Footer() {
                   Tel: (0351) 4232674
                 </Typography>
                 <Typography variant='body1'>
-                  <Link color='inherit' href='https://www.itsv.edu.ar/' style={{ textDecoration: 'underline' }} target="_blank">
+                  <Link color='inherit' href='https://www.itsv.edu.ar/' style={{ textDecoration: 'underline' }} target='_blank'>
                     www.inclusionsocial.org
-                </Link>
+                  </Link>
                 </Typography>
               </Grid>
             </Grid>
@@ -92,7 +92,7 @@ export default function Footer() {
                     <Grid item>
                       <li>
                         <img src={require('../../../assets/facebook.png')} alt='facebook' className={classes.liIconStyle} />
-                        <Link href='https://www.facebook.com/inclusionsocial/' variant='body1' className={classes.liStyle} color='textPrimary' target="_blank">
+                        <Link href='https://www.facebook.com/inclusionsocial/' variant='body1' className={classes.liStyle} color='textPrimary' target='_blank'>
                           Facebook
                         </Link>
                       </li>
@@ -100,7 +100,7 @@ export default function Footer() {
                     <Grid item>
                       <li>
                         <img src={require('../../../assets/instagram.png')} alt='instagram' className={classes.liIconStyle} />
-                        <Link href='https://www.instagram.com/fundacionin/' variant='body1' className={classes.liStyle} color='textPrimary' target="_blank">
+                        <Link href='https://www.instagram.com/fundacionin/' variant='body1' className={classes.liStyle} color='textPrimary' target='_blank'>
                           Instagram
                         </Link>
                       </li>
@@ -108,7 +108,7 @@ export default function Footer() {
                     <Grid item>
                       <li>
                         <img src={require('../../../assets/twitter.png')} alt='twitter' className={classes.liIconStyle} />
-                        <Link href='https://twitter.com/FundacionIN_' variant='body1' className={classes.liStyle} color='textPrimary' target="_blank">
+                        <Link href='https://twitter.com/FundacionIN_' variant='body1' className={classes.liStyle} color='textPrimary' target='_blank'>
                           Twitter
                         </Link>
                       </li>
@@ -116,7 +116,7 @@ export default function Footer() {
                     <Grid item>
                       <li>
                         <img src={require('../../../assets/linkedin.png')} alt='linkedin' className={classes.liIconStyle} />
-                        <Link href='https://www.linkedin.com/company/fundación-inclusión-social' variant='body1' className={classes.liStyle} color='textPrimary' target="_blank">
+                        <Link href='https://www.linkedin.com/company/fundación-inclusión-social' variant='body1' className={classes.liStyle} color='textPrimary' target='_blank'>
                           LinkedIn
                         </Link>
                       </li>
@@ -134,14 +134,14 @@ export default function Footer() {
             <Grid item>
               <Typography variant='body1' align='center'>
                 {'Creado con '} {'\u2764'} {' - Alumnos del '}
-                <Link color='inherit' href='https://www.itsv.edu.ar/' style={{ textDecoration: 'underline' }} target="_blank">
+                <Link color='inherit' href='https://www.itsv.edu.ar/' style={{ textDecoration: 'underline' }} target='_blank'>
                   ITS Villada
                 </Link>
               </Typography>
             </Grid>
             <Grid item>
               <Typography variant='body1' align='center'>
-                <Link color='inherit' href='http://shorturl.at/quILS' target="_blank">
+                <Link color='inherit' href='http://shorturl.at/quILS' target='_blank'>
                   Bases y condiciones
                 </Link>
               </Typography>

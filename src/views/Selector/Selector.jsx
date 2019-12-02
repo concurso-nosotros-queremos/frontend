@@ -4,8 +4,7 @@ import CheckGroup from '../Groups/Check'
 import { makeStyles, ThemeProvider } from '@material-ui/styles'
 import { Link } from 'react-router-dom'
 import theme from '../../theme/inscriptions_theme'
-import Divider from '@material-ui/core/Divider';
-
+import Divider from '@material-ui/core/Divider'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,7 +29,7 @@ const useStyles = makeStyles(theme => ({
       display: 'none'
     }
   },
-  body:{
+  body: {
     marginBottom: '12px'
   }
 }))
@@ -40,7 +39,7 @@ const Selector = props => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid container direction="row" justify="space-around" alignItems="center" className={classes.root} spacing={4}>
+      <Grid container direction='row' justify='space-around' alignItems='center' className={classes.root} spacing={4}>
         <Grid item container className={classes.opt_cont} xs={12} md={5} justify='center' alignItems='center'>
           <Card className={classes.card} elevation={0}>
             <CardContent style={{ padding: '8px' }}>
@@ -58,7 +57,7 @@ const Selector = props => {
             </CardContent>
           </Card>
         </Grid>
-        <Divider orientation="vertical" className={classes.divider} />
+        <Divider orientation='vertical' className={classes.divider} />
         <Grid item container className={classes.opt_cont} xs={12} md={5} justify='center' alignItems='center'>
           <Card className={classes.card} elevation={0}>
             <CardContent style={{ padding: '8px' }}>
