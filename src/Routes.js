@@ -24,6 +24,7 @@ class Routes extends Component {
           path='/'
         />
         <ProtectedRoute
+          isDefault
           requireLogin
           component={Selector}
           layout={Minimal}
