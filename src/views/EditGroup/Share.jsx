@@ -34,18 +34,13 @@ class Modal extends Component {
   }
 
   submitToken = () => {
-    return fetchResource('rest/group_token/', {
-      method: 'POST',
+    return fetchResource(`rest/group/${this.props.match.params.id}`, {
+      method: 'GET',
       headers: {
         Authorization: `Bearer ${this.props.token}`
-      },
-      body: {
-        "is_active": false,
-        "max_uses": 1,
-        "group": `${this.props.match.params.id}`
       }
     }).then(response => {
-      this.setState({ token: response['token'] })
+      this.setState({ token: response.token })
     })
   }
 
