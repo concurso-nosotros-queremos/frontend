@@ -66,7 +66,7 @@ const useStyles = makeStyles(theme => ({
 const Groups = props => {
   const data = []
   const classes = useStyles()
- 
+
   props.group.forEach((el, idx) =>
     data.push({ name: el.raw_project.name, alumnos: el.raw_participant.length, city: el.raw_school.city_name, state: el.raw_school.state_name, id: el.id })
   )
@@ -76,7 +76,7 @@ const Groups = props => {
   }
 
   const handleClickExport = id => {
-    window.location.href = `https://queremosbackend.tk/rest/export/group/${id}/${props.token}`;
+    window.location.href = `https://queremosbackend.tk/rest/export/group/${id}/${props.token}`
   }
 
   const theme = useTheme()
@@ -137,7 +137,7 @@ const Groups = props => {
           />
         </Card>
         <Grid container direction='row' justify='center' alignItems='center' style={{ padding: '16px 0px' }}>
-        <Check />
+          <Check />
         </Grid>
       </Grid>
     </>

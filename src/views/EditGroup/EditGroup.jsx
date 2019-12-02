@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
-    fontSize: '24px',
+    fontSize: '24px'
   },
   saveButton: {
     margin: '1rem'
@@ -77,7 +77,7 @@ const TabPanel = props => {
 }
 
 class EditGroup extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     this.state = {
@@ -88,13 +88,13 @@ class EditGroup extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     getOneGroup(this.props.token, this.props.match.params.id)
       .then(response => this.setState({ group: response }))
       .catch(error => this.setState({ error: error }))
   }
 
-  handleSubmit(form) {
+  handleSubmit (form) {
     return fetchResource(`rest/group/${this.props.match.params.id}/`, {
       method: 'PATCH',
       headers: {
@@ -106,9 +106,7 @@ class EditGroup extends Component {
     })
   }
 
-
-
-  render() {
+  render () {
     return (
       <GroupEditor group={this.state.group} token={this.state.token} onSubmit={this.handleSubmit} />
     )

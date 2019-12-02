@@ -86,7 +86,7 @@ const data = [
     nombre: 'Belen Ramoska',
     cargo: 'Coordinadora del concurso',
     image_url: persona2
-  },
+  }
 ]
 
 export default function Organizan () {
