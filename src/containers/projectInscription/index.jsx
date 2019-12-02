@@ -67,7 +67,6 @@ const useStyles = makeStyles(theme => ({
 const InscriptionWrapper = props => {
   const classes = useStyles()
   const [active, setActive] = useState(0)
-  const [redirect, setRedirect] = useState(false)
 
   const handleNext = () => {
     active !== forms.length - 1 && setActive(active + 1)
@@ -104,7 +103,6 @@ const InscriptionWrapper = props => {
         validateOnMount
         onSubmit={(values, { setStatus, setSubmitting }) => {
           handleSubmit(validationSchema.cast(values)).then((response) => {
-            setRedirect(true)
           }).catch((error) => {
             setStatus({ ...error.response })
             setSubmitting(false)
