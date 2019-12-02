@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useField, useFormikContext, getIn, setIn } from 'formik'
-import { hasFieldError } from './_utils'
+import { hasFieldError, helperTextBuilder } from './_utils'
 
 export function useCustomField (name) {
   const { status, setStatus } = useFormikContext()
@@ -42,9 +42,10 @@ function CustomField (props) {
   const [field, meta] = useCustomField(props.name)
 
   const hasError = hasFieldError(meta.error, meta.apiError, meta.touched)
+  const helperText = (hasError && (meta.error || meta.apiError)) || helperTextBuilder(props.name)
 
   return (
-    <props.component error={hasError} helperText={hasError && (meta.error || meta.apiError)} {...field} {...rest}>
+    <props.component error={hasError} helperText={helperText} {...field} {...rest}>
       {children}
     </props.component>
   )
