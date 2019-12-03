@@ -1,3 +1,0 @@
-export const FACEBOOK_LOGIN_REQUEST = 'facebookLogin/FACEBOOK_LOGIN_REQUEST'
-export const FACEBOOK_LOGIN_SUCCESS = 'facebookLogin/FACEBOOK_LOGIN_SUCCESS'
-export const FACEBOOK_LOGIN_ERROR = 'facebookLogin/FACEBOOK_LOGIN_ERROR'

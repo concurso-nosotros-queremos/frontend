@@ -1,77 +1,69 @@
-import React, { Component } from 'react'
-import { FastField } from 'formik'
+import React from 'react'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
-import { errorMessageBuilder, hasError } from './utils'
-import { Grid } from '@material-ui/core'
+import { Grid, Fade, Typography } from '@material-ui/core'
+import CategoryPicker from './categoryPicker'
+import CustomField from './customField'
 
-export default class ProjectWrapper extends Component {
-  render () {
-    return (
-      <>
+const ProjectWrapper = props => {
+  return (
+    <Fade in mountOnEnter unmountOnExit>
+      <div>
+        <Typography variant='h6'>Detalles del proyecto</Typography>
         <Grid container spacing={2}>
-          <h2>Idea emprendedora</h2>
           <Grid item xs={12}>
-            <FastField
+            <CustomField
               name='raw_project.name'
-              render={({ field }) => (
-                <TextField {...field}
-                  fullWidth
-                  variant='outlined'
-                  label='Nombre'
-                  error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
+              fullWidth
+              variant='outlined'
+              label='Nombre'
+              component={TextField}
             />
           </Grid>
           <Grid item xs={12}>
-            <FastField
+            <CustomField
               name='raw_project.problem'
-              render={({ field }) => (
-                <TextField {...field}
-                  fullWidth
-                  multiline
-                  variant='outlined'
-                  label='Problema'
-                  error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
+              fullWidth
+              multiline
+              variant='outlined'
+              label='Problema'
+              component={TextField}
             />
           </Grid>
           <Grid item xs={12}>
-            <FastField
+            <CustomField
               name='raw_project.solution'
-              render={({ field }) => (
-                <TextField {...field}
-                  fullWidth
-                  multiline
-                  variant='outlined'
-                  label='Solucion'
-                  error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
+              fullWidth
+              multiline
+              variant='outlined'
+              label='Solución'
+              component={TextField}
             />
           </Grid>
           <Grid item xs={12}>
-            <FastField
+            <CustomField
               name='raw_project.diffusion'
-              render={({ field }) => (
-                <TextField {...field}
-                  select
-                  fullWidth
-                  variant='outlined'
-                  label='Difusion'
-                  error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)}
-                >
-                  <MenuItem value='4'>He participado en años anteriores</MenuItem>
-                  <MenuItem value='3'>Medios de comunicacion tradicionales</MenuItem>
-                  <MenuItem value='2'>Redes sociales</MenuItem>
-                  <MenuItem value='1'>Afiches del concurso</MenuItem>
-                  <MenuItem value='0'>Mail</MenuItem>
-                </TextField>
-              )}
-            />
+              select
+              fullWidth
+              variant='outlined'
+              label='Difusión'
+              component={TextField}
+            >
+              <MenuItem value='4'>He participado en años anteriores</MenuItem>
+              <MenuItem value='3'>Medios de comunicacion tradicionales</MenuItem>
+              <MenuItem value='2'>Redes sociales</MenuItem>
+              <MenuItem value='1'>Afiches del concurso</MenuItem>
+              <MenuItem value='0'>Mail</MenuItem>
+            </CustomField>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant='h6'>Categoria/s del proyecto</Typography>
+            <CategoryPicker />
           </Grid>
         </Grid>
-      </>
-    )
-  }
+      </div>
+    </Fade>
+  )
 }
+
+export default ProjectWrapper

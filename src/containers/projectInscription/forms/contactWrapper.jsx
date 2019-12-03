@@ -1,53 +1,45 @@
-import React, { Component } from 'react'
-import { FastField } from 'formik'
+import React from 'react'
 import TextField from '@material-ui/core/TextField'
-import { errorMessageBuilder, hasError } from './utils'
-import { Grid } from '@material-ui/core'
+import { Grid, Fade, Typography } from '@material-ui/core'
+import CustomField from './customField'
 
-export default class ContactWrapper extends Component {
-  render () {
-    return (
-      <>
+const ContactWrapper = props => {
+  return (
+    <Fade in mountOnEnter unmountOnExit>
+      <div>
+        <Typography variant='h6'>Datos de contacto</Typography>
         <Grid container spacing={2}>
-          <h2>Datos de contacto</h2>
           <Grid item xs={12}>
-            <FastField
+            <CustomField
               name='raw_contact.phone_number'
-              render={({ field }) => (
-                <TextField {...field}
-                  fullWidth
-                  variant='outlined'
-                  label='Telefono particular'
-                  error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
+              fullWidth
+              variant='outlined'
+              label='Teléfono particular'
+              component={TextField}
             />
           </Grid>
           <Grid item xs={12}>
-            <FastField
+            <CustomField
               name='raw_contact.alternative_phone_number'
-              render={({ field }) => (
-                <TextField {...field}
-                  fullWidth
-                  variant='outlined'
-                  label='Telefono alternativo'
-                  error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
+              fullWidth
+              variant='outlined'
+              label='Teléfono alternativo'
+              component={TextField}
             />
           </Grid>
           <Grid item xs={12}>
-            <FastField
+            <CustomField
               name='raw_contact.alternative_email'
-              render={({ field }) => (
-                <TextField {...field}
-                  fullWidth
-                  variant='outlined'
-                  label='Telefono alternativo'
-                  error={hasError(this.props.errors, this.props.status, this.props.touched, field.name)}
-                  helperText={errorMessageBuilder(this.props.errors, this.props.status, this.props.touched, field.name)} />)}
+              fullWidth
+              variant='outlined'
+              label='Email alternativo'
+              component={TextField}
             />
           </Grid>
         </Grid>
-      </>
-    )
-  }
+      </div>
+    </Fade>
+  )
 }
+
+export default ContactWrapper
