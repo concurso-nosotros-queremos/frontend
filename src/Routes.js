@@ -12,6 +12,7 @@ import GroupEdit from './views/EditGroup/EditGroup'
 import ProtectedRoute from './components/protectedRoute'
 import Success from './views/Success/success'
 import Selector from './views/Selector/Selector'
+import Closed from './views/Closed/index'
 
 class Routes extends Component {
   render () {
@@ -38,6 +39,12 @@ class Routes extends Component {
           layout={Main}
           exact
           path='/dashboard'
+        />
+        <ProtectedRoute
+          component={Closed}
+          layout={Minimal}
+          exact
+          path='/closed'
         />
         <ProtectedRoute
           requireLogin
