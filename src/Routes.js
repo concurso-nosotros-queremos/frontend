@@ -15,7 +15,7 @@ import Selector from './views/Selector/Selector'
 import Closed from './views/Closed/index'
 
 class Routes extends Component {
-  render () {
+  render() {
     return (
       <Switch>
         <ProtectedRoute
@@ -41,6 +41,7 @@ class Routes extends Component {
           path='/dashboard'
         />
         <ProtectedRoute
+          requireLogin
           component={Closed}
           layout={Minimal}
           exact
