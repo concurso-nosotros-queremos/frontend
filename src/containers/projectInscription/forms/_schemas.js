@@ -1,10 +1,12 @@
 import * as Yup from 'yup'
 
+const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+
 const participantsSchema = Yup.array().of(
   Yup.object().shape({
-    first_name: Yup.string().required('Nombre es un campo obligatorio'),
-    last_name: Yup.string().required('Apeliido es un campo obligatorio'),
-    dni: Yup.number().test('len', 'Introduzca un dni valido', val => val && val.toString().length >= 7 && val.toString().length <= 8).required('Dni es un campo obligatorio'),
+    first_name: Yup.string().required('Nombre es un campo obligatorio').max(20, 'No introduzca mas de 20 caracteres'),
+    last_name: Yup.string().required('Apeliido es un campo obligatorio').max(20, 'No introduzca mas de 20 caracteres'),
+    dni: Yup.number().integer().typeError('Introduzca un dni valido').test('len', 'Introduzca un dni valido', val => val && val.toString().length >= 7 && val.toString().length <= 8).required('Dni es un campo obligatorio'),
     grade_choices: Yup.number('Seleccione un año correcto').typeError('Seleccione un curso correcto').required('Año es un campo obligatorio')
   }).noUnknown()
 ).min(1, 'Debe agregar al menos 1 participante')
@@ -14,8 +16,8 @@ export const participantsSchemaRaw = Yup.object().shape({
 }).noUnknown()
 
 const schoolSchema = Yup.object().shape({
-  name: Yup.string().required('Nombre es un campo obligatorio'),
-  street_name: Yup.string().required('Calle es un campo obligatorio'),
+  name: Yup.string().required('Nombre es un campo obligatorio').max(60, 'No introduzca mas de 60 caracteres'),
+  street_name: Yup.string().required('Calle es un campo obligatorio').max(30, 'No introduzca mas de 30 caracteres'),
   street_number: Yup.number().integer().typeError('Introduzca un numero de calle valido').required('Numero de calle es un campo obligatorio'),
   city: Yup.number().integer().typeError('Introduzca una ciudad valida').required('Ciudad es un campo obligatorio'),
   school_types: Yup.number().integer().typeError('Introduzca un tipo de escuela valido').required('Tipo de escuela es un campo obligatorio')
@@ -26,9 +28,9 @@ export const schoolSchemaRaw = Yup.object().shape({
 }).noUnknown()
 
 const projectSchema = Yup.object().shape({
-  name: Yup.string().required('Nombre es un campo obligatorio'),
-  problem: Yup.string().required('Problema es un campo obligatorio'),
-  solution: Yup.string().required('Solución es un campo obligatorio'),
+  name: Yup.string().required('Nombre es un campo obligatorio').max(50, 'No introduzca mas de 50 caracteres'),
+  problem: Yup.string().required('Problema es un campo obligatorio').max(500, 'No introduzca mas de 500 caracteres'),
+  solution: Yup.string().required('Solución es un campo obligatorio').max(500, 'No introduzca mas de 500 caracteres'),
   diffusion: Yup.number().integer().typeError('Introduzca una difusión valida').required('Difusión es un campo obligatorio')
 })
 
@@ -37,9 +39,9 @@ export const projectSchemaRaw = Yup.object().shape({
 }).noUnknown()
 
 const contactSchema = Yup.object().shape({
-  phone_number: Yup.string(),
-  alternative_email: Yup.string(),
-  alternative_phone_number: Yup.string()
+  phone_number: Yup.string().test('len', 'Ingrese un numero de telefono ', val => val && val.toString().length <= 10).matches(phoneRegExp, 'Ingrese un numero de telefono valido').required('Telefono particular es un campo obligatorio'),
+  alternative_phone_number: Yup.string().test('len', 'Ingrese un numero de telefono ', val => val && val.toString().length <= 10).matches(phoneRegExp, 'Ingrese un numero de telefono valido').required('Telefono alternativo es un campo obligatorio'),
+  alternative_email: Yup.string().email('Ingrese un email valido').required('Email alternativo es un campo obligatorio')
 }).noUnknown()
 
 export const contactSchemaRaw = Yup.object().shape({

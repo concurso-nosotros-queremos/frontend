@@ -20,6 +20,10 @@ export function errorMessageBuilder (errors, status, touched, name) {
     return error
   }
 
+  return helperTextBuilder(name)
+}
+
+export function helperTextBuilder (name) {
   return getIn(helpers, name)
 }
 

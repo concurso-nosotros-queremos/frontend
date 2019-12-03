@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { MenuItem, TextField, Grid, CircularProgress } from '@material-ui/core'
 import withState from '../../../hoc/withState'
-import { FastField, useFormikContext } from 'formik'
+import { FastField, useFormikContext, getIn } from 'formik'
 
 const CityPicker = props => {
   const context = useFormikContext()
@@ -9,11 +9,23 @@ const CityPicker = props => {
 
   const buildCities = () => {
     const state = context.values.raw_school.state
+    const selectedId = getIn(context, 'values.raw_school.city')
 
     if (state) {
       const city = props.states.find(el => el.id === state).city
       if (city) {
         return city.map(el => <MenuItem key={el.id} value={el.id}>{el.name}</MenuItem>)
+      }
+    } else if (selectedId) {
+      const filteredCities = []
+      for (const state of props.states) {
+        const qs = state.city.find(state => state.id === selectedId)
+        if (qs) {
+          state.city.forEach(city => {
+            filteredCities.push(<MenuItem key={city.id} value={city.id}>{city.name}</MenuItem>)
+          })
+          return filteredCities
+        }
       }
     }
 

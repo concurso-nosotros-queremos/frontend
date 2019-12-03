@@ -1,10 +1,9 @@
 import React from 'react'
-import { FastField } from 'formik'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
-import { errorMessageBuilder, hasError } from './_utils'
 import { Grid, Fade, Typography } from '@material-ui/core'
 import CategoryPicker from './categoryPicker'
+import CustomField from './customField'
 
 const ProjectWrapper = props => {
   return (
@@ -13,70 +12,49 @@ const ProjectWrapper = props => {
         <Typography variant='h6'>Detalles del proyecto</Typography>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <FastField
+            <CustomField
               name='raw_project.name'
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  fullWidth
-                  variant='outlined'
-                  label='Nombre'
-                  error={hasError(props.errors, props.status, props.touched, field.name)}
-                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
-                />)}
+              fullWidth
+              variant='outlined'
+              label='Nombre'
+              component={TextField}
             />
           </Grid>
           <Grid item xs={12}>
-            <FastField
+            <CustomField
               name='raw_project.problem'
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  fullWidth
-                  multiline
-                  variant='outlined'
-                  label='Problema'
-                  error={hasError(props.errors, props.status, props.touched, field.name)}
-                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
-                />)}
+              fullWidth
+              multiline
+              variant='outlined'
+              label='Problema'
+              component={TextField}
             />
           </Grid>
           <Grid item xs={12}>
-            <FastField
+            <CustomField
               name='raw_project.solution'
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  fullWidth
-                  multiline
-                  variant='outlined'
-                  label='Solución'
-                  error={hasError(props.errors, props.status, props.touched, field.name)}
-                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
-                />)}
+              fullWidth
+              multiline
+              variant='outlined'
+              label='Solución'
+              component={TextField}
             />
           </Grid>
           <Grid item xs={12}>
-            <FastField
+            <CustomField
               name='raw_project.diffusion'
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  select
-                  fullWidth
-                  variant='outlined'
-                  label='Difusión'
-                  error={hasError(props.errors, props.status, props.touched, field.name)}
-                  helperText={errorMessageBuilder(props.errors, props.status, props.touched, field.name)}
-                >
-                  <MenuItem value='4'>He participado en años anteriores</MenuItem>
-                  <MenuItem value='3'>Medios de comunicacion tradicionales</MenuItem>
-                  <MenuItem value='2'>Redes sociales</MenuItem>
-                  <MenuItem value='1'>Afiches del concurso</MenuItem>
-                  <MenuItem value='0'>Mail</MenuItem>
-                </TextField>
-              )}
-            />
+              select
+              fullWidth
+              variant='outlined'
+              label='Difusión'
+              component={TextField}
+            >
+              <MenuItem value='4'>He participado en años anteriores</MenuItem>
+              <MenuItem value='3'>Medios de comunicacion tradicionales</MenuItem>
+              <MenuItem value='2'>Redes sociales</MenuItem>
+              <MenuItem value='1'>Afiches del concurso</MenuItem>
+              <MenuItem value='0'>Mail</MenuItem>
+            </CustomField>
           </Grid>
           <Grid item xs={12}>
             <Typography variant='h6'>Categoria/s del proyecto</Typography>
