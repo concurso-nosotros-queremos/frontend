@@ -1,11 +1,11 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
-import { Grid } from '@material-ui/core'
+import { Grid, Button } from '@material-ui/core'
 import { Bar, Doughnut, Pie } from 'react-chartjs-2'
 import { connect } from 'react-redux'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { useTheme } from '@material-ui/core/styles'
-
+import clsx from 'clsx'
 import withGroupCount from '../../hoc/withDashboard'
 
 const useStyles = makeStyles(theme => ({
@@ -40,12 +40,26 @@ const useStyles = makeStyles(theme => ({
   },
   itemsChart: {
     padding: '16px'
+  },
+  centered: {
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  downloadBtn: {
+    marginTop: '8px', fontSize: '12px'
   }
 }))
 
 const Statistics = props => {
   const classes = useStyles()
   const theme = useTheme()
+
+  const handleClickExport = () => {
+    window.open(
+      `https://queremosbackend.tk/rest/export/contest/${props.token}`,
+      '_blank'
+    );
+  }
 
   return (
     <>
@@ -164,7 +178,13 @@ const Statistics = props => {
               />
             </div>
           </Grid>
-
+          <Grid item xl={4} lg={6} sm={6} xs={12} className={classes.itemsChart}>
+            <div className={clsx(classes.chart, classes.centered)}>
+              <Button variant='outlined' color='primary' onClick={() => handleClickExport()} type='button' className={classes.downloadBtn}>
+                Exportar informe general
+              </Button>
+            </div>
+          </Grid>
         </Grid>
       </Grid>
     </>
@@ -176,3 +196,4 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps)(withGroupCount(Statistics))
+

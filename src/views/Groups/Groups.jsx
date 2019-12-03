@@ -76,7 +76,10 @@ const Groups = props => {
   }
 
   const handleClickExport = id => {
-    window.location.href = `https://queremosbackend.tk/rest/export/group/${id}/${props.token}`
+    window.open(
+      `https://queremosbackend.tk/rest/export/group/${id}/${props.token}`,
+      '_blank'
+    );
   }
 
   const theme = useTheme()
