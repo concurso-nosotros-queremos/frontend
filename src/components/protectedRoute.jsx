@@ -7,9 +7,9 @@ import RouteWithLayout from './routeWithLayout'
 const userDefault = '/groups'
 const userEmpty = '/selector'
 const adminDefault = '/dashboard'
+const closedInscription = '/closed'
 
-const ProtectedRoute = ({ requireLogin = false, requireAdmin = false, isDefault = false, redirect = '/', ...props }) => {
-  console.log(props)
+const ProtectedRoute = ({ requireLogin = false, requireAdmin = false, isDefault = false, requireInscription = false, redirect = '/', ...props }) => {
   if (isDefault) {
     if (props.isLoggedIn) {
       if (props.user.is_staff || props.user.is_superuser) {
@@ -33,6 +33,12 @@ const ProtectedRoute = ({ requireLogin = false, requireAdmin = false, isDefault 
           return <RouteWithLayout {...props} />
         } else {
           return <Redirect to={redirect} />
+        }
+      } else if (requireInscription) {
+        if (!props.user.contest_status) {
+          return <Redirect to={closedInscription} />
+        } else {
+          return <RouteWithLayout {...props} />
         }
       } else {
         return <RouteWithLayout {...props} />

@@ -15,7 +15,7 @@ import Selector from './views/Selector/Selector'
 import Closed from './views/Closed/index'
 
 class Routes extends Component {
-  render() {
+  render () {
     return (
       <Switch>
         <ProtectedRoute
@@ -71,6 +71,7 @@ class Routes extends Component {
         />
         <ProtectedRoute
           requireLogin
+          requireInscription
           component={Inscription}
           layout={Minimal}
           exact
