@@ -48,7 +48,7 @@ export default function Closed (props) {
         <Grid container direction='column' justify='center' alignItems='center' spacing={2} item>
           <Grid item>
             <Typography variant='h2'>
-              Las inscripciones estan cerradas
+              Las inscripciones han finalizado
             </Typography>
           </Grid>
         </Grid>
