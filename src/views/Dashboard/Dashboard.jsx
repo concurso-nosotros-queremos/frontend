@@ -16,6 +16,8 @@ import { Link } from 'react-router-dom'
 import { Bar } from 'react-chartjs-2'
 import moment from 'moment'
 import Skeleton from '@material-ui/lab/Skeleton'
+import Moment from 'moment'
+import fetchResource from '../../services/apiHandler'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -117,6 +119,17 @@ const Dashboard = props => {
     }
   }
 
+  const handleSubmit = () => {
+    return fetchResource(`rest/contest/${props.contestId}/`, {
+      method: 'PATCH',
+      body: {
+        inscription_date_to: Moment.utc(moment()).toISOString()
+      }
+    }).then(response => {
+      window.location.reload()
+    })
+  }
+
   return (
     <>
       <Grid container direction='column' justify='flex-start' alignItems='flex-start'>
@@ -196,7 +209,7 @@ const Dashboard = props => {
                   </Typography>
                 </CardContent>
                 <CardActions style={{ justifyContent: 'flex-end' }}>
-                  <Button size='small' className={classes.button} style={{ color: 'white' }}>Cerrar</Button>
+                  <Button size='small' className={classes.button} style={{ color: 'white' }} onClick={handleSubmit}>Cerrar</Button>
                   <Dialog estilos={clsx(classes.button, classes.containedButton)} contestEnd={moment(props.contestEnd)} />
                 </CardActions>
               </Card>)
