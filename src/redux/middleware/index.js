@@ -6,7 +6,7 @@ import { convertToken, checkToken } from '../../services/auth.service'
 export const googleLoginMiddleware = store => next => action => {
   switch (action.type) {
     case GOOGLE_LOGIN_SUCCESS:
-      store.dispatch(authConvertTokenRequest(AUTH_GOOGLE_PROVIDER, action.data.Zi.access_token))
+      store.dispatch(authConvertTokenRequest(AUTH_GOOGLE_PROVIDER, action.data.tokenObj.access_token))
       break
     default:
       break
