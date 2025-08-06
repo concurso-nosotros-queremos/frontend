@@ -26,7 +26,7 @@
         "react-google-recaptcha": "^2.0.1",
         "react-redux": "^7.1.0",
         "react-router-dom": "^5.0.1",
-        "react-scripts": "3.0.1",
+        "react-scripts": "5.0.1",
         "react-scroll": "^1.7.14",
         "redux": "^4.0.4",
         "redux-logger": "^3.0.6",
@@ -57,7 +57,7 @@
         ]
     },
     "devDependencies": {
-        "standard": "^14.0.2",
+        "standard": "^17.1.2",
         "serve": "^11.1.0"
     },
     "standard": {
